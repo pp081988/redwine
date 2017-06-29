@@ -1,0 +1,95 @@
+/* ======= Owl ======= */
+#owl {
+  margin-top: -2px;
+}
+/* ======= Owl Navigation ======= */
+.owl-buttons {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: -43px;
+}
+.owl-buttons i {
+  font-size: 0;
+  line-height: 0;
+}
+.owl-buttons .owl-prev,
+.owl-buttons .owl-next {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: block;
+  overflow: hidden;
+  width: 23px;
+  height: 23px;
+  border-radius: 50px;
+  background: no-repeat center #e7e4df;
+}
+.owl-buttons .owl-prev:hover,
+.owl-buttons .owl-next:hover {
+  background-color: #90af48;
+}
+.owl-buttons .owl-prev {
+  display: inline-block;
+  background-image: url(../images/car-left.png);
+}
+.owl-buttons .owl-next {
+  display: inline-block;
+  margin-left: 4px;
+  background-image: url(../images/car-right.png);
+}
+/* ======= Owl Common Styles ======= */
+/* clearfix */
+.owl-carousel .owl-wrapper:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+/* display none until init */
+.owl-carousel {
+  display: none;
+  position: relative;
+  width: 100%;
+  -ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper {
+  display: none;
+  position: relative;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight {
+  -webkit-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+}
+.owl-carousel .owl-item {
+  float: left;
+}
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div {
+  cursor: pointer;
+}
+.owl-controls {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* fix */
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
