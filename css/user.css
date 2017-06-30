@@ -48,7 +48,7 @@
 .btmore:hover{background-color:#74912f;color:#ffffff!important;}
 
 .btback{background-color: #93b347;font-size: 13px;color: #fff;display: inline-block;height: 30px;line-height: 30px;margin: 0px 10px;
-	border-radius:30px;text-align: center;margin-left:22px;padding:0 15px;}
+	border-radius:30px;text-align: center;margin-left:22px;padding:0 15px;cursor: pointer;}
 .btback:hover{background-color:#74912f;color:#ffffff!important;}
 
 
@@ -270,3 +270,7 @@
 .fbg3{ background-color:#efe9e3}
 .fbg4{ background-color:#f5f3e2}
 .fbg5{ background-color:#efe8ec}
+
+.red1{
+	display: none;
+}

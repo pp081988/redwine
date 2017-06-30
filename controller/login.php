@@ -2,20 +2,24 @@
 
 class login extends spController{
 
-	public function index()
+	function __construct(){
+		parent::__construct();
+	}
+
+	public function loginIndex()
 	{
 		$this -> display("login.html");
 	}
 
-	public function test()
+	public function registerIndex()
 	{
-		$args = new spArgs('post');
-		echo $args->get()['username'];
-		//echo "hello";
+		$this -> display("register.html");
 	}
 
 	public function register()
 	{
-		$this -> display("register.html");
+		$args = new spArgs();
+		echo $args->get()['username'];
+		//echo "hello";
 	}
 }

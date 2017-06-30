@@ -17,6 +17,7 @@
   <!--[if (gt IE 9)|!(IE)]><!-->
   <script src="js/jquery.mobile.customized.min.js"></script>
   <script src="js/wow/wow.js"></script>
+  <script src="js/login.js"></script>
   <script>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
@@ -106,15 +107,18 @@
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
-      <h2>請填寫以下項目 : </h2>
-         <li><input name="" type="text" class="usertext" placeholder="帳戶名稱"></li>
-  <li  class="pdt0"><input name="" type="text" class="usertext" placeholder="電郵"></li>
-    <li  class="pdt0"><input name="" type="text" class="usertext" placeholder="修改密碼"></li>
-      <li class="pdt0"><input name="" type="text" class="usertext" placeholder="確認密碼"></li>
-  <li class="pd0"><em class="red1">密碼不可為空白</em></li>
+<div class="login wow fadeInUp"> 
+    <h2>請填寫以下項目 : </h2>
+        <li><input name="" type="text" class="usertext username" placeholder="帳戶名稱"></li>
+        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>
+        <li class="pdt0"><input name="" type="password" class="usertext password" placeholder="登入密碼"></li>
+        <li class="pdt0"><input name="" type="password" class="usertext passwordRepeat" placeholder="確認密碼"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="性別"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="年齡"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="酒齡"></li>
+        <li class="pd0"><em class="red1">密碼不可為空白</em></li>
  </div>
-   <div class="loginnext wow fadeInDown">
+   <div class="loginnext registerAction wow fadeInDown">
      <h2><em class="rt btback">確定</em></h2>
   
  

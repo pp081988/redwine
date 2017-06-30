@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-30 16:07:56
+/* Smarty version 3.1.30, created on 2017-06-30 16:36:14
   from "D:\xampp\htdocs\redwine\tpl\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59565b3c907357_18553905',
+  'unifunc' => 'content_595661de3cfee9_48746634',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0545c7e12396f652fbc760d126e132f09b06534d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\index.html',
-      1 => 1498831533,
+      1 => 1498833369,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59565b3c907357_18553905 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595661de3cfee9_48746634 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,7 +132,7 @@ function content_59565b3c907357_18553905 (Smarty_Internal_Template $_smarty_tpl)
             <div class="clearfix"></div>
           </nav>
           <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'index'),$_smarty_tpl);?>
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
 "><img src="images/login.png" alt=""/></a></li>         
           </ul>
         </div>

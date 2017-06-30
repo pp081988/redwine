@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-06-30 17:05:00
+  from "D:\xampp\htdocs\redwine\tpl\login.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5956689cd72ec7_24873982',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '540d4a9bf340560beeeb86b3203cc82f3a658e9a' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\login.html',
+      1 => 1498835081,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5956689cd72ec7_24873982 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +34,30 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <!-- <script src="js/jquery-migrate-1.2.1.js"></script> -->
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <!-- <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+> -->
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script src="js/login.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/login.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
@@ -27,7 +66,8 @@
             var username = $.trim($(".username").val());
             var password = $.trim($(".password").val());
             $.ajax({
-                url: "<{spUrl c='login' a='test'}>",
+                url: "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'test'),$_smarty_tpl);?>
+",
                 type:"post",
                 data:{username:username,password:password},
                 success:function(data){
@@ -36,11 +76,14 @@
             })
         })
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
   <style>
   .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
@@ -125,9 +168,10 @@
       <li class="f18">主題描述及內文：</li> 
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
   <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=register}>">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'register'),$_smarty_tpl);?>
+">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
  </div>
-   <div class="loginnext loginAction wow fadeInDown">
+   <div class="loginnext login wow fadeInDown">
      <h2><em class="rt btback">登錄</em></h2>
   
  
@@ -158,6 +202,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

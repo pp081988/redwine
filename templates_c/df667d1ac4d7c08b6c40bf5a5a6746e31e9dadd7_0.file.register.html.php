@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-06-30 18:25:21
+  from "D:\xampp\htdocs\redwine\tpl\register.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59567b71e09636_37637422',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'df667d1ac4d7c08b6c40bf5a5a6746e31e9dadd7' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\register.html',
+      1 => 1498839772,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59567b71e09636_37637422 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,37 +34,43 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <!-- <script src="js/jquery-migrate-1.2.1.js"></script> -->
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script src="js/login.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/login.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
-        if ($('html').hasClass('desktop')) {
-            new WOW().init();
-        }
-        $(".loginnext").find(".btback").bind("click",function(){
-            var username = $.trim($(".username").val());
-            var password = $.trim($(".password").val());
-            $.ajax({
-                url: "<{spUrl c='login' a='test'}>",
-                type:"post",
-                data:{username:username,password:password},
-                success:function(data){
-                  console.log(data);
-                }
-            })
-        })
+      if ($('html').hasClass('desktop')) {
+        new WOW().init();
+      }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
   <style>
   .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
@@ -114,21 +144,24 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員登入</h2>
+              <h2>註冊帳號</h2>
               </div>
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
-      <h2>請輸入帳戶及密碼 : </h2>
-     
-      <li class="f18">主題描述及內文：</li> 
-         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=register}>">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
+<div class="login wow fadeInUp"> 
+    <h2>請填寫以下項目 : </h2>
+        <li><input name="" type="text" class="usertext username" placeholder="帳戶名稱"></li>
+        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>
+        <li class="pdt0"><input name="" type="password" class="usertext password" placeholder="登入密碼"></li>
+        <li class="pdt0"><input name="" type="password" class="usertext passwordRepeat" placeholder="確認密碼"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="性別"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="年齡"></li>
+        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="酒齡"></li>
+        <li class="pd0"><em class="red1">密碼不可為空白</em></li>
  </div>
-   <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback">登錄</em></h2>
+   <div class="loginnext registerAction wow fadeInDown">
+     <h2><em class="rt btback">確定</em></h2>
   
  
    </div>
@@ -158,6 +191,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}
