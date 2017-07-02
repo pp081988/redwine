@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-06-30 17:05:00
+/* Smarty version 3.1.30, created on 2017-07-02 07:32:07
   from "D:\xampp\htdocs\redwine\tpl\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5956689cd72ec7_24873982',
+  'unifunc' => 'content_59588557883689_41157748',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '540d4a9bf340560beeeb86b3203cc82f3a658e9a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\login.html',
-      1 => 1498835081,
+      1 => 1498973503,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5956689cd72ec7_24873982 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,10 +168,10 @@ function content_5956689cd72ec7_24873982 (Smarty_Internal_Template $_smarty_tpl)
       <li class="f18">主題描述及內文：</li> 
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
   <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'register'),$_smarty_tpl);?>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'registerIndex'),$_smarty_tpl);?>
 ">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
  </div>
-   <div class="loginnext login wow fadeInDown">
+   <div class="loginnext loginAction wow fadeInDown">
      <h2><em class="rt btback">登錄</em></h2>
   
  

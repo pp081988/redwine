@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-02 08:31:31
-  from "D:\xampp\htdocs\redwine\tpl\register.html" */
+/* Smarty version 3.1.30, created on 2017-07-02 10:48:21
+  from "D:\xampp\htdocs\redwine\tpl\result.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595893434af002_97077230',
+  'unifunc' => 'content_5958b355041dd5_54632526',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'df667d1ac4d7c08b6c40bf5a5a6746e31e9dadd7' => 
+    '53a29023841988812bcc61097642b19264dc1858' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\register.html',
-      1 => 1498977076,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\result.html',
+      1 => 1498985297,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5958b355041dd5_54632526 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,19 +54,11 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
  src="js/wow/wow.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
- src="js/login.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
->
-      function result(){
-        window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
-";
-      }
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
-      $(".selecter").css({"left":document.body.clientWidth /2 - 150,"top":document.body.clientHeight /2 - 15});
     });
   <?php echo '</script'; ?>
 >
@@ -149,27 +141,23 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>註冊帳號</h2>
+              <h2>會員檔案</h2>
               </div>
        
       </div>      
     </div>
-<div class="login wow fadeInUp"> 
-    <h2>請填寫以下項目 : </h2>
-        <li><input name="" type="text" class="usertext username" placeholder="帳戶名稱"></li>
-        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>
-        <li class="pdt0"><input name="" type="password" class="usertext password" placeholder="登入密碼"></li>
-        <li class="pdt0"><input name="" type="password" class="usertext passwordRepeat" placeholder="確認密碼"></li>
-        <li class="pdt0 select" name="sex"><input type="text"  class="usertext sex" placeholder="性別" disabled="disabled"></li>
-        <li class="pdt0 select" name="age"><input type="text"  class="usertext age" placeholder="年齡" disabled="disabled"></li>
-        <li class="pdt0 select" name="yearsOfDrinking"><input type="text" class="usertext yearsOfDrinking" placeholder="酒齡" disabled="disabled"></li>
-        <li class="pd0"><em class="red1">密碼不可為空白</em></li>
+<div class="login  wow fadeInUp"> 
+
+      <li class="black1 pdt0">歡迎，<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+<br>激活賬戶驗證已發送至<?php echo $_smarty_tpl->tpl_vars['contact']->value;?>
+</li>
+
  </div>
-   <div class="loginnext registerAction wow fadeInDown">
-    <span>請輸入驗證碼：</span><input type="text" name="" class="verify"><iframe class="verifyImg" name="verifyIframe" src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
-"></iframe><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
-" target="verifyIframe" id="verifyImgRefresh"></a>
-     <h2 style="float: right;"><em class="rt btback">確定</em></h2>
+   <div class="loginnext wow fadeInDown">
+     <h2><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+"><em class="rt btback">確定</em></a></h2>
+  
+ 
    </div>
 
 
@@ -196,12 +184,7 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </footer>
 </div>
-<div class="selecterWarp">
-    <div class="selecter">
-        <div class="selecterTitle"></div>
-        <div></div>
-    </div>
-</div>
+
 <?php echo '<script'; ?>
  src="js/script.js"><?php echo '</script'; ?>
 >

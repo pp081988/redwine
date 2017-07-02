@@ -274,3 +274,71 @@
 .red1{
 	display: none;
 }
+
+.selecterWarp{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(255, 255, 255, 0.53);
+	display: none;
+}
+
+.selecter{
+	position: absolute;
+	width: 300px;
+	height: 130px;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 1px 2px 5px 0px #aaaaaa;
+	opacity: 0;
+	transition: all 0.3;
+	-moz-transition: all 0.3s; /* Firefox 4 */
+    -webkit-transition: all 0.3s; /* Safari 和 Chrome */
+    -o-transition: all 0.3s; /* Opera */
+}
+
+.selecterTitle{
+	margin-left: 10px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.selecter div:last-child{
+	text-align: center;
+}
+
+.sex,.age,.yearsOfDrinking{
+	background: white;
+	cursor: text;
+}
+
+.selecter select{
+	width: 80%;
+	padding-left: 10px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+.verify{
+	width: 60px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    height: 20px;
+}
+
+.verifyImg{
+	width: 70px;
+    height: 22px;
+    margin-left: 15px;
+}
+
+#verifyImgRefresh{
+	display: inline-block;
+    width: 65px;
+    height: 20px;
+    /* background: wheat; */
+    margin-left: -70px;
+}

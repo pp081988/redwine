@@ -19,10 +19,14 @@
   <script src="js/wow/wow.js"></script>
   <script src="js/login.js"></script>
   <script>
+      function result(){
+        window.location.href="<{spUrl c=login a=resultIndex}>";
+      }
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
+      $(".selecter").css({"left":document.body.clientWidth /2 - 150,"top":document.body.clientHeight /2 - 15});
     });
   </script>
   <!--<![endif]-->
@@ -113,15 +117,14 @@
         <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>
         <li class="pdt0"><input name="" type="password" class="usertext password" placeholder="登入密碼"></li>
         <li class="pdt0"><input name="" type="password" class="usertext passwordRepeat" placeholder="確認密碼"></li>
-        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="性別"></li>
-        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="年齡"></li>
-        <li class="pdt0"><input type="text" name="" class="usertext sex" placeholder="酒齡"></li>
+        <li class="pdt0 select" name="sex"><input type="text"  class="usertext sex" placeholder="性別" disabled="disabled"></li>
+        <li class="pdt0 select" name="age"><input type="text"  class="usertext age" placeholder="年齡" disabled="disabled"></li>
+        <li class="pdt0 select" name="yearsOfDrinking"><input type="text" class="usertext yearsOfDrinking" placeholder="酒齡" disabled="disabled"></li>
         <li class="pd0"><em class="red1">密碼不可為空白</em></li>
  </div>
    <div class="loginnext registerAction wow fadeInDown">
-     <h2><em class="rt btback">確定</em></h2>
-  
- 
+    <span>請輸入驗證碼：</span><input type="text" name="" class="verify"><iframe class="verifyImg" name="verifyIframe" src="<{spUrl c=login a=verifyImg}>"></iframe><a href="<{spUrl c=login a=verifyImg}>" target="verifyIframe" id="verifyImgRefresh"></a>
+     <h2 style="float: right;"><em class="rt btback">確定</em></h2>
    </div>
 
 
@@ -148,7 +151,12 @@
     </div>
   </footer>
 </div>
-
+<div class="selecterWarp">
+    <div class="selecter">
+        <div class="selecterTitle"></div>
+        <div></div>
+    </div>
+</div>
 <script src="js/script.js"></script>
 </body>
 </html>

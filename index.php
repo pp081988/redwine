@@ -8,7 +8,7 @@ $spConfig = array(
         'host'     => 'localhost',  // 数据库地址，一般都可以是localhost
         'login'    => 'root', // 数据库用户名
         'password' => 'dglt#?19', // 数据库密码
-        'database' => 'localizeers', // 数据库的库名称
+        'database' => 'redwine', // 数据库的库名称
     ),
 
     'view' => array(
