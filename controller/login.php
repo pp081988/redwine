@@ -21,12 +21,15 @@ class login extends spController{
 		$username = $filter->filter($dirtyUsername);
 		$password = $filter->filter($dirtyPassword);
 		$gb = spClass("user");
+		$salt = $gb->find(Array('username'=>$username));
+		$encryptPassword = md5($password.$salt['salt']);
 		$conditions = [
 		'username'=>$username,
-		'password'=>$password
+		'password'=>$encryptPassword
 		];
 		if($gb->findAll($conditions)){
 			echo "ok";
+			$_SESSION['username'] = $username;
 		}else{
 			echo "deny";
 		}
@@ -78,7 +81,7 @@ class login extends spController{
 			$usernameRegular = "/^[a-z\d]*$/i";
 			if(strlen($username) < 6 || strlen($username) >16){echo "e11";exit;}
 			if(!preg_match($usernameRegular,$username)){echo "e111";exit;}
-			$_SESSION['username'] = $username;
+			//$_SESSION['username'] = $username;
 			/******验证用户名合法性******/
 			
 			/**验证邮箱或电话号码合法性**/
@@ -96,8 +99,9 @@ class login extends spController{
 			}
 			/**验证邮箱或电话号码合法性**/
 
-			$dirtyPassword = $args->get()['password'];
-			$password = $filter->filter($dirtyPassword);
+			//$dirtyPassword = $args->get()['password'];
+			// $password = $filter->filter($dirtyPassword);
+			$password = $args->get()['password'];
 			$salt = crypt($password);
 			$md5Passwd = md5($password.$salt);
 			$sex = $args->get()['sex'];
@@ -124,7 +128,7 @@ class login extends spController{
 				echo mysql_error();
 				exit;
 			}
-			echo $_SESSION['usernameex'];
+
 		}else{
 			echo "e2";
 			exit;

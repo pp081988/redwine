@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 11:27:32
+/* Smarty version 3.1.30, created on 2017-07-03 13:31:00
   from "D:\xampp\htdocs\redwine\tpl\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595a0e04a51eb4_44444364',
+  'unifunc' => 'content_595a2af4290596_82488136',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0545c7e12396f652fbc760d126e132f09b06534d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\index.html',
-      1 => 1499074046,
+      1 => 1499081418,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595a0e04a51eb4_44444364 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a2af4290596_82488136 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,11 +137,10 @@ function content_595a0e04a51eb4_44444364 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
+          
           <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
 
                    
-          </ul>
         </div>
       </div>
     </div>

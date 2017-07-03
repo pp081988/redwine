@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 09:38:03
+/* Smarty version 3.1.30, created on 2017-07-03 13:39:54
   from "D:\xampp\htdocs\redwine\tpl\introduction.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5959f45bacdeb5_07736483',
+  'unifunc' => 'content_595a2d0a5fe140_74377049',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dd2a777d9af09181d9d23d4a5ef7ecd4079928c2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\introduction.html',
-      1 => 1499067430,
+      1 => 1499081938,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5959f45bacdeb5_07736483 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a2d0a5fe140_74377049 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +76,7 @@ function content_5959f45bacdeb5_07736483 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<header id="header">
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
@@ -110,15 +110,14 @@ function content_5959f45bacdeb5_07736483 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
+          
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
+                   
         </div>
       </div>
     </div>
   </header>
-
 
 
 

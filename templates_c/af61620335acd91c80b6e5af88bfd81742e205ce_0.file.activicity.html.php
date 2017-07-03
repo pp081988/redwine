@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 09:37:59
+/* Smarty version 3.1.30, created on 2017-07-03 13:39:51
   from "D:\xampp\htdocs\redwine\tpl\activicity.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5959f4579fd6d6_62761436',
+  'unifunc' => 'content_595a2d079d3759_99932242',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af61620335acd91c80b6e5af88bfd81742e205ce' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\activicity.html',
-      1 => 1499067397,
+      1 => 1499081901,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5959f4579fd6d6_62761436 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a2d079d3759_99932242 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +76,7 @@ function content_5959f4579fd6d6_62761436 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<header id="header">
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
@@ -110,10 +110,10 @@ function content_5959f4579fd6d6_62761436 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
+          
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
+                   
         </div>
       </div>
     </div>

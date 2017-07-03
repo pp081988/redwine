@@ -51,9 +51,9 @@ class spController {
 		$this->video = spUrl("main","video");
 		$this->tellyou = spUrl("main","tellyou");
 		$this->introduction = spUrl("main","introduction");
-		$this->loginInfo = '<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="'.spUrl('login','registerIndex').'"><img src="images/login.png" alt=""/></a></li>';
+		$this->loginInfo = '<ul class="socials1"><li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="'.spUrl('login','loginIndex').'"><img src="images/login.png" alt=""/></a></li></ul>';
 		if(isset($_SESSION['username'])){
-			$this->loginInfo = $_SESSION['username'].' | <a>登出</a>';
+			$this->loginInfo = '<div class="userandlogout">'.$_SESSION['username'].' | <a>登出</a></div>';
 		}
 	}
 

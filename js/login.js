@@ -11,6 +11,7 @@ $(function(){
 					window.location.href=home;
 				}else{
 					tips("賬戶或密碼錯誤");
+					//console.log(data);
 				}
 			}
 		})
@@ -47,6 +48,7 @@ $(function(){
    			if(!emailReg.test(emailOrPhone)){
    				if(!phoneReg.test(emailOrPhone)){
    					tips("請輸入正確的電郵地址或手機號碼");
+   					return false;
    				}else{
    					phone = emailOrPhone;
    				}
@@ -69,13 +71,13 @@ $(function(){
 			type:"post",
 			data:{username:username,email:email,phone:phone,password:password,sex:sex,age:age,yearsOfDrinking:yearsOfDrinking,verify:verify},
 			success:function(data){
-				// if(data == "e1"){alert("註冊失敗");return false;}
-				// if(data == "e2"){alert("驗證碼錯誤");return false;}
-				// if(data == "e3"){alert("賬戶名已存在");return false;}
-				// if(data == "e4"){alert("電郵地址已存在");return false;}
-				// if(data == "e5"){alert("電話號碼已存在");return false;}
-				console.log(data);
-				//window.location.href="/index.php?c=login&a=resultIndex";
+				if(data == "e1"){alert("註冊失敗");return false;}
+				if(data == "e2"){alert("驗證碼錯誤");return false;}
+				if(data == "e3"){alert("賬戶名已存在");return false;}
+				if(data == "e4"){alert("電郵地址已存在");return false;}
+				if(data == "e5"){alert("電話號碼已存在");return false;}
+				//console.log(data);
+				window.location.href="/index.php?c=login&a=resultIndex";
 			}
 		})
 	});

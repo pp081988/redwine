@@ -208,7 +208,7 @@ nav {
   text-align: center;
 }
 .sf-menu > li + li {
-  margin-left: 35px;
+  margin-left: 22px;
 }
 .sf-menu > li > .sf-with-ul:before {
   display: block;
@@ -829,3 +829,17 @@ nav {
 .wpa{ position:absolute;top:9px !important;right:25px;font-size:14px !important; z-index:999}
 }
 .wpa{ position:absolute;top:3px;right:25px;font-size:14px !important; z-index:999}
+
+.userandlogout{
+    color: white;
+    float: right;
+    margin-top: 12px;
+}
+
+.userandlogout a{
+  cursor: pointer;
+}
+
+.userandlogout a:hover{
+    color: #b0ffbe;
+}

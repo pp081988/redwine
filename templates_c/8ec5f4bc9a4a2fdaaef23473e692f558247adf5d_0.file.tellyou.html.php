@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 08:03:26
+/* Smarty version 3.1.30, created on 2017-07-03 13:39:56
   from "D:\xampp\htdocs\redwine\tpl\tellyou.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5959de2e445f51_70412992',
+  'unifunc' => 'content_595a2d0cc11334_76117938',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ec5f4bc9a4a2fdaaef23473e692f558247adf5d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\tellyou.html',
-      1 => 1499061755,
+      1 => 1499081973,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5959de2e445f51_70412992 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a2d0cc11334_76117938 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,12 +76,12 @@ function content_5959de2e445f51_70412992 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<header id="header">
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
           <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
 "><img src="images/logo.png" width="146" height="21"></a>
          <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
                    <div class="wowdrop">
@@ -93,27 +93,27 @@ function content_5959de2e445f51_70412992 (Smarty_Internal_Template $_smarty_tpl)
           <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <ul class="sf-menu">             
               <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'activicity','a'=>'index'),$_smarty_tpl);?>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
 ">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>           
+              <li><a href="index-2.html">食物對對碰</a>
               </li>
-                <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'forum','a'=>'index'),$_smarty_tpl);?>
+                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
 ">吹水園地</a></li>
-              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'video','a'=>'index'),$_smarty_tpl);?>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
 ">影院</a>
                 
               </li>
-              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'introduction','a'=>'index'),$_smarty_tpl);?>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
 ">好介紹</a></li>
-               <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'tellyou','a'=>'index'),$_smarty_tpl);?>
+               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
 ">講你知</a></li>
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
+          
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
+                   
         </div>
       </div>
     </div>
