@@ -13,6 +13,25 @@ class login extends spController{
 		$this -> display("login.html");
 	}
 
+	public function login()
+	{
+		$dirtyUsername = $_POST['username'];
+		$dirtyPassword = $_POST['password'];
+		$filter = spClass("filter");
+		$username = $filter->filter($dirtyUsername);
+		$password = $filter->filter($dirtyPassword);
+		$gb = spClass("user");
+		$conditions = [
+		'username'=>$username,
+		'password'=>$password
+		];
+		if($gb->findAll($conditions)){
+			echo "ok";
+		}else{
+			echo "deny";
+		}
+	}
+
 	public function registerIndex()
 	{
 		// $verify = spClass("Verify");
@@ -51,6 +70,7 @@ class login extends spController{
 			if($_SESSION[$obj]){
 				exit;
 			}
+			$filter = spClass("filter");
 			$createTime = date("Y-m-d H:i:s");
 
 			/******验证用户名合法性******/
@@ -76,7 +96,8 @@ class login extends spController{
 			}
 			/**验证邮箱或电话号码合法性**/
 
-			$password = $args->get()['password'];
+			$dirtyPassword = $args->get()['password'];
+			$password = $filter->filter($dirtyPassword);
 			$salt = crypt($password);
 			$md5Passwd = md5($password.$salt);
 			$sex = $args->get()['sex'];

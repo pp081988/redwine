@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-02 07:32:07
+/* Smarty version 3.1.30, created on 2017-07-03 11:20:06
   from "D:\xampp\htdocs\redwine\tpl\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59588557883689_41157748',
+  'unifunc' => 'content_595a0c46c0d443_36678985',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '540d4a9bf340560beeeb86b3203cc82f3a658e9a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\login.html',
-      1 => 1498973503,
+      1 => 1499073605,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a0c46c0d443_36678985 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,20 +62,15 @@ function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl)
         if ($('html').hasClass('desktop')) {
             new WOW().init();
         }
-        $(".loginnext").find(".btback").bind("click",function(){
-            var username = $.trim($(".username").val());
-            var password = $.trim($(".password").val());
-            $.ajax({
-                url: "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'test'),$_smarty_tpl);?>
-",
-                type:"post",
-                data:{username:username,password:password},
-                success:function(data){
-                  console.log(data);
-                }
-            })
-        })
+
+            
     });
+
+    var url = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'login'),$_smarty_tpl);?>
+";
+    var home = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+";
+
   <?php echo '</script'; ?>
 >
   <!--<![endif]-->
@@ -112,12 +107,13 @@ function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
+<header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
           <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="index.html"><img src="images/logo.png" width="146" height="21"></a>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+"><img src="images/logo.png" width="146" height="21"></a>
          <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
                    <div class="wowdrop">
             <a href="#">中文</a>
@@ -128,26 +124,31 @@ function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl)
           <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <ul class="sf-menu">             
               <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="index-1.html">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>           
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
+">達人搞乜鬼</a></li>
+              <li><a href="index-2.html">食物對對碰</a>
               </li>
-                <li><a href="#">吹水園地</a></li>
-              <li><a href="index-3.html">影院</a>
+                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
+">吹水園地</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
+">影院</a>
                 
               </li>
-              <li><a href="index-4.html">好介紹</a></li>
-               <li><a href="index-4.html">講你知</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
+">好介紹</a></li>
+               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
+">講你知</a></li>
             </ul>
             <div class="clearfix"></div>
           </nav>
           <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="#"><img src="images/login.png" alt=""/></a></li>         
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
+"><img src="images/login.png" alt=""/></a></li>         
           </ul>
         </div>
       </div>
     </div>
   </header>
-
 
 
 
@@ -167,12 +168,12 @@ function content_59588557883689_41157748 (Smarty_Internal_Template $_smarty_tpl)
      
       <li class="f18">主題描述及內文：</li> 
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
+  <li  class="pdt0"><input name="" type="password" class="usertext password" placeholder="密碼"></li>
   <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'registerIndex'),$_smarty_tpl);?>
 ">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback">登錄</em></h2>
+     <h2><em class="rt btback logonBut">登錄</em></h2>
   
  
    </div>

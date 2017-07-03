@@ -11,17 +11,30 @@
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
   <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <!-- <script src="js/jquery-migrate-1.2.1.js"></script> -->
   <script src="js/camera.js"></script>
   <script src="js/owl.carousel.js"></script>
   <!--[if (gt IE 9)|!(IE)]><!-->
   <script src="js/jquery.mobile.customized.min.js"></script>
   <script src="js/wow/wow.js"></script>
+  <script src="js/login.js"></script>
   <script>
     $(document).ready(function () {
-      if ($('html').hasClass('desktop')) {
-        new WOW().init();
-      }
+        if ($('html').hasClass('desktop')) {
+            new WOW().init();
+        }
+        $(".loginnext").find(".btback").bind("click",function(){
+            var username = $.trim($(".username").val());
+            var password = $.trim($(".password").val());
+            $.ajax({
+                url: "<{spUrl c='login' a='test'}>",
+                type:"post",
+                data:{username:username,password:password},
+                success:function(data){
+                  console.log(data);
+                }
+            })
+        })
     });
   </script>
   <!--<![endif]-->
@@ -29,6 +42,26 @@
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
+  <style>
+  .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
+	@media 	only screen and (max-width: 760px),	(min-device-width: 768px) and (max-device-width: 1024px)  {	
+		table, thead, tbody, th, td, tr {display: block; }
+		.listbd thead tr {position: absolute;top: -9999px;left: -9999px;}		
+		.listbd td { border: none;position: relative;padding-left:0px;line-height:15px;padding-bottom:5px;}		
+		.listbd td:before {position: absolute;top: 6px;left: 6px;width: 100%; padding-right: 15px; white-space: nowrap;margin-top:-20px; font-size:14px; font-weight:600}
+
+	}
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		body {padding: 0; margin: 0;  }
+		}	
+
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		body {width: 100%; }
+	}
+	
+	</style>
 </head>
 
 <body>
@@ -74,72 +107,29 @@
 
 
 
-
   <!--========================================================
                             CONTENT
   =========================================================-->  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>所有文章的詳情內頁<em class="fn15">(達人影院,達人搞乜鬼,達人好介紹,達人講你知的內文頁)</em></h2>
-                <div class="brv">
-                <video controls autoplay>
-                  <source src="red.mp4" type="video/mp4"  height="272" width="640" />
-                Your browser does not support the video tag.
-                </video>
-                </div>
-    <p class="f18"><i>專業導師教你以品酒三步曲走天下</i> (2016-8-15)</p>         
-    <p>你現在閱讀的，並不是真的文案。這些文字，只顯示文案將會擺放的位置。我們會稱呼這些文案為「假字」。<br>
-
-為何要用「假字」？<br>
-
-因為在一般的下，在向客戶作初步提案時，我們通常只會先擬好主副標題和畫面，其他的細節如文案等，會待雙方作進一步的商量後，才再發展下去。
-當然，撰稿員在撰寫真的文案前，其實心目中也有一個腹稿，文案的流程會怎樣，文案會有多長。一段假文案，你也真的用心細看，謝謝。<br>
-
-嘻！這不是真的文案，請不要閱讀！你還在閱讀？真係威喎！我已說過這不是真的文案，你繼續閱讀只會浪費你的寶貴時間！難道你不覺得自己的時間寶貴嗎？</p>
-    <p class="apc"> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>       
-        </div>
+              <h2>會員登入</h2>
+              </div>
+       
       </div>      
     </div>
-
-   <div class="say wow fadeInDown">
-     <h2>2则回应<em class="rt">排序方式：<select>
-       <option>最新</option>
-     </select></em></h2>
+<div class="login  wow fadeInUp"> 
+      <h2>請輸入帳戶及密碼 : </h2>
+     
+      <li class="f18">主題描述及內文：</li> 
+         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
+  <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=registerIndex}>">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
+ </div>
+   <div class="loginnext loginAction wow fadeInDown">
+     <h2><em class="rt btback">登錄</em></h2>
   
-      <li>
-     <table width="100%" border="0">
-  <tr>
-    <td width="60"><img src="images/man.jpg"></td>
-    <td><input name="" type="text" class="btext"></td>
-  </tr>
-</table>
-     </li>
-     <li>
-     <table width="100%" border="0">
-  <tr>
-    <td width="60" valign="top"><img src="images/man.jpg"></td>
-    <td>
-    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
-    <p>繼續Candy...進軍2000年</p>
-    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
-    </td>
-  </tr>
-</table>
-     </li>
-      <li>
-     <table width="100%" border="0">
-  <tr>
-    <td width="60" valign="top"><img src="images/man.jpg"></td>
-    <td>
-    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
-    <p>繼續Candy...進軍2000年</p>
-    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
-    </td>
-  </tr>
-</table>
-     </li>
-     <h3><img src="images/facebook.jpg">Facebook Comments Plugin</h3>
+ 
    </div>
 
 

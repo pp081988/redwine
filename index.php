@@ -30,4 +30,5 @@ $spConfig = array(
     'mode' => 'debug',
 );
 require(SP_PATH."/SpeedPHP.php");
+import(APP_PATH."/model/filter.php");
 spRun();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-02 08:31:31
+/* Smarty version 3.1.30, created on 2017-07-03 11:28:50
   from "D:\xampp\htdocs\redwine\tpl\register.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595893434af002_97077230',
+  'unifunc' => 'content_595a0e5276d7d1_67056037',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df667d1ac4d7c08b6c40bf5a5a6746e31e9dadd7' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\register.html',
-      1 => 1498977076,
+      1 => 1499072292,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595a0e5276d7d1_67056037 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,12 +104,13 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
+<header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
           <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="index.html"><img src="images/logo.png" width="146" height="21"></a>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+"><img src="images/logo.png" width="146" height="21"></a>
          <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
                    <div class="wowdrop">
             <a href="#">中文</a>
@@ -120,20 +121,26 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
           <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <ul class="sf-menu">             
               <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="index-1.html">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>           
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
+">達人搞乜鬼</a></li>
+              <li><a href="index-2.html">食物對對碰</a>
               </li>
-                <li><a href="#">吹水園地</a></li>
-              <li><a href="index-3.html">影院</a>
+                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
+">吹水園地</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
+">影院</a>
                 
               </li>
-              <li><a href="index-4.html">好介紹</a></li>
-               <li><a href="index-4.html">講你知</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
+">好介紹</a></li>
+               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
+">講你知</a></li>
             </ul>
             <div class="clearfix"></div>
           </nav>
           <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="#"><img src="images/login.png" alt=""/></a></li>         
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
+"><img src="images/login.png" alt=""/></a></li>         
           </ul>
         </div>
       </div>
@@ -154,7 +161,7 @@ function content_595893434af002_97077230 (Smarty_Internal_Template $_smarty_tpl)
        
       </div>      
     </div>
-<div class="login wow fadeInUp"> 
+<div class="register login wow fadeInUp"> 
     <h2>請填寫以下項目 : </h2>
         <li><input name="" type="text" class="usertext username" placeholder="帳戶名稱"></li>
         <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>

@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-03 08:03:26
+  from "D:\xampp\htdocs\redwine\tpl\tellyou.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5959de2e445f51_70412992',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8ec5f4bc9a4a2fdaaef23473e692f558247adf5d' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\tellyou.html',
+      1 => 1499061755,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5959de2e445f51_70412992 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +34,40 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
 </head>
 
@@ -41,7 +81,8 @@
       <div class="row">
         <div class="grid_12  wpr">
           <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="<{$index}>"><img src="images/logo.png" width="146" height="21"></a>
+          <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+"><img src="images/logo.png" width="146" height="21"></a>
          <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
                    <div class="wowdrop">
             <a href="#">中文</a>
@@ -52,20 +93,26 @@
           <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <ul class="sf-menu">             
               <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="<{$activicity}>">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>
+              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'activicity','a'=>'index'),$_smarty_tpl);?>
+">達人搞乜鬼</a></li>
+              <li><a href="index-2.html">食物對對碰</a>           
               </li>
-                <li><a href="<{$forum}>">吹水園地</a></li>
-              <li><a href="<{$video}>">影院</a>
+                <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'forum','a'=>'index'),$_smarty_tpl);?>
+">吹水園地</a></li>
+              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'video','a'=>'index'),$_smarty_tpl);?>
+">影院</a>
                 
               </li>
-              <li><a href="<{$introduction}>">好介紹</a></li>
-               <li><a href="<{$tellyou}>">講你知</a></li>
+              <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'introduction','a'=>'index'),$_smarty_tpl);?>
+">好介紹</a></li>
+               <li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'tellyou','a'=>'index'),$_smarty_tpl);?>
+">講你知</a></li>
             </ul>
             <div class="clearfix"></div>
           </nav>
           <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<{spUrl c=login a=loginIndex}>"><img src="images/login.png" alt=""/></a></li>         
+            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
+"><img src="images/login.png" alt=""/></a></li>         
           </ul>
         </div>
       </div>
@@ -87,7 +134,7 @@
         <div class="row mt20">
              
                 <div class="heading1">
-                  <h2 class="pdl20 fn24">達人影院<em class="fn13">(最後更新 :  2016-8-15)</em></h2>
+                  <h2 class="pdl20 fn24">達人講你知<em class="fn13">(最後更新 :  2016-8-15)</em></h2>
                 </div>
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
@@ -274,6 +321,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

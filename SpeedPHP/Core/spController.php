@@ -28,6 +28,7 @@ class spController {
 	 */
 	public function __construct()
 	{	
+
 		if($GLOBALS['G_SP']['view']['enabled']){
 			$this->v = spClass($GLOBALS['G_SP']['view']['engine_name'],null,$GLOBALS['G_SP']['view']['engine_path']);
 			$engine_vars = get_class_vars(get_class($this->v));
@@ -41,6 +42,18 @@ class spController {
 
 			spAddViewFunction('T', array( 'spView', '__template_T'));
 			spAddViewFunction('spUrl', array( 'spView', '__template_spUrl'));
+		}
+
+		$this->index = spUrl("main","index");
+		$this->activicity = spUrl("main","activicity");
+		$this->forum = spUrl("main","forum");
+		// $this->video = APP_PATH."/index.php?c=main&a=video";
+		$this->video = spUrl("main","video");
+		$this->tellyou = spUrl("main","tellyou");
+		$this->introduction = spUrl("main","introduction");
+		$this->loginInfo = '<li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="'.spUrl('login','registerIndex').'"><img src="images/login.png" alt=""/></a></li>';
+		if(isset($_SESSION['username'])){
+			$this->loginInfo = $_SESSION['username'].' | <a>登出</a>';
 		}
 	}
 

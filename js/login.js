@@ -1,11 +1,17 @@
 $(function(){
-	$(".loginAction").find(".btback").bind("click",function(){	//登录
+	$(".logonBut").bind("click",function(){	//登录
+		var username = $.trim($(".username").val());
+		var password = $.trim($(".password").val());
 		$.ajax({
-			url: "<{spUrl c=login a=test}>",
+			url: url,
 			type:"post",
-			data:{},
+			data:{username:username,password:password},
 			success:function(data){
-				console.log(data);
+				if(data == "ok"){
+					window.location.href=home;
+				}else{
+					tips("賬戶或密碼錯誤");
+				}
 			}
 		})
 	});
@@ -146,7 +152,7 @@ $(function(){
 		}
 	})
 
-	$(".username").blur(function(){
+	$(".register").find(".username").blur(function(){
 		var str = $(this).val();
 		if(str == ""){return false;}
 		if(str.length < 6){tips("賬戶名稱不少于6位");return false;}
@@ -154,7 +160,7 @@ $(function(){
 		if(!/^[0-9a-zA-Z]*$/g.test(str)){tips("賬戶名稱不合法");return false;}
 		existsCheck("username",$(this).val());
 	});
-	$(".emailOrPhone").blur(function(){
+	$(".register").find(".emailOrPhone").blur(function(){
 		var str = $(this).val();
 		if(str == ""){return false;}
 		existsCheck("emailOrPhone",$(this).val());
