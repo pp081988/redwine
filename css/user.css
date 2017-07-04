@@ -252,7 +252,7 @@
 .login li{ list-style:none;padding:15px 0;width:100%;font-size:15px; color:#8cb044}
 .loginnext{margin:0 230px; font-style:normal; overflow:hidden;}
 .loginnext h2{font-size:15px;}	
-.red1{ color:#e91e63}
+.red1{	color:#e91e63;}
 .black1{ color:#333333 !important}
 @media (max-width: 979px) {
 .login{margin:0 10px 30px 10px; background-color:#e6e3dd; font-style:normal; overflow:hidden;padding:25px; box-sizing:border-box; border-radius:8px}

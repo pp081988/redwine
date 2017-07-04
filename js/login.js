@@ -19,8 +19,11 @@ $(function(){
 
 	function tips(str){
 		var tips = $(".login").find(".red1");
+		tips.css({"display":"none"});
 		tips.html(str);
-		tips.css({"display":"block"});
+		setTimeout(function(){
+			tips.css({"display":"block"});
+		},600)
 	}
 
 	var sex = "";
@@ -192,4 +195,39 @@ $(function(){
 			}
 		})
 	}
+
+
+	$(".forgotBut").bind("click",function(){
+		var username = $.trim($(".forgot").find(".username").val());
+		var emailOrPhone = $.trim($(".forgot").find(".emailOrPhone").val());
+		var phone = "";
+		var email = "";
+		if(username == ""){tips("賬戶號不能為空");return false;}
+		if(emailOrPhone == ""){tips("電郵或號碼不能為空");return false;}
+		var emailReg = /\w+[@]{1}\w+[.]\w+/;
+   		var phoneReg = /^\d{8}$/;
+   		if(!emailReg.test(emailOrPhone)){
+   			if(!phoneReg.test(emailOrPhone)){
+   				tips("請輸入正確的電郵地址或手機號碼");
+   				return false;
+   			}else{
+   				phone = emailOrPhone;
+   			}
+   			//tips("請輸入正確的電郵地址或手機號碼");
+   		}else{
+   			email = emailOrPhone;
+   		}
+   		$.ajax({
+   			url:forgotUrl,
+   			type:"post",
+   			data:{username:username,phone:phone,email:email},
+   			success:function(data){
+   				if(data == "error"){
+   					tips("賬戶號或電郵/電話錯誤");
+   					return false;
+   				}
+   				window.location.href=resultUrl;
+   			}
+   		})
+	})
 })

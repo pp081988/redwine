@@ -2,6 +2,14 @@
 
 class user extends spModel
 {
-	var $table = "site_users";
-	var $pk = "create_time";
+	public $table;
+	public $pk;
+
+	function __construct($table,$pk)
+	{
+		
+		$this->table = $table;
+		$this->pk = $pk;
+		parent::__construct();
+	}
 }

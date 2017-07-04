@@ -19,22 +19,12 @@
   <script src="js/wow/wow.js"></script>
   <script src="js/login.js"></script>
   <script>
+    var forgotUrl = "<{spUrl c=login a=forgot}>";
+    var resultUrl="<{spUrl c=login a=resultIndex}>";
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
         }
-        $(".loginnext").find(".btback").bind("click",function(){
-            var username = $.trim($(".username").val());
-            var password = $.trim($(".password").val());
-            $.ajax({
-                url: "<{spUrl c='login' a='test'}>",
-                type:"post",
-                data:{username:username,password:password},
-                success:function(data){
-                  console.log(data);
-                }
-            })
-        })
     });
   </script>
   <!--<![endif]-->
@@ -113,21 +103,21 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員登入</h2>
+              <h2>忘記密碼</h2>
               </div>
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
-      <h2>請輸入帳戶及密碼 : </h2>
+<div class="login forgot  wow fadeInUp"> 
+      <h2>請輸入帳戶及註冊時的電郵或電話 : </h2>
      
-      <li class="f18">主題描述及內文：</li> 
+      <!-- <li class="f18">主題描述及內文：</li>  -->
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="text" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=registerIndex}>">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
+        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話"></li>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback">登錄</em></h2>
+     <h2><em class="rt btback forgotBut">確認</em></h2>
   
  
    </div>

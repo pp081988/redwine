@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-04 04:00:48
+/* Smarty version 3.1.30, created on 2017-07-04 14:30:38
   from "D:\xampp\htdocs\redwine\tpl\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595af6d005f3a0_91794584',
+  'unifunc' => 'content_595b8a6e4fba37_78814612',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '540d4a9bf340560beeeb86b3203cc82f3a658e9a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\login.html',
-      1 => 1499130954,
+      1 => 1499171437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595af6d005f3a0_91794584 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595b8a6e4fba37_78814612 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -170,7 +170,8 @@ function content_595af6d005f3a0_91794584 (Smarty_Internal_Template $_smarty_tpl)
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
   <li  class="pdt0"><input name="" type="password" class="usertext password" placeholder="密碼"></li>
   <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'registerIndex'),$_smarty_tpl);?>
-">註冊</a>  |  <a href="#">忘記密碼</a></em></li>
+">註冊</a>  |  <a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'forgotIndex'),$_smarty_tpl);?>
+">忘記密碼</a></em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
      <h2><em class="rt btback logonBut">登錄</em></h2>

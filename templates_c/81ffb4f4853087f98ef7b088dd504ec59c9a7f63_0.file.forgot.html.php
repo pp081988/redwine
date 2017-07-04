@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-04 18:18:11
+  from "D:\xampp\htdocs\redwine\tpl\forgot.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_595bbfc3728594_79703052',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '81ffb4f4853087f98ef7b088dd504ec59c9a7f63' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forgot.html',
+      1 => 1499185087,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_595bbfc3728594_79703052 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,31 +34,47 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <!-- <script src="js/jquery-migrate-1.2.1.js"></script> -->
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <!-- <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+> -->
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script src="js/login.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/login.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
+    var forgotUrl = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'forgot'),$_smarty_tpl);?>
+";
+    var resultUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
+";
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
         }
-
-            
     });
-
-    var url = "<{spUrl c='login' a='login'}>";
-    var home = "<{spUrl c='main' a='index'}>";
-
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
   <style>
   .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
@@ -68,7 +108,8 @@
       <div class="row">
         <div class="grid_12  wpr">
           <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="<{$index}>"><img src="images/logo.png" width="146" height="21"></a>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
+"><img src="images/logo.png" width="146" height="21"></a>
          <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
                    <div class="wowdrop">
             <a href="#">中文</a>
@@ -79,20 +120,26 @@
           <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
             <ul class="sf-menu">             
               <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="<{$activicity}>">達人搞乜鬼</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
+">達人搞乜鬼</a></li>
               <li><a href="index-2.html">食物對對碰</a>
               </li>
-                <li><a href="<{$forum}>">吹水園地</a></li>
-              <li><a href="<{$video}>">影院</a>
+                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
+">吹水園地</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
+">影院</a>
                 
               </li>
-              <li><a href="<{$introduction}>">好介紹</a></li>
-               <li><a href="<{$tellyou}>">講你知</a></li>
+              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
+">好介紹</a></li>
+               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
+">講你知</a></li>
             </ul>
             <div class="clearfix"></div>
           </nav>
           
-          <{$loginInfo}>
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
                    
         </div>
       </div>
@@ -107,21 +154,21 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員登入</h2>
+              <h2>忘記密碼</h2>
               </div>
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
-      <h2>請輸入帳戶及密碼 : </h2>
+<div class="login forgot  wow fadeInUp"> 
+      <h2>請輸入帳戶及註冊時的電郵或電話 : </h2>
      
-      <li class="f18">主題描述及內文：</li> 
+      <!-- <li class="f18">主題描述及內文：</li>  -->
          <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="password" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=registerIndex}>">註冊</a>  |  <a href="<{spUrl c=login a=forgotIndex}>">忘記密碼</a></em></li>
+        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話"></li>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback logonBut">登錄</em></h2>
+     <h2><em class="rt btback forgotBut">確認</em></h2>
   
  
    </div>
@@ -151,6 +198,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

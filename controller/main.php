@@ -1,5 +1,4 @@
 ﻿<?php
-
 require(APP_PATH."/model/email.php");
 class main extends spController
 {
@@ -32,9 +31,9 @@ class main extends spController
 		$this -> display("introduction.html");
 	}
 
-	function emailtest(){
-		$test = spClass("email");
-		$test->send();
+	function mail(){
+		$email = spClass("email");
+		$email->send();
 	}
 
 }	

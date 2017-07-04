@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-04 05:17:44
+/* Smarty version 3.1.30, created on 2017-07-04 17:22:54
   from "D:\xampp\htdocs\redwine\tpl\result.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595b08d86da346_44783937',
+  'unifunc' => 'content_595bb2ce596773_82916784',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53a29023841988812bcc61097642b19264dc1858' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\result.html',
-      1 => 1499138245,
+      1 => 1499181546,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595b08d86da346_44783937 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595bb2ce596773_82916784 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -155,8 +155,7 @@ function content_595b08d86da346_44783937 (Smarty_Internal_Template $_smarty_tpl)
     </div>
 <div class="login  wow fadeInUp"> 
 
-      <li class="black1 pdt0">歡迎，<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-<br>激活賬戶驗證已發送至<?php echo $_smarty_tpl->tpl_vars['contact']->value;?>
+      <li class="black1 pdt0"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
 </li>
 
  </div>
