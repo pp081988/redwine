@@ -1,4 +1,6 @@
 ﻿<?php
+
+require(APP_PATH."/model/email.php");
 class main extends spController
 {
 	function __construct(){
@@ -28,6 +30,11 @@ class main extends spController
 
 	function introduction(){
 		$this -> display("introduction.html");
+	}
+
+	function emailtest(){
+		$test = spClass("email");
+		$test->send();
 	}
 
 }	

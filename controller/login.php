@@ -37,12 +37,7 @@ class login extends spController{
 
 	public function registerIndex()
 	{
-		// $verify = spClass("Verify");
-		// $verify->verifyCode();
-		// $verifyImg = $_SESSION['verify_code'];
-
 		$this -> display("register.html");
-		//$this -> verifyImg();
 	}
 
 	public function verifyImg(){
@@ -52,9 +47,13 @@ class login extends spController{
 		$this -> display("verifyImg.html");
 	}
 
-	public function existsCheck(){
-		$obj = $_POST['obj'];
-		$str = $_POST['str'];
+	public function existsCheck($obj,$str){
+		if(!$obj)$obj = $_POST['obj'];
+		if(!$str)$str = $_POST['str'];
+		
+		$filter = spClass("filter");//过滤不合法关键字
+
+
 		$gb = spClass("user");
 		$conditions = [$obj=>$str];
 		if($obj == "emailOrPhone"){
@@ -62,7 +61,7 @@ class login extends spController{
 		}
 		if($gb->findAll($conditions)){
 			echo "exists";
-			$str = $_SESSION[$obj."ex"];
+			return "exists";
 		}
 	}
 
@@ -94,21 +93,73 @@ class login extends spController{
 			}
 			if($phone!=""){
 				$phoneRegular = "/^\d{8}$/";
-				if(!preg_match($emailRegular,$email)){echo "e13";exit;}
+				if(!preg_match($phoneRegular,$phone)){echo "e13";exit;}
 				$_SESSION['contact']=$phone;
 			}
 			/**验证邮箱或电话号码合法性**/
 
-			//$dirtyPassword = $args->get()['password'];
-			// $password = $filter->filter($dirtyPassword);
-			$password = $args->get()['password'];
+			/*****检查邮箱或电话存在*****/
+			if($this->existsCheck("emailOrPhone",$_SESSION['contact']) == "exists"){
+				exit;
+			}
+			//echo $_SESSION['contact'];
+			/*****检查邮箱或电话存在*****/
+
+			/*******密码过滤后加密*******/
+			$dirtyPassword = $args->get()['password'];
+			$password = $filter->filter($dirtyPassword);
+			//$password = $args->get()['password'];
 			$salt = crypt($password);
 			$md5Passwd = md5($password.$salt);
-			$sex = $args->get()['sex'];
-			$age = $args->get()['age'];
-			$yearsOfDrinking = $args->get()['yearsOfDrinking'];
-			if($username == $_SESSION['usernameex']){echo 'e3';exit;}
-			if($username == $_SESSION['emailOrPhoneex']){echo 'e4';exit;}
+			/*******密码过滤后加密*******/
+
+			/*******过滤性别字符串******/
+			$dirtySex = $args->get()['sex'];
+			$sex = $filter->filter($dirtySex);
+			/*******过滤性别字符串******/
+
+			/*****年龄段字符串重组******/
+			$initialAge = $args->get()['age'];
+			switch ($initialAge) {
+				case '18-25':
+					$age = 1;
+					break;
+				case '26-30':
+					$age = 2;
+					break;
+				case '31-35':
+					$age = 3;
+					break;
+				case '36-40':
+					$age = 4;
+					break;
+				case '41-45':
+					$age = 5;
+					break;
+				case '>46':
+					$age = 6;
+					break;
+			}
+			/*****年龄段字符串重组******/
+
+			/*****酒龄段字符串重组******/
+			$initialYearsOfDrinking = $args->get()['yearsOfDrinking'];
+			switch ($initialYearsOfDrinking) {
+				case '0-1':
+					$yearsOfDrinking = 1;
+					break;
+				case '1-2':
+					$yearsOfDrinking = 2;
+					break;
+				case '2-3':
+					$yearsOfDrinking = 3;
+					break;
+				case '>3':
+					$yearsOfDrinking = 4;
+					break;
+			}
+			/*****年龄段字符串重组******/
+
 			$condition = [
 				'create_time'	=>	$createTime,
 				'username'		=>	$username,
@@ -120,6 +171,7 @@ class login extends spController{
 				'age'			=>	$age,
 				'years_of_drinking'	=> $yearsOfDrinking
 			];
+
 			//echo $username." ".$email." ".$phone." ".$md5Passwd." ".$sex." ".$age." ".$yearsOfDrinking;
 			$gb = spClass("user");
 			unset($_SESSION['verify_code']);
@@ -128,7 +180,7 @@ class login extends spController{
 				echo mysql_error();
 				exit;
 			}
-
+			$_SESSION['username'] = $username;
 		}else{
 			echo "e2";
 			exit;
@@ -192,9 +244,8 @@ class login extends spController{
 
     public function logout()
     {
-    	if($_GET['action'] == "logout"){
-    		unset($_SESSION['username']);
-    		unset($_SESSION['contact']);
-    	}
+    	unset($_SESSION['username']);
+    	unset($_SESSION['contact']);
+    	$this->display("index.html");
     }
 }

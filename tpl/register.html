@@ -19,9 +19,9 @@
   <script src="js/wow/wow.js"></script>
   <script src="js/login.js"></script>
   <script>
-      function result(){
-        window.location.href="<{spUrl c=login a=resultIndex}>";
-      }
+    var registerUrl="<{spUrl c=login a=register}>";
+    var existsCheckUrl="<{spUrl c=login a=existsCheck}>";
+    var resultUrl="<{spUrl c=login a=resultIndex}>";
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();

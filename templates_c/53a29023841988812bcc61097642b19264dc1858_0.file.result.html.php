@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 13:21:46
+/* Smarty version 3.1.30, created on 2017-07-04 05:17:44
   from "D:\xampp\htdocs\redwine\tpl\result.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595a28cabbda34_39626112',
+  'unifunc' => 'content_595b08d86da346_44783937',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53a29023841988812bcc61097642b19264dc1858' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\result.html',
-      1 => 1499080628,
+      1 => 1499138245,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595a28cabbda34_39626112 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595b08d86da346_44783937 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +96,7 @@ function content_595a28cabbda34_39626112 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<header id="header">
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
@@ -130,10 +130,10 @@ function content_595a28cabbda34_39626112 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
+          
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
+                   
         </div>
       </div>
     </div>
@@ -161,7 +161,7 @@ function content_595a28cabbda34_39626112 (Smarty_Internal_Template $_smarty_tpl)
 
  </div>
    <div class="loginnext wow fadeInDown">
-     <h2><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'loginIndex'),$_smarty_tpl);?>
+     <h2><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
 "><em class="rt btback">確定</em></a></h2>
   
  

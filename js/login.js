@@ -23,11 +23,11 @@ $(function(){
 		tips.css({"display":"block"});
 	}
 
-	var sex;
-	var age;
+	var sex = "";
+	var age = "";
 	var email = "";
 	var phone = "";
-	var yearsOfDrinking;
+	var yearsOfDrinking = "";
 	$(".registerAction").find(".btback").bind("click",function(){		//注册
 		var username = $.trim($(".login").find(".username").val());
 		var emailOrPhone = $.trim($(".login").find(".emailOrPhone").val());
@@ -36,7 +36,9 @@ $(function(){
 		var password = $.trim($(".login").find(".password").val());
 		var passwordRepeat = $.trim($(".login").find(".passwordRepeat").val());
 		var verify = $.trim($(".verify").val());
-		
+
+
+
 		if(password != passwordRepeat){tips("登入密碼不一致");return false;}
 		if(password.length < 8){tips("密碼不少于8位");return false;}
 		if(username == ""){tips("賬戶名稱不能為空");return false;	}
@@ -67,17 +69,14 @@ $(function(){
 		//console.log(username+email+phone+password+sex+age+yearsOfDrinking);
 
 		$.ajax({
-			url: "/index.php?c=login&a=register",
+			url: registerUrl,
 			type:"post",
 			data:{username:username,email:email,phone:phone,password:password,sex:sex,age:age,yearsOfDrinking:yearsOfDrinking,verify:verify},
 			success:function(data){
 				if(data == "e1"){alert("註冊失敗");return false;}
 				if(data == "e2"){alert("驗證碼錯誤");return false;}
-				if(data == "e3"){alert("賬戶名已存在");return false;}
-				if(data == "e4"){alert("電郵地址已存在");return false;}
-				if(data == "e5"){alert("電話號碼已存在");return false;}
 				//console.log(data);
-				window.location.href="/index.php?c=login&a=resultIndex";
+				window.location.href=resultUrl;
 			}
 		})
 	});
@@ -159,7 +158,8 @@ $(function(){
 		if(str == ""){return false;}
 		if(str.length < 6){tips("賬戶名稱不少于6位");return false;}
 		if(str.length > 16){tips("賬戶名稱不多于16位");return false;}
-		if(!/^[0-9a-zA-Z]*$/g.test(str)){tips("賬戶名稱不合法");return false;}
+		if(!/^[0-9a-zA-Z]*$/g.test(str)){tips("賬戶名已存在或不合法");return false;}
+
 		existsCheck("username",$(this).val());
 	});
 	$(".register").find(".emailOrPhone").blur(function(){
@@ -169,16 +169,26 @@ $(function(){
 	});
 
 
-	//昵称重名检查
+	//存在检查
 	function existsCheck(obj,str){
+		var content;
+		switch(obj){
+			case "username":
+			content = "賬戶名已存在或不合法";
+			break;
+			case "emailOrPhone":
+			content = "電郵地址或電話號碼已存在";
+			break;
+		}
 		$.ajax({
-			url:"/index.php?c=login&a=existsCheck",
+			url:existsCheckUrl,
 			type:"post",
 			data:{obj:obj,str:str},
 			success:function(data){
-				//if(data == "exists"){
-					console.log(data);
-				//}
+				if(data == "exists"){
+					// console.log(data);
+					tips(content);
+				}
 			}
 		})
 	}

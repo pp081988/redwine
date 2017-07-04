@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 11:20:06
+/* Smarty version 3.1.30, created on 2017-07-04 04:00:48
   from "D:\xampp\htdocs\redwine\tpl\login.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595a0c46c0d443_36678985',
+  'unifunc' => 'content_595af6d005f3a0_91794584',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '540d4a9bf340560beeeb86b3203cc82f3a658e9a' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\login.html',
-      1 => 1499073605,
+      1 => 1499130954,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595a0c46c0d443_36678985 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595af6d005f3a0_91794584 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +107,7 @@ function content_595a0c46c0d443_36678985 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<header id="header">
+  <header id="header">
     <div class="container">
       <div class="row">
         <div class="grid_12  wpr">
@@ -141,10 +141,10 @@ function content_595a0c46c0d443_36678985 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
             <div class="clearfix"></div>
           </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
+          
+          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+
+                   
         </div>
       </div>
     </div>

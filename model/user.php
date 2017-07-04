@@ -3,5 +3,5 @@
 class user extends spModel
 {
 	var $table = "site_users";
-	var $pk = "uid";
+	var $pk = "create_time";
 }
