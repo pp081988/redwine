@@ -21,7 +21,6 @@
   <script>
     var forgotUrl = "<{spUrl c=login a=forgot}>";
     var resultUrl="<{spUrl c=login a=resultIndex}>";
-    var verification="<{spUrl c=login a=verification}>";
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
@@ -104,21 +103,21 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>忘記密碼</h2>
+              <h2>檢視驗證碼</h2>
               </div>
        
       </div>      
     </div>
-<div class="login forgot  wow fadeInUp"> 
-      <h2>請輸入帳戶及註冊時的電郵或電話 : </h2>
+<div class="login verification forgot  wow fadeInUp"> 
+      <h2>請輸入收到的驗證碼 : </h2>
      
       <!-- <li class="f18">主題描述及內文：</li>  -->
-         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em></li>
+         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="驗證碼"></li>
+
+  <li class="pd0"><em class="red1">輸入錯誤 !</em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback forgotBut">確認</em></h2>
+     <h2><em class="rt btback verificationBut">確認</em></h2>
   
  
    </div>

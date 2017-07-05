@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-03 13:39:51
+/* Smarty version 3.1.30, created on 2017-07-05 11:07:52
   from "D:\xampp\htdocs\redwine\tpl\activicity.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595a2d079d3759_99932242',
+  'unifunc' => 'content_595cac688403c7_26015825',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af61620335acd91c80b6e5af88bfd81742e205ce' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\activicity.html',
-      1 => 1499081901,
+      1 => 1499245491,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595a2d079d3759_99932242 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595cac688403c7_26015825 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -11,7 +11,11 @@ class login extends spController{
 
 	public function loginIndex()
 	{
-		$this -> display("login.html");
+		if(!$_SESSION['username']){
+			$this -> display("login.html");
+		}else{
+			$this -> display("index.html");
+		}
 	}
 
 	public function login()
@@ -182,14 +186,21 @@ class login extends spController{
 				exit;
 			}
 
-			$active_key = md5($md5Passwd);
+	
+			$activeTable = new user("site_activate","id");
+			
 			//new user("site_users","create_time");
 
 			if($email != ""){
-				$email = spClass("email");
+				$activate_key = md5($md5Passwd);
+				if(!$activeTable->create(Array('username'=>$username,"activate_key"=>$activate_key))){
+				echo "e1";
+				exit;
+				}
+				$activate_email = spClass("email");
 				$title = "激活賬戶";
-				$content = "<h1>你好,".$result['username']."</h1><br><br>你於".date("Y-m-d H:i:s")."註冊Redwine會員賬戶，請打開以下地址或將地址複製到瀏覽器中打開，激活你的賬戶。<br>http://www.xxxxx.com/index.php?c=login&a=activate&id=";
-				$email->send($result['email'],$title,$content);
+				$content = "<h1>你好,".$username."</h1><br><br>你於".date("Y-m-d H:i:s")."註冊Redwine會員賬戶，請打開以下地址或將地址複製到瀏覽器中打開，激活你的賬戶。<br>http://localhost/redwine/index.php?c=login&a=activate&id=$activate_key";
+				$activate_email->send($email,$title,$content);
 			}
 			
 			$_SESSION['content'] = "歡迎，".$username."<br>激活賬戶驗證已發送至".$contact;
@@ -274,19 +285,79 @@ class login extends spController{
 		$username = $filter->filter($dirtyUsername);
 		$contact = $filter->filter($dirtyContact);
 		$gb = new user("site_users","create_time");
-		$result = $gb->find("username = '".$username."' AND email = '".$contact."' OR phone = '".$contact."'");
+		$result = $gb->find("username = '".$username."' AND (email = '".$contact."' OR phone = '".$contact."')");
+		
+		$activeTable = new user("site_forgot","id");
 		if($result){
 			if($result['email'] != ""){
+				$forgot_key = md5($result['password']);
+				if(!$activeTable->create(Array('username'=>$username,"forgot_key"=>$forgot_key,"create_time"=>date("Y-m-d H:i:s")))){
+				echo "e1";
+				exit;
+				}
+
 				$email = spClass("email");
 				$title = "找回密碼";
-				$content = "<h1>你好,".$result['username']."</h1><br><br>你於".date("Y-m-d H:i:s")."申請找回密碼，請打開以下地址或將地址複製到瀏覽器中打開，重置你的密碼。<br>http://www.xxxxx.com/index.php?c=login&a=change&id=".md5($result['password']);
+				$content = "<h1>你好,".$result['username']."</h1><br><br>你於".date("Y-m-d H:i:s")."申請找回密碼，請打開以下地址或將地址複製到瀏覽器中打開，重置你的密碼。<br>http://www.xxxxx.com/index.php?c=login&a=change&id=".$forgot_key;
 				$email->send($result['email'],$title,$content);
+			}
+			if($result['phone'] != ""){
+				$random = new random();
+				$forgot_key = strtoupper($random->randStr());
+				//
+				//SMS发送
+				//
+				echo "verification";
 			}
 			$_SESSION['content'] = "重置密碼驗證已傳送至你的聯繫方式，請查看。";
 			
 		}else{
 			echo "error";
 		}
+	}
+
+	public function activateIndex()
+	{
+		$this->display();
+	}
+
+	public function verification()
+	{
+		$this->display("verification.html");
+	}
+
+	public function changePasswordIndex()
+	{
+		$this->display("changepassword.html");
+	}
+
+	public function changePassword()
+	{
+		$filter = spClass("filter");
+		$dirtyOldPw = $_POST['oldPw'];
+		$dirtyNewPw = $_POST['newPw'];
+		$oldPw = $filter->filter($dirtyOldPw);
+		$newPw = $filter->filter($dirtyNewPw);
+		if(strlen($newPw) < 8 || strlen($newPw) > 20){echo "pwerror";exit;}
+		$gb = new user("site_users","create_time");
+		$result = $gb->find(Array("username"=>$_SESSION['username']));
+		if(!$result){
+			echo "notfound";
+			exit;
+		}
+		if($result['password'] != md5($oldPw.$result['salt'])){
+			echo "error";
+			exit;
+		}
+		$conditions = Array("username"=>$_SESSION['username']);
+		$row = Array("password"=>md5($newPw.$result['salt']));
+		$write = $gb->update($conditions,$row);
+		if(!$write){
+			echo "cannotup";
+			exit;
+		}
+		$_SESSION['content'] = "修改完成";
+		echo "ok";
 	}
 
     public function logout()

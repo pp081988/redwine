@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-04 18:18:11
+/* Smarty version 3.1.30, created on 2017-07-05 09:52:02
   from "D:\xampp\htdocs\redwine\tpl\forgot.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595bbfc3728594_79703052',
+  'unifunc' => 'content_595c9aa2e03ec3_56392543',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '81ffb4f4853087f98ef7b088dd504ec59c9a7f63' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forgot.html',
-      1 => 1499185087,
+      1 => 1499241025,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595bbfc3728594_79703052 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595c9aa2e03ec3_56392543 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +61,8 @@ function content_595bbfc3728594_79703052 (Smarty_Internal_Template $_smarty_tpl)
     var forgotUrl = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'forgot'),$_smarty_tpl);?>
 ";
     var resultUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
+";
+    var verification="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verification'),$_smarty_tpl);?>
 ";
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {

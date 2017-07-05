@@ -10,7 +10,27 @@ $spConfig = array(
         'password' => 'dglt#?19', // 数据库密码
         'database' => 'redwine', // 数据库的库名称
     ),
-
+    'launch' => array( // 加入挂靠点，以便开始使用Url_ReWrite的功能
+        'router_prefilter' => array( 
+                array('spUrlRewrite', 'setReWrite'),  // 对路由进行挂靠，处理转向地址
+            ),
+        'function_url' => array(
+                array("spUrlRewrite", "getReWrite"),  // 对spUrl进行挂靠，让spUrl可以进行Url_ReWrite地址的生成
+            ),
+    ),
+    //  'ext' => array(
+    //     'spUrlRewrite' => array(
+    //         'suffix' => '.html', 
+    //         'sep' => '/', 
+    //         'map' => array( 
+    //             'search' => 'main@search',
+    //              '@' => 'main@no'   
+    //         ),
+    //         'args' => array(
+    //              'search' => array('q','page'), 
+    //         ),
+    //     ),
+    // ),
     'view' => array(
         'enabled' => TRUE, // 开启Smarty
         'config' =>array(
@@ -31,4 +51,5 @@ $spConfig = array(
 );
 require(SP_PATH."/SpeedPHP.php");
 import(APP_PATH."/model/filter.php");
+import(APP_PATH."/model/random.php");
 spRun();

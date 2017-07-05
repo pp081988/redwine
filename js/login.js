@@ -78,8 +78,9 @@ $(function(){
 			success:function(data){
 				if(data == "e1"){alert("註冊失敗");return false;}
 				if(data == "e2"){alert("驗證碼錯誤");return false;}
-				//console.log(data);
-				window.location.href=resultUrl;
+				console.log(data);
+				if(data == "verification"){window.location.href=verification;}
+				//window.location.href=resultUrl;
 			}
 		})
 	});
@@ -226,8 +227,50 @@ $(function(){
    					tips("賬戶號或電郵/電話錯誤");
    					return false;
    				}
+   				if(data == "verification"){
+   					window.location.href=verification;
+   				}
+   				//console.log(data);
    				window.location.href=resultUrl;
    			}
    		})
+	})
+
+	$(".changePasswordBut").bind("click",function(){
+		var oldPw = $.trim($(".oldpw").val());
+		var newPw = $.trim($(".newpw").val());
+		var repPw = $.trim($(".reppw").val());
+		switch(""){
+			case oldPw:
+			tips("舊密碼不能為空");return false;
+			break;
+			case newPw:
+			tips("新密碼不能為空");return false;
+			break;
+			case repPw:
+			tips("請再次輸入新密碼");return false;
+			break;
+		}
+		if(newPw != repPw){
+			tips("新密碼與重複輸入不一致");return false;
+		}
+		if(newPw.length < 8 || newPw.length >20){
+			tips("新密碼不能小於8位");return false;
+		}
+		$.ajax({
+			url:changePasswrdUrl,
+			type:"post",
+			data:{oldPw:oldPw,newPw:newPw},
+			success:function(data){
+				if(data != "ok"){
+					if(data == "error"){
+						tips("密碼不能正確");
+						return false;
+					}
+					console.log(data);
+				}
+				window.location.href=resultUrl;	
+			}
+		})
 	})
 })
