@@ -1,7 +1,23 @@
 $(function(){
+
+	function ajaxWait(act){
+		switch(act){
+			case "show":
+				$("#loading-center").css({"display":"block","opacity":"1"});
+			break;
+			case "hide":
+				$("#loading-center").css({"opacity":"0"});
+				setTimeout(function(){
+					$("#loading-center").css({"display":"block"});
+				},300);
+			break;
+		}
+	}
+
 	$(".logonBut").bind("click",function(){	//登录
 		var username = $.trim($(".username").val());
 		var password = $.trim($(".password").val());
+		ajaxWait("show");
 		$.ajax({
 			url: url,
 			type:"post",
@@ -10,6 +26,7 @@ $(function(){
 				if(data == "ok"){
 					window.location.href=home;
 				}else{
+					ajaxWait("hide");
 					tips("賬戶或密碼錯誤");
 					//console.log(data);
 				}
@@ -70,15 +87,15 @@ $(function(){
 		if(verify == ""){tips("請輸入驗證碼");return false;}
 
 		//console.log(username+email+phone+password+sex+age+yearsOfDrinking);
-
+		ajaxWait("show");
 		$.ajax({
 			url: registerUrl,
 			type:"post",
 			data:{username:username,email:email,phone:phone,password:password,sex:sex,age:age,yearsOfDrinking:yearsOfDrinking,verify:verify},
 			success:function(data){
-				if(data == "e1"){alert("註冊失敗");return false;}
-				if(data == "e2"){alert("驗證碼錯誤");return false;}
-				//console.log(data);
+				if(data == "e1"){alert("註冊失敗");ajaxWait("hide");return false;}
+				if(data == "e2"){alert("驗證碼錯誤");ajaxWait("hide");return false;}
+				console.log(data);
 				if(data == "verification"){window.location.href=verification;}
 				if(data == "ok"){window.location.href=resultUrl;}
 			}
@@ -222,16 +239,19 @@ $(function(){
    		}else{
    			email = emailOrPhone;
    		}
+   		ajaxWait("show");
    		$.ajax({
    			url:cpUrl,
    			type:"post",
    			data:{username:username,phone:phone,email:email,verify:verify},
    			success:function(data){
    				if(data == "error"){
+   					ajaxWait("hide");
    					tips("賬戶號或電郵/電話錯誤");
    					return false;
    				}
    				if(data == "e1"){
+   					ajaxWait("hide");
    					tips("驗證碼不正確");
    					return false;
    				}
@@ -266,6 +286,7 @@ $(function(){
 		if(newPw.length < 8 || newPw.length >20){
 			tips("新密碼不能小於8位");return false;
 		}
+		ajaxWait("show");
 		$.ajax({
 			url:changePasswrdUrl,
 			type:"post",
@@ -273,14 +294,16 @@ $(function(){
 			success:function(data){
 				if(data != "ok"){
 					if(data == "error"){
+						ajaxWait("hide");
 						tips("密碼不能正確");
 						return false;
 					}
 					if(data == "e1"){
+						ajaxWait("hide");
 						tips("驗證碼不正確");
 						return false;
 					}
-					console.log(data);
+					//console.log(data);
 				}
 				window.location.href=resultUrl;	
 			}
@@ -290,6 +313,7 @@ $(function(){
 	$(".verificationBut").bind("click",function(){
 		var verification_key = $.trim($(".verification_key").val());
 		if(verification_key == ""){tips("驗證碼不能為空");return false;}
+		ajaxWait("show");
 		$.ajax({
 			url:verificationUrl,
 			type:"post",
@@ -297,10 +321,12 @@ $(function(){
 			success:function(data){
 				if(data != "ok"){
 					if(data == "error"){
+						ajaxWait("hide");
 						tips("密碼不能正確");
 						return false;
 					}
 					if(data == "e1"){
+						ajaxWait("hide");
 						tips("驗證碼不正確");
 						return false;
 					}

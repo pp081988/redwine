@@ -215,6 +215,7 @@ class login extends spController{
 				//
 				//SMS发送
 				//
+				$_SESSION['active_process'] = "processing";
 				echo "verification";
 			}
 			
@@ -328,7 +329,7 @@ class login extends spController{
 					// }
 					$email = spClass("email");
 					$title = "找回密碼";
-					$content = "<h1>你好,".$result['username']."</h1><br><br>你於".date("Y-m-d H:i:s")."	申請找回密碼，驗證碼是<h2>".$cp_key."</h2>，請返回申請頁面輸入驗證碼進行下一步。";
+					$content = "<h1>你好,".$result['username']."</h1><br><br>你的".date("Y-m-d H:i:s")."	驗證碼是<h2>".$cp_key."</h2>，請返回申請頁面輸入驗證碼進行下一步。";
 					$email->send($result['email'],$title,$content);
 
 				}
@@ -380,20 +381,27 @@ class login extends spController{
 
 	public function verificationIndex()
 	{
-		$this->display("verification.html");
+		if($_SESSION['cp_process'] == "processing" || $_SESSION['active_process'] == "processing"){
+			$this->display("verification.html");
+		}
 	}
 
 	public function verification()
 	{
-		$dirtyVerification_key = $_POST['verification_key'];
-		$filter = spClass("filter");
-		$verification_key = $filter->filter($dirtyVerification_key);
-		if($verification_key == $_SESSION['cp_key']){
-			$_SESSION['cp_process'] = "processing";
-			echo "ok";
-		}else{
-			echo "error";
-			exit;
+		if($_POST['verification_key']){
+			$dirtyVerification_key = $_POST['verification_key'];
+			$filter = spClass("filter");
+			$verification_key = $filter->filter($dirtyVerification_key);
+			if($verification_key == $_SESSION['cp_key']){
+				$_SESSION['cp_process'] = "processing";
+				echo "ok";
+			}else{
+				echo "error";
+			}
+			if($verification_key == $_SESSION['activate_key']){
+				$gb = spClass("user");
+				
+			}
 		}
 	}
 

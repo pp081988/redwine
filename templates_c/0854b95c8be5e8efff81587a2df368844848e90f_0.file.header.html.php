@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-06 04:40:46
+/* Smarty version 3.1.30, created on 2017-07-06 13:40:47
   from "D:\xampp\htdocs\redwine\tpl\header.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595da32e3be236_34440058',
+  'unifunc' => 'content_595e21bf96ffe2_65542825',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0854b95c8be5e8efff81587a2df368844848e90f' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\header.html',
-      1 => 1499307835,
+      1 => 1499340944,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,121 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595da32e3be236_34440058 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595e21bf96ffe2_65542825 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
+<style>
+#loading{
+  background-color: #df5a49;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  margin-top: 0px;
+  top: 0px;
+}
+#loading-center{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: none;
+  opacity: 0;
+  transition: all 0.3s;
+  }
+#loading-center-absolute {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 170px;
+  width: 170px;
+  margin-top: -100px;
+  margin-left: -100px;  
+  z-index: 99
+}
+.object{
+    -moz-border-radius: 50% 50% 50% 50%;
+  -webkit-border-radius: 50% 50% 50% 50%;
+  border-radius: 50% 50% 50% 50%;
+  position: absolute;
+  border-left: 5px solid #92bd9d;
+  border-right: 5px solid #7eb198;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  -webkit-animation: animate 2s infinite;
+  animation: animate 2s infinite; 
+  }
+
+#object_one{
+  left: 55px;
+  top: 55px;
+  width: 50px;
+  height: 50px;
+  }
+              
+#object_two{
+  left: 45px;
+  top: 45px;
+  width: 70px;
+  height: 70px;
+  -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+  }
+    
+#object_three{
+  left: 35px;
+  top: 35px;
+  width: 90px;
+  height: 90px;
+  -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+#object_four{
+  left: 25px;
+  top: 25px;
+  width: 110px;
+  height: 110px;
+  -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+  
+  } 
+
+@-webkit-keyframes animate {
+ 
+
+50% {
+  -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg); 
+    transform: rotate(180deg); 
+  }
+    
+100% {
+  -ms-transform: rotate(0deg); 
+    -webkit-transform: rotate(0deg); 
+    transform: rotate(0deg); 
+  }   
+
+}
+
+@keyframes animate {
+
+50% {
+  -ms-transform: rotate(180deg); 
+    -webkit-transform: rotate(180deg); 
+    transform: rotate(180deg); 
+  }
+    
+100% {
+  -ms-transform: rotate(0deg); 
+    -webkit-transform: rotate(0deg); 
+    transform: rotate(0deg); 
+  }   
+
+  
+}
+
+
+
+
+</style>
   <header id="header">
     <div class="container">
       <div class="row">
@@ -64,5 +177,16 @@ function content_595da32e3be236_34440058 (Smarty_Internal_Template $_smarty_tpl)
         </div>
       </div>
     </div>
-  </header><?php }
+  </header>
+
+
+<div id="loading-center">
+<div id="loading-center-absolute">
+<div class="object" id="object_four"></div>
+<div class="object" id="object_three"></div>
+<div class="object" id="object_two"></div>
+<div class="object" id="object_one"></div>
+
+</div>
+</div><?php }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-06 05:16:20
+/* Smarty version 3.1.30, created on 2017-07-06 13:45:24
   from "D:\xampp\htdocs\redwine\tpl\register.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595dab84be0831_60621349',
+  'unifunc' => 'content_595e22d4747685_25730582',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'df667d1ac4d7c08b6c40bf5a5a6746e31e9dadd7' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\register.html',
-      1 => 1499306340,
+      1 => 1499341521,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_595dab84be0831_60621349 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595e22d4747685_25730582 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@ function content_595dab84be0831_60621349 (Smarty_Internal_Template $_smarty_tpl)
 ";
     var resultUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
 ";
-    var verification="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verification'),$_smarty_tpl);?>
+    var verification="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verificationIndex'),$_smarty_tpl);?>
 ";
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
