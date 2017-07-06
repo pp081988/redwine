@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-06 04:56:39
-  from "D:\xampp\htdocs\redwine\tpl\result.html" */
+/* Smarty version 3.1.30, created on 2017-07-06 08:45:31
+  from "D:\xampp\htdocs\redwine\tpl\cp.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595da6e7d1aca2_03754748',
+  'unifunc' => 'content_595ddc8bed8185_43592619',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '53a29023841988812bcc61097642b19264dc1858' => 
+    '0720a545c002711a7aab6443513b019298df17c0' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\result.html',
-      1 => 1499306346,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\cp.html',
+      1 => 1499322822,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_595da6e7d1aca2_03754748 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595ddc8bed8185_43592619 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +38,9 @@ function content_595da6e7d1aca2_03754748 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
  src="js/jquery.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+  <!-- <?php echo '<script'; ?>
  src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
->
+> -->
   <?php echo '<script'; ?>
  src="js/camera.js"><?php echo '</script'; ?>
 >
@@ -55,11 +55,20 @@ function content_595da6e7d1aca2_03754748 (Smarty_Internal_Template $_smarty_tpl)
  src="js/wow/wow.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
+ src="js/login.js"><?php echo '</script'; ?>
 >
+  <?php echo '<script'; ?>
+>
+    var cpUrl = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'cp'),$_smarty_tpl);?>
+";
+    var resultUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
+";
+    var verification="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verificationIndex'),$_smarty_tpl);?>
+";
     $(document).ready(function () {
-      if ($('html').hasClass('desktop')) {
-        new WOW().init();
-      }
+        if ($('html').hasClass('desktop')) {
+            new WOW().init();
+        }
     });
   <?php echo '</script'; ?>
 >
@@ -102,28 +111,32 @@ function content_595da6e7d1aca2_03754748 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-
-
   <!--========================================================
                             CONTENT
   =========================================================-->  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員檔案</h2>
+              <h2></h2>
               </div>
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
+<div class="login cp  wow fadeInUp"> 
+      <h2><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h2>
+     
+      <!-- <li class="f18">主題描述及內文：</li>  -->
+         <?php echo $_smarty_tpl->tpl_vars['account']->value;?>
 
-      <li class="black1 pdt0"><?php echo $_smarty_tpl->tpl_vars['content']->value;?>
-</li>
-
+        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話"></li>
+  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em></li>
  </div>
-   <div class="loginnext wow fadeInDown">
-     <h2><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'loginIndex'),$_smarty_tpl);?>
-"><em class="rt btback">確定</em></a></h2>
+   <div class="loginnext loginAction wow fadeInDown">
+   <span>請輸入驗證碼：</span><input type="text" name="" class="verify"><iframe class="verifyImg" name="verifyIframe" src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
+"></iframe><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
+" target="verifyIframe" id="verifyImgRefresh"></a>
+     <h2 style="float: right;"><em class="rt btback cpBut">確認</em></h2>
   
  
    </div>

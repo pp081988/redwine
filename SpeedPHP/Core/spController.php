@@ -44,16 +44,41 @@ class spController {
 			spAddViewFunction('spUrl', array( 'spView', '__template_spUrl'));
 		}
 
-		$this->index = spUrl("main","index");
-		$this->activicity = spUrl("main","activicity");
-		$this->forum = spUrl("main","forum");
-		// $this->video = APP_PATH."/index.php?c=main&a=video";
-		$this->video = spUrl("main","video");
-		$this->tellyou = spUrl("main","tellyou");
-		$this->introduction = spUrl("main","introduction");
+		// $this->index = spUrl("main","index");
+		// $this->activicity = spUrl("main","activicity");
+		// $this->forum = spUrl("main","forum");
+		// // $this->video = APP_PATH."/index.php?c=main&a=video";
+		// $this->video = spUrl("main","video");
+		// $this->tellyou = spUrl("main","tellyou");
+		// $this->introduction = spUrl("main","introduction");
 		$this->loginInfo = '<ul class="socials1"><li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="'.spUrl('login','loginIndex').'"><img src="images/login.png" alt=""/></a></li></ul>';
 		if(isset($_SESSION['username'])){
-			$this->loginInfo = '<div class="userandlogout">'.$_SESSION['username'].' | <a href="'.spUrl("login","logout").'">登出</a></div>';
+			$this->loginInfo = '<div class="userandlogout"><span class="userName">'.$_SESSION['username'].'</span> | <a href="'.spUrl("login","logout").'">登出</a>
+				<div class="userPanel">
+            	<ul>
+            	<li><a href="'.spUrl("login","cpIndex").'">修改密碼</a></li>
+            	</ul>
+        		</div>
+			</div>
+			<script>
+			$(".userName").bind("click",function(){
+				$(".userPanel").css({"display":"block"});
+				setTimeout(function(){
+                	$(".userPanel").css({"opacity":"1","top":"25px"});
+                },100)
+			})
+			$("body").click(function(){
+                $(".userPanel").css({"opacity":"0","top":"20px"});
+                setTimeout(function(){
+                	$(".userPanel").css({"display":"none"});
+                },300)
+            })
+
+            $(".userPanel,.userName").on("click", function(e){
+                e.stopPropagation();
+            });
+			</script>
+			';
 		}
 	}
 

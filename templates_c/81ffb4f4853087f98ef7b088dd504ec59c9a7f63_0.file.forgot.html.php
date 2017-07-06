@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-05 09:52:02
+/* Smarty version 3.1.30, created on 2017-07-06 05:12:08
   from "D:\xampp\htdocs\redwine\tpl\forgot.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595c9aa2e03ec3_56392543',
+  'unifunc' => 'content_595daa884ce334_31806556',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '81ffb4f4853087f98ef7b088dd504ec59c9a7f63' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forgot.html',
-      1 => 1499241025,
+      1 => 1499310726,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:./header.html' => 1,
   ),
 ),false)) {
-function content_595c9aa2e03ec3_56392543 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595daa884ce334_31806556 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,48 +106,8 @@ function content_595c9aa2e03ec3_56392543 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
-    <div class="container">
-      <div class="row">
-        <div class="grid_12  wpr">
-          <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
-"><img src="images/logo.png" width="146" height="21"></a>
-         <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
-                   <div class="wowdrop">
-            <a href="#">中文</a>
-            <a href="#">英文</a>           
-          </div>
-         </em>
-          </h1>
-          <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-            <ul class="sf-menu">             
-              <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
-">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>
-              </li>
-                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
-">吹水園地</a></li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
-">影院</a>
-                
-              </li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
-">好介紹</a></li>
-               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
-">講你知</a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </nav>
-          
-          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
-
-                   
-        </div>
-      </div>
-    </div>
-  </header>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 
 
@@ -170,7 +131,10 @@ function content_595c9aa2e03ec3_56392543 (Smarty_Internal_Template $_smarty_tpl)
   <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em></li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback forgotBut">確認</em></h2>
+   <span>請輸入驗證碼：</span><input type="text" name="" class="verify"><iframe class="verifyImg" name="verifyIframe" src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
+"></iframe><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
+" target="verifyIframe" id="verifyImgRefresh"></a>
+     <h2 style="float: right;"><em class="rt btback forgotBut">確認</em></h2>
   
  
    </div>

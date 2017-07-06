@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-06 09:39:44
+  from "D:\xampp\htdocs\redwine\tpl\404.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_595de940db7410_76213395',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'bb47adca914da7683aa3e868b803d0b3bd63af02' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\404.html',
+      1 => 1499326509,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./header.html' => 1,
+  ),
+),false)) {
+function content_595de940db7410_76213395 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +35,30 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <!-- <script src="js/jquery-migrate-1.2.1.js"></script> -->
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <!-- <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+> -->
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script src="js/login.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/login.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
@@ -27,14 +67,19 @@
             
     });
 
-    var url = "<{spUrl c='login' a='login'}>";
-    var home = "<{spUrl c='main' a='index'}>";
+    var url = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'login'),$_smarty_tpl);?>
+";
+    var home = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'index'),$_smarty_tpl);?>
+";
 
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
   <style>
   .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
@@ -63,7 +108,9 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-<{include file="./header.html"}>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
@@ -73,21 +120,15 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員登入</h2>
               </div>
        
       </div>      
     </div>
 <div class="login  wow fadeInUp"> 
-      <h2>請輸入帳戶及密碼 : </h2>
-     
-      <li class="f18">主題描述及內文：</li> 
-         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="password" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=registerIndex}>">註冊</a>  |  <a href="<{spUrl c=login a=cpIndex}>">忘記密碼</a></em></li>
+      <h2>404沒有找到頁面 :(</h2>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback logonBut">登錄</em></h2>
+     
   
  
    </div>
@@ -117,6 +158,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

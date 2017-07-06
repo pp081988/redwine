@@ -19,17 +19,14 @@
   <script src="js/wow/wow.js"></script>
   <script src="js/login.js"></script>
   <script>
+    var forgotUrl = "<{spUrl c=login a=forgot}>";
+    var resultUrl="<{spUrl c=login a=resultIndex}>";
+    var verification="<{spUrl c=login a=verification}>";
     $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
             new WOW().init();
         }
-
-            
     });
-
-    var url = "<{spUrl c='login' a='login'}>";
-    var home = "<{spUrl c='main' a='index'}>";
-
   </script>
   <!--<![endif]-->
   
@@ -66,28 +63,26 @@
 <{include file="./header.html"}>
 
 
-
   <!--========================================================
                             CONTENT
   =========================================================-->  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>會員登入</h2>
+              <h2>關於我們</h2>
               </div>
        
       </div>      
     </div>
-<div class="login  wow fadeInUp"> 
-      <h2>請輸入帳戶及密碼 : </h2>
+<div class="login forgot  wow fadeInUp"> 
+      <h2>RedWine </h2>
      
-      <li class="f18">主題描述及內文：</li> 
-         <li class="pdt0"><input name="" type="text" class="usertext username" placeholder="帳戶號"></li>
-  <li  class="pdt0"><input name="" type="password" class="usertext password" placeholder="密碼"></li>
-  <li class="pd0"><em class="red1">帳戶 / 密碼輸入錯誤 !</em><em class="rt"><a href="<{spUrl c=login a=registerIndex}>">註冊</a>  |  <a href="<{spUrl c=login a=cpIndex}>">忘記密碼</a></em></li>
+      <!-- <li class="f18">主題描述及內文：</li>  -->
+         <li class="pdt0">聯繫電話：12345678</li>
+        <li class="pdt0">地址：china</li>
  </div>
    <div class="loginnext loginAction wow fadeInDown">
-     <h2><em class="rt btback logonBut">登錄</em></h2>
+     <!-- <h2><em class="rt btback forgotBut">確認</em></h2> -->
   
  
    </div>

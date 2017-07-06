@@ -78,9 +78,9 @@ $(function(){
 			success:function(data){
 				if(data == "e1"){alert("註冊失敗");return false;}
 				if(data == "e2"){alert("驗證碼錯誤");return false;}
-				console.log(data);
+				//console.log(data);
 				if(data == "verification"){window.location.href=verification;}
-				//window.location.href=resultUrl;
+				if(data == "ok"){window.location.href=resultUrl;}
 			}
 		})
 	});
@@ -198,12 +198,16 @@ $(function(){
 	}
 
 
-	$(".forgotBut").bind("click",function(){
-		var username = $.trim($(".forgot").find(".username").val());
-		var emailOrPhone = $.trim($(".forgot").find(".emailOrPhone").val());
+	$(".cpBut").bind("click",function(){
+		var verify = $.trim($(".verify").val());
+		var username = $.trim($(".cp").find(".username").val());
+		var emailOrPhone = $.trim($(".cp").find(".emailOrPhone").val());
 		var phone = "";
 		var email = "";
-		if(username == ""){tips("賬戶號不能為空");return false;}
+		if(username){
+			if(username == ""){tips("賬戶號不能為空");return false;}
+		}
+		
 		if(emailOrPhone == ""){tips("電郵或號碼不能為空");return false;}
 		var emailReg = /\w+[@]{1}\w+[.]\w+/;
    		var phoneReg = /^\d{8}$/;
@@ -219,31 +223,36 @@ $(function(){
    			email = emailOrPhone;
    		}
    		$.ajax({
-   			url:forgotUrl,
+   			url:cpUrl,
    			type:"post",
-   			data:{username:username,phone:phone,email:email},
+   			data:{username:username,phone:phone,email:email,verify:verify},
    			success:function(data){
    				if(data == "error"){
    					tips("賬戶號或電郵/電話錯誤");
    					return false;
    				}
+   				if(data == "e1"){
+   					tips("驗證碼不正確");
+   					return false;
+   				}
    				if(data == "verification"){
    					window.location.href=verification;
+   					return false;
    				}
    				//console.log(data);
-   				window.location.href=resultUrl;
    			}
    		})
 	})
 
 	$(".changePasswordBut").bind("click",function(){
-		var oldPw = $.trim($(".oldpw").val());
+		// var oldPw = $.trim($(".oldpw").val());
 		var newPw = $.trim($(".newpw").val());
 		var repPw = $.trim($(".reppw").val());
+		var verify = $.trim($(".verify").val());
 		switch(""){
-			case oldPw:
-			tips("舊密碼不能為空");return false;
-			break;
+			// case oldPw:
+			// tips("舊密碼不能為空");return false;
+			// break;
 			case newPw:
 			tips("新密碼不能為空");return false;
 			break;
@@ -260,11 +269,15 @@ $(function(){
 		$.ajax({
 			url:changePasswrdUrl,
 			type:"post",
-			data:{oldPw:oldPw,newPw:newPw},
+			data:{newPw:newPw,verify:verify},
 			success:function(data){
 				if(data != "ok"){
 					if(data == "error"){
 						tips("密碼不能正確");
+						return false;
+					}
+					if(data == "e1"){
+						tips("驗證碼不正確");
 						return false;
 					}
 					console.log(data);
@@ -272,5 +285,29 @@ $(function(){
 				window.location.href=resultUrl;	
 			}
 		})
-	})
+	});
+
+	$(".verificationBut").bind("click",function(){
+		var verification_key = $.trim($(".verification_key").val());
+		if(verification_key == ""){tips("驗證碼不能為空");return false;}
+		$.ajax({
+			url:verificationUrl,
+			type:"post",
+			data:{verification_key:verification_key},
+			success:function(data){
+				if(data != "ok"){
+					if(data == "error"){
+						tips("密碼不能正確");
+						return false;
+					}
+					if(data == "e1"){
+						tips("驗證碼不正確");
+						return false;
+					}
+					console.log(data);
+				}
+				window.location.href=changePasswordUrl;	
+			}
+		})
+	});
 })

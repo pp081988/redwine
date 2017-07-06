@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-05 11:07:52
+/* Smarty version 3.1.30, created on 2017-07-06 04:05:20
   from "D:\xampp\htdocs\redwine\tpl\activicity.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595cac688403c7_26015825',
+  'unifunc' => 'content_595d9ae03bfb23_85681608',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af61620335acd91c80b6e5af88bfd81742e205ce' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\activicity.html',
-      1 => 1499245491,
+      1 => 1499306289,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:./header.html' => 1,
   ),
 ),false)) {
-function content_595cac688403c7_26015825 (Smarty_Internal_Template $_smarty_tpl) {
+function content_595d9ae03bfb23_85681608 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,48 +77,9 @@ function content_595cac688403c7_26015825 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
-    <div class="container">
-      <div class="row">
-        <div class="grid_12  wpr">
-          <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="<?php echo $_smarty_tpl->tpl_vars['index']->value;?>
-"><img src="images/logo.png" width="146" height="21"></a>
-         <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
-                   <div class="wowdrop">
-            <a href="#">中文</a>
-            <a href="#">英文</a>           
-          </div>
-         </em>
-          </h1>
-          <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-            <ul class="sf-menu">             
-              <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['activicity']->value;?>
-">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>
-              </li>
-                <li><a href="<?php echo $_smarty_tpl->tpl_vars['forum']->value;?>
-">吹水園地</a></li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['video']->value;?>
-">影院</a>
-                
-              </li>
-              <li><a href="<?php echo $_smarty_tpl->tpl_vars['introduction']->value;?>
-">好介紹</a></li>
-               <li><a href="<?php echo $_smarty_tpl->tpl_vars['tellyou']->value;?>
-">講你知</a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </nav>
-          
-          <?php echo $_smarty_tpl->tpl_vars['loginInfo']->value;?>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
-                   
-        </div>
-      </div>
-    </div>
-  </header>
 
 
 

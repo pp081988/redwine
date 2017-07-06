@@ -18,19 +18,19 @@ $spConfig = array(
                 array("spUrlRewrite", "getReWrite"),  // 对spUrl进行挂靠，让spUrl可以进行Url_ReWrite地址的生成
             ),
     ),
-    //  'ext' => array(
-    //     'spUrlRewrite' => array(
-    //         'suffix' => '.html', 
-    //         'sep' => '/', 
-    //         'map' => array( 
-    //             'search' => 'main@search',
-    //              '@' => 'main@no'   
-    //         ),
-    //         'args' => array(
-    //              'search' => array('q','page'), 
-    //         ),
-    //     ),
-    // ),
+     'ext' => array(
+        'spUrlRewrite' => array(
+            'suffix' => '.html', 
+            'sep' => '_', 
+            'map' => array( 
+                'search' => 'main@search',
+                 '@' => 'main@no'   
+            ),
+            'args' => array(
+                 'search' => array('q','page'), 
+            ),
+        ),
+    ),
     'view' => array(
         'enabled' => TRUE, // 开启Smarty
         'config' =>array(

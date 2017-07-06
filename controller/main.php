@@ -36,4 +36,8 @@ class main extends spController
 		$email->send();
 	}
 
+	function aboutus(){
+		$this->display("aboutus.html");
+	}
+
 }	
