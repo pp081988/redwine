@@ -204,7 +204,7 @@ class login extends spController{
 				echo "ok";
 				$activate_email = spClass("email");
 				$title = "激活賬戶";
-				$content = "<h1>你好,".$username."</h1><br><br>你於".date("Y-m-d H:i:s")."註冊Redwine會員賬戶，請打開以下地址或將地址複製到瀏覽器中打開，激活你的賬戶：<br>http://localhost/redwine/index.php?c=login&a=activate&id=$activate_key";
+				$content = "<h1>你好,".$username."</h1><br><br>你於".date("Y-m-d H:i:s")."註冊Redwine會員賬戶，請打開以下地址或將地址複製到瀏覽器中打開，激活你的賬戶：<br>http://zxcv.gz01.bdysite.com/index.php?c=login&a=activate&id=$activate_key";
 				$activate_email->send($email,$title,$content);
 			}
 			if($phone != ""){
