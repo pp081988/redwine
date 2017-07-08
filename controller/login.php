@@ -340,7 +340,7 @@ class login extends spController{
 					//
 					
 				}
-
+				$_SESSION['cp_process'] = "processing";
 				echo "verification";
 
 				//$_SESSION['content'] = "重置密碼驗證已傳送至你的聯繫方式，請查看。";
