@@ -1,6 +1,5 @@
 <?php
 require(APP_PATH."/controller/verify.php");
-require(APP_PATH."/model/user.php");
 require(APP_PATH."/model/email.php");
 
 class login extends spController{

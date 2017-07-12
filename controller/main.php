@@ -39,5 +39,4 @@ class main extends spController
 	function aboutus(){
 		$this->display("aboutus.html");
 	}
-
 }	

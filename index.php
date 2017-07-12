@@ -3,12 +3,19 @@ define("SP_PATH",dirname(__FILE__)."/SpeedPHP");
 define("APP_PATH",dirname(__FILE__));
 //ini_set("display_errors", 0);
 $spConfig = array(
+    // 'db' => array( // 数据库设置
+    //     'driver' => 'mysqli',
+    //     'host'     => 'sqld-gz.bcehost.com',  // 数据库地址，一般都可以是localhost
+    //     'login'    => 'd8cc1e2311e04d0981c52e55069f3369', // 数据库用户名
+    //     'password' => '2353a3ef0ef84e2a860d54568bc49ed6', // 数据库密码
+    //     'database' => 'KIYRfNUbThSCxsCaYPzL', // 数据库的库名称
+    // ),
     'db' => array( // 数据库设置
         'driver' => 'mysqli',
-        'host'     => 'sqld-gz.bcehost.com',  // 数据库地址，一般都可以是localhost
-        'login'    => 'd8cc1e2311e04d0981c52e55069f3369', // 数据库用户名
-        'password' => '2353a3ef0ef84e2a860d54568bc49ed6', // 数据库密码
-        'database' => 'KIYRfNUbThSCxsCaYPzL', // 数据库的库名称
+        'host'     => 'localhost',  // 数据库地址，一般都可以是localhost
+        'login'    => 'root', // 数据库用户名
+        'password' => 'dglt#?19', // 数据库密码
+        'database' => 'redwine', // 数据库的库名称
     ),
     // 'launch' => array( // 加入挂靠点，以便开始使用Url_ReWrite的功能
     //     'router_prefilter' => array( 
@@ -52,4 +59,5 @@ $spConfig = array(
 require(SP_PATH."/SpeedPHP.php");
 import(APP_PATH."/model/filter.php");
 import(APP_PATH."/model/random.php");
+import(APP_PATH."/model/user.php");
 spRun();
