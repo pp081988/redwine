@@ -34,6 +34,7 @@ class login extends spController{
 		if($gb->findAll($conditions)){
 			echo "ok";
 			$_SESSION['username'] = $username;
+			$gb->incrField(Array("username"=>$username), 'logins');
 		}else{
 			echo "deny";
 		}

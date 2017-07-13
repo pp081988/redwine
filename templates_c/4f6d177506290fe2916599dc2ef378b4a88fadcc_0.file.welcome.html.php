@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-10 09:52:55
+/* Smarty version 3.1.30, created on 2017-07-13 17:03:23
   from "D:\xampp\htdocs\redwine\tpl\back\welcome.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59633257bebf94_35018959',
+  'unifunc' => 'content_5967375b7427f1_47990265',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4f6d177506290fe2916599dc2ef378b4a88fadcc' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\welcome.html',
-      1 => 1499673173,
+      1 => 1499912555,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59633257bebf94_35018959 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5967375b7427f1_47990265 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -56,12 +56,17 @@ function content_59633257bebf94_35018959 (Smarty_Internal_Template $_smarty_tpl)
 <body>
 <div class="page-container">
 	<p class="f-20 text-success">Redwine後台系統</p>
-	<p>登录次数：18 </p>
-	<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+	<p>登錄次數：<?php echo $_smarty_tpl->tpl_vars['logins']->value;?>
+ </p>
+	<p>本次登錄IP：<?php echo $_smarty_tpl->tpl_vars['now_login_ip']->value;?>
+</p>
+	<p>上次登錄IP：<?php echo $_smarty_tpl->tpl_vars['last_login_ip']->value;?>
+  上次登錄時間：<?php echo $_smarty_tpl->tpl_vars['last_login_time']->value;?>
+</p>
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
-				<th colspan="7" scope="col">信息统计</th>
+				<th colspan="7" scope="col">信息統計</th>
 			</tr>
 			<tr class="text-c">
 				<th>统计</th>

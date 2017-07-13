@@ -1,12 +1,18 @@
 <?php
 
-/**
-* 
-*/
+require(APP_PATH."/model/backUnloginCheck.php");
+
 class back extends spController
 {
-	function loginIndex(){
 
+	protected $unloginCheck;
+
+	function __construct(){
+		parent::__construct();
+		$this->unloginCheck = spClass("backUnloginCheck");
+	}
+
+	function loginIndex(){
 		$this->display("back/login.html");
 	}
 
@@ -14,17 +20,9 @@ class back extends spController
 		$this->error($str,spUrl("back","loginIndex"));
 	}
 
-	private function loginVerify(){
-		if(!$_SESSION['username']){
-			$this->display("404.html");
-			exit;
-		}
-	}
-
 	function login(){
+		if(strtoupper(trim($_POST['verify'])) == ""){$this->returnError("");exit;}
 		if(strtoupper(trim($_POST['verify'])) == $_SESSION['verify_code']){
-
-			
 
 			/********验证为空********/
 			$dirtyUsername = trim($_POST['username']);
@@ -33,13 +31,11 @@ class back extends spController
 			$dirtyPassword = trim($_POST['password']);
 			if($dirtyPassword == ""){$this->returnError("請輸入密碼");exit;}
 			if(strlen($dirtyPassword) < 8){$this->returnError("密碼不合法");exit;}
-			/********验证为空********/
 
 			/********非法字符串过滤********/
 			$filter = spClass("filter");
 			$username = $filter->filter($dirtyUsername);
 			$password = $filter->filter($dirtyPassword);
-			/********非法字符串过滤********/
 
 			/********验证账户密码********/
 			$gb = new user("admin_users","id");
@@ -50,10 +46,17 @@ class back extends spController
 			if(!$gb->find(Array('username'=>$username,"password"=>md5($password.$result['salt'])))){
 				$this->returnError("賬戶名或密碼錯誤");exit;
 			}
-			/********验证账户密码********/
-			$_SESSION['username'] = $result['username'];
 
+			/********验证通过********/
+			$_SESSION['last_login_ip'] = $result['last_login_ip'];
+			$_SESSION['last_login_time'] = $result['last_login_time'];
+			$_SESSION['admin_username'] = $result['username'];
+			$conditions = Array("username"=>$result['username']);
+			$gb->incrField($conditions, 'logins');		//-登录次数+1
+			$gb->update($conditions,Array("last_login_ip"=>$_SERVER['REMOTE_ADDR'],"last_login_time"=>date("Y-m-d H:i:s")));	//记录最后一次登录IP和时间
+			$this->jump(spUrl("back","backIndex"));
 
+			/******验证码错误******/
 		}else{
 			$this->returnError("驗證碼錯誤");
 			exit;
@@ -61,10 +64,20 @@ class back extends spController
 	}
 
 	function backIndex(){
+		$this->unloginCheck->check();
+		$this->username = $_SESSION['admin_username'];
 		$this->display("back/index.html");
 	}
 
+
+
 	function welcome(){
+		$gb = new user("admin_users","id");
+		$result = $gb->find(Array("username"=>$_SESSION['admin_username']));
+		$this->logins = $result['logins'];
+		$this->now_login_ip = $_SERVER['REMOTE_ADDR'];
+		$this->last_login_ip = $_SESSION['last_login_ip'];
+		$this->last_login_time = $_SESSION['last_login_time'];		
 		$this->serverIp = GetHostByName($_SERVER['SERVER_NAME']);
 		$this->serverSoftware = $_SERVER['SERVER_SOFTWARE'];
 		$this->domainName = $_SERVER["HTTP_HOST"];
@@ -77,4 +90,14 @@ class back extends spController
 		$this->phpPath = DEFAULT_INCLUDE_PATH;
 		$this->display("back/welcome.html");
 	}
+
+	public function logout()
+    {
+    	unset($_SESSION['admin_username']);
+    	unset($_SESSION['contact']);
+    	unset($_SESSION['last_login_ip']);
+    	unset($_SESSION['last_login_time']);
+    	//$this->display("index.html");
+    	$this->jump(spUrl('back', 'loginIndex'));
+    }
 }
