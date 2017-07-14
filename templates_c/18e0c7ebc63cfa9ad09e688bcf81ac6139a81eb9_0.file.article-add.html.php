@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 09:58:55
-  from "D:\xampp\htdocs\redwine\tpl\back\activicityAdd.html" */
+/* Smarty version 3.1.30, created on 2017-07-14 13:40:40
+  from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5968255fa3e447_55047371',
+  'unifunc' => 'content_5968595801f118_62065722',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b375503f67e4dff531020a3966fe63b65ad6a61a' => 
+    '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\activicityAdd.html',
-      1 => 1499997534,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
+      1 => 1500010827,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5968595801f118_62065722 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -62,7 +62,8 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="you.php" method="post" enctype="multipart/form-data">
+	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
+" method="post" enctype="multipart/form-data">
 		<input class="theme" type="text" name="theme" value="activicity">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
@@ -77,24 +78,19 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>欄目分類：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select name="articlecolumn" class="select">
-					<option value="0">全部栏目</option>
-					<option value="1">新闻资讯</option>
-					<option value="11">├行业动态</option>
-					<option value="12">├行业资讯</option>
-					<option value="13">├行业新闻</option>
+					<option value="0">達人搞乜鬼</option>
 				</select>
 				</span> </div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章类型：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章類型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select name="articletype" class="select">
-					<option value="0">全部类型</option>
-					<option value="1">帮助说明</option>
-					<option value="2">新闻资讯</option>
+					<option value="0">產品資訊</option>
+					<option value="1">幫助說明</option>
 				</select>
 				</span> </div>
 		</div>
@@ -113,7 +109,7 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="abstract" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+				<textarea name="abstract" cols="" rows="" class="textarea"  placeholder="" datatype="*10-100" dragonfly="true" nullmsg="不能為空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
@@ -127,7 +123,7 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 			<label class="form-label col-xs-4 col-sm-2">允許評論：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="check-box">
-					<input type="checkbox" id="allowcomments" name="allowcomments" value="">
+					<input type="checkbox" id="allowcomments" name="allowcomments" value="1">
 					<label for="checkbox-pinglun">&nbsp;</label>
 				</div>
 			</div>
@@ -135,8 +131,7 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">縮略圖：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<form class="form form-horizontal" action="" method="post" enctype="multipart/form-data">
-					<div class="img-box full">
+				<div class="img-box full">
 						<section class=" img-section">
 							<div class="z_photo upimg-div clear">
 									 <section class="z_file fl">
@@ -146,14 +141,13 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 							 </div>
 						 </section>
 						 <!-- <input name="" type="submit" class="btn btn-success radius size-L" value="上传"> -->
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">確定要刪除嗎？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">確定</span><span class="wsdel-no">取消</span></p>
 					</div>
-				</form>
-					<aside class="mask works-mask">
-						<div class="mask-content">
-							<p class="del-p ">確定要刪除嗎？</p>
-							<p class="check-p"><span class="del-com wsdel-ok">確定</span><span class="wsdel-no">取消</span></p>
-						</div>
-					</aside>
+				</aside>
 			</div>
 		</div>
 		<div class="row cl">
@@ -161,12 +155,13 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="formControls col-xs-8 col-sm-9"> 
 				<?php echo '<script'; ?>
  id="editor" type="text/plain" style="width:100%;height:400px;"><?php echo '</script'; ?>
-> 
+>
+				<textarea name="editorCont" id="editorCont"></textarea>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
+				<button class="btn btn-primary radius submit" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
 				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -226,56 +221,56 @@ $(function(){
 	});
 	
 	//表单验证
-	$("#form-article-add").validate({
-		rules:{
-			articletitle:{
-				required:true,
-			},
-			articletitle2:{
-				required:true,
-			},
-			articlecolumn:{
-				required:true,
-			},
-			articletype:{
-				required:true,
-			},
-			articlesort:{
-				required:true,
-			},
-			keywords:{
-				required:true,
-			},
-			abstract:{
-				required:true,
-			},
-			author:{
-				required:true,
-			},
-			sources:{
-				required:true,
-			},
-			allowcomments:{
-				required:true,
-			},
-			commentdatemin:{
-				required:false,
-			},
-			commentdatemax:{
-				required:false,
-			},
+	// $("#form-article-add").validate({
+	// 	rules:{
+	// 		articletitle:{
+	// 			required:true,
+	// 		},
+	// 		articletitle2:{
+	// 			required:true,
+	// 		},
+	// 		articlecolumn:{
+	// 			required:true,
+	// 		},
+	// 		articletype:{
+	// 			required:true,
+	// 		},
+	// 		articlesort:{
+	// 			required:true,
+	// 		},
+	// 		keywords:{
+	// 			required:true,
+	// 		},
+	// 		abstract:{
+	// 			required:true,
+	// 		},
+	// 		author:{
+	// 			required:true,
+	// 		},
+	// 		sources:{
+	// 			required:true,
+	// 		},
+	// 		allowcomments:{
+	// 			required:true,
+	// 		},
+	// 		commentdatemin:{
+	// 			required:false,
+	// 		},
+	// 		commentdatemax:{
+	// 			required:false,
+	// 		},
 
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			//$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
+	// 	},
+	// 	onkeyup:false,
+	// 	focusCleanup:true,
+	// 	success:"valid",
+	// 	submitHandler:function(form){
+	// 		//$(form).ajaxSubmit();
+	// 		var index = parent.layer.getFrameIndex(window.name);
+	// 		//parent.$('.btn-refresh').click();
+	// 		parent.layer.close(index);
+	// 	}
+	// });
 	
 	$list = $("#fileList"),
 	$btn = $("#btn-star"),
@@ -378,6 +373,11 @@ $(function(){
 	
 	var ue = UE.getEditor('editor');
 	
+	$(".submit").click(function(){
+		var contents = $("#ueditor_0").contents().find("body").html();
+		$("#editorCont").val(contents);
+	})
+
 });
 <?php echo '</script'; ?>
 >

@@ -60,4 +60,6 @@ require(SP_PATH."/SpeedPHP.php");
 import(APP_PATH."/model/filter.php");
 import(APP_PATH."/model/random.php");
 import(APP_PATH."/model/user.php");
+import(APP_PATH."/model/variable.php");
+import(APP_PATH."/model/closeIframe.php");
 spRun();

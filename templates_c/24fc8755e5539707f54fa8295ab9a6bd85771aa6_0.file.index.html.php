@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 17:03:23
+/* Smarty version 3.1.30, created on 2017-07-14 10:57:45
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5967375b5043e3_34869767',
+  'unifunc' => 'content_596833293c3bd1_65968594',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1499916866,
+      1 => 1500001020,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967375b5043e3_34869767 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596833293c3bd1_65968594 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -107,8 +107,8 @@ function content_5967375b5043e3_34869767 (Smarty_Internal_Template $_smarty_tpl)
 			<dt><i class="Hui-iconfont">&#xe616;</i> 資訊管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'activicityList'),$_smarty_tpl);?>
-" data-title="達人搞乜鬼" href="javascript:void(0)">達人搞乜鬼</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList'),$_smarty_tpl);?>
+" data-title="資訊列表" href="javascript:void(0)">資訊列表</a></li>
 			</ul>
 		</dd>
 	</dl>

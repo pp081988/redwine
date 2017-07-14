@@ -1,3 +1,11 @@
 @charset "utf-8";
 /* 你自己的样式 */
 
+.theme{
+	display: none;
+}
+
+#editorCont{
+	display: none;
+}
+

@@ -21,6 +21,7 @@
 	top: 0px;
 	left: 0px;
 	z-index: 100;
+	cursor: pointer;
 }
 .z_photo .up-section{
 	position: relative;
@@ -61,7 +62,7 @@
 }
 .loading{
     border: 1px solid #D1D1D1;
-	background:url(images/loading.gif) no-repeat center;
+	background:url("images/loading.gif") no-repeat center;
 }
 .up-opcity{
 	opacity: 0;
@@ -126,6 +127,7 @@
 	text-align: center;
 	color:#d4361d ;
 	font-size: 18px;
+	cursor: pointer;
 }
 .check-p .del-com{
 	border-right: 1px solid #D1D1D1;

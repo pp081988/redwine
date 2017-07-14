@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 09:58:55
-  from "D:\xampp\htdocs\redwine\tpl\back\activicityAdd.html" */
+/* Smarty version 3.1.30, created on 2017-07-14 10:19:54
+  from "D:\xampp\htdocs\redwine\tpl\back\themeAdd.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5968255fa3e447_55047371',
+  'unifunc' => 'content_59682a4a87de58_35419541',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'b375503f67e4dff531020a3966fe63b65ad6a61a' => 
+    'c791d4ce345eee388aaeb8a9924bcc8ef73eda14' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\activicityAdd.html',
-      1 => 1499997534,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\themeAdd.html',
+      1 => 1499998787,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59682a4a87de58_35419541 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -62,7 +62,8 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="you.php" method="post" enctype="multipart/form-data">
+	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
+" method="post" enctype="multipart/form-data">
 		<input class="theme" type="text" name="theme" value="activicity">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
@@ -135,8 +136,7 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">縮略圖：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<form class="form form-horizontal" action="" method="post" enctype="multipart/form-data">
-					<div class="img-box full">
+				<div class="img-box full">
 						<section class=" img-section">
 							<div class="z_photo upimg-div clear">
 									 <section class="z_file fl">
@@ -146,14 +146,13 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 							 </div>
 						 </section>
 						 <!-- <input name="" type="submit" class="btn btn-success radius size-L" value="上传"> -->
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">確定要刪除嗎？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">確定</span><span class="wsdel-no">取消</span></p>
 					</div>
-				</form>
-					<aside class="mask works-mask">
-						<div class="mask-content">
-							<p class="del-p ">確定要刪除嗎？</p>
-							<p class="check-p"><span class="del-com wsdel-ok">確定</span><span class="wsdel-no">取消</span></p>
-						</div>
-					</aside>
+				</aside>
 			</div>
 		</div>
 		<div class="row cl">
@@ -166,7 +165,7 @@ function content_5968255fa3e447_55047371 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
+				<button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
 				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -226,56 +225,56 @@ $(function(){
 	});
 	
 	//表单验证
-	$("#form-article-add").validate({
-		rules:{
-			articletitle:{
-				required:true,
-			},
-			articletitle2:{
-				required:true,
-			},
-			articlecolumn:{
-				required:true,
-			},
-			articletype:{
-				required:true,
-			},
-			articlesort:{
-				required:true,
-			},
-			keywords:{
-				required:true,
-			},
-			abstract:{
-				required:true,
-			},
-			author:{
-				required:true,
-			},
-			sources:{
-				required:true,
-			},
-			allowcomments:{
-				required:true,
-			},
-			commentdatemin:{
-				required:false,
-			},
-			commentdatemax:{
-				required:false,
-			},
+	// $("#form-article-add").validate({
+	// 	rules:{
+	// 		articletitle:{
+	// 			required:true,
+	// 		},
+	// 		articletitle2:{
+	// 			required:true,
+	// 		},
+	// 		articlecolumn:{
+	// 			required:true,
+	// 		},
+	// 		articletype:{
+	// 			required:true,
+	// 		},
+	// 		articlesort:{
+	// 			required:true,
+	// 		},
+	// 		keywords:{
+	// 			required:true,
+	// 		},
+	// 		abstract:{
+	// 			required:true,
+	// 		},
+	// 		author:{
+	// 			required:true,
+	// 		},
+	// 		sources:{
+	// 			required:true,
+	// 		},
+	// 		allowcomments:{
+	// 			required:true,
+	// 		},
+	// 		commentdatemin:{
+	// 			required:false,
+	// 		},
+	// 		commentdatemax:{
+	// 			required:false,
+	// 		},
 
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			//$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
-	});
+	// 	},
+	// 	onkeyup:false,
+	// 	focusCleanup:true,
+	// 	success:"valid",
+	// 	submitHandler:function(form){
+	// 		//$(form).ajaxSubmit();
+	// 		var index = parent.layer.getFrameIndex(window.name);
+	// 		//parent.$('.btn-refresh').click();
+	// 		parent.layer.close(index);
+	// 	}
+	// });
 	
 	$list = $("#fileList"),
 	$btn = $("#btn-star"),
