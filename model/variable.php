@@ -2,5 +2,5 @@
 
 class variable
 {
-	public $COLUMNS = Array("activicity");
+	public $COLUMNS = Array("activicity","introduction");
 }

@@ -89,14 +89,13 @@
     <div class="wrapper1">
       <div class="container">
         <div class="row">
-         
             <div class="heading1">
               <h2 class="gr pdl20">達人搞乜鬼...</h2>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                <div class="row">
-                <div class="grid_6">
+                <div class="row activicityCont">
+                <!-- <div class="grid_6">
                   <div class="grid_2">
                     <div class="img-wrapper1">
                       <img src="images/cp1.jpg" alt=""/>
@@ -110,7 +109,7 @@
                   </div>
                 </div> 
                 
-                                <div class="grid_6">
+                  <div class="grid_6">
                   <div class="grid_2">
                     <div class="img-wrapper1">
                       <img src="images/cp1.jpg" alt=""/>
@@ -122,7 +121,29 @@
                   <p>- 教你如何尋找自己喜歡的葡萄酒</p>
                   <p class="mt20"> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> <a class="btmore rt" href="#">詳情</a></p>
                   </div>
-                </div> 
+                </div>  -->
+                <script>
+                    $(function(){
+                        var data = <{$activicityData}>;
+                        var str;
+                        var column = "activicity";
+                        for(i=0;i<data.length;i++){
+                            str = '<div class="grid_6">\
+                                        <div class="grid_2">\
+                                            <div class="img-wrapper1">\
+                                                <img src="'+data[i]['thumbnails']+'" alt=""/>\
+                                            </div>\
+                                        </div>\
+                                        <div class="grid_4 w100">\
+                                            <p class="fn18">'+data[i]['article_title']+'</p>\
+                                            <p>'+data[i]['article_title2']+'</p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                        </div>\
+                                    </div>';
+                            $(".activicityCont").append(str);
+                        }
+                    })
+                </script>
                  
                 </div>
               </div>
@@ -139,8 +160,8 @@
                 </div>
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <div class="row">
-                    <div class="grid_6 mb20">
+                    <div class="row introductionCont">
+                    <!-- <div class="grid_6 mb20">
                       <div class="grid_2">
                         <div class="img-wrapper1">
                           <img src="images/cp2.jpg" alt=""/>
@@ -187,8 +208,28 @@
                       <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
                       <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
                       </div>
-                    </div>
-                     
+                    </div> -->
+                     <script>
+                    $(function(){
+                        var data = <{$introductionData}>;
+                        var str;
+                        for(i=0;i<data.length;i++){
+                            str = '<div class="grid_6 mb20">\
+                                        <div class="grid_2">\
+                                            <div class="img-wrapper1">\
+                                                <img src="'+data[i]['thumbnails']+'" alt=""/>\
+                                            </div>\
+                                        </div>\
+                                        <div class="grid_4 w100">\
+                                            <p class="fn18">'+data[i]['article_title']+'</p>\
+                                            <p>'+data[i]['article_title2']+'</p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                        </div>\
+                                    </div>';
+                            $(".introductionCont").append(str);
+                        }
+                    })
+                    </script>
                     </div>
                   </div>
                 </div>   

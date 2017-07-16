@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 17:02:58
+/* Smarty version 3.1.30, created on 2017-07-16 12:51:09
   from "D:\xampp\htdocs\redwine\tpl\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59673742b241a3_49455707',
+  'unifunc' => 'content_596b451d389ea2_40560031',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0545c7e12396f652fbc760d126e132f09b06534d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\index.html',
-      1 => 1499306139,
+      1 => 1500202267,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596b451d389ea2_40560031 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -134,14 +134,13 @@ function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl)
     <div class="wrapper1">
       <div class="container">
         <div class="row">
-         
             <div class="heading1">
               <h2 class="gr pdl20">達人搞乜鬼...</h2>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                <div class="row">
-                <div class="grid_6">
+                <div class="row activicityCont">
+                <!-- <div class="grid_6">
                   <div class="grid_2">
                     <div class="img-wrapper1">
                       <img src="images/cp1.jpg" alt=""/>
@@ -155,7 +154,7 @@ function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl)
                   </div>
                 </div> 
                 
-                                <div class="grid_6">
+                  <div class="grid_6">
                   <div class="grid_2">
                     <div class="img-wrapper1">
                       <img src="images/cp1.jpg" alt=""/>
@@ -167,7 +166,32 @@ function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl)
                   <p>- 教你如何尋找自己喜歡的葡萄酒</p>
                   <p class="mt20"> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> <a class="btmore rt" href="#">詳情</a></p>
                   </div>
-                </div> 
+                </div>  -->
+                <?php echo '<script'; ?>
+>
+                    $(function(){
+                        var data = <?php echo $_smarty_tpl->tpl_vars['activicityData']->value;?>
+;
+                        var str;
+                        var column = "activicity";
+                        for(i=0;i<data.length;i++){
+                            str = '<div class="grid_6">\
+                                        <div class="grid_2">\
+                                            <div class="img-wrapper1">\
+                                                <img src="'+data[i]['thumbnails']+'" alt=""/>\
+                                            </div>\
+                                        </div>\
+                                        <div class="grid_4 w100">\
+                                            <p class="fn18">'+data[i]['article_title']+'</p>\
+                                            <p>'+data[i]['article_title2']+'</p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                        </div>\
+                                    </div>';
+                            $(".activicityCont").append(str);
+                        }
+                    })
+                <?php echo '</script'; ?>
+>
                  
                 </div>
               </div>
@@ -184,8 +208,8 @@ function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <div class="row">
-                    <div class="grid_6 mb20">
+                    <div class="row introductionCont">
+                    <!-- <div class="grid_6 mb20">
                       <div class="grid_2">
                         <div class="img-wrapper1">
                           <img src="images/cp2.jpg" alt=""/>
@@ -232,8 +256,31 @@ function content_59673742b241a3_49455707 (Smarty_Internal_Template $_smarty_tpl)
                       <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
                       <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
                       </div>
-                    </div>
-                     
+                    </div> -->
+                     <?php echo '<script'; ?>
+>
+                    $(function(){
+                        var data = <?php echo $_smarty_tpl->tpl_vars['introductionData']->value;?>
+;
+                        var str;
+                        for(i=0;i<data.length;i++){
+                            str = '<div class="grid_6 mb20">\
+                                        <div class="grid_2">\
+                                            <div class="img-wrapper1">\
+                                                <img src="'+data[i]['thumbnails']+'" alt=""/>\
+                                            </div>\
+                                        </div>\
+                                        <div class="grid_4 w100">\
+                                            <p class="fn18">'+data[i]['article_title']+'</p>\
+                                            <p>'+data[i]['article_title2']+'</p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                        </div>\
+                                    </div>';
+                            $(".introductionCont").append(str);
+                        }
+                    })
+                    <?php echo '</script'; ?>
+>
                     </div>
                   </div>
                 </div>   

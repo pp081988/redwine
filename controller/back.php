@@ -38,7 +38,7 @@ class back extends spController
 			$password = $filter->filter($dirtyPassword);
 
 			/********验证账户密码********/
-			$gb = new user("admin_users","id");
+			$gb = new db("admin_users","id");
 			$result = $gb->find(Array('username'=>$username));
 			if(!$result){
 				$this->returnError("賬戶名或密碼錯誤");exit;
@@ -72,7 +72,7 @@ class back extends spController
 
 
 	function welcome(){
-		$gb = new user("admin_users","id");
+		$gb = new db("admin_users","id");
 		$result = $gb->find(Array("username"=>$_SESSION['admin_username']));
 		$this->logins = $result['logins'];
 		$this->now_login_ip = $_SERVER['REMOTE_ADDR'];

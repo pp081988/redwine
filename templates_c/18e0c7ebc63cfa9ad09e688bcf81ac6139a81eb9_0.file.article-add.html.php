@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 13:40:40
+/* Smarty version 3.1.30, created on 2017-07-15 12:46:27
   from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5968595801f118_62065722',
+  'unifunc' => 'content_5969f283106152_70671623',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
-      1 => 1500010827,
+      1 => 1500115575,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5968595801f118_62065722 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5969f283106152_70671623 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -58,13 +58,17 @@ function content_5968595801f118_62065722 (Smarty_Internal_Template $_smarty_tpl)
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>新增文章 - 資訊管理</title>
+<title>新增文章 - <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
 " method="post" enctype="multipart/form-data">
-		<input class="theme" type="text" name="theme" value="activicity">
+		<h3 style="margin-bottom: 30px;">新增文章 - <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h3>
+		<input class="theme" type="text" name="theme" value="<?php echo $_smarty_tpl->tpl_vars['columnId']->value;?>
+">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -76,14 +80,6 @@ function content_5968595801f118_62065722 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="articletitle2" name="articletitle2">
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>欄目分類：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="articlecolumn" class="select">
-					<option value="0">達人搞乜鬼</option>
-				</select>
-				</span> </div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章類型：</label>

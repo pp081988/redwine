@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name = "format-detection" content = "telephone=no" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/camera.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/user.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <!--[if (gt IE 9)|!(IE)]><!-->
+  <script src="js/jquery.mobile.customized.min.js"></script>
+  <script src="js/wow/wow.js"></script>
+  <script>
+    $(document).ready(function () {
+      if ($('html').hasClass('desktop')) {
+        new WOW().init();
+      }
+    });
+  </script>
+  <!--<![endif]-->
+  
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="big-wrapper">
+  <!--========================================================
+                            HEADER
+  =========================================================-->
+<{include file="./header.html"}>
+
+
+
+
+  <!--========================================================
+                            CONTENT
+  =========================================================-->  <section id="content"> 
+      <div class="wrapper1">
+      <div class="container">
+        <div class="row article">    
+              <h2><{$article_title}><em class="fn15"><{$article_title2}></em></h2>
+              <span>創建時間：<{$create_time}></span><span class="mf20">更新時間：<{$update_time}></span><span class="mf20">作者：<{$author}></span>
+              <div class="mt20"><{$editorCont}></div>
+        </div>
+      </div>      
+    </div>
+
+   <div class="say wow fadeInDown">
+     <h2>2则回应<em class="rt">排序方式：<select>
+       <option>最新</option>
+     </select></em></h2>
+  
+      <li>
+     <table width="100%" border="0">
+  <tr>
+    <td width="60"><img src="images/man.jpg"></td>
+    <td><input name="" type="text" class="btext"></td>
+  </tr>
+</table>
+     </li>
+     <li>
+     <table width="100%" border="0">
+  <tr>
+    <td width="60" valign="top"><img src="images/man.jpg"></td>
+    <td>
+    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
+    <p>繼續Candy...進軍2000年</p>
+    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
+    </td>
+  </tr>
+</table>
+     </li>
+      <li>
+     <table width="100%" border="0">
+  <tr>
+    <td width="60" valign="top"><img src="images/man.jpg"></td>
+    <td>
+    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
+    <p>繼續Candy...進軍2000年</p>
+    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
+    </td>
+  </tr>
+</table>
+     </li>
+     <h3><img src="images/facebook.jpg">Facebook Comments Plugin</h3>
+   </div>
+
+
+  </section>
+
+
+  <!--========================================================
+                            FOOTER
+  =========================================================-->
+  <footer id="footer">
+  <div class="gr gbg">瀏覽人次 :  45507</div>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="grid_12 mt20">
+            <div class="privacy-block wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div class="fl"><a href="#">联系我们</a>  |  <a href="#">免责说明</a></div>
+            <div class="grid_10 tar">Copyright @Redwinemeat.com All Rights Reseved</div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

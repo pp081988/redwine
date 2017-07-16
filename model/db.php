@@ -1,6 +1,6 @@
 <?php
 
-class user extends spModel
+class db extends spModel
 {
 	public $table;
 	public $pk;

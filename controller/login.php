@@ -24,7 +24,7 @@ class login extends spController{
 		$filter = spClass("filter");
 		$username = $filter->filter($dirtyUsername);
 		$password = $filter->filter($dirtyPassword);
-		$gb = new user("site_users","create_time");
+		$gb = new db("site_users","create_time");
 		$salt = $gb->find(Array('username'=>$username));
 		$encryptPassword = md5($password.$salt['salt']);
 		$conditions = [
@@ -59,7 +59,7 @@ class login extends spController{
 		$filter = spClass("filter");//过滤不合法关键字
 
 
-		$gb = new user("site_users","create_time");
+		$gb = new db("site_users","create_time");
 		$conditions = [$obj=>$str];
 		if($obj == "emailOrPhone"){
 			$conditions = "email = '".$str."' OR phone = '".$str."'";
@@ -180,7 +180,7 @@ class login extends spController{
 
 			//echo $username." ".$email." ".$phone." ".$md5Passwd." ".$sex." ".$age." ".$yearsOfDrinking;
 			function write($condition){
-				$gb = new user("site_users","create_time");
+				$gb = new db("site_users","create_time");
 				unset($_SESSION['verify_code']);
 				if(!$gb->create($condition)){
 					echo "e1";
@@ -190,9 +190,9 @@ class login extends spController{
 			
 
 	
-			$activeTable = new user("site_activate","id");
+			$activeTable = new db("site_activate","id");
 			
-			//new user("site_users","create_time");
+			//new db("site_users","create_time");
 
 			if($email != ""){
 				write($condition);
@@ -313,10 +313,10 @@ class login extends spController{
 			}
 			$dirtyContact = $dirtyEmail != "" ? $dirtyEmail : $dirtyPhone;
 			$contact = $filter->filter($dirtyContact);
-			$gb = new user("site_users","create_time");
+			$gb = new db("site_users","create_time");
 			$result = $gb->find("username = '".$username."' AND (email = '".$contact."' OR phone = '".$contact."')");
 			
-			$activeTable = new user("site_forgot","id");
+			$activeTable = new db("site_forgot","id");
 			if($result){
 				$random = new random();
 				$cp_key = strtoupper($random->randStr());
@@ -366,7 +366,7 @@ class login extends spController{
 		}
 		$filter = spClass("filter");
 		$activate_key = $filter->filter($dirty_activate_key);
-		$gb = new user("site_activate","id");
+		$gb = new db("site_activate","id");
 		$result = $gb->find(Array("activate_key"=>$activate_key,"is_vaild"=>0));
 		if($result){
 			$update = $gb->update(Array("username"=>$result['username']),Array("is_vaild"=>1));
@@ -399,7 +399,7 @@ class login extends spController{
 				echo "error";
 			}
 			if($verification_key == $_SESSION['activate_key']){
-				$gb = spClass("user");
+				//$gb = spClass("db");
 				
 			}
 		}
@@ -428,7 +428,7 @@ class login extends spController{
 			//$oldPw = $filter->filter($dirtyOldPw);
 			$newPw = $filter->filter($dirtyNewPw);
 			if(strlen($newPw) < 8 || strlen($newPw) > 20){echo "pwerror";exit;}
-			$gb = new user("site_users","create_time");
+			$gb = new db("site_users","create_time");
 			$result = $gb->find(Array("username"=>$username));
 			if(!$result){
 				echo "notfound";

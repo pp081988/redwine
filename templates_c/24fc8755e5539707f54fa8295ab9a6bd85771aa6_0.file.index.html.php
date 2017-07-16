@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 10:57:45
+/* Smarty version 3.1.30, created on 2017-07-14 14:20:04
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596833293c3bd1_65968594',
+  'unifunc' => 'content_5968b6f4341ff5_23623548',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1500001020,
+      1 => 1500034571,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596833293c3bd1_65968594 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5968b6f4341ff5_23623548 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -107,8 +107,10 @@ function content_596833293c3bd1_65968594 (Smarty_Internal_Template $_smarty_tpl)
 			<dt><i class="Hui-iconfont">&#xe616;</i> 資訊管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList'),$_smarty_tpl);?>
-" data-title="資訊列表" href="javascript:void(0)">資訊列表</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人搞乜鬼','id'=>'0'),$_smarty_tpl);?>
+" data-title="達人搞乜鬼" href="javascript:void(0)">達人搞乜鬼</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人好介紹','id'=>'1'),$_smarty_tpl);?>
+" data-title="達人好介紹" href="javascript:void(0)">達人好介紹</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -301,20 +303,6 @@ function member_add(title,url,w,h){
 
 <?php echo '</script'; ?>
 > 
-
-<!--此乃百度统计代码，请自行删除-->
-<?php echo '<script'; ?>
->
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?080836300300be57b7f34f4b3e97d911";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-<?php echo '</script'; ?>
->
-<!--/此乃百度统计代码，请自行删除-->
 </body>
 </html><?php }
 }

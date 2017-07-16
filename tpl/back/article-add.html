@@ -26,12 +26,13 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>新增文章 - 資訊管理</title>
+<title>新增文章 - <{$title}></title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="<{spUrl c=backfuns a=themeAdd}>" method="post" enctype="multipart/form-data">
-		<input class="theme" type="text" name="theme" value="activicity">
+		<h3 style="margin-bottom: 30px;">新增文章 - <{$title}></h3>
+		<input class="theme" type="text" name="theme" value="<{$columnId}>">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -43,14 +44,6 @@
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="articletitle2" name="articletitle2">
 			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>欄目分類：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="articlecolumn" class="select">
-					<option value="0">達人搞乜鬼</option>
-				</select>
-				</span> </div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章類型：</label>
