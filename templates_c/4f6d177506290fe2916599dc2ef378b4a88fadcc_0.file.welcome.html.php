@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 17:03:23
+/* Smarty version 3.1.30, created on 2017-07-17 15:51:52
   from "D:\xampp\htdocs\redwine\tpl\back\welcome.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5967375b7427f1_47990265',
+  'unifunc' => 'content_596c6c98aad0e9_85200134',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967375b7427f1_47990265 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596c6c98aad0e9_85200134 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>

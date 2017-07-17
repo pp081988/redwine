@@ -36,7 +36,10 @@ class backfuns extends spController
 
 	function articleDataEdit()
 	{
-
+		$post = spClass("spArgs");
+		$id = $post->get("id");
+		$column = $post->get("column");
+		$ob = new db();
 	}
 
 	function articleDelete()
