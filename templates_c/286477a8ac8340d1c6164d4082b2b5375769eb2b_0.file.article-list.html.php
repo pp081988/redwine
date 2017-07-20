@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-17 16:04:02
+/* Smarty version 3.1.30, created on 2017-07-20 15:10:54
   from "D:\xampp\htdocs\redwine\tpl\back\article-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596c6f7293ce27_63571293',
+  'unifunc' => 'content_5970577ebbaf90_09388822',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286477a8ac8340d1c6164d4082b2b5375769eb2b' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-list.html',
-      1 => 1500278638,
+      1 => 1500534537,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596c6f7293ce27_63571293 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5970577ebbaf90_09388822 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -313,8 +313,8 @@ $_prefixVariable3=ob_get_clean();
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable4=ob_get_clean();
-echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit','column'=>$_prefixVariable3,'title'=>$_prefixVariable4),$_smarty_tpl);?>
-&id='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
+echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable3,'title'=>$_prefixVariable4),$_smarty_tpl);?>
+&articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
 					$(".dataTable tbody").append(str);
 				}

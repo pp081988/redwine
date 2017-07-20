@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-17 16:01:07
+/* Smarty version 3.1.30, created on 2017-07-20 15:43:14
   from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596c6ec3286007_76458051',
+  'unifunc' => 'content_59705f1245e805_32526051',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
-      1 => 1500251467,
+      1 => 1500536543,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596c6ec3286007_76458051 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59705f1245e805_32526051 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -58,16 +58,20 @@ function content_596c6ec3286007_76458051 (Smarty_Internal_Template $_smarty_tpl)
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>新增文章 - <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+<title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
 " method="post" enctype="multipart/form-data">
-		<h3 style="margin-bottom: 30px;">新增文章 - <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+		<h3 style="margin-bottom: 30px;"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </h3>
+		<input class="mode" type="text" name="mode" value="<?php echo $_smarty_tpl->tpl_vars['mode']->value;?>
+">
 		<input class="theme" type="text" name="theme" value="<?php echo $_smarty_tpl->tpl_vars['columnId']->value;?>
+">
+		<input class="articleId" type="text" name="articleId" value="<?php echo $_smarty_tpl->tpl_vars['articleId']->value;?>
 ">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
@@ -374,6 +378,42 @@ $(function(){
 		$("#editorCont").val(contents);
 	})
 
+	if("<?php echo $_smarty_tpl->tpl_vars['mode']->value;?>
+" == "edit"){
+		dataAssign();
+	}
+
+	function dataAssign(){
+		var articleId = $(".articleId").val();
+		var columnId = $(".theme").val();
+		var dataAssign = "edit";
+		$.ajax({
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit'),$_smarty_tpl);?>
+",
+			type:"post",
+			data:{dataAssign:dataAssign,articleId:articleId,columnId:columnId},
+			success:function(data){
+				var dataObj = eval('(' + data + ')');
+				$("input[name='articletitle']").val(dataObj['article_title']);
+				$("input[name='articletitle2']").val(dataObj['article_title2']);
+				$(".select").find("option:nth-child("+dataObj['article_type']+")").attr("selected",true);
+				$("input[name='articlesort']").val(dataObj['article_sort']);
+				$("input[name='keywords']").val(dataObj['keywords']);
+				$("textarea[name='abstract']").val(dataObj['abstract']);
+				$("input[name='author']").val(dataObj['author']);
+				if(dataObj['allowcomments'] == 1){
+					$(".iCheck-helper").click();
+				}
+				if(dataObj['thumbnails'] != ""){
+					$(".z_file").find("img").attr({"src":dataObj['thumbnails']});
+				}
+				ue.ready(function() {
+					ue.setContent(dataObj['editorCont']);
+				});
+			}
+		})
+		
+	}
 });
 <?php echo '</script'; ?>
 >

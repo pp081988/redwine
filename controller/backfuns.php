@@ -37,9 +37,17 @@ class backfuns extends spController
 	function articleDataEdit()
 	{
 		$post = spClass("spArgs");
-		$id = $post->get("id");
-		$column = $post->get("column");
-		$ob = new db();
+		$this->articleId = $post->get("articleId");
+		$this->columnId = $post->get("columnId");
+		if($post->get("dataAssign")){
+			$ob = new db("site_".$this->columnId,"id");
+			$res = $ob->find(Array("id"=>$this->articleId));
+			echo json_encode($res);
+		}else{
+			$this->mode = "edit";
+			$this->title = "修改文章";
+			$this->display("back/article-add.html");
+		}		
 	}
 
 	function articleDelete()
@@ -107,18 +115,32 @@ class backfuns extends spController
 				"creator"			=>	$_SESSION['admin_username']
 			];
 			$ob = new db($column,"id");
-			if($ob->create($conditions)){
-				
-				echo $this->close->close("alert('提交發佈完成！');");
+			if($args->get("mode") == "edit"){
+				$articleId = $args->get("articleId");
+				$conditions['update_time'] = date("Y-m-d H:i:s");
+				unset($conditions['create_time']);
+				unset($conditions['creator']);
+				if($thumbnails == ""){
+					unset($conditions['thumbnails']);
+				}
+				if($ob->update(Array("id"=>$articleId),$conditions)){
+					echo $this->close->close("alert('修改成功！');");
+				}else{
+					echo "error";
+				}
 			}else{
-				echo "error";
+				if($ob->create($conditions)){			
+					echo $this->close->close("alert('提交成功！');");
+				}else{
+					echo "error";
+				}
 			}
 
 			// echo "<script>alert('fuck')</script>";
 			// echo $this->closeWindow;
 		}else{
 			$this->columnId = $_GET['id'];
-			$this->title = $_GET['title'];
+			$this->title = "新增文章 - ".$_GET['title'];
 			$this->display("back/article-add.html");
 		}
 	}

@@ -26,13 +26,15 @@
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title>新增文章 - <{$title}></title>
+<title><{$title}></title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-article-add" action="<{spUrl c=backfuns a=themeAdd}>" method="post" enctype="multipart/form-data">
-		<h3 style="margin-bottom: 30px;">新增文章 - <{$title}></h3>
+		<h3 style="margin-bottom: 30px;"><{$title}></h3>
+		<input class="mode" type="text" name="mode" value="<{$mode}>">
 		<input class="theme" type="text" name="theme" value="<{$columnId}>">
+		<input class="articleId" type="text" name="articleId" value="<{$articleId}>">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -309,6 +311,40 @@ $(function(){
 		$("#editorCont").val(contents);
 	})
 
+	if("<{$mode}>" == "edit"){
+		dataAssign();
+	}
+
+	function dataAssign(){
+		var articleId = $(".articleId").val();
+		var columnId = $(".theme").val();
+		var dataAssign = "edit";
+		$.ajax({
+			url:"<{spUrl c=backfuns a=articleDataEdit}>",
+			type:"post",
+			data:{dataAssign:dataAssign,articleId:articleId,columnId:columnId},
+			success:function(data){
+				var dataObj = eval('(' + data + ')');
+				$("input[name='articletitle']").val(dataObj['article_title']);
+				$("input[name='articletitle2']").val(dataObj['article_title2']);
+				$(".select").find("option:nth-child("+dataObj['article_type']+")").attr("selected",true);
+				$("input[name='articlesort']").val(dataObj['article_sort']);
+				$("input[name='keywords']").val(dataObj['keywords']);
+				$("textarea[name='abstract']").val(dataObj['abstract']);
+				$("input[name='author']").val(dataObj['author']);
+				if(dataObj['allowcomments'] == 1){
+					$(".iCheck-helper").click();
+				}
+				if(dataObj['thumbnails'] != ""){
+					$(".z_file").find("img").attr({"src":dataObj['thumbnails']});
+				}
+				ue.ready(function() {
+					ue.setContent(dataObj['editorCont']);
+				});
+			}
+		})
+		
+	}
 });
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

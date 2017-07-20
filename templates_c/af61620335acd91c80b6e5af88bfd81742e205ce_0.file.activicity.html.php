@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-20 16:18:03
+  from "D:\xampp\htdocs\redwine\tpl\activicity.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5970673bdd3a18_69043304',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'af61620335acd91c80b6e5af88bfd81742e205ce' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\activicity.html',
+      1 => 1500538683,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./header.html' => 1,
+  ),
+),false)) {
+function content_5970673bdd3a18_69043304 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +35,40 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
 </head>
 
@@ -36,7 +77,9 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-<{include file="./header.html"}>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
@@ -53,10 +96,12 @@
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <div class="row activicityCont">
-                <script>
+                    <?php echo '<script'; ?>
+>
                 $(function(){
                     $.ajax({
-                        url:"<{spUrl c=main a=listData}>",
+                        url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'listData'),$_smarty_tpl);?>
+",
                         type:"post",
                         data:{columnId:"activicity",limit:"10"},
                         success:function(data){
@@ -79,9 +124,28 @@
                             //console.log(dataObj);
                         }
                     })
-                    
+                    // var data = <?php echo $_smarty_tpl->tpl_vars['activicityData']->value;?>
+;
+                    // var str;
+                    // var column = "activicity";
+                    // for(i=0;i<data.length;i++){
+                    //     str = '<div class="grid_6">\
+                    //                 <div class="grid_2">\
+                    //                     <div class="img-wrapper1">\
+                    //                         <img src="'+data[i]['thumbnails']+'" alt=""/>\
+                    //                     </div>\
+                    //                 </div>\
+                    //                 <div class="grid_4 w100">\
+                    //                     <p class="fn18">'+data[i]['article_title']+'</p>\
+                    //                     <p>'+data[i]['article_title2']+'</p>\
+                    //                     <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                    //                 </div>\
+                    //             </div>';
+                    //     $(".activicityCont").append(str);
+                    // }
                 })
-                </script>
+                <?php echo '</script'; ?>
+>
                     <!-- <div class="grid_6 mb20">
                       <div class="grid_2">
                         <div class="img-wrapper1">
@@ -132,6 +196,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

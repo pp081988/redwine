@@ -5,10 +5,12 @@ class main extends spController
 {
 
 	private $data;
+	private $filter;
 
 	function __construct(){
 		parent::__construct();
 		$this->data = new articleData();
+		$this->filter = spClass("filter");
 	}
 	
 	function index(){
@@ -19,6 +21,14 @@ class main extends spController
 
 	function activicity(){
 		$this -> display("activicity.html");
+	}
+
+	function listData()
+	{
+		$post = spClass("spArgs");
+		$columnId = $this->filter->filter($post->get("columnId"));
+		$limit = $this->filter->filter($post->get("limit"));
+		echo json_encode($this->data->briefData($columnId,$limit));
 	}
 
 	function forum(){
