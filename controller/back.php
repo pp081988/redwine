@@ -1,6 +1,6 @@
 <?php
 
-require(APP_PATH."/model/backUnloginCheck.php");
+require(APP_PATH."/model/unloginCheck.php");
 
 class back extends spController
 {
@@ -9,7 +9,8 @@ class back extends spController
 
 	function __construct(){
 		parent::__construct();
-		$this->unloginCheck = spClass("backUnloginCheck");
+		$this->unloginCheck = spClass("unloginCheck");
+		$this->unloginCheck->adminCheck();
 	}
 
 	function loginIndex(){
@@ -64,7 +65,6 @@ class back extends spController
 	}
 
 	function backIndex(){
-		$this->unloginCheck->check();
 		$this->username = $_SESSION['admin_username'];
 		$this->display("back/index.html");
 	}

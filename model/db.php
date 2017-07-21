@@ -6,8 +6,7 @@ class db extends spModel
 	public $pk;
 
 	function __construct($table,$pk)
-	{
-		
+	{	
 		$this->table = $table;
 		$this->pk = $pk;
 		parent::__construct();

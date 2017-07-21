@@ -392,3 +392,13 @@
 .userName{
 	cursor: pointer;
 }
+
+.favoriteBut img{
+	width: 16px;
+    margin-top: -3px;
+    margin-right: 3px;
+}
+
+.favoriteBut{
+	cursor: pointer;
+}

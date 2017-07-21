@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 16:19:50
+/* Smarty version 3.1.30, created on 2017-07-21 17:10:39
   from "D:\xampp\htdocs\redwine\tpl\articleDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597067a61b2749_36615815',
+  'unifunc' => 'content_5971c50fec0b29_68328747',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85506d6f6d5e3e295cb0f82c52d338ed03996552' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\articleDetail.html',
-      1 => 1500251467,
+      1 => 1500627493,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5971c50fec0b29_68328747 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@ function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl)
   <link rel="stylesheet" href="css/camera.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/user.css">
   <?php echo '<script'; ?>
  src="js/jquery.js"><?php echo '</script'; ?>
 >
@@ -60,7 +60,29 @@ function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl)
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
+      
+    
+    function favorite(){
+        var column = getUrlParam("column");
+        var id = getUrlParam("id");
+        $.ajax({
+            url:"",
+            type:"post",
+            data:{column:column,id:id},
+            success:function(data){
+                console.log(data);
+            }
+        })
+    }
+
+
     });
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return unescape(r[2]); return null;
+    }
   <?php echo '</script'; ?>
 >
   <!--<![endif]-->
@@ -86,7 +108,8 @@ function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl)
 
   <!--========================================================
                             CONTENT
-  =========================================================-->  <section id="content"> 
+  =========================================================-->  
+  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
@@ -94,8 +117,9 @@ function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl)
 <em class="fn15"><?php echo $_smarty_tpl->tpl_vars['article_title2']->value;?>
 </em></h2>
               <span>創建時間：<?php echo $_smarty_tpl->tpl_vars['create_time']->value;?>
-</span><span class="mf20">更新時間：<?php echo $_smarty_tpl->tpl_vars['update_time']->value;?>
-</span><span class="mf20">作者：<?php echo $_smarty_tpl->tpl_vars['author']->value;?>
+</span><span class="mf20">/更新時間：<?php echo $_smarty_tpl->tpl_vars['update_time']->value;?>
+</span><span class="mf20">/作者：<?php echo $_smarty_tpl->tpl_vars['author']->value;?>
+</span><span class="favoriteBut mf20"><?php echo $_smarty_tpl->tpl_vars['favorite']->value;?>
 </span>
               <div class="mt20"><?php echo $_smarty_tpl->tpl_vars['editorCont']->value;?>
 </div>
@@ -169,7 +193,8 @@ function content_597067a61b2749_36615815 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 
 <?php echo '<script'; ?>
- src="js/script.js"><?php echo '</script'; ?>
+ src="js/script.js">
+<?php echo '</script'; ?>
 >
 </body>
 </html><?php }

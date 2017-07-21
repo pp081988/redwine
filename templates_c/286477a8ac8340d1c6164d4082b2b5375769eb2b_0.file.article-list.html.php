@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 15:10:54
+/* Smarty version 3.1.30, created on 2017-07-21 11:32:37
   from "D:\xampp\htdocs\redwine\tpl\back\article-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5970577ebbaf90_09388822',
+  'unifunc' => 'content_597175d55e9c40_44403835',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286477a8ac8340d1c6164d4082b2b5375769eb2b' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-list.html',
-      1 => 1500534537,
+      1 => 1500607952,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5970577ebbaf90_09388822 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597175d55e9c40_44403835 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -77,7 +77,7 @@ $_prefixVariable1=ob_get_clean();
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable2=ob_get_clean();
-echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd','id'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
+echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'themeAdd','id'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
 " onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加資訊</a></span>  </div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive dataTable">
@@ -181,7 +181,7 @@ function article_del(obj,id){
 ';
 		$.ajax({
 			type: 'POST',
-			url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDelete'),$_smarty_tpl);?>
+			url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDelete'),$_smarty_tpl);?>
 ',
 			data:{column:column,id:id},
 			success: function(data){
@@ -217,7 +217,7 @@ function article_shenhe(obj,id){
 
 function displaySwitch(id,act){
 	$.ajax({
-		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'displaySwitch'),$_smarty_tpl);?>
+		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'displaySwitch'),$_smarty_tpl);?>
 ",
 		type:"post",
 		data:{id:id,act:act,column:"<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
@@ -263,7 +263,7 @@ $(function(){
 		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
 ";
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataHandle'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataHandle'),$_smarty_tpl);?>
 ",
 			type:"post",
 			data:{id:id},
@@ -313,7 +313,7 @@ $_prefixVariable3=ob_get_clean();
 ob_start();
 echo $_smarty_tpl->tpl_vars['title']->value;
 $_prefixVariable4=ob_get_clean();
-echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable3,'title'=>$_prefixVariable4),$_smarty_tpl);?>
+echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable3,'title'=>$_prefixVariable4),$_smarty_tpl);?>
 &articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
 					$(".dataTable tbody").append(str);

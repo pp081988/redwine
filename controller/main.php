@@ -1,4 +1,5 @@
 ﻿<?php
+require(APP_PATH."/controller/frontFuns.php");
 require(APP_PATH."/model/email.php");
 require(APP_PATH."/model/articleData.php");
 class main extends spController
@@ -71,6 +72,16 @@ class main extends spController
 			$this->update_time = "無";
 		}
 		$this->author = $data['author'];
+
+		$this->favorite = "<img src='images/unlike.png'>加入喜愛";
+
+		if($_SESSION['favorite'] && $_SESSION['favorite'] != ""){
+			$favoriteCheck = spClass("frontFuns");
+			if($favoriteCheck->favoriteCheck($column,$id)){
+				$this->favorite = "<img src='images/like.png'>I Like it!";
+			}
+		}
+
 		$this->display("articleDetail.html");
 	}
 }	

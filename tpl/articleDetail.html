@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/camera.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/user.css">
   <script src="js/jquery.js"></script>
   <script src="js/jquery-migrate-1.2.1.js"></script>
   <script src="js/camera.js"></script>
@@ -22,7 +22,29 @@
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
+      
+    
+    function favorite(){
+        var column = getUrlParam("column");
+        var id = getUrlParam("id");
+        $.ajax({
+            url:"",
+            type:"post",
+            data:{column:column,id:id},
+            success:function(data){
+                console.log(data);
+            }
+        })
+    }
+
+
     });
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return unescape(r[2]); return null;
+    }
   </script>
   <!--<![endif]-->
   
@@ -43,12 +65,13 @@
 
   <!--========================================================
                             CONTENT
-  =========================================================-->  <section id="content"> 
+  =========================================================-->  
+  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
               <h2><{$article_title}><em class="fn15"><{$article_title2}></em></h2>
-              <span>創建時間：<{$create_time}></span><span class="mf20">更新時間：<{$update_time}></span><span class="mf20">作者：<{$author}></span>
+              <span>創建時間：<{$create_time}></span><span class="mf20">/更新時間：<{$update_time}></span><span class="mf20">/作者：<{$author}></span><span class="favoriteBut mf20"><{$favorite}></span>
               <div class="mt20"><{$editorCont}></div>
         </div>
       </div>      
@@ -119,6 +142,7 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
+<script src="js/script.js">
+</script>
 </body>
 </html>

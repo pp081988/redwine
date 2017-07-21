@@ -2,8 +2,9 @@
 
 require_once(APP_PATH."/model/upload.php");
 require_once(APP_PATH."/model/variable.php");
+require_once(APP_PATH."/model/unloginCheck.php");
 
-class backfuns extends spController
+class backFuns extends spController
 {
 	private $close;
 	private $var;
@@ -11,8 +12,8 @@ class backfuns extends spController
 	function __construct()
 	{
 		parent::__construct();
-		$unloginCheck = spClass("backUnloginCheck");
-		$unloginCheck->check();
+		$unloginCheck = spClass("unloginCheck");
+		$unloginCheck->adminCheck();
 		$this->close = spClass("closeIframe");
 		$this->var = spClass("variable");
 	}
