@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 13:57:06
+/* Smarty version 3.1.30, created on 2017-07-23 16:34:08
   from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59748f12195b01_24827083',
+  'unifunc' => 'content_5974b3e06e23f3_24135344',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
-      1 => 1500810917,
+      1 => 1500814757,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59748f12195b01_24827083 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5974b3e06e23f3_24135344 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -247,12 +247,12 @@ $(function(){
 			author:{
 				required:true,
 			},
-			sources:{
-				required:true,
-			},
-			allowcomments:{
-				required:true,
-			},
+			// sources:{
+			// 	required:true,
+			// },
+			// allowcomments:{
+			// 	required:true,
+			// },
 			commentdatemin:{
 				required:false,
 			},
@@ -262,14 +262,14 @@ $(function(){
 
 		},
 		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			//$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			//parent.$('.btn-refresh').click();
-			parent.layer.close(index);
-		}
+		focusCleanup:true
+		// success:"valid",
+		// submitHandler:function(form){
+		// 	//$(form).ajaxSubmit();
+		// 	var index = parent.layer.getFrameIndex(window.name);
+		// 	//parent.$('.btn-refresh').click();
+		// 	parent.layer.close(index);
+		// }
 	});
 	
 	$list = $("#fileList"),
