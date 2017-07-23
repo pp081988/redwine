@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 15:02:25
+/* Smarty version 3.1.30, created on 2017-07-23 13:49:11
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597055812e0c75_45139806',
+  'unifunc' => 'content_59748d371d9a31_50685707',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1500274712,
+      1 => 1500809882,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597055812e0c75_45139806 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59748d371d9a31_50685707 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -113,6 +113,8 @@ function content_597055812e0c75_45139806 (Smarty_Internal_Template $_smarty_tpl)
 " data-title="達人好介紹" href="javascript:void(0)">達人好介紹</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人講你知','id'=>'2'),$_smarty_tpl);?>
 " data-title="達人講你知" href="javascript:void(0)">達人講你知</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'影院','id'=>'3'),$_smarty_tpl);?>
+" data-title="影院" href="javascript:void(0)">影院</a></li>
 			</ul>
 		</dd>
 	</dl>

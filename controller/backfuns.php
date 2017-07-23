@@ -141,8 +141,20 @@ class backFuns extends spController
 			// echo $this->closeWindow;
 		}else{
 			$this->columnId = $_GET['id'];
-			$this->title = "新增文章 - ".$_GET['title'];
-			$this->display("back/article-add.html");
+			if($this->columnId == "video"){
+				$this->title = "新增視頻 - ".$_GET['title'];
+				$this->display("back/video-add.html");
+			}else{
+				$this->title = "新增文章 - ".$_GET['title'];
+				$this->display("back/article-add.html");
+			}
 		}
+	}
+
+	function videoList()
+	{
+		$this->title = $_GET['title'];
+		$this->column = $this->var->COLUMNS[$_GET['id']];
+		$this->display("back/video-list.html");
 	}
 }

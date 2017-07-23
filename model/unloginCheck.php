@@ -16,7 +16,7 @@ class unloginCheck extends spController
 			echo "false";
 			return false;
 		}else{
-			echo "true";
+			//echo "true";
 			return true;
 		}
 	}
@@ -27,7 +27,7 @@ class unloginCheck extends spController
 			echo "false";
 			return false;
 		}else{
-			echo "true";
+			//echo "true";
 			return true;
 		}
 	}

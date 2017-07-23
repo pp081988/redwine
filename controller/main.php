@@ -82,6 +82,12 @@ class main extends spController
 			}
 		}
 
+		if($_SESSION['avatar']){
+			$this->avatar = "<img src='".$_SESSION['avatar']."'>";
+		}else{
+			$this->avatar = "<img src='images/defaultAvatar.png'>";
+		}
+
 		$this->display("articleDetail.html");
 	}
 }	

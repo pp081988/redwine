@@ -402,3 +402,34 @@
 .favoriteBut{
 	cursor: pointer;
 }
+
+.commentBtn{
+	cursor: pointer;
+	color:white!important;
+	margin-bottom: 20px;
+	margin-right: 25px!important;
+}
+
+.commentAvatar{
+	width: 50px;
+}
+
+.thumbsUpBtn{
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.thumbsUpBtn img{
+	margin-top: -5px;
+}
+
+.articleCont video{
+    width: 98%;
+    height: 518px;
+    border: 1px solid #ddd;
+    background: rgba(0, 0, 0, 0.60);
+}
+
+.commentCount{
+	font-size: 20px;
+}

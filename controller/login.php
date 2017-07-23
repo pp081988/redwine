@@ -1,7 +1,7 @@
 <?php
 require(APP_PATH."/controller/verify.php");
 require(APP_PATH."/model/email.php");
-require(APP_PATH."/model/siteUser.php");
+require(APP_PATH."/model/siteUsersLinker.php");
 
 class login extends spController{
 
@@ -35,13 +35,21 @@ class login extends spController{
 		$res = $gb->findAll($conditions);
 		if($res){
 			echo "ok";
-			$siteUser = spClass("siteUser");
-			$check = $siteUser->spLinker()->find(Array("username"=>$res[0]['username']));
+			$siteUsersLinker = spClass("siteUsersLinker");
+			$check = $siteUsersLinker->spLinker()->find(Array("username"=>$res[0]['username']));
 			if($check['activate']['is_vaild'] == 1){
 				$_SESSION['activate'] = "vaild";
 			}
 			$_SESSION['favorite'] = explode("|",substr($res[0]['favorite'],1));
 			$_SESSION['username'] = $res[0]['username'];
+			$_SESSION['userid'] = $res[0]['id'];
+
+			if($res[0]['avatar'] != ""){
+				$_SESSION['avatar'] = $res[0]['avatar'];
+			}else{
+				$_SESSION['avatar'] = 'images/defaultAvatar.png';
+			}
+			
 			$gb->incrField(Array("username"=>$username), 'logins');
 		}else{
 			echo "deny";
@@ -467,6 +475,9 @@ class login extends spController{
     {
     	unset($_SESSION['username']);
     	unset($_SESSION['contact']);
+    	unset($_SESSION['favorite']);
+    	unset($_SESSION['userid']);
+    	unset($_SESSION['avatar']);
     	//$this->display("index.html");
     	$this->jump(spUrl('main', 'index'));
     }

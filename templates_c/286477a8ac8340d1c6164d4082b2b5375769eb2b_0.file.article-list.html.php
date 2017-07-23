@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-21 11:32:37
+/* Smarty version 3.1.30, created on 2017-07-23 13:49:13
   from "D:\xampp\htdocs\redwine\tpl\back\article-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597175d55e9c40_44403835',
+  'unifunc' => 'content_59748d391a4027_16973097',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286477a8ac8340d1c6164d4082b2b5375769eb2b' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-list.html',
-      1 => 1500607952,
+      1 => 1500640584,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597175d55e9c40_44403835 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59748d391a4027_16973097 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>

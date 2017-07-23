@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 16:18:03
+/* Smarty version 3.1.30, created on 2017-07-23 14:40:15
   from "D:\xampp\htdocs\redwine\tpl\activicity.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5970673bdd3a18_69043304',
+  'unifunc' => 'content_5974992f6119f8_50350636',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'af61620335acd91c80b6e5af88bfd81742e205ce' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\activicity.html',
-      1 => 1500538683,
+      1 => 1500546112,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5970673bdd3a18_69043304 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5974992f6119f8_50350636 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +96,7 @@ function content_5970673bdd3a18_69043304 (Smarty_Internal_Template $_smarty_tpl)
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                     <div class="row activicityCont">
-                    <?php echo '<script'; ?>
+                <?php echo '<script'; ?>
 >
                 $(function(){
                     $.ajax({
@@ -124,25 +124,7 @@ function content_5970673bdd3a18_69043304 (Smarty_Internal_Template $_smarty_tpl)
                             //console.log(dataObj);
                         }
                     })
-                    // var data = <?php echo $_smarty_tpl->tpl_vars['activicityData']->value;?>
-;
-                    // var str;
-                    // var column = "activicity";
-                    // for(i=0;i<data.length;i++){
-                    //     str = '<div class="grid_6">\
-                    //                 <div class="grid_2">\
-                    //                     <div class="img-wrapper1">\
-                    //                         <img src="'+data[i]['thumbnails']+'" alt=""/>\
-                    //                     </div>\
-                    //                 </div>\
-                    //                 <div class="grid_4 w100">\
-                    //                     <p class="fn18">'+data[i]['article_title']+'</p>\
-                    //                     <p>'+data[i]['article_title2']+'</p>\
-                    //                     <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
-                    //                 </div>\
-                    //             </div>';
-                    //     $(".activicityCont").append(str);
-                    // }
+                    
                 })
                 <?php echo '</script'; ?>
 >

@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-23 15:04:58
+  from "D:\xampp\htdocs\redwine\tpl\back\video-add.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59749efa77c850_03985979',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ab3e7735cd76ea06231d43d3603d5cbf174564ac' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\video-add.html',
+      1 => 1500814759,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59749efa77c850_03985979 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -10,8 +34,12 @@
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/html5shiv.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/respond.min.js"><?php echo '</script'; ?>
+>
 <![endif]-->
 <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
@@ -21,22 +49,32 @@
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/common.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/index.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>DD_belatedPNG.fix('*');<?php echo '</script'; ?>
+>
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
-<title><{$title}></title>
+<title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="<{spUrl c=backfuns a=themeAdd}>" method="post" enctype="multipart/form-data">
-		<h3 style="margin-bottom: 30px;"><{$title}></h3>
-		<input class="mode" type="text" name="mode" value="<{$mode}>">
-		<input class="theme" type="text" name="theme" value="<{$columnId}>">
-		<input class="articleId" type="text" name="articleId" value="<{$articleId}>">
+	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
+" method="post" enctype="multipart/form-data">
+		<h3 style="margin-bottom: 30px;"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h3>
+		<input class="mode" type="text" name="mode" value="<?php echo $_smarty_tpl->tpl_vars['mode']->value;?>
+">
+		<input class="theme" type="text" name="theme" value="<?php echo $_smarty_tpl->tpl_vars['columnId']->value;?>
+">
+		<input class="articleId" type="text" name="articleId" value="<?php echo $_smarty_tpl->tpl_vars['articleId']->value;?>
+">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章標題：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>視頻標題：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="articletitle" name="articletitle">
 			</div>
@@ -48,7 +86,7 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章類型：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>視頻類型：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select name="articletype" class="select">
 					<option value="0">產品資訊</option>
@@ -69,14 +107,14 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">文章摘要：</label>
+			<label class="form-label col-xs-4 col-sm-2">視頻摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<textarea name="abstract" cols="" rows="" class="textarea"  placeholder="" datatype="*10-100" dragonfly="true" nullmsg="不能為空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">文章作者：</label>
+			<label class="form-label col-xs-4 col-sm-2">視頻作者：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="author" name="author">
 			</div>
@@ -102,7 +140,6 @@
 									 </section>
 							 </div>
 						 </section>
-						 <!-- <input name="" type="submit" class="btn btn-success radius size-L" value="上传"> -->
 				</div>
 				<aside class="mask works-mask">
 					<div class="mask-content">
@@ -113,9 +150,11 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">文章內容：</label>
+			<label class="form-label col-xs-4 col-sm-2">視頻內容：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor" type="text/plain" style="width:100%;height:400px;"></script>
+				<?php echo '<script'; ?>
+ id="editor" type="text/plain" style="width:100%;height:400px;"><?php echo '</script'; ?>
+>
 				<textarea name="editorCont" id="editorCont"></textarea>
 			</div>
 		</div>
@@ -129,23 +168,50 @@
 </article>
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer /作为公共模版分离出去-->
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/layer/2.4/layer.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui/js/H-ui.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"><?php echo '</script'; ?>
+> <!--/_footer /作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
-<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"></script> 
-<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
-<script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" src="lib/imgUp.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> <?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/imgUp.js"><?php echo '</script'; ?>
+>
 
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
@@ -311,7 +377,8 @@ $(function(){
 		$("#editorCont").val(contents);
 	})
 
-	if("<{$mode}>" == "edit"){
+	if("<?php echo $_smarty_tpl->tpl_vars['mode']->value;?>
+" == "edit"){
 		dataAssign();
 	}
 
@@ -320,7 +387,8 @@ $(function(){
 		var columnId = $(".theme").val();
 		var dataAssign = "edit";
 		$.ajax({
-			url:"<{spUrl c=backfuns a=articleDataEdit}>",
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit'),$_smarty_tpl);?>
+",
 			type:"post",
 			data:{dataAssign:dataAssign,articleId:articleId,columnId:columnId},
 			success:function(data){
@@ -346,7 +414,9 @@ $(function(){
 		
 	}
 });
-</script>
+<?php echo '</script'; ?>
+>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>
-</html>
+</html><?php }
+}

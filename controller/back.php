@@ -10,7 +10,6 @@ class back extends spController
 	function __construct(){
 		parent::__construct();
 		$this->unloginCheck = spClass("unloginCheck");
-		$this->unloginCheck->adminCheck();
 	}
 
 	function loginIndex(){
@@ -65,6 +64,7 @@ class back extends spController
 	}
 
 	function backIndex(){
+		$this->unloginCheck->adminCheck();
 		$this->username = $_SESSION['admin_username'];
 		$this->display("back/index.html");
 	}
@@ -72,6 +72,7 @@ class back extends spController
 
 
 	function welcome(){
+		$this->unloginCheck->adminCheck();
 		$gb = new db("admin_users","id");
 		$result = $gb->find(Array("username"=>$_SESSION['admin_username']));
 		$this->logins = $result['logins'];

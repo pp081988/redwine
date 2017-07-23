@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 16:38:28
+/* Smarty version 3.1.30, created on 2017-07-23 14:11:46
   from "D:\xampp\htdocs\redwine\tpl\video.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59706c0453b839_41838540',
+  'unifunc' => 'content_59749282695875_87915824',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e8efe392b26471e88f591a8e7be26a69224ffcb0' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\video.html',
-      1 => 1499306379,
+      1 => 1500811905,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59706c0453b839_41838540 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59749282695875_87915824 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,151 +100,38 @@ function content_59706c0453b839_41838540 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
                 <div class="box2-wrapper1">
                   <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                    <div class="row">
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div> 
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
-                    <div class="grid_6 mb20">
-                      <div class="grid_2">
-                        <div class="img-wrapper1">
-                          <img src="images/tv.jpg" alt=""/>
-                        </div>
-                      </div>
-                      <div class="grid_4 w100">                  
-                        <p class="fn18">伊比利亞火腿 (Iberian ham) </p>
-                      <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒...</p>
-                      <p class="mt20"><a class="btmore rt" href="#">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                      </div>
-                    </div>
+                    <div class="row videoCont">
+                    <?php echo '<script'; ?>
+>
+                    $(function(){
+                        $.ajax({
+                            url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'listData'),$_smarty_tpl);?>
+",
+                            type:"post",
+                            data:{columnId:"video",limit:"10"},
+                            success:function(data){
+                                var dataObj = eval('(' + data + ')');
+                                for(i=0;i<dataObj.length;i++){
+                                str = '<div class="grid_6">\
+                                            <div class="grid_2">\
+                                                <div class="img-wrapper1">\
+                                                    <img src="'+dataObj[i]['thumbnails']+'" alt=""/>\
+                                                </div>\
+                                            </div>\
+                                            <div class="grid_4 w100">\
+                                                <p class="fn18">'+dataObj[i]['article_title']+'</p>\
+                                                <p>'+dataObj[i]['article_title2']+'</p>\
+                                                <p class="mt20"><a class="btmore rt" href="'+dataObj[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                            </div>\
+                                        </div>';
+                                $(".videoCont").append(str);
+                                }
+                                //console.log(dataObj);
+                            }
+                        })
+                    })
+                    <?php echo '</script'; ?>
+>
                    </div>                   
                   </div>
                 </div> 

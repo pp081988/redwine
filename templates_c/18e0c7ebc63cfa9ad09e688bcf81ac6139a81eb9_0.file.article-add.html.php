@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 15:43:14
+/* Smarty version 3.1.30, created on 2017-07-23 13:57:06
   from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59705f1245e805_32526051',
+  'unifunc' => 'content_59748f12195b01_24827083',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
-      1 => 1500536543,
+      1 => 1500810917,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59705f1245e805_32526051 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59748f12195b01_24827083 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -221,56 +221,56 @@ $(function(){
 	});
 	
 	//表单验证
-	// $("#form-article-add").validate({
-	// 	rules:{
-	// 		articletitle:{
-	// 			required:true,
-	// 		},
-	// 		articletitle2:{
-	// 			required:true,
-	// 		},
-	// 		articlecolumn:{
-	// 			required:true,
-	// 		},
-	// 		articletype:{
-	// 			required:true,
-	// 		},
-	// 		articlesort:{
-	// 			required:true,
-	// 		},
-	// 		keywords:{
-	// 			required:true,
-	// 		},
-	// 		abstract:{
-	// 			required:true,
-	// 		},
-	// 		author:{
-	// 			required:true,
-	// 		},
-	// 		sources:{
-	// 			required:true,
-	// 		},
-	// 		allowcomments:{
-	// 			required:true,
-	// 		},
-	// 		commentdatemin:{
-	// 			required:false,
-	// 		},
-	// 		commentdatemax:{
-	// 			required:false,
-	// 		},
+	$("#form-article-add").validate({
+		rules:{
+			articletitle:{
+				required:true,
+			},
+			articletitle2:{
+				required:true,
+			},
+			articlecolumn:{
+				required:true,
+			},
+			articletype:{
+				required:true,
+			},
+			articlesort:{
+				required:true,
+			},
+			keywords:{
+				required:true,
+			},
+			abstract:{
+				required:true,
+			},
+			author:{
+				required:true,
+			},
+			sources:{
+				required:true,
+			},
+			allowcomments:{
+				required:true,
+			},
+			commentdatemin:{
+				required:false,
+			},
+			commentdatemax:{
+				required:false,
+			},
 
-	// 	},
-	// 	onkeyup:false,
-	// 	focusCleanup:true,
-	// 	success:"valid",
-	// 	submitHandler:function(form){
-	// 		//$(form).ajaxSubmit();
-	// 		var index = parent.layer.getFrameIndex(window.name);
-	// 		//parent.$('.btn-refresh').click();
-	// 		parent.layer.close(index);
-	// 	}
-	// });
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			//$(form).ajaxSubmit();
+			var index = parent.layer.getFrameIndex(window.name);
+			//parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
 	
 	$list = $("#fileList"),
 	$btn = $("#btn-star"),
