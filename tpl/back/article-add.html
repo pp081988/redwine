@@ -30,7 +30,7 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="<{spUrl c=backfuns a=themeAdd}>" method="post" enctype="multipart/form-data">
+	<form class="form form-horizontal" id="form-article-add" action="<{spUrl c=backFuns a=themeAdd}>" method="post" enctype="multipart/form-data">
 		<h3 style="margin-bottom: 30px;"><{$title}></h3>
 		<input class="mode" type="text" name="mode" value="<{$mode}>">
 		<input class="theme" type="text" name="theme" value="<{$columnId}>">
@@ -121,7 +121,7 @@
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button class="btn btn-primary radius submit" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
+				<button class="btn btn-primary radius submit" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -320,7 +320,7 @@ $(function(){
 		var columnId = $(".theme").val();
 		var dataAssign = "edit";
 		$.ajax({
-			url:"<{spUrl c=backfuns a=articleDataEdit}>",
+			url:"<{spUrl c=backFuns a=articleDataEdit}>",
 			type:"post",
 			data:{dataAssign:dataAssign,articleId:articleId,columnId:columnId},
 			success:function(data){
