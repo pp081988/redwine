@@ -19,7 +19,7 @@ class articleData extends spController
 	function detailData($column,$id)
 	{
 		$db = new db("site_".$column,"id");
-		$res = $db->find(Array("id"=>$id),null,"article_title,article_title2,editorCont,create_time,update_time,author");
+		$res = $db->find(Array("id"=>$id),null,"article_title,article_title2,editorCont,create_time,update_time,author,like_num,dislike_num");
 		return $res;
 	}
 }

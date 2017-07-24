@@ -40,7 +40,6 @@ class login extends spController{
 			if($check['activate']['is_vaild'] == 1){
 				$_SESSION['activate'] = "vaild";
 			}
-			$_SESSION['favorite'] = explode("|",substr($res[0]['favorite'],1));
 			$_SESSION['username'] = $res[0]['username'];
 			$_SESSION['userid'] = $res[0]['id'];
 

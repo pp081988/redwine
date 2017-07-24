@@ -7,6 +7,9 @@
 10003			写入文章评论ID字段失败
 10004			写入评论表中点赞用户ID失败
 10005			更新评论表点赞+1失败
-
-
+10006			评论回复的用户不存在
+10007			对文章表中的Like或Dislike的增加更新失败
+10008			已经点击过Like或Dislike，拒绝在现有状态下点击Like或Dislike
+10009			已点击击过Like或Dislike，拒绝在现有状态下重复点击相同的Like或Dislike
+10010			写入USERS表Like或Dislike时失败
 */

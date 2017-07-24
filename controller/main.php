@@ -68,19 +68,21 @@ class main extends spController
 		$this->editorCont = $data['editorCont'];
 		$this->create_time = $data['create_time'];
 		$this->update_time = $data['update_time'];
+		$this->likeNum = $data['like_num'];
+		$this->dislikeNum = $data['dislike_num'];
 		if($data['update_time'] == null){
 			$this->update_time = "無";
 		}
 		$this->author = $data['author'];
 
-		$this->favorite = "<img src='images/unlike.png'>加入喜愛";
+		// $this->favorite = "<img src='images/unlike.png'>加入喜愛";
 
-		if($_SESSION['favorite'] && $_SESSION['favorite'] != ""){
-			$favoriteCheck = spClass("frontFuns");
-			if($favoriteCheck->favoriteCheck($column,$id)){
-				$this->favorite = "<img src='images/like.png'>I Like it!";
-			}
-		}
+		// if($_SESSION['favorite'] && $_SESSION['favorite'] != ""){
+		// 	$favoriteCheck = spClass("frontFuns");
+		// 	if($favoriteCheck->favoriteCheck($column,$id)){
+		// 		$this->favorite = "<img src='images/like.png'>I Like it!";
+		// 	}
+		// }
 
 		if($_SESSION['avatar']){
 			$this->avatar = "<img src='".$_SESSION['avatar']."'>";

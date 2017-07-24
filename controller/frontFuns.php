@@ -16,7 +16,7 @@ class frontFuns extends spController
 		$this->filter = spClass("filter");
 	}
 
-	function favoriteSwitch()
+	function likeOrDislike()
 	{
 		if(!$this->unloginCheck->userLoginCheck()){		//未登陆判断
 			exit;
@@ -29,31 +29,63 @@ class frontFuns extends spController
 		$post = spClass("spArgs");
 		$column = $post->get("column");
 		$id = $post->get("id");
+		$type = $this->filter->filter($post->get("type"));
+		$otherType = "";
+		$thisType = "";
+		switch ($type) {
+			case 'like':
+				$otherType = 'dislike_column';
+				$thisType = 'like_column';
+				break;
+			
+			case 'dislike':
+				$otherType = 'like_column';
+				$thisType = 'dislike_column';
+				break;
+		}
+		
 		$db = spClass("db",Array("site_users","id"));
 		$conversion = spClass("variable");
 		$columnNum = $conversion->conversion($column);
-		$oldFavorite = $db->find(Array("id"=>$_SESSION['userid']),null,"favorite");
-		if($this->favoriteCheck($column,$id)){
-			if($db->update(Array("id"=>$_SESSION['userid']),Array("favorite"=>$newFavorite = str_replace("|".$columnNum.",".$id,"",$oldFavorite['favorite'])))){
-				echo "1";
-			}
+		$otherColumn = $db->find(Array("id"=>$_SESSION['userid']),null,$otherType);
+		if($this->likeCheck($column,$id,$otherColumn,$otherType)){
+			echo "10008";
+			exit;
 		}else{
-			if($db->update(Array("id"=>$_SESSION['userid']),Array("favorite"=>$newFavorite = $oldFavorite['favorite']."|".$columnNum.",".$id))){
-				echo "0";
+			$thisTypeColumn = $db->find(Array("id"=>$_SESSION['userid']),null,$thisType);
+			if($this->likeCheck($column,$id,$thisTypeColumn,$thisType)){
+				echo "10009";
+				exit;
+			}else{
+				if(!$db->update(Array("id"=>$_SESSION['userid']),Array($thisType=>$thisTypeColumn[$thisType]."|".$columnNum.",".$id))){
+					echo "10010";
+					exit;
+				}else{
+					$this->articleLikeOrDislike($column,$id,$type);
+				}
 			}
 		}
-		$_SESSION['favorite'] = explode("|",substr($newFavorite,1));
+
 	}
 
-	function favoriteCheck($column,$id)
+	function likeCheck($column,$id,$likeOrDislikeColumn,$type)
 	{
-		$favorite_arr = $_SESSION['favorite'];
-		for($i=0;$i<count($favorite_arr);$i++){
-			$favorite_split = explode(",",$favorite_arr[$i]);
+		$arr = explode("|",substr($likeOrDislikeColumn[$type],1));
+		for($i=0;$i<count($arr);$i++){
+			$arr_split = explode(",",$arr[$i]);
 			$columns = spClass("variable");
-			if($columns->COLUMNS[$favorite_split[0]] == $column && $favorite_split[1] == $id){
+			if($columns->COLUMNS[$arr_split[0]] == $column && $arr_split[1] == $id){
 				return true;
 			}
+		}
+	}
+
+	function articleLikeOrDislike($column,$id,$type)
+	{
+		$db = new db("site_".$column,"id");
+		if(!$db->incrField(array('id'=>$id),$type."_Num")){
+			echo "10007";
+			exit;
 		}
 	}
 
@@ -92,6 +124,7 @@ class frontFuns extends spController
 		$column = $this->filter->filter($post->get("column"));
 		$id = $this->filter->filter($post->get("id"));
 		$content = $this->filter->filter($post->get("content"));
+		$replyUser = $this->filter->filter($post->get("replyUser"));
 		$commentDB = new db("site_comment","id");
 		$createTime = time();
 		$conditions = [
@@ -99,6 +132,15 @@ class frontFuns extends spController
 			"content"		=>	$content,
 			"username"		=>	$_SESSION['username']
 		];
+		if($replyUser != ""){
+			$userDB = new db("site_users","id");
+			if($userDB->find(Array("username"=>$replyUser))){
+				$conditions['reply'] = $replyUser;
+			}else{
+				echo "10006";
+				exit;
+			}
+		}
 		if(!$commentDB->create($conditions)){
 			echo "10002";
 			exit;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 17:23:13
+/* Smarty version 3.1.30, created on 2017-07-24 15:14:36
   from "D:\xampp\htdocs\redwine\tpl\articleDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975bc81a51995_11331556',
+  'unifunc' => 'content_5975f2bc065059_69346758',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85506d6f6d5e3e295cb0f82c52d338ed03996552' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\articleDetail.html',
-      1 => 1500888192,
+      1 => 1500902074,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,14 +88,15 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
               <span>創建時間：<?php echo $_smarty_tpl->tpl_vars['create_time']->value;?>
 </span><span class="mf20">/更新時間：<?php echo $_smarty_tpl->tpl_vars['update_time']->value;?>
 </span><span class="mf20">/作者：<?php echo $_smarty_tpl->tpl_vars['author']->value;?>
-</span><span class="favoriteBut mf20"><?php echo $_smarty_tpl->tpl_vars['favorite']->value;?>
 </span>
               <div class="mt20 articleCont"><?php echo $_smarty_tpl->tpl_vars['editorCont']->value;?>
 </div>
         </div>
       </div>      
     </div>
-
+    <div class="likeOrDislike"><a class="likeBtn bt5" name="like"><?php echo $_smarty_tpl->tpl_vars['likeNum']->value;?>
+</a><a class="likeBtn btno" name="dislike"><?php echo $_smarty_tpl->tpl_vars['dislikeNum']->value;?>
+</a></div>
    <div class="say wow fadeInDown">
      <h2><span class="commentCount">0</span>则回应<em class="rt">排序方式：<select>
        <option>最新</option>
@@ -177,48 +178,66 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
         var timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
 
-        function favorite(){
+        function likeOrDislike(type){
             var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({
-                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'favoriteSwitch'),$_smarty_tpl);?>
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'likeOrDislike'),$_smarty_tpl);?>
 ",
                 type:"post",
-                data:{column:column,id:id},
+                data:{column:column,id:id,type:type},
                 success:function(data){
-                  switch(data){
-                    case "false":
-                      alert("請先登錄");
-                    break;
-                    case "0":
-                      $(".favoriteBut").html("<img src='images/like.png'>I Like it!");
-                    break;
-                    case "1":
-                      $(".favoriteBut").html("<img src='images/unlike.png'>加入喜愛");
-                    break;
-                    case "10001":
-                      alert("操作頻繁，請休息一下再試");
-                    break;
-                  }
+                //   switch(data){
+                //     case "false":
+                //       alert("請先登錄");
+                //     break;
+                //     case "0":
+                //       $(".favoriteBut").html("<img src='images/like.png'>I Like it!");
+                //     break;
+                //     case "1":
+                //       $(".favoriteBut").html("<img src='images/unlike.png'>加入喜愛");
+                //     break;
+                //     case "10001":
+                //       alert("操作頻繁，請休息一下再試");
+                //     break;
+                //   }
+                console.log(data);
                 }
             })
         }
 
-        function reply(){
+        $(".likeBtn").click(function(){
+            var type = $(this).attr("name");
+            likeOrDislike(type);
+        })
+
+        function replyFun(){
             $(".reply").bind("click",function(){
-                var thisCommentUsername = $(this).parent().parent().find(".commentUsername").html();
-                var replyInputDiv = "<div class='replyInputDiv'><input type='text' class='btext replyInput'></input></div>";
-                var thisReplyInputDiv = $(this).parent().parent().append(replyInputDiv);
-                // $(".replyInput").blur(function(){
-                //     $(this).parent().remove();
-                // });
-                $(".replyInputDiv").not(thisReplyInputDiv).remove();
+                var thisGranddad = $(this).parent().parent();
+                if(thisGranddad.find(".replyInputDiv").html() == undefined){
+                    var thisCommentUsername = "<span class='replyUser'>"+thisGranddad.find(".commentUsername").html()+"</span>";
+                    var replyInputDiv = "<div class='replyInputDiv'><input type='text' class='btext replyInput'></input><div class='addCommentUsername'>@"+thisCommentUsername+":</div><a class='btmore rt replybtn'>確定</a></div>";
+                    var thisReplyInputDiv = thisGranddad.append(replyInputDiv);
+                    var thisCommentUsernameWidth = thisGranddad.find(".addCommentUsername").width();
+                    thisGranddad.find(".replyInput").css({"padding-left":thisCommentUsernameWidth + 15});
+                    thisGranddad.find(".replyInput").focus();
+                    $(".addCommentUsername").click(function(){
+                        $(".replyInput").focus();
+                    });
+                    $(".replyInputDiv").not(thisGranddad.find(".replyInputDiv")).remove();
+                    //$(".replyInputDiv").not(thisGranddad.find(".replybtn")).remove();
+                    $(".replybtn").bind("click",function(){
+                        var replyUser = $(".replyUser").html();
+                        var content = $.trim($(".replyInput").val());
+                        reply(content,replyUser);
+                    });
+                }
             });
         }
 
-        $(".favoriteBut").click(function(){
-            favorite();
-        })
+        function reply(content,replyUser){
+            comment(content,replyUser);
+        }
 
         function commentQuery(){
             var column = getUrlParam("column");
@@ -238,6 +257,7 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
                     var avatar;
                     var thumbsUpNum = "0";
                     var createTime;
+                    var replyUser;
                     if(dataObj.length){
                         $(".commentCount").html(dataObj.length);
                     }
@@ -252,6 +272,11 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
                         }else{
                             thumbsUpNum = "0";
                         }
+                        if(dataObj[i]['reply'] != null){
+                            replyUser = "<a class='replyUserDetail mgr0'>@"+dataObj[i]['reply']+"</a>: ";
+                        }else{
+                            replyUser = "";
+                        }
                         time = translateTime(dataObj[i]['create_time']);
                         str = '<li>\
                                     <table width="100%" border="0">\
@@ -259,7 +284,7 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
                                             <td width="60" class="vertical_align_top" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
                                             <td>\
                                             <p class="pd5 gray"><em class="fblue commentUsername">'+dataObj[i]['username']+'</em></p>\
-                                            <p>'+dataObj[i]['content']+'</p>\
+                                            <p class="commentContent">'+replyUser+dataObj[i]['content']+'</p>\
                                             <p class="gray"><a class="reply">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
                                             </td>\
                                         </tr>\
@@ -268,11 +293,12 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
                         $(".commentCont").append(str);
                     }
                     //console.log(data);
+
                     $(".thumbsUpBtn").click(function(){
                         var id = $(this).attr("value");
                         thumbsUp(id,$(this));
                     });
-                    reply();
+                    replyFun();
                 }
             })
         }
@@ -300,14 +326,14 @@ function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl)
             return Y+M+D+h+m+s;
         }
 
-        function comment(content){
+        function comment(content,replyUser){
             var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({
                 url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentInsert'),$_smarty_tpl);?>
 ",
                 type:"post",
-                data:{column:column,id:id,content:content},
+                data:{column:column,id:id,content:content,replyUser:replyUser},
                 success:function(data){
                     switch(data){
                         case "false":
