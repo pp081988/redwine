@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 16:11:27
+/* Smarty version 3.1.30, created on 2017-07-24 17:23:13
   from "D:\xampp\htdocs\redwine\tpl\articleDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5974ae8f719f75_44836189',
+  'unifunc' => 'content_5975bc81a51995_11331556',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85506d6f6d5e3e295cb0f82c52d338ed03996552' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\articleDetail.html',
-      1 => 1500819086,
+      1 => 1500888192,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5974ae8f719f75_44836189 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975bc81a51995_11331556 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -106,9 +106,8 @@ function content_5974ae8f719f75_44836189 (Smarty_Internal_Template $_smarty_tpl)
   <tr>
     <td width="60"><?php echo $_smarty_tpl->tpl_vars['avatar']->value;?>
 </td>
-    <td><input name="" type="text" class="btext"></td>
+    <td><input name="comment" type="text" class="btext"></td>
   </tr>
-
 </table>
      </li>
 <a class="btmore rt commentBtn" type="button">確定</a>
@@ -205,6 +204,18 @@ function content_5974ae8f719f75_44836189 (Smarty_Internal_Template $_smarty_tpl)
             })
         }
 
+        function reply(){
+            $(".reply").bind("click",function(){
+                var thisCommentUsername = $(this).parent().parent().find(".commentUsername").html();
+                var replyInputDiv = "<div class='replyInputDiv'><input type='text' class='btext replyInput'></input></div>";
+                var thisReplyInputDiv = $(this).parent().parent().append(replyInputDiv);
+                // $(".replyInput").blur(function(){
+                //     $(this).parent().remove();
+                // });
+                $(".replyInputDiv").not(thisReplyInputDiv).remove();
+            });
+        }
+
         $(".favoriteBut").click(function(){
             favorite();
         })
@@ -245,11 +256,11 @@ function content_5974ae8f719f75_44836189 (Smarty_Internal_Template $_smarty_tpl)
                         str = '<li>\
                                     <table width="100%" border="0">\
                                         <tr>\
-                                            <td width="60" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
+                                            <td width="60" class="vertical_align_top" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
                                             <td>\
-                                            <p class="pd5 gray"><em class="fblue">'+dataObj[i]['username']+'</em></p>\
+                                            <p class="pd5 gray"><em class="fblue commentUsername">'+dataObj[i]['username']+'</em></p>\
                                             <p>'+dataObj[i]['content']+'</p>\
-                                            <p class="gray"><a href="#">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
+                                            <p class="gray"><a class="reply">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
                                             </td>\
                                         </tr>\
                                     </table>\
@@ -261,6 +272,7 @@ function content_5974ae8f719f75_44836189 (Smarty_Internal_Template $_smarty_tpl)
                         var id = $(this).attr("value");
                         thumbsUp(id,$(this));
                     });
+                    reply();
                 }
             })
         }

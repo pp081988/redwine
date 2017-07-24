@@ -57,9 +57,8 @@
      <table width="100%" border="0">
   <tr>
     <td width="60"><{$avatar}></td>
-    <td><input name="" type="text" class="btext"></td>
+    <td><input name="comment" type="text" class="btext"></td>
   </tr>
-
 </table>
      </li>
 <a class="btmore rt commentBtn" type="button">確定</a>
@@ -154,6 +153,18 @@
             })
         }
 
+        function reply(){
+            $(".reply").bind("click",function(){
+                var thisCommentUsername = $(this).parent().parent().find(".commentUsername").html();
+                var replyInputDiv = "<div class='replyInputDiv'><input type='text' class='btext replyInput'></input></div>";
+                var thisReplyInputDiv = $(this).parent().parent().append(replyInputDiv);
+                // $(".replyInput").blur(function(){
+                //     $(this).parent().remove();
+                // });
+                $(".replyInputDiv").not(thisReplyInputDiv).remove();
+            });
+        }
+
         $(".favoriteBut").click(function(){
             favorite();
         })
@@ -193,11 +204,11 @@
                         str = '<li>\
                                     <table width="100%" border="0">\
                                         <tr>\
-                                            <td width="60" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
+                                            <td width="60" class="vertical_align_top" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
                                             <td>\
-                                            <p class="pd5 gray"><em class="fblue">'+dataObj[i]['username']+'</em></p>\
+                                            <p class="pd5 gray"><em class="fblue commentUsername">'+dataObj[i]['username']+'</em></p>\
                                             <p>'+dataObj[i]['content']+'</p>\
-                                            <p class="gray"><a href="#">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
+                                            <p class="gray"><a class="reply">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
                                             </td>\
                                         </tr>\
                                     </table>\
@@ -209,6 +220,7 @@
                         var id = $(this).attr("value");
                         thumbsUp(id,$(this));
                     });
+                    reply();
                 }
             })
         }

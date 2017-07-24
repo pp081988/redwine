@@ -412,6 +412,7 @@
 
 .commentAvatar{
 	width: 50px;
+	margin-top: 10px;
 }
 
 .thumbsUpBtn{
@@ -432,4 +433,12 @@
 
 .commentCount{
 	font-size: 20px;
+}
+
+.reply{
+	cursor: pointer;
+}
+
+.vertical_align_top{
+	vertical-align:top;
 }
