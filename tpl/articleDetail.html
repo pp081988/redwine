@@ -109,6 +109,41 @@
           new WOW().init();
         }
 
+        $.extend({
+            tipsBox: function(options) {
+                options = $.extend({
+                    obj: null,
+                    str: "+1",
+                    startSize: "12px",
+                    endSize: "30px",
+                    interval: 600,
+                    color: "red",
+                    callback: function() {}
+                }, options);
+                $("body").append("<span class='num'>"+ options.str +"</span>");
+                var box = $(".num");
+                var left = options.obj.offset().left + options.obj.width() / 2;
+                var top = options.obj.offset().top - options.obj.height();
+                box.css({
+                    "position": "absolute",
+                    "left": left + "px",
+                    "top": top + "px",
+                    "z-index": 9999,
+                    "font-size": options.startSize,
+                    "line-height": options.endSize,
+                    "color": options.color
+                });
+                box.animate({
+                    "font-size": options.endSize,
+                    "opacity": "0",
+                    "top": top - parseInt(options.endSize) + "px"
+                }, options.interval , function() {
+                    box.remove();
+                    options.callback();
+                });
+            }
+        });
+
         function videoPlayer(){
             $(".article").find("img").each(function(){
                 var videoUrl = $(this).attr("_url");
@@ -120,44 +155,57 @@
                                 </video>';
                     $(this).replaceWith(playerHtml);
                 }
-            })
+            });
         }
         videoPlayer();
       
         var timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
 
-        function likeOrDislike(type){
+        function likeOrDislike(type,selecter){
             var column = getUrlParam("column");
             var id = getUrlParam("id");
+            if(type == "like"){
+                str="+1";color="red";
+            }else{
+                str="-1";color="gray";
+            }
             $.ajax({
                 url:"<{spUrl c=frontFuns a=likeOrDislike}>",
                 type:"post",
                 data:{column:column,id:id,type:type},
                 success:function(data){
-                //   switch(data){
-                //     case "false":
-                //       alert("請先登錄");
-                //     break;
-                //     case "0":
-                //       $(".favoriteBut").html("<img src='images/like.png'>I Like it!");
-                //     break;
-                //     case "1":
-                //       $(".favoriteBut").html("<img src='images/unlike.png'>加入喜愛");
-                //     break;
-                //     case "10001":
-                //       alert("操作頻繁，請休息一下再試");
-                //     break;
-                //   }
-                console.log(data);
+                    var oldValue = parseInt(selecter.html());
+                    switch(data){
+                        case "false":
+                            alert("請先登錄");
+                        break;
+                        case "add":
+                            selecter.html(oldValue+1);
+                                $.tipsBox({
+                                    obj: selecter,
+                                    str: str,
+                                    color: color,
+                                    callback: function() {
+
+                                    }
+                                });
+                        break;
+                        case "reduce":
+                            selecter.html(oldValue-1);
+                        break;
+                        case "10001":
+                            alert("操作頻繁，請休息一下再試");
+                        break;
+                    }
                 }
-            })
+            });
         }
 
         $(".likeBtn").click(function(){
             var type = $(this).attr("name");
-            likeOrDislike(type);
-        })
+            likeOrDislike(type,$(this));
+        });
 
         function replyFun(){
             $(".reply").bind("click",function(){
@@ -236,7 +284,7 @@
                                             </td>\
                                         </tr>\
                                     </table>\
-                                </li>'
+                                </li>';
                         $(".commentCont").append(str);
                     }
                     //console.log(data);
@@ -274,6 +322,9 @@
         }
 
         function comment(content,replyUser){
+            if(content == ""){
+                return false;
+            }
             var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({

@@ -137,7 +137,7 @@
                                         <div class="grid_4 w100">\
                                             <p class="fn18">'+data[i]['article_title']+'</p>\
                                             <p>'+data[i]['article_title2']+'</p>\
-                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">'+data[i]['like_num']+'</a><a class="btno" href="#">'+data[i]['dislike_num']+'</a> </p>\
                                         </div>\
                                     </div>';
                             $(".activicityCont").append(str);
@@ -223,7 +223,7 @@
                                         <div class="grid_4 w100">\
                                             <p class="fn18">'+data[i]['article_title']+'</p>\
                                             <p>'+data[i]['article_title2']+'</p>\
-                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">'+data[i]['like_num']+'</a><a class="btno" href="#">'+data[i]['dislike_num']+'</a> </p>\
                                         </div>\
                                     </div>';
                             $(".introductionCont").append(str);

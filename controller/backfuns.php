@@ -157,4 +157,11 @@ class backFuns extends spController
 		$this->column = $this->var->COLUMNS[$_GET['id']];
 		$this->display("back/video-list.html");
 	}
+
+	function pageIndex()
+	{
+		$post = spClass("spArgs");
+		$pageName = $post->get("page").".html";
+		$this->display("back\/".$pageName);
+	}
 }

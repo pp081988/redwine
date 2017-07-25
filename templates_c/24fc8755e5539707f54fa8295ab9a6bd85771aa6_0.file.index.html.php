@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 13:49:11
+/* Smarty version 3.1.30, created on 2017-07-25 17:18:45
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59748d371d9a31_50685707',
+  'unifunc' => 'content_59770cf562bd84_14269639',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1500809882,
+      1 => 1500974323,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59748d371d9a31_50685707 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59770cf562bd84_14269639 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -107,13 +107,13 @@ function content_59748d371d9a31_50685707 (Smarty_Internal_Template $_smarty_tpl)
 			<dt><i class="Hui-iconfont">&#xe616;</i> 資訊管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人搞乜鬼','id'=>'0'),$_smarty_tpl);?>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人搞乜鬼','id'=>'0'),$_smarty_tpl);?>
 " data-title="達人搞乜鬼" href="javascript:void(0)">達人搞乜鬼</a></li>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人好介紹','id'=>'1'),$_smarty_tpl);?>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人好介紹','id'=>'1'),$_smarty_tpl);?>
 " data-title="達人好介紹" href="javascript:void(0)">達人好介紹</a></li>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'達人講你知','id'=>'2'),$_smarty_tpl);?>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人講你知','id'=>'2'),$_smarty_tpl);?>
 " data-title="達人講你知" href="javascript:void(0)">達人講你知</a></li>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleList','title'=>'影院','id'=>'3'),$_smarty_tpl);?>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'影院','id'=>'3'),$_smarty_tpl);?>
 " data-title="影院" href="javascript:void(0)">影院</a></li>
 			</ul>
 		</dd>
@@ -130,9 +130,12 @@ function content_59748d371d9a31_50685707 (Smarty_Internal_Template $_smarty_tpl)
 			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
-					<li><a data-href="product-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
-					<li><a data-href="product-list.html" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-brand'),$_smarty_tpl);?>
+" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-category'),$_smarty_tpl);?>
+" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-list'),$_smarty_tpl);?>
+" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
 			</ul>
 		</dd>
 	</dl>

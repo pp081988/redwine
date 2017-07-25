@@ -6,7 +6,7 @@ class articleData extends spController
 	function briefData($column,$limit)
 	{
 		$db = new db("site_".$column,"id");
-		$res = $db->findAll(Array("display"=>1),"create_time desc","id,thumbnails,article_title,article_title2",$limit);
+		$res = $db->findAll(Array("display"=>1),"create_time desc","id,thumbnails,article_title,article_title2,like_num,dislike_num",$limit);
 		foreach ($res as $key => $value) {
 			if($res[$key]['thumbnails'] == ""){
 				$res[$key]['thumbnails'] = "images/nopic.png";

@@ -478,6 +478,6 @@
 	text-align: center;
 }
 
-.likeBtn,.dislikeBtn{
-	
+.likeBtn{
+	cursor: pointer;
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 13:57:34
+/* Smarty version 3.1.30, created on 2017-07-25 11:26:54
   from "D:\xampp\htdocs\redwine\tpl\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59748f2e91dce0_73075442',
+  'unifunc' => 'content_5976ba7e39be36_67508183',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0545c7e12396f652fbc760d126e132f09b06534d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\index.html',
-      1 => 1500202267,
+      1 => 1500953213,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59748f2e91dce0_73075442 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5976ba7e39be36_67508183 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -184,7 +184,7 @@ function content_59748f2e91dce0_73075442 (Smarty_Internal_Template $_smarty_tpl)
                                         <div class="grid_4 w100">\
                                             <p class="fn18">'+data[i]['article_title']+'</p>\
                                             <p>'+data[i]['article_title2']+'</p>\
-                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">'+data[i]['like_num']+'</a><a class="btno" href="#">'+data[i]['dislike_num']+'</a> </p>\
                                         </div>\
                                     </div>';
                             $(".activicityCont").append(str);
@@ -273,7 +273,7 @@ function content_59748f2e91dce0_73075442 (Smarty_Internal_Template $_smarty_tpl)
                                         <div class="grid_4 w100">\
                                             <p class="fn18">'+data[i]['article_title']+'</p>\
                                             <p>'+data[i]['article_title2']+'</p>\
-                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                            <p class="mt20"><a class="btmore rt" href="'+data[i]['url']+'">詳情</a> <a class="bt5" href="#">'+data[i]['like_num']+'</a><a class="btno" href="#">'+data[i]['dislike_num']+'</a> </p>\
                                         </div>\
                                     </div>';
                             $(".introductionCont").append(str);

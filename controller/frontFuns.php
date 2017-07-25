@@ -22,7 +22,7 @@ class frontFuns extends spController
 			exit;
 		}
 		$frequently = spClass("frequently");
-		if(!$frequently->check(time(),2)){	//频繁判断
+		if(!$frequently->check(time(),1)){	//频繁判断
 			echo "10001";
 			exit;
 		}
@@ -54,18 +54,42 @@ class frontFuns extends spController
 		}else{
 			$thisTypeColumn = $db->find(Array("id"=>$_SESSION['userid']),null,$thisType);
 			if($this->likeCheck($column,$id,$thisTypeColumn,$thisType)){
-				echo "10009";
-				exit;
+				$oldLikeOrDislike = $db->find(Array("id"=>$_SESSION['userid']),null,$thisType);
+				$newLikeOrDislike = $this->valueRecombine($oldLikeOrDislike,$thisType,$columnNum.",".$id);
+				if(!$db->update(Array("id"=>$_SESSION['userid']),Array($thisType=>$newLikeOrDislike))){
+					echo "10009";
+					exit;
+				}else{
+					$this->articleLikeOrDislike($column,$id,$type,"reduce");
+					echo "reduce";
+				}
 			}else{
 				if(!$db->update(Array("id"=>$_SESSION['userid']),Array($thisType=>$thisTypeColumn[$thisType]."|".$columnNum.",".$id))){
 					echo "10010";
 					exit;
 				}else{
-					$this->articleLikeOrDislike($column,$id,$type);
+					$this->articleLikeOrDislike($column,$id,$type,"add");
+					echo "add";
 				}
 			}
 		}
 
+	}
+
+	function valueRecombine($ResultSet,$type,$parameter)
+	{
+		$result;
+		
+		$arr = explode("|",substr($ResultSet[$type],1));
+		for($i=0;$i<count($arr);$i++){
+			$separator = "|";
+			if($arr[$i] == $parameter){
+				$arr[$i] = "";
+				$separator = "";
+			}
+			$result .= $separator.$arr[$i];
+		}
+		return $result;
 	}
 
 	function likeCheck($column,$id,$likeOrDislikeColumn,$type)
@@ -80,12 +104,22 @@ class frontFuns extends spController
 		}
 	}
 
-	function articleLikeOrDislike($column,$id,$type)
+	function articleLikeOrDislike($column,$id,$type,$algorithm)
 	{
 		$db = new db("site_".$column,"id");
-		if(!$db->incrField(array('id'=>$id),$type."_Num")){
-			echo "10007";
-			exit;
+		switch ($algorithm) {
+			case 'add':
+				if(!$db->incrField(array('id'=>$id),$type."_Num")){
+					echo "10007";
+					exit;
+				}
+				break;
+			case 'reduce':
+				if(!$db->decrField(array('id'=>$id),$type."_Num")){
+					echo "10011";
+					exit;
+				}
+				break;
 		}
 	}
 
@@ -124,6 +158,10 @@ class frontFuns extends spController
 		$column = $this->filter->filter($post->get("column"));
 		$id = $this->filter->filter($post->get("id"));
 		$content = $this->filter->filter($post->get("content"));
+		if($content == ""){
+			echo "10012";
+			exit;
+		}
 		$replyUser = $this->filter->filter($post->get("replyUser"));
 		$commentDB = new db("site_comment","id");
 		$createTime = time();

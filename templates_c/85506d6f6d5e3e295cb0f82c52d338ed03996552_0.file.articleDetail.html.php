@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 15:14:36
+/* Smarty version 3.1.30, created on 2017-07-25 15:07:47
   from "D:\xampp\htdocs\redwine\tpl\articleDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975f2bc065059_69346758',
+  'unifunc' => 'content_5976ee431effd0_33105723',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '85506d6f6d5e3e295cb0f82c52d338ed03996552' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\articleDetail.html',
-      1 => 1500902074,
+      1 => 1500965252,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5976ee431effd0_33105723 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -160,6 +160,41 @@ function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl)
           new WOW().init();
         }
 
+        $.extend({
+            tipsBox: function(options) {
+                options = $.extend({
+                    obj: null,
+                    str: "+1",
+                    startSize: "12px",
+                    endSize: "30px",
+                    interval: 600,
+                    color: "red",
+                    callback: function() {}
+                }, options);
+                $("body").append("<span class='num'>"+ options.str +"</span>");
+                var box = $(".num");
+                var left = options.obj.offset().left + options.obj.width() / 2;
+                var top = options.obj.offset().top - options.obj.height();
+                box.css({
+                    "position": "absolute",
+                    "left": left + "px",
+                    "top": top + "px",
+                    "z-index": 9999,
+                    "font-size": options.startSize,
+                    "line-height": options.endSize,
+                    "color": options.color
+                });
+                box.animate({
+                    "font-size": options.endSize,
+                    "opacity": "0",
+                    "top": top - parseInt(options.endSize) + "px"
+                }, options.interval , function() {
+                    box.remove();
+                    options.callback();
+                });
+            }
+        });
+
         function videoPlayer(){
             $(".article").find("img").each(function(){
                 var videoUrl = $(this).attr("_url");
@@ -171,45 +206,58 @@ function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl)
                                 </video>';
                     $(this).replaceWith(playerHtml);
                 }
-            })
+            });
         }
         videoPlayer();
       
         var timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
 
-        function likeOrDislike(type){
+        function likeOrDislike(type,selecter){
             var column = getUrlParam("column");
             var id = getUrlParam("id");
+            if(type == "like"){
+                str="+1";color="red";
+            }else{
+                str="-1";color="gray";
+            }
             $.ajax({
                 url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'likeOrDislike'),$_smarty_tpl);?>
 ",
                 type:"post",
                 data:{column:column,id:id,type:type},
                 success:function(data){
-                //   switch(data){
-                //     case "false":
-                //       alert("請先登錄");
-                //     break;
-                //     case "0":
-                //       $(".favoriteBut").html("<img src='images/like.png'>I Like it!");
-                //     break;
-                //     case "1":
-                //       $(".favoriteBut").html("<img src='images/unlike.png'>加入喜愛");
-                //     break;
-                //     case "10001":
-                //       alert("操作頻繁，請休息一下再試");
-                //     break;
-                //   }
-                console.log(data);
+                    var oldValue = parseInt(selecter.html());
+                    switch(data){
+                        case "false":
+                            alert("請先登錄");
+                        break;
+                        case "add":
+                            selecter.html(oldValue+1);
+                                $.tipsBox({
+                                    obj: selecter,
+                                    str: str,
+                                    color: color,
+                                    callback: function() {
+
+                                    }
+                                });
+                        break;
+                        case "reduce":
+                            selecter.html(oldValue-1);
+                        break;
+                        case "10001":
+                            alert("操作頻繁，請休息一下再試");
+                        break;
+                    }
                 }
-            })
+            });
         }
 
         $(".likeBtn").click(function(){
             var type = $(this).attr("name");
-            likeOrDislike(type);
-        })
+            likeOrDislike(type,$(this));
+        });
 
         function replyFun(){
             $(".reply").bind("click",function(){
@@ -289,7 +337,7 @@ function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl)
                                             </td>\
                                         </tr>\
                                     </table>\
-                                </li>'
+                                </li>';
                         $(".commentCont").append(str);
                     }
                     //console.log(data);
@@ -327,6 +375,9 @@ function content_5975f2bc065059_69346758 (Smarty_Internal_Template $_smarty_tpl)
         }
 
         function comment(content,replyUser){
+            if(content == ""){
+                return false;
+            }
             var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({
