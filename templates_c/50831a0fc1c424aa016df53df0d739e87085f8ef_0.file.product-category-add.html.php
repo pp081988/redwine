@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 17:19:49
+/* Smarty version 3.1.30, created on 2017-07-25 15:37:49
   from "D:\xampp\htdocs\redwine\tpl\back\product-category-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59770d352fa118_16462672',
+  'unifunc' => 'content_597749adcc99d8_65212838',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50831a0fc1c424aa016df53df0d739e87085f8ef' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-category-add.html',
-      1 => 1497796906,
+      1 => 1500989866,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59770d352fa118_16462672 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597749adcc99d8_65212838 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -51,32 +51,39 @@ function content_59770d352fa118_16462672 (Smarty_Internal_Template $_smarty_tpl)
 >DD_belatedPNG.fix('*');<?php echo '</script'; ?>
 >
 <![endif]-->
-<title>添加产品分类</title>
+<title>添加產品分類</title>
 </head>
 <body>
 <div class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-user-add">
+	<div class="form form-horizontal" id="form-user-add">
 		<div class="row cl">
+		<p style="margin-bottom: 30px;margin-left: 20px;font-size: 20px;color: #bbb;">--點擊左側分類欄目來決定添加的位置</p>
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
-				分类名称：</label>
+				分類名稱：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="product-category-name">
+				<input type="text" class="input-text" value="" placeholder="" id="user-name" name="name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">备注：</label>
+			<label class="form-label col-xs-4 col-sm-2">備註：</label>
 			<div class="formControls col-xs-6 col-sm-6">
-				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="remark" cols="" rows="" class="textarea"  placeholder="備註說明" onKeyUp="$.Huitextarealength(this,100)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+				<input type="text" class="value id" name="id" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">
+				<input type="text" class="value pId" name="pId" value="<?php echo $_smarty_tpl->tpl_vars['pId']->value;?>
+">
+				<input type="text" class="value type" name="type" value="product">
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-9 col-offset-2">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+				<input class="btn btn-primary radius" type="button" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
 			</div>
+
 		</div>
-	</form>
+	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
 <?php echo '<script'; ?>
@@ -105,7 +112,31 @@ function content_59770d352fa118_16462672 (Smarty_Internal_Template $_smarty_tpl)
 <?php echo '<script'; ?>
  type="text/javascript">
 $(function(){
-	
+	$(".btn-primary").click(function(){
+		var id = $(".id").val();
+		var pId = $(".pId").val();
+		var type = $(".type").val();
+		var name = $.trim($("input[name=name]").val());
+		var remark = $.trim($("textarea[name=remark]").val());
+		$.ajax({
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'category'),$_smarty_tpl);?>
+",
+			type:"post",
+			data:{id:id,pId:pId,type:type,name:name,remark:remark},
+			success:function(data){
+				if(data == "10013"){
+					alert("請選擇添加的節點位置");
+					return false;
+				}
+				callBackParentFunction();
+				console.log(data);
+			}
+		})
+	})
+
+	function callBackParentFunction(){
+		parent.refresh();
+	}
 });
 <?php echo '</script'; ?>
 >

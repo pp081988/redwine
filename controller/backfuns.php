@@ -164,4 +164,43 @@ class backFuns extends spController
 		$pageName = $post->get("page").".html";
 		$this->display("back\/".$pageName);
 	}
+
+	function productCategoryIfame()
+	{
+		$post = spClass("spArgs");
+		$this->id = $post->get("id");
+		$this->pId = $post->get("pId");
+		$this->display("back\product-category-add.html");
+	}
+
+	function category()
+	{
+		$post = spClass("spArgs");
+		$id = $post->get("id");
+		$pId = $post->get("pId");
+		if($id == "" || $pId == ""){echo "10013";exit;}
+		$type = $post->get("type");
+		$name = $post->get("name");
+		$remark = $post->get("remark");
+		switch ($type) {
+			case 'product':
+				$dbname = "admin_product_category";
+				break;
+		}
+		$db = new db($dbname,"id");
+		$checkResult = $db->findSql('SELECT MAX(id) as id FROM admin_product_category WHERE pId = "'.$id.'"');
+		$newrow = [
+			"id"		=>	$id.intval(str_replace($id,"",$checkResult[0]['id']))+1,
+			"pId"		=>	$id,
+			"name"		=>	$name,
+			"remark"	=>	$remark
+		];
+		if(!$db->create($newrow)){
+			echo "10014";
+			exit;
+		}
+		
+		//var_dump($checkResult[0]['id']);
+		//echo $remark;
+	}
 }

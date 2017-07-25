@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 16:34:08
+/* Smarty version 3.1.30, created on 2017-07-25 14:38:54
   from "D:\xampp\htdocs\redwine\tpl\back\article-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5974b3e06e23f3_24135344',
+  'unifunc' => 'content_59773bde6a1c92_61122962',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '18e0c7ebc63cfa9ad09e688bcf81ac6139a81eb9' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-add.html',
-      1 => 1500814757,
+      1 => 1500821124,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5974b3e06e23f3_24135344 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59773bde6a1c92_61122962 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -63,7 +63,7 @@ function content_5974b3e06e23f3_24135344 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'themeAdd'),$_smarty_tpl);?>
+	<form class="form form-horizontal" id="form-article-add" action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'themeAdd'),$_smarty_tpl);?>
 " method="post" enctype="multipart/form-data">
 		<h3 style="margin-bottom: 30px;"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </h3>
@@ -161,7 +161,7 @@ function content_5974b3e06e23f3_24135344 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button class="btn btn-primary radius submit" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并發佈</button>
+				<button class="btn btn-primary radius submit" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -388,7 +388,7 @@ $(function(){
 		var columnId = $(".theme").val();
 		var dataAssign = "edit";
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backfuns','a'=>'articleDataEdit'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit'),$_smarty_tpl);?>
 ",
 			type:"post",
 			data:{dataAssign:dataAssign,articleId:articleId,columnId:columnId},

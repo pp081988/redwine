@@ -225,4 +225,5 @@ class frontFuns extends spController
 	{
 		$this->display("forumadd1.html");
 	}
+
 }

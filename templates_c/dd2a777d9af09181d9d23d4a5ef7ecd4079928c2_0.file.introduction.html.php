@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:38:00
+/* Smarty version 3.1.30, created on 2017-07-25 12:08:12
   from "D:\xampp\htdocs\redwine\tpl\introduction.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59755d88431780_38922190',
+  'unifunc' => 'content_5977188c121db3_51906173',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dd2a777d9af09181d9d23d4a5ef7ecd4079928c2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\introduction.html',
-      1 => 1500539113,
+      1 => 1500977168,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59755d88431780_38922190 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5977188c121db3_51906173 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +120,7 @@ function content_59755d88431780_38922190 (Smarty_Internal_Template $_smarty_tpl)
                                             <div class="grid_4 w100">\
                                                 <p class="fn18">'+dataObj[i]['article_title']+'</p>\
                                                 <p>'+dataObj[i]['article_title2']+'</p>\
-                                                <p class="mt20"><a class="btmore rt" href="'+dataObj[i]['url']+'">詳情</a> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>\
+                                                <p class="mt20"><a class="btmore rt" href="'+dataObj[i]['url']+'">詳情</a> <a class="bt5" href="#">'+dataObj[i]['like_num']+'</a><a class="btno" href="#">'+dataObj[i]['dislike_num']+'</a> </p>\
                                             </div>\
                                         </div>';
                                 $(".introductionCont").append(str);

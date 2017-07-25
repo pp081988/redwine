@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 17:18:45
+/* Smarty version 3.1.30, created on 2017-07-25 14:31:43
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59770cf562bd84_14269639',
+  'unifunc' => 'content_59773a2f9d5a95_67252132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1500974323,
+      1 => 1500985901,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59770cf562bd84_14269639 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59773a2f9d5a95_67252132 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -127,15 +127,15 @@ function content_59770cf562bd84_14269639 (Smarty_Internal_Template $_smarty_tpl)
 		</dd>
 	</dl>
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe620;</i> 產品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-brand'),$_smarty_tpl);?>
 " data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-category'),$_smarty_tpl);?>
-" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
+" data-title="分類管理" href="javascript:void(0)">分類管理</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-list'),$_smarty_tpl);?>
-" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+" data-title="產品管理" href="javascript:void(0)">產品管理</a></li>
 			</ul>
 		</dd>
 	</dl>

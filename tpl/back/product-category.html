@@ -27,7 +27,8 @@
 <table class="table">
 	<tr>
 		<td width="200" class="va-t"><ul id="treeDemo" class="ztree"></ul></td>
-		<td class="va-t"><iframe ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="<{spUrl c=backFuns a=pageIndex page='product-category-add'}>"></iframe></td>
+		<td class="va-t"><iframe ID="categoryIframe" Name="categoryIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="<{spUrl c=backFuns a=pageIndex page='product-category-add'}>"></iframe></td>
+		
 	</tr>
 </table>
 <!--_footer 作为公共模版分离出去-->
@@ -55,14 +56,22 @@ var setting = {
 	},
 	callback: {
 		beforeClick: function(treeId, treeNode) {
-			var zTree = $.fn.zTree.getZTreeObj("tree");
-			if (treeNode.isParent) {
-				zTree.expandNode(treeNode);
-				return false;
-			} else {
-				demoIframe.attr("src",treeNode.file + ".html");
-				return true;
-			}
+			//var zTree = $.fn.zTree.getZTreeObj("tree");
+			// if (treeNode.isParent) {
+			// 	// zTree.expandNode(treeNode);
+				
+			// } else {
+			// // 	demoIframe.attr("src",treeNode.file + ".html");
+			// // 	return true;
+			// }
+			// var btn = '<a href="<{spUrl c=backFuns a=pagefIndex page="product-category-add"}>" target="classfyIframe" id="classfyIframeRefresh">';
+			// $(".table").append(btn);
+			// $("#classfyIframeRefresh").click();
+			//window.location.href='<{spUrl c=backFuns a=pageIndex page="product-category"}>';
+			var id = treeNode.id;
+			var pId = treeNode.pId;
+			if(pId == ""){pId=0};
+			$("#categoryIframe").attr("SRC",'<{spUrl c=backFuns a=productCategoryIfame}>&id='+id+'&pId='+pId);
 		}
 	}
 };
@@ -70,7 +79,7 @@ var setting = {
 var zNodes =[
 	{ id:1, pId:0, name:"一级分类", open:true},
 	{ id:11, pId:1, name:"二级分类"},
-	{ id:111, pId:11, name:"三级分类"},
+	{ id:110, pId:11, name:"分类"},
 	{ id:112, pId:11, name:"三级分类"},
 	{ id:113, pId:11, name:"三级分类"},
 	{ id:114, pId:11, name:"三级分类"},
@@ -78,6 +87,9 @@ var zNodes =[
 	{ id:12, pId:1, name:"二级分类 1-2"},
 	{ id:121, pId:12, name:"三级分类 1-2-1"},
 	{ id:122, pId:12, name:"三级分类 1-2-2"},
+	{ id:2, pId:0, name:"你媽的", open:true},
+	{ id:21, pId:2, name:"二级你吗"},
+	{ id:211, pId:21, name:"三级你吗"}
 ];
 		
 var code;
@@ -93,9 +105,13 @@ $(document).ready(function(){
 	t = $.fn.zTree.init(t, setting, zNodes);
 	demoIframe = $("#testIframe");
 	//demoIframe.on("load", loadReady);
-	var zTree = $.fn.zTree.getZTreeObj("tree");
+	//var zTree = $.fn.zTree.getZTreeObj("tree");
 	//zTree.selectNode(zTree.getNodeByParam("id",'11'));
 });
+
+function refresh(){
+	window.location.reload;
+}
 </script>
 </body>
 </html>
