@@ -165,6 +165,13 @@ class backFuns extends spController
 		$this->display("back\/".$pageName);
 	}
 
+	function categoryData()
+	{
+		$db = new db("admin_product_category","id");
+		$category = $db->findAll();
+		echo json_encode($category);
+	}
+
 	function productCategoryIfame()
 	{
 		$post = spClass("spArgs");
@@ -202,5 +209,17 @@ class backFuns extends spController
 		
 		//var_dump($checkResult[0]['id']);
 		//echo $remark;
+	}
+
+	function productAddPage()
+	{
+		$this->display("back\product-wine-add.html");
+	}
+
+	function product()
+	{
+		$post = spClass("spArgs");
+		//var_dump($post);
+		
 	}
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 15:37:49
+/* Smarty version 3.1.30, created on 2017-07-26 10:16:18
   from "D:\xampp\htdocs\redwine\tpl\back\product-category-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597749adcc99d8_65212838',
+  'unifunc' => 'content_5977fb72ccc4b9_06516591',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50831a0fc1c424aa016df53df0d739e87085f8ef' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-category-add.html',
-      1 => 1500989866,
+      1 => 1501035364,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597749adcc99d8_65212838 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5977fb72ccc4b9_06516591 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -129,13 +129,13 @@ $(function(){
 					return false;
 				}
 				callBackParentFunction();
-				console.log(data);
+				//console.log(data);
 			}
 		})
 	})
 
 	function callBackParentFunction(){
-		parent.refresh();
+		parent.categoryData();
 	}
 });
 <?php echo '</script'; ?>

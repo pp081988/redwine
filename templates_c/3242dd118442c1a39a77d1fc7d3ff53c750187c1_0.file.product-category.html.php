@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 15:26:46
+/* Smarty version 3.1.30, created on 2017-07-26 10:16:18
   from "D:\xampp\htdocs\redwine\tpl\back\product-category.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59774716d7f950_74579632',
+  'unifunc' => 'content_5977fb729f5b16_40973454',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3242dd118442c1a39a77d1fc7d3ff53c750187c1' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-category.html',
-      1 => 1500989191,
+      1 => 1501035372,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59774716d7f950_74579632 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5977fb729f5b16_40973454 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -84,80 +84,60 @@ function content_59774716d7f950_74579632 (Smarty_Internal_Template $_smarty_tpl)
 > 
 <?php echo '<script'; ?>
  type="text/javascript">
-var setting = {
-	view: {
-		dblClickExpand: false,
-		showLine: false,
-		selectedMulti: false
-	},
-	data: {
-		simpleData: {
-			enable:true,
-			idKey: "id",
-			pIdKey: "pId",
-			rootPId: ""
-		}
-	},
-	callback: {
-		beforeClick: function(treeId, treeNode) {
-			//var zTree = $.fn.zTree.getZTreeObj("tree");
-			// if (treeNode.isParent) {
-			// 	// zTree.expandNode(treeNode);
-				
-			// } else {
-			// // 	demoIframe.attr("src",treeNode.file + ".html");
-			// // 	return true;
-			// }
-			// var btn = '<a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pagefIndex','page'=>"product-category-add"),$_smarty_tpl);?>
-" target="classfyIframe" id="classfyIframeRefresh">';
-			// $(".table").append(btn);
-			// $("#classfyIframeRefresh").click();
-			//window.location.href='<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>"product-category"),$_smarty_tpl);?>
-';
-			var id = treeNode.id;
-			var pId = treeNode.pId;
-			if(pId == ""){pId=0};
-			$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productCategoryIfame'),$_smarty_tpl);?>
-&id='+id+'&pId='+pId);
-		}
-	}
-};
 
-var zNodes =[
-	{ id:1, pId:0, name:"一级分类", open:true},
-	{ id:11, pId:1, name:"二级分类"},
-	{ id:110, pId:11, name:"分类"},
-	{ id:112, pId:11, name:"三级分类"},
-	{ id:113, pId:11, name:"三级分类"},
-	{ id:114, pId:11, name:"三级分类"},
-	{ id:115, pId:11, name:"三级分类"},
-	{ id:12, pId:1, name:"二级分类 1-2"},
-	{ id:121, pId:12, name:"三级分类 1-2-1"},
-	{ id:122, pId:12, name:"三级分类 1-2-2"},
-	{ id:2, pId:0, name:"你媽的", open:true},
-	{ id:21, pId:2, name:"二级你吗"},
-	{ id:211, pId:21, name:"三级你吗"}
-];
-		
-var code;
-		
-function showCode(str) {
-	if (!code) code = $("#code");
-	code.empty();
-	code.append("<li>"+str+"</li>");
-}
 		
 $(document).ready(function(){
-	var t = $("#treeDemo");
-	t = $.fn.zTree.init(t, setting, zNodes);
-	demoIframe = $("#testIframe");
-	//demoIframe.on("load", loadReady);
-	//var zTree = $.fn.zTree.getZTreeObj("tree");
-	//zTree.selectNode(zTree.getNodeByParam("id",'11'));
+	categoryData();
 });
 
-function refresh(){
-	window.location.reload;
+function categoryData(){
+	$.ajax({
+		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'categoryData'),$_smarty_tpl);?>
+",
+		type:"post",
+		data:{},
+		success:function(structure){
+				var structureObj = eval('(' + structure + ')');
+				var setting = {
+				view: {
+					dblClickExpand: false,
+					showLine: false,
+					selectedMulti: false
+				},
+				data: {
+					simpleData: {
+						enable:true,
+						idKey: "id",
+						pIdKey: "pId",
+						rootPId: ""
+					}
+				},
+				callback: {
+					beforeClick: function(treeId, treeNode) {
+						var id = treeNode.id;
+						var pId = treeNode.pId;
+						if(pId == ""){pId=0};
+						$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productCategoryIfame'),$_smarty_tpl);?>
+&id='+id+'&pId='+pId);
+					}
+				}
+			};
+			
+			var zNodes =structureObj;
+					
+			var code;
+					
+			function showCode(str) {
+				if (!code) code = $("#code");
+				code.empty();
+				code.append("<li>"+str+"</li>");
+			}
+		
+			var t = $("#treeDemo");
+			t = $.fn.zTree.init(t, setting, zNodes);
+			demoIframe = $("#testIframe");
+		}
+	})
 }
 <?php echo '</script'; ?>
 >

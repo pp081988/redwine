@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 12:20:20
+/* Smarty version 3.1.30, created on 2017-07-26 14:52:46
   from "D:\xampp\htdocs\redwine\tpl\back\product-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59771b640892e3_31386642',
+  'unifunc' => 'content_59783c3e61b778_44642830',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89bbebb885d8ecfbd7ad93c66cffd6201bb37ce8' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list.html',
-      1 => 1500978016,
+      1 => 1501051954,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59771b640892e3_31386642 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59783c3e61b778_44642830 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -68,7 +68,7 @@ function content_59771b640892e3_31386642 (Smarty_Internal_Template $_smarty_tpl)
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>"product-add"),$_smarty_tpl);?>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productAddPage','page'=>"product-add"),$_smarty_tpl);?>
 ')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
@@ -130,57 +130,59 @@ function content_59771b640892e3_31386642 (Smarty_Internal_Template $_smarty_tpl)
 >
 <?php echo '<script'; ?>
  type="text/javascript">
-var setting = {
-	view: {
-		dblClickExpand: false,
-		showLine: false,
-		selectedMulti: false
-	},
-	data: {
-		simpleData: {
-			enable:true,
-			idKey: "id",
-			pIdKey: "pId",
-			rootPId: ""
-		}
-	},
-	callback: {
-		beforeClick: function(treeId, treeNode) {
-			var zTree = $.fn.zTree.getZTreeObj("tree");
-			if (treeNode.isParent) {
-				zTree.expandNode(treeNode);
-				return false;
-			} else {
-				//demoIframe.attr("src",treeNode.file + ".html");
-				return true;
-			}
-		}
-	}
-};
-
-var zNodes =[
-	{ id:1, pId:0, name:"一级分类", open:true},
-	{ id:11, pId:1, name:"二级分类"},
-	{ id:111, pId:11, name:"三级分类"},
-	{ id:112, pId:11, name:"三级分类"},
-	{ id:113, pId:11, name:"三级分类"},
-	{ id:114, pId:11, name:"三级分类"},
-	{ id:115, pId:11, name:"三级分类"},
-	{ id:12, pId:1, name:"二级分类 1-2"},
-	{ id:121, pId:12, name:"三级分类 1-2-1"},
-	{ id:122, pId:12, name:"三级分类 1-2-2"},
-];
-		
-		
-		
 $(document).ready(function(){
-	var t = $("#treeDemo");
-	t = $.fn.zTree.init(t, setting, zNodes);
-	//demoIframe = $("#testIframe");
-	//demoIframe.on("load", loadReady);
-	var zTree = $.fn.zTree.getZTreeObj("tree");
-	//zTree.selectNode(zTree.getNodeByParam("id",'11'));
+	categoryData();
 });
+
+function categoryData(){
+	$.ajax({
+		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'categoryData'),$_smarty_tpl);?>
+",
+		type:"post",
+		data:{},
+		success:function(structure){
+				var structureObj = eval('(' + structure + ')');
+				var setting = {
+				view: {
+					dblClickExpand: false,
+					showLine: false,
+					selectedMulti: false
+				},
+				data: {
+					simpleData: {
+						enable:true,
+						idKey: "id",
+						pIdKey: "pId",
+						rootPId: ""
+					}
+				},
+				callback: {
+					beforeClick: function(treeId, treeNode) {
+						var id = treeNode.id;
+						var pId = treeNode.pId;
+						if(pId == ""){pId=0};
+						$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productCategoryIfame'),$_smarty_tpl);?>
+&id='+id+'&pId='+pId);
+					}
+				}
+			};
+			
+			var zNodes =structureObj;
+					
+			var code;
+					
+			function showCode(str) {
+				if (!code) code = $("#code");
+				code.empty();
+				code.append("<li>"+str+"</li>");
+			}
+		
+			var t = $("#treeDemo");
+			t = $.fn.zTree.init(t, setting, zNodes);
+			demoIframe = $("#testIframe");
+		}
+	})
+}
 
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序

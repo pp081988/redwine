@@ -56,7 +56,8 @@ if ( !empty($_REQUEST[ 'debug' ]) ) {
 // Settings
 // $targetDir = ini_get("upload_tmp_dir") . DIRECTORY_SEPARATOR . "plupload";
 $targetDir = 'upload_tmp';
-$uploadDir = 'upload';
+// $uploadDir = APP_PATH.'/uploadcheck';
+$uploadDir = '../../../../uploadcheck';
 
 $cleanupTargetDir = true; // Remove old files
 $maxFileAge = 5 * 3600; // Temp file age in seconds
@@ -83,6 +84,8 @@ if (isset($_REQUEST["name"])) {
 
 $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
 $uploadPath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
+
+
 
 // Chunking might be enabled
 $chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
@@ -174,4 +177,5 @@ if ( $done ) {
 }
 
 // Return Success JSON-RPC response
-die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
+// die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
+die($uploadPath);

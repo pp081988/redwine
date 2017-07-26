@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 12:20:21
+/* Smarty version 3.1.30, created on 2017-07-26 10:47:43
   from "D:\xampp\htdocs\redwine\tpl\back\product-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59771b6539d296_42235852',
+  'unifunc' => 'content_597802cfe56213_10529618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5276984a3adcc057f791785de94998755c339e4c' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-add.html',
-      1 => 1499858761,
+      1 => 1501037260,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59771b6539d296_42235852 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597802cfe56213_10529618 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -64,68 +64,25 @@ function content_59771b6539d296_42235852 (Smarty_Internal_Template $_smarty_tpl)
 <div class="page-container">
 	<form action="" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品标题：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>品名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="" name="">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">简略标题：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分類欄目：</label>
+			<div class="formControls col-xs-8 col-sm-9"> 
+				<input type="text" name="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类栏目：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select name="" class="select">
-					<option value="0">一级分类</option>
-					<option value="1">一级分类</option>
-					<option value="11">├二级分类</option>
-					<option value="12">├二级分类</option>
-					<option value="13">├二级分类</option>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">排序值：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">允许评论：</label>
-			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-				<div class="check-box">
-					<input type="checkbox" id="checkbox-1">
-					<label for="checkbox-1">&nbsp;</label>
-				</div>
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产品规格：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="输入长度" value="" class="input-text" style=" width:25%">
-				MM
-				<input type="text" name="" id="" placeholder="输入宽度" value="" class="input-text" style=" width:25%">
-				MM
-				<input type="text" name="" id="" placeholder="输入高度" value="" class="input-text" style=" width:25%">
-				MM </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产地：</label>
+			<label class="form-label col-xs-4 col-sm-2">產地：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">材质：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="" id="" placeholder="" value="" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">所属供应商：</label>
+			<label class="form-label col-xs-4 col-sm-2">所屬供應商：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text">
 			</div>
@@ -144,78 +101,66 @@ function content_59771b6539d296_42235852 (Smarty_Internal_Template $_smarty_tpl)
 				</span> </div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产品重量：</label>
+			<label class="form-label col-xs-4 col-sm-2">產品重量：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
 				kg</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产品展示价格：</label>
+			<label class="form-label col-xs-4 col-sm-2">產品展示價格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">市场价格：</label>
+			<label class="form-label col-xs-4 col-sm-2">市場價格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">成本价格：</label>
+			<label class="form-label col-xs-4 col-sm-2">成本價格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">最低销售价格：</label>
+			<label class="form-label col-xs-4 col-sm-2">最低銷售價格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="" value="" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">销售开始时间：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate" style="width:180px;">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">销售结束时间：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'datemin\')}' })" id="datemax" class="input-text Wdate" style="width:180px;">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产品关键字：</label>
+			<label class="form-label col-xs-4 col-sm-2">關鍵字：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">产品摘要：</label>
+			<label class="form-label col-xs-4 col-sm-2">產品摘要：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">缩略图：</label>
+			<label class="form-label col-xs-4 col-sm-2">縮略圖：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div class="uploader-thum-container">
 					<div id="fileList" class="uploader-list"></div>
-					<div id="filePicker">选择图片</div>
-					<button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button>
+					<div id="filePicker">產品圖片</div>
+					<button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">開始上傳</button>
 				</div>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">图片上传：</label>
+			<label class="form-label col-xs-4 col-sm-2">圖片上傳：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<div class="uploader-list-container">
 					<div class="queueList">
 						<div id="dndArea" class="placeholder">
 							<div id="filePicker-2"></div>
-							<p>或将照片拖到这里，单次最多可选300张</p>
+							<p>可將圖片拖拽到這裡，單此最多不超過10張</p>
 						</div>
 					</div>
 					<div class="statusBar" style="display:none;">
@@ -223,14 +168,14 @@ function content_59771b6539d296_42235852 (Smarty_Internal_Template $_smarty_tpl)
 						<div class="info"></div>
 						<div class="btns">
 							<div id="filePicker2"></div>
-							<div class="uploadBtn">开始上传</div>
+							<div class="uploadBtn">開始上傳</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">详细内容：</label>
+			<label class="form-label col-xs-4 col-sm-2">詳細內容：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
 				<?php echo '<script'; ?>
  id="editor" type="text/plain" style="width:100%;height:400px;"><?php echo '</script'; ?>
@@ -239,8 +184,7 @@ function content_59771b6539d296_42235852 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
-				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
