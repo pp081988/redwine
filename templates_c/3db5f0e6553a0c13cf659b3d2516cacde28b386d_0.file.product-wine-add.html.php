@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 17:25:00
+/* Smarty version 3.1.30, created on 2017-07-26 14:50:12
   from "D:\xampp\htdocs\redwine\tpl\back\product-wine-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59785fec151ee4_49012885',
+  'unifunc' => 'content_59789004cc6cc7_00527580',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3db5f0e6553a0c13cf659b3d2516cacde28b386d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-wine-add.html',
-      1 => 1501061097,
+      1 => 1501072490,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59789004cc6cc7_00527580 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -71,13 +71,6 @@ function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl)
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">分類：</label>
-			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" name="category" value="<?php echo $_smarty_tpl->tpl_vars['category']->value;?>
-" disabled="disabled" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">產地：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="origin" id="" placeholder="" value="" class="input-text">
@@ -92,7 +85,7 @@ function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">酒莊網址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="winerySite" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="winery_site" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -110,7 +103,7 @@ function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">最佳年份：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="bestYear" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="best_year" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -155,7 +148,7 @@ function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">供應商網址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="supplierSite" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="supplier_site" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -185,9 +178,14 @@ function content_59785fec151ee4_49012885 (Smarty_Internal_Template $_smarty_tpl)
 				</div>
 			</div>
 		</div>
+		<input type="text" name="images" class="value imagesUpload">
+		<input type="text" name="category_id" class="value" value="<?php echo $_smarty_tpl->tpl_vars['category_id']->value;?>
+">
+		<input type="text" name="category_pId" class="value" value="<?php echo $_smarty_tpl->tpl_vars['category_pId']->value;?>
+">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button class="btn btn-secondary radius submitBtn" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -499,7 +497,7 @@ $(function(){
             swf: 'lib/webuploader/0.1.5/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'lib/webuploader/0.1.5/server/fileupload.php',
+            server: 'model/fileupload.php',
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -561,9 +559,14 @@ $(function(){
         uploader.on( 'uploadSuccess', function( file,response) {
 		$( '#'+file.id ).addClass('upload-state-success').find(".state").text("已上传");
 		//var obj = eval('(' + response + ')'); //上传图片的路径
-    	console.log(response);
+		images = images+","+response._raw
+    	//console.log(response._raw);
 	});
-
+        var images = "";
+        $(".submitBtn").click(function(){
+			$(".imagesUpload").val(images);
+        });
+        	
         // 当有文件添加进来时执行，负责view的创建
         function addFile( file ) {
             var $li = $( '<li id="' + file.id + '">' +

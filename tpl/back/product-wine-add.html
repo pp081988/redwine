@@ -38,12 +38,6 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">分類：</label>
-			<div class="formControls col-xs-8 col-sm-9"> 
-				<input type="text" name="category" value="<{$category}>" disabled="disabled" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">產地：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="origin" id="" placeholder="" value="" class="input-text">
@@ -58,7 +52,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">酒莊網址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="winerySite" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="winery_site" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -76,7 +70,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">最佳年份：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="bestYear" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="best_year" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -121,7 +115,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">供應商網址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="supplierSite" id="" placeholder="" value="" class="input-text">
+				<input type="text" name="supplier_site" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -151,9 +145,12 @@
 				</div>
 			</div>
 		</div>
+		<input type="text" name="images" class="value imagesUpload">
+		<input type="text" name="category_id" class="value" value="<{$category_id}>">
+		<input type="text" name="category_pId" class="value" value="<{$category_pId}>">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button class="btn btn-secondary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button class="btn btn-secondary radius submitBtn" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -440,7 +437,7 @@ $(function(){
             swf: 'lib/webuploader/0.1.5/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'lib/webuploader/0.1.5/server/fileupload.php',
+            server: 'model/fileupload.php',
             // runtimeOrder: 'flash',
 
             // accept: {
@@ -502,9 +499,14 @@ $(function(){
         uploader.on( 'uploadSuccess', function( file,response) {
 		$( '#'+file.id ).addClass('upload-state-success').find(".state").text("已上传");
 		//var obj = eval('(' + response + ')'); //上传图片的路径
-    	console.log(response);
+		images = images+","+response._raw
+    	//console.log(response._raw);
 	});
-
+        var images = "";
+        $(".submitBtn").click(function(){
+			$(".imagesUpload").val(images);
+        });
+        	
         // 当有文件添加进来时执行，负责view的创建
         function addFile( file ) {
             var $li = $( '<li id="' + file.id + '">' +

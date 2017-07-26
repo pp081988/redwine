@@ -61,5 +61,5 @@ import(APP_PATH."/model/filter.php");
 import(APP_PATH."/model/random.php");
 import(APP_PATH."/model/db.php");
 import(APP_PATH."/model/variable.php");
-import(APP_PATH."/model/closeIframe.php");
+import(APP_PATH."/model/closewindow.php");
 spRun();

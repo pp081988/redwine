@@ -1,5 +1,5 @@
 <?php
-define("APP_PATH",dirname(__FILE__));
+
 /**
  * upload.php
  *
@@ -9,16 +9,6 @@ define("APP_PATH",dirname(__FILE__));
  * License: http://www.plupload.com/license
  * Contributing: http://www.plupload.com/contributing
  */
-
-#!! 注意
-#!! 此文件只是个示例，不要用于真正的产品之中。
-#!! 不保证代码安全性。
-
-#!! IMPORTANT:
-#!! this file is just an example, it doesn't incorporate any security checks and
-#!! is not recommended to be used in production environment as it is. Be sure to
-#!! revise it and customize to your needs.
-
 
 // Make sure file is not cached (as it happens for example on iOS devices)
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -56,9 +46,9 @@ if ( !empty($_REQUEST[ 'debug' ]) ) {
 
 // Settings
 // $targetDir = ini_get("upload_tmp_dir") . DIRECTORY_SEPARATOR . "plupload";
-$targetDir = APP_PATH.'./redwine/upload_tmp';
+$targetDir = '../images/upload_tmp';
 // $uploadDir = APP_PATH.'/uploadcheck';
-$uploadDir = APP_PATH.'./redwine/uploadcheck';
+$uploadDir = '../images/product';
 
 $cleanupTargetDir = true; // Remove old files
 $maxFileAge = 5 * 3600; // Temp file age in seconds
@@ -82,6 +72,8 @@ if (isset($_REQUEST["name"])) {
 } else {
     $fileName = uniqid("file_");
 }
+$ext = extend($fileName);
+$fileName = time().rand(100,999).".".$ext;
 
 $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;
 $uploadPath = $uploadDir . DIRECTORY_SEPARATOR . $fileName;
@@ -179,6 +171,13 @@ if ( $done ) {
     @fclose($out);
 }
 
+//获取文件类型后缀 
+    function extend($file_name){ 
+        $extend = pathinfo($file_name); 
+        $extend = strtolower($extend["extension"]); 
+        return $extend; 
+    } 
+
 // Return Success JSON-RPC response
 // die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
-die($uploadPath);
+die($fileName);

@@ -14,7 +14,7 @@ class backFuns extends spController
 		parent::__construct();
 		$unloginCheck = spClass("unloginCheck");
 		$unloginCheck->adminCheck();
-		$this->close = spClass("closeIframe");
+		$this->close = spClass("closewindow");
 		$this->var = spClass("variable");
 	}
 
@@ -125,13 +125,13 @@ class backFuns extends spController
 					unset($conditions['thumbnails']);
 				}
 				if($ob->update(Array("id"=>$articleId),$conditions)){
-					echo $this->close->close("alert('修改成功！');");
+					echo $this->close->closeIframe("alert('修改成功！');");
 				}else{
 					echo "error";
 				}
 			}else{
 				if($ob->create($conditions)){			
-					echo $this->close->close("alert('提交成功！');");
+					echo $this->close->closeIframe("alert('提交成功！');");
 				}else{
 					echo "error";
 				}
@@ -213,13 +213,37 @@ class backFuns extends spController
 
 	function productAddPage()
 	{
+		$get = spClass("spArgs");
+		$this->category_id = $get->get("category_id");
+		$this->category_pId = $get->get("category_pId");
 		$this->display("back\product-wine-add.html");
 	}
 
 	function product()
 	{
 		$post = spClass("spArgs");
-		//var_dump($post);
-		
+		$newrow = [];
+		foreach ($post->get() as $key => $value) {
+			if($key != "c" && $key != "a" && $key !="file"){
+				$newrow[$key] = $value;
+			}
+		}
+		$db = new db("admin_product_wine","id");
+		if(!$db->create($newrow)){
+			die("10015");
+		}
+		$this->success('提交成功！', spUrl('backFuns','pageIndex',Array("page"=>"product-list")));
+	}
+
+	function productQuery()
+	{
+		$post = spClass("spArgs");
+		$category_id = $post->get("category_id");
+		$category_pId = $post->get("category_pId");
+		$db = new db("admin_product_wine","id");
+		if($category_id == "" && $category_pId == ""){
+			$res = $db->findAll();
+			echo json_encode($res);
+		}
 	}
 }

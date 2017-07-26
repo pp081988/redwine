@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 14:52:46
+/* Smarty version 3.1.30, created on 2017-07-26 15:06:57
   from "D:\xampp\htdocs\redwine\tpl\back\product-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59783c3e61b778_44642830',
+  'unifunc' => 'content_597893f15ea745_61115293',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89bbebb885d8ecfbd7ad93c66cffd6201bb37ce8' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list.html',
-      1 => 1501051954,
+      1 => 1501074389,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59783c3e61b778_44642830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597893f15ea745_61115293 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -68,24 +68,25 @@ function content_59783c3e61b778_44642830 (Smarty_Internal_Template $_smarty_tpl)
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" onclick="product_add('添加产品','<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productAddPage','page'=>"product-add"),$_smarty_tpl);?>
-')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius addProduct" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 		<div class="mt-20">
-			<table class="table table-border table-bordered table-bg table-hover table-sort">
+			<table class="dataTable table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
-						<th width="40"><input name="" type="checkbox" value=""></th>
-						<th width="40">ID</th>
-						<th width="60">缩略图</th>
-						<th width="100">产品名称</th>
-						<th>描述</th>
-						<th width="100">单价</th>
-						<th width="60">发布状态</th>
-						<th width="100">操作</th>
+						<th><input name="" type="checkbox" value=""></th>
+						<th>ID</th>
+						<th>酒名</th>
+						<th>國家</th>
+						<th>酒莊名</th>
+						<th>葡萄</th>
+						<th>年份</th>
+						<th>價格</th>
+						<th>配對食物</th>
+						<th>供應商名稱</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-c va-m">
+					<!-- <tr class="text-c va-m">
 						<td><input name="" type="checkbox" value=""></td>
 						<td>001</td>
 						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="temp/product/Thumb/6204.jpg"></a></td>
@@ -94,7 +95,7 @@ function content_59783c3e61b778_44642830 (Smarty_Internal_Template $_smarty_tpl)
 						<td><span class="price">356.0</span> 元/平米</td>
 						<td class="td-status"><span class="label label-success radius">已发布</span></td>
 						<td class="td-manage"><a style="text-decoration:none" onClick="product_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 		</div>
@@ -131,7 +132,84 @@ function content_59783c3e61b778_44642830 (Smarty_Internal_Template $_smarty_tpl)
 <?php echo '<script'; ?>
  type="text/javascript">
 $(document).ready(function(){
+	$(".addProduct").click(function(){
+		if($(this).attr("selected") != "selected"){
+			alert("請選擇要添加的欄目");
+		}
+	})
 	categoryData();
+	function dataHandle(){
+		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
+";
+		$.ajax({
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productQuery'),$_smarty_tpl);?>
+",
+			type:"post",
+			data:{id:id},
+			success:function(data){
+				var dataObj = eval('(' + data + ')');
+				var article_type;
+				var allowcomments;
+				var display;
+				var update_time;
+				var displaySwitch;
+				for(i=0;i<dataObj.length;i++){
+					switch(dataObj[i]['article_type']){
+						case "0":article_type = "產品資訊";break;
+						case "1":article_type = "幫助說明";break;
+					}
+					switch(dataObj[i]['allowcomments']){
+						case "0":allowcomments = "×";break;
+						case "1":allowcomments = "√";break;
+					}
+					switch(dataObj[i]['display']){
+						case "0":display = '<span class="label label-success radius" style="background-color: #dd514c;">待發佈</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="發佈"><i class="Hui-iconfont">&#xe603;</i></a>';break;
+						case "1":display = '<span class="label label-success radius">已發佈</span>';displaySwitch = '<a style="text-decoration:none" onclick="article_stop(this,'+dataObj[i]['id']+')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>';break;
+						case "2":display = '<span class="label label-success radius" style="background-color: #a0a0a0;">已下架</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="發佈"><i class="Hui-iconfont">&#xe603;</i></a>';break;
+					}
+					if(dataObj[i]['update_time'] == null){
+						update_time = "無";
+					}else{
+						update_time = dataObj[i]['update_time'];
+					}
+					var str = '\
+					<tr class="text-c">\
+						<td><input type="checkbox" value="" name=""></td>\
+						<td>'+dataObj[i]['id']+'</td>\
+						<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit("查看","article-zhang.html","10001")" title="查看">'+dataObj[i]['article_title']+'</u></td>\
+						<td>'+article_type+'</td>\
+						<td>'+dataObj[i]['article_sort']+'</td>\
+						<td>'+dataObj[i]['keywords']+'</td>\
+						<td>'+dataObj[i]['create_time']+'</td>\
+						<td>'+update_time+'</td>\
+						<td>'+dataObj[i]['author']+'</td>\
+						<td>'+dataObj[i]['creator']+'</td>\
+						<td>'+allowcomments+'</td>\
+						<td class="td-status">'+display+'</td>\
+						<td class="f-14 td-manage">'+displaySwitch+' <a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['column']->value;
+$_prefixVariable1=ob_get_clean();
+ob_start();
+echo $_smarty_tpl->tpl_vars['title']->value;
+$_prefixVariable2=ob_get_clean();
+echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
+&articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
+					</tr>'
+					$(".dataTable tbody").append(str);
+				}
+				$('.table-sort').dataTable({
+					"aaSorting": [[ 1, "desc" ]],//默认第几个排序
+					"bStateSave": true,//状态保存
+					"pading":false,
+					"aoColumnDefs": [
+					  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+					  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
+					]
+				});
+			}
+		})
+	}
+	//dataHandle();
 });
 
 function categoryData(){
@@ -160,9 +238,13 @@ function categoryData(){
 					beforeClick: function(treeId, treeNode) {
 						var id = treeNode.id;
 						var pId = treeNode.pId;
+						var categoryName = treeNode.name;
 						if(pId == ""){pId=0};
-						$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productCategoryIfame'),$_smarty_tpl);?>
-&id='+id+'&pId='+pId);
+						$(".addProduct").attr("selected","selected");
+						$(".addProduct").click(function(){
+							product_add('添加產品--'+categoryName,'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productAddPage'),$_smarty_tpl);?>
+&category_id='+id+'&category_pId='+pId);
+						})
 					}
 				}
 			};
@@ -183,6 +265,9 @@ function categoryData(){
 		}
 	})
 }
+
+
+
 
 $('.table-sort').dataTable({
 	"aaSorting": [[ 1, "desc" ]],//默认第几个排序
