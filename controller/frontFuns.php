@@ -223,15 +223,23 @@ class frontFuns extends spController
 
 	function addForumIndex()
 	{
-		$this->display("forumadd1.html");
+		$this->display("forumtheme1.html");
+	}
+
+	function pageIndex()
+	{
+		$post = spClass("spArgs");
+		$pageName = $post->get("page").".html";
+		$this->display($pageName);
 	}
 
 	function productDetial()
 	{
 		$get = spClass("spArgs");
+		$var = spClass("variable");
 		$id = $this->filter->filter($get->get("id"));
 		$db = new db("admin_product_wine","id");
-		$res = $db->find(Array("id"=>"3"));
+		$res = $db->find(Array("id"=>$id));
 		$this->name = $res['name'];
 		$this->origin = $res['origin'];
 		$this->winery = $res['winery'];
@@ -239,13 +247,13 @@ class frontFuns extends spController
 		$this->grape = $res['grape'];
 		$this->year = $res['year'];
 		$this->best_year = $res['best_year'];
-		$this->price = $res['price'];
-		$this->food = $res['food'];
+		$this->price = $var->PRICE[$res['price']];
+		$this->food = $var->FOOD[$res['food']];
 		$this->supplier = $res['supplier'];
 		$this->supplier_site = $res['supplier_site'];
 		$this->keyword = $res['keyword'];
 		$imgArray = explode(",",substr($res['images'],1));
-		if(count($imgArray) == 0){
+		if($res['images'] == ""){
 			$this->fristImage = "images/product/noproductimg.png";
 		}else{
 			$this->fristImage = "images/product/".$imgArray[0];
@@ -258,9 +266,18 @@ class frontFuns extends spController
 			}
 		}
 		//$this->images = $images;
-		echo count($imgArray);
-		var_dump($imgArray);
-		//$this->display("productDetail.html");
+		// echo count($imgArray);
+		//var_dump($res['images']);
+		$this->display("productDetail.html");
 	}
 
+	function imgUpload()
+	{
+		$file = $_FILES['file'];
+		if($file['name'] != ""){
+			$upload = spClass("upload");
+			$res = $upload->upload($file,$theme);
+			echo json_encode(Array("ok",$res));
+		}
+	}
 }

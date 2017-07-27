@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:16:16
+/* Smarty version 3.1.30, created on 2017-07-27 12:17:05
   from "D:\xampp\htdocs\redwine\tpl\productDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979af60d26db9_05306657',
+  'unifunc' => 'content_5979bda122d740_81368113',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '464b14ce5d81001cc512ec21ae680bbb5bce3ebd' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\productDetail.html',
-      1 => 1501146975,
+      1 => 1501150617,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979af60d26db9_05306657 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979bda122d740_81368113 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -85,7 +85,7 @@ a:active{color:#1d7400;}
 
 /* smallImg */
 
-.smallImg{position:relative; height:52px; margin-top:1px; background-color:#F1F0F0; padding:6px 5px; width:390px; overflow:hidden;float:left;}
+.smallImg{position:relative; height:52px; margin-top:1px; /*background-color:#F1F0F0;*/ padding:6px 5px; width:390px; overflow:hidden;float:left;}
 
 .scrollbutton{width:14px; height:50px; overflow:hidden; position:relative; float:left; cursor:pointer; }
 

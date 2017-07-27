@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 15:53:48
+/* Smarty version 3.1.30, created on 2017-07-27 12:45:09
   from "D:\xampp\htdocs\redwine\tpl\back\product-list-iframe.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59799c0c9ceec7_98153564',
+  'unifunc' => 'content_5979c43596aa26_26691192',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3593153fdecc5f0c3782fa6139710ecc4912379' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list-iframe.html',
-      1 => 1501142007,
+      1 => 1501152306,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59799c0c9ceec7_98153564 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979c43596aa26_26691192 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -260,6 +260,8 @@ $(function(){
 			type:"post",
 			data:{category_id:category_id,category_pId:category_pId},
 			success:function(data){
+				$PRICE = Array("<$50","$51-$100","$101-$150","$151-$200","$201-$300","$301-$400",">$400");
+				$FOOD = Array("牛","羊","豬","家禽","海鮮","小食","甜品","頭盤","街頭食品","各國菜式");
 				if(data != ""){
 					var dataObj = eval('(' + data + ')');
 				for(i=0;i<dataObj.length;i++){
@@ -267,13 +269,13 @@ $(function(){
 					<tr class="text-c">\
 						<td><input type="checkbox" value="" name=""></td>\
 						<td>'+dataObj[i]['id']+'</td>\
-						<td class="text-l"><a style="text-decoration:none" onclick="productDetail(\''+dataObj[i]['name']+'\',\''+dataObj[i]['id']+'\')" class="productName" href="javascript:;">'+dataObj[i]['name']+'</a></td>\
+						<td class="text-l"><a style="text-decoration:underline" onclick="productDetail(\''+dataObj[i]['name']+'\',\''+dataObj[i]['id']+'\')" class="productName" href="javascript:;">'+dataObj[i]['name']+'</a></td>\
 						<td>'+dataObj[i]['origin']+'</td>\
 						<td>'+dataObj[i]['winery']+'</td>\
 						<td>'+dataObj[i]['grape']+'</td>\
 						<td>'+dataObj[i]['year']+'</td>\
-						<td>'+dataObj[i]['price']+'</td>\
-						<td>'+dataObj[i]['food']+'</td>\
+						<td>'+$PRICE[dataObj[i]['price']]+'</td>\
+						<td>'+$FOOD[dataObj[i]['food']]+'</td>\
 						<td>'+dataObj[i]['supplier']+'</td>\
 						<td class="f-14 td-manage"><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['column']->value;

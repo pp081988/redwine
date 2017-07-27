@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 13:55:13
+/* Smarty version 3.1.30, created on 2017-07-27 13:10:37
   from "D:\xampp\htdocs\redwine\tpl\back\product-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597980411cd4f7_49539370',
+  'unifunc' => 'content_5979ca2d6afce9_37502891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '89bbebb885d8ecfbd7ad93c66cffd6201bb37ce8' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list.html',
-      1 => 1501134870,
+      1 => 1501153833,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597980411cd4f7_49539370 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979ca2d6afce9_37502891 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -172,7 +172,8 @@ function product_add(title,url){
 	var index = layer.open({
 		type: 2,
 		title: title,
-		content: url
+		content: url,
+		area: '500px'
 	});
 	layer.full(index);
 }
