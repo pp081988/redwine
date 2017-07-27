@@ -211,6 +211,15 @@ class backFuns extends spController
 		//echo $remark;
 	}
 
+	function productIframe()
+	{
+		$get = spClass("spArgs");
+		$this->category_id = $get->get("category_id");
+		$this->category_pId = $get->get("category_pId");
+		$this->category_name = $get->get("category_name");
+		$this->display("back\product-list-iframe.html");
+	}
+
 	function productAddPage()
 	{
 		$get = spClass("spArgs");
@@ -244,6 +253,14 @@ class backFuns extends spController
 		if($category_id == "" && $category_pId == ""){
 			$res = $db->findAll();
 			echo json_encode($res);
+		}else{
+			$res = $db->findAll(Array("category_id"=>$category_id,"category_pId"=>$category_pId));
+			if(count($res) == 0){
+				die("");
+			}
+			echo json_encode($res);
 		}
 	}
+
+	
 }

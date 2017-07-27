@@ -226,4 +226,41 @@ class frontFuns extends spController
 		$this->display("forumadd1.html");
 	}
 
+	function productDetial()
+	{
+		$get = spClass("spArgs");
+		$id = $this->filter->filter($get->get("id"));
+		$db = new db("admin_product_wine","id");
+		$res = $db->find(Array("id"=>"3"));
+		$this->name = $res['name'];
+		$this->origin = $res['origin'];
+		$this->winery = $res['winery'];
+		$this->winery_site = $res['winery_site'];
+		$this->grape = $res['grape'];
+		$this->year = $res['year'];
+		$this->best_year = $res['best_year'];
+		$this->price = $res['price'];
+		$this->food = $res['food'];
+		$this->supplier = $res['supplier'];
+		$this->supplier_site = $res['supplier_site'];
+		$this->keyword = $res['keyword'];
+		$imgArray = explode(",",substr($res['images'],1));
+		if(count($imgArray) == 0){
+			$this->fristImage = "images/product/noproductimg.png";
+		}else{
+			$this->fristImage = "images/product/".$imgArray[0];
+			foreach ($imgArray as $key => $value) {
+				$onclick = '';
+				if($key == "0"){
+					$onclick = 'id="onlickImg"';
+				}
+				$this->images .= '<li '.$onclick.'><img src="images/product/'.$value.'" width="68" height="68" alt="'.$res['name'].'"/></li>';
+			}
+		}
+		//$this->images = $images;
+		echo count($imgArray);
+		var_dump($imgArray);
+		//$this->display("productDetail.html");
+	}
+
 }
