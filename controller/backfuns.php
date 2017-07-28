@@ -202,6 +202,10 @@ class backFuns extends spController
 			"name"		=>	$name,
 			"remark"	=>	$remark
 		];
+		if($id == "1"){
+			$newrow['id'] = intval($checkResult[0]['id']) + 10;
+			$newrow['open'] = "true";
+		}
 		if(!$db->create($newrow)){
 			echo "10014";
 			exit;
@@ -225,7 +229,15 @@ class backFuns extends spController
 		$get = spClass("spArgs");
 		$this->category_id = $get->get("category_id");
 		$this->category_pId = $get->get("category_pId");
-		$this->display("back\product-wine-add.html");
+		switch (substr($this->category_id,0,1)){
+			case '1':
+				$this->display("back\product-wine-add.html");
+				break;
+			case '2':
+				$this->display("back\product-food-add.html");
+				break;
+		}
+		
 	}
 
 	function product()

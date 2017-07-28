@@ -2,6 +2,7 @@
 require_once(APP_PATH."/model/siteCommentLinker.php");
 require_once(APP_PATH."/model/unloginCheck.php");
 require_once(APP_PATH."/model/frequently.php");
+require_once(APP_PATH."/model/compare.php");
 
 class frontFuns extends spController
 {
@@ -238,7 +239,16 @@ class frontFuns extends spController
 		$get = spClass("spArgs");
 		$var = spClass("variable");
 		$id = $this->filter->filter($get->get("id"));
+		$type = $this->filter->filter($get->get("type"));
 		$db = new db("admin_product_wine","id");
+		if($type == "forum"){
+			$imgName = $this->filter->filter($get->get("condition"));
+			if($res = $db->find("images like '%".$imgName."%'")){
+				die(json_encode($res));
+			}else{
+				die("10016");
+			}
+		}
 		$res = $db->find(Array("id"=>$id));
 		$this->name = $res['name'];
 		$this->origin = $res['origin'];
@@ -254,7 +264,7 @@ class frontFuns extends spController
 		$this->keyword = $res['keyword'];
 		$imgArray = explode(",",substr($res['images'],1));
 		if($res['images'] == ""){
-			$this->fristImage = "images/product/noproductimg.png";
+			$this->fristImage = "images/noproductimg.png";
 		}else{
 			$this->fristImage = "images/product/".$imgArray[0];
 			foreach ($imgArray as $key => $value) {
@@ -271,13 +281,29 @@ class frontFuns extends spController
 		$this->display("productDetail.html");
 	}
 
-	function imgUpload()
+	function forumImgUpload()
 	{
 		$file = $_FILES['file'];
 		if($file['name'] != ""){
 			$upload = spClass("upload");
 			$res = $upload->upload($file,$theme);
-			echo json_encode(Array("ok",$res));
+			echo $this->compareImg($res);
+		}
+	}
+
+	function compareImg($img1)
+	{
+		$result = [];
+		$compare = new compare($img1);
+		$productImgs = scandir("images/product");
+		foreach ($productImgs as $key => $value) {
+			if($key != "0" && $key != "1"){
+				$result[$value] = $compare->check($img1,"images/product/".$value);
+			}
+		}
+		$pos = array_search(min($result), $result);
+		if($result[$pos] < 8){
+			return $pos;
 		}
 	}
 }

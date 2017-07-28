@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:03:27
+/* Smarty version 3.1.30, created on 2017-07-28 15:11:44
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a00bfa0ba21_52041621',
+  'unifunc' => 'content_597ae3b0a656e4_72120232',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501167794,
+      1 => 1501225902,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597a00bfa0ba21_52041621 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,6 +142,7 @@ function content_597a00bfa0ba21_52041621 (Smarty_Internal_Template $_smarty_tpl)
        
       </div>      
     </div>
+    <form id= "uploadForm">  
 <div class="theme  wow fadeInUp"> 
       <h2>主題類別 : <select name="" class="seltext">
         <option value="forumtheme1">達人食評</option>
@@ -172,23 +173,24 @@ function content_597a00bfa0ba21_52041621 (Smarty_Internal_Template $_smarty_tpl)
            
         <!-- </div> -->
        </div>
+       </form>
       </li> 
       <li class="clearfix"></li>      
       <li class="fl"><table width="100%" border="0" class="listbd">
   <tr>
-    <td><em class="bfn2">酒名：</em><input name="" type="text" class="seltext"></td>
-    <td><em class="bfn2">年份：</em><select name=""  class="seltext">
+    <td><em class="bfn2">酒名：</em><input name="wine_name" type="text" class="seltext"></td>
+    <td><em class="bfn2">年份：</em><select name="year"  class="seltext">
       <option>--選擇年份--</option>
     </select></td>
-    <td><em class="bfn2">酒類：</em><select name=""  class="seltext">
+    <td><em class="bfn2">酒類：</em><select name="category"  class="seltext">
       <option>--選擇酒類--</option>
     </select></td>
   </tr>
   <tr>
-    <td><em class="bfn2">價錢：</em><select name=""  class="seltext">
+    <td><em class="bfn2">價錢：</em><select name="price"  class="seltext">
       <option>--選擇價錢--</option>
     </select></td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em><select name=""  class="seltext">
+    <td colspan="2"><em class="bfn2">佳餚名稱：</em><select name="food_name"  class="seltext">
       <option>--選擇国家菜式--</option>
     </select><select name=""  class="seltext">
       <option>--選擇菜式--</option>
@@ -252,6 +254,43 @@ $(function(){
 
 
 })
+
+function productQuery(condition){
+  $.ajax({
+    url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'productDetial'),$_smarty_tpl);?>
+",
+    type:"post",
+    data:{condition:condition,type:"forum"},
+    success:function(data){
+      if(data == "10016"){
+        alert("發生錯誤：10016<br>請聯繫系統管理員");
+      }else{
+        var dataObj = eval('(' + data + ')');
+        $("input[name=wine_name]").val(dataObj['name']);
+        $("select[name=year]").find("option").html(dataObj['year']);
+      }
+    }
+  });
+}
+
+function doUpload() {  
+     var formData = new FormData($( "#uploadForm" )[0]);  
+     $.ajax({  
+          url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forumImgUpload'),$_smarty_tpl);?>
+' ,  
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false,  
+          success: function (returndata) {  
+              if(returndata != ""){
+                productQuery(returndata);
+              }
+          } 
+     });  
+}  
 
 function ajaxFileUpload() {
             $.ajaxFileUpload

@@ -48,9 +48,13 @@ $(function(){
 		     var $input2 = $("<input id='tags' class='ups' name='tags' value='' type='hidden'/>");
 		         $input2.appendTo($section);
 		         $(".z_file .add-img").css({"background-image":"url(images/upload.jpg)"})
-		         ajaxFileUpload()
+		         //ajaxFileUpload()
+		         
 		         $(".ups").each(function(){
 		         	count++;
+		         	if(count < 2){
+		         		doUpload();
+		         	}
 		         	if(count > 2){
 		         		$(".z_file").css({"display":"none"});
 		         		var imgurl1 = $(".up-section:nth-child(1)").find("img").attr("src");

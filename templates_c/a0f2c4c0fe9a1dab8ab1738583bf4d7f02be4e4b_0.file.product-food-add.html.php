@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-28 16:47:06
+  from "D:\xampp\htdocs\redwine\tpl\back\product-food-add.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_597afa0a472ff3_47300886',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'a0f2c4c0fe9a1dab8ab1738583bf4d7f02be4e4b' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-food-add.html',
+      1 => 1501231602,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_597afa0a472ff3_47300886 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
 <html>
@@ -10,8 +34,12 @@
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/html5shiv.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/respond.min.js"><?php echo '</script'; ?>
+>
 
 <![endif]-->
 <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
@@ -21,8 +49,12 @@
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>DD_belatedPNG.fix('*');<?php echo '</script'; ?>
+>
 <![endif]-->
 <!--/meta 作为公共模版分离出去-->
 
@@ -30,98 +62,42 @@
 </head>
 <body>
 <div class="page-container">
-	<form action="<{spUrl c=backFuns a=product}>" method="post" class="form form-horizontal" id="form-article-add">
+	<form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'product'),$_smarty_tpl);?>
+" method="post" class="form form-horizontal" id="form-article-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>酒名：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>品名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">產地：</label>
+			<label class="form-label col-xs-4 col-sm-2">國家(產地)：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="origin" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">酒莊名：</label>
+			<label class="form-label col-xs-4 col-sm-2">菜式：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="winery" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">酒莊網址：</label>
+			<label class="form-label col-xs-4 col-sm-2">煮法：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="winery_site" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">葡萄：</label>
+			<label class="form-label col-xs-4 col-sm-2">味道：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" name="grape" id="" placeholder="" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">年份：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="year" id="" placeholder="" value="" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">最佳年份：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="best_year" id="" placeholder="" value="" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">價格：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" name="price">
-					<option>請選擇</option>
-					<option value="0"><$50</option>
-					<option value="1">$51-$100</option>
-					<option value="2">$101-$150</option>
-					<option value="3">$151-$200</option>
-					<option value="4">$201-$300</option>
-					<option value="5">$301-$400</option>
-					<option value="6">>$400</option>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">配對食物：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" name="food">
-					<option>請選擇</option>
-					<option value="0">牛</option>
-					<option value="1">羊</option>
-					<option value="2">豬</option>
-					<option value="3">家禽</option>
-					<option value="4">海鮮</option>
-					<option value="5">小食</option>
-					<option value="6">甜品</option>
-					<option value="7">頭盤</option>
-					<option value="8">街頭食品</option>
-					<option value="9">各國菜式</option>
-				</select>
-				</span> </div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">供應商：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="supplier" id="" placeholder="" value="" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2">供應商網址：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="supplier_site" id="" placeholder="" value="" class="input-text">
-			</div>
-		</div>
-		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">關鍵字：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="keyword" id="" placeholder="多个关键字用英文逗号隔开，限10个关键字" value="" class="input-text">
+				<input type="text" name="keyword" id="" placeholder="多個關鍵字請用英文逗號隔開，限10個關鍵字" value="" class="input-text">
 			</div>
 		</div>
 		<div class="row cl">
@@ -146,8 +122,10 @@
 			</div>
 		</div>
 		<input type="text" name="images" class="value imagesUpload">
-		<input type="text" name="category_id" class="value" value="<{$category_id}>">
-		<input type="text" name="category_pId" class="value" value="<{$category_pId}>">
+		<input type="text" name="category_id" class="value" value="<?php echo $_smarty_tpl->tpl_vars['category_id']->value;?>
+">
+		<input type="text" name="category_pId" class="value" value="<?php echo $_smarty_tpl->tpl_vars['category_pId']->value;?>
+">
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
 				<button class="btn btn-secondary radius submitBtn" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
@@ -158,22 +136,47 @@
 </div>
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/layer/2.4/layer.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui/js/H-ui.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"><?php echo '</script'; ?>
+> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
-<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"></script>
-<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
-<script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> <?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"><?php echo '</script'; ?>
+>
 
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
@@ -872,6 +875,8 @@ $(function(){
 $(function(){
 	//var ue = UE.getEditor('editor');
 });
-</script>
+<?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

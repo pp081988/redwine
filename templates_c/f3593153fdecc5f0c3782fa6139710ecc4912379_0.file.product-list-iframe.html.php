@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 12:45:09
+/* Smarty version 3.1.30, created on 2017-07-28 16:12:35
   from "D:\xampp\htdocs\redwine\tpl\back\product-list-iframe.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979c43596aa26_26691192',
+  'unifunc' => 'content_597af1f3dfead8_80412453',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3593153fdecc5f0c3782fa6139710ecc4912379' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list-iframe.html',
-      1 => 1501152306,
+      1 => 1501229553,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979c43596aa26_26691192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597af1f3dfead8_80412453 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -51,6 +51,11 @@ function content_5979c43596aa26_26691192 (Smarty_Internal_Template $_smarty_tpl)
 >DD_belatedPNG.fix('*');<?php echo '</script'; ?>
 >
 <![endif]-->
+<style>
+	html,body{
+		overflow: auto!important;
+	}
+</style>
 <title>產品列表</title>
 </head>
 <body>
@@ -63,7 +68,7 @@ function content_5979c43596aa26_26691192 (Smarty_Internal_Template $_smarty_tpl)
 			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
 		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius addProduct" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a> <a class="btn btn-primary radius addProduct" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加產品</a></span> <span class="r">共有數據：<strong class="rows">0</strong> 條</span> </div>
 		<div class="mt-20">
 			<table class="dataTable table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
@@ -264,6 +269,7 @@ $(function(){
 				$FOOD = Array("牛","羊","豬","家禽","海鮮","小食","甜品","頭盤","街頭食品","各國菜式");
 				if(data != ""){
 					var dataObj = eval('(' + data + ')');
+					$(".rows").html(dataObj.length);
 				for(i=0;i<dataObj.length;i++){
 					var str = '\
 					<tr class="text-c">\

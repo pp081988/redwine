@@ -23,7 +23,11 @@ class upload extends spController
 		$ext = $this->extend($name);
 		$image_name = time().rand(100,999).".".$ext; 
 
-		$upload_path = "imgUpload/".$position."/".$image_name; //上传文件的存放路径
+		$separator = "";
+		if($position != ""){
+			$separator = "/";
+		}
+		$upload_path = "imgUpload/".$position.$separator.$image_name; //上传文件的存放路径
 		//开始移动文件到相应的文件夹
 		if(move_uploaded_file($file['tmp_name'],$upload_path)){
 		 	return $upload_path;

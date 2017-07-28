@@ -15,10 +15,10 @@ require 'image.compare.class.php';
 */
 class compare
 {
-	function __construct($img1,$img2)
+	function check($img1,$img2)
 	{
 		$class = new compareImages;
-		return $class->compare('1.jpg','2.jpg');
+		return $class->compare($img1,$img2);
 	}
 }
 ?>

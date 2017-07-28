@@ -95,6 +95,7 @@
        
       </div>      
     </div>
+    <form id= "uploadForm">  
 <div class="theme  wow fadeInUp"> 
       <h2>主題類別 : <select name="" class="seltext">
         <option value="forumtheme1">達人食評</option>
@@ -125,23 +126,24 @@
            
         <!-- </div> -->
        </div>
+       </form>
       </li> 
       <li class="clearfix"></li>      
       <li class="fl"><table width="100%" border="0" class="listbd">
   <tr>
-    <td><em class="bfn2">酒名：</em><input name="" type="text" class="seltext"></td>
-    <td><em class="bfn2">年份：</em><select name=""  class="seltext">
+    <td><em class="bfn2">酒名：</em><input name="wine_name" type="text" class="seltext"></td>
+    <td><em class="bfn2">年份：</em><select name="year"  class="seltext">
       <option>--選擇年份--</option>
     </select></td>
-    <td><em class="bfn2">酒類：</em><select name=""  class="seltext">
+    <td><em class="bfn2">酒類：</em><select name="category"  class="seltext">
       <option>--選擇酒類--</option>
     </select></td>
   </tr>
   <tr>
-    <td><em class="bfn2">價錢：</em><select name=""  class="seltext">
+    <td><em class="bfn2">價錢：</em><select name="price"  class="seltext">
       <option>--選擇價錢--</option>
     </select></td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em><select name=""  class="seltext">
+    <td colspan="2"><em class="bfn2">佳餚名稱：</em><select name="food_name"  class="seltext">
       <option>--選擇国家菜式--</option>
     </select><select name=""  class="seltext">
       <option>--選擇菜式--</option>
@@ -203,6 +205,41 @@ $(function(){
 
 
 })
+
+function productQuery(condition){
+  $.ajax({
+    url:"<{spUrl c=frontFuns a=productDetial}>",
+    type:"post",
+    data:{condition:condition,type:"forum"},
+    success:function(data){
+      if(data == "10016"){
+        alert("發生錯誤：10016<br>請聯繫系統管理員");
+      }else{
+        var dataObj = eval('(' + data + ')');
+        $("input[name=wine_name]").val(dataObj['name']);
+        $("select[name=year]").find("option").html(dataObj['year']);
+      }
+    }
+  });
+}
+
+function doUpload() {  
+     var formData = new FormData($( "#uploadForm" )[0]);  
+     $.ajax({  
+          url: '<{spUrl c=frontFuns a=forumImgUpload}>' ,  
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false,  
+          success: function (returndata) {  
+              if(returndata != ""){
+                productQuery(returndata);
+              }
+          } 
+     });  
+}  
 
 function ajaxFileUpload() {
             $.ajaxFileUpload

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 13:49:13
+/* Smarty version 3.1.30, created on 2017-07-28 16:19:59
   from "D:\xampp\htdocs\redwine\tpl\back\article-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59748d391a4027_16973097',
+  'unifunc' => 'content_597af3af5de112_44902340',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '286477a8ac8340d1c6164d4082b2b5375769eb2b' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\article-list.html',
-      1 => 1500640584,
+      1 => 1501229994,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59748d391a4027_16973097 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597af3af5de112_44902340 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -84,18 +84,18 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 			<thead>
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th width="80">ID</th>
+					<th>ID</th>
 					<th>標題</th>
-					<th width="80">類型</th>
-					<th width="80">排序值</th>
+					<th>類型</th>
+					<th>排序值</th>
 					<th>關鍵詞</th>
-					<th width="120">創建時間</th>
+					<th>創建時間</th>
 					<th>更新時間</th>
-					<th width="75">作者</th>
+					<th>作者</th>
 					<th>創建者</th>
 					<th>允許評論</th>
-					<th width="60">狀態</th>
-					<th width="120">操作</th>
+					<th>狀態</th>
+					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
