@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 10:16:18
-  from "D:\xampp\htdocs\redwine\tpl\back\product-category.html" */
+/* Smarty version 3.1.30, created on 2017-07-29 15:59:12
+  from "D:\xampp\htdocs\redwine\tpl\back\forum-food-option.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5977fb729f5b16_40973454',
+  'unifunc' => 'content_597c94b0c3ed13_46208781',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3242dd118442c1a39a77d1fc7d3ff53c750187c1' => 
+    '2e84b004957318a1b4957ea10705c68c5ca31c46' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-category.html',
-      1 => 1501035372,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-food-option.html',
+      1 => 1501318798,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5977fb729f5b16_40973454 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597c94b0c3ed13_46208781 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -52,10 +52,10 @@ function content_5977fb729f5b16_40973454 (Smarty_Internal_Template $_smarty_tpl)
 >DD_belatedPNG.fix('*');<?php echo '</script'; ?>
 >
 <![endif]-->
-<title>产品分类</title>
+<title>食物選項管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 产品分类 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 食物選項管理 <span class="c-gray en">&gt;</span> 食物選項 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <table class="table">
 	<tr>
 		<td width="200" class="va-t"><ul id="treeDemo" class="ztree"></ul></td>
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
 function categoryData(){
 	$.ajax({
-		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'categoryData'),$_smarty_tpl);?>
+		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forumFoodOptionData'),$_smarty_tpl);?>
 ",
 		type:"post",
 		data:{},
@@ -117,7 +117,7 @@ function categoryData(){
 						var id = treeNode.id;
 						var pId = treeNode.pId;
 						if(pId == ""){pId=0};
-						$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productCategoryIfame'),$_smarty_tpl);?>
+						$("#categoryIframe").attr("SRC",'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forumFoodOptionIfame'),$_smarty_tpl);?>
 &id='+id+'&pId='+pId);
 					}
 				}

@@ -1,28 +1,4 @@
-<?php
-/* Smarty version 3.1.30, created on 2017-07-27 12:17:05
-  from "D:\xampp\htdocs\redwine\tpl\productDetail.html" */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.30',
-  'unifunc' => 'content_5979bda122d740_81368113',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '464b14ce5d81001cc512ec21ae680bbb5bce3ebd' => 
-    array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\productDetail.html',
-      1 => 1501150617,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5979bda122d740_81368113 (Smarty_Internal_Template $_smarty_tpl) {
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -32,9 +8,7 @@ function content_5979bda122d740_81368113 (Smarty_Internal_Template $_smarty_tpl)
 
 <title>jQuery网站商品图片放大镜效</title>
 
-<?php echo '<script'; ?>
- type="text/javascript" src="js/jquery.1.4.2-min.js"><?php echo '</script'; ?>
->
+<script type="text/javascript" src="js/jquery.1.4.2-min.js"></script>
 
 <style type="text/css">
 
@@ -163,8 +137,7 @@ td:first-child{
 <div class="content">
 	<div class="preview">
 		<div id="vertical" class="bigImg">
-			<img src="<?php echo $_smarty_tpl->tpl_vars['fristImage']->value;?>
-" width="400" height="400" alt="" id="midimg" />
+			<img src="<{$fristImage}>" width="400" height="400" alt="" id="midimg" />
 			<div style="display:none;" id="winSelector"></div>
 		</div><!--bigImg end-->	
 		<div class="smallImg">
@@ -172,8 +145,7 @@ td:first-child{
 			<div id="imageMenu">
 				<ul>
 					<!-- <li id="onlickImg"><img src="small/05.jpg" width="68" height="68" alt="洋妞"/></li> -->
-					<?php echo $_smarty_tpl->tpl_vars['images']->value;?>
-
+					<{$images}>
 				</ul>
 			</div>
 			<div class="scrollbutton smallImgDown"></div>
@@ -181,63 +153,27 @@ td:first-child{
 		<div id="bigView" style="display:none;"><img width="800" height="800" alt="" src="" /></div>
 	</div>
 	<div class="productData">
-		<p class="title"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
-</p>
+		<p class="title"><{$name}></p>
 		<table>
 			<tr>
 				<td><p>產地(國家)：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['origin']->value;?>
-</td>
+				<td><{$origin}></td>
 			</tr>
 			<tr>
-				<td><p>酒莊：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['winery']->value;?>
-</td>
+				<td><p>菜式：</p></td>
+				<td><{$type}></td>
 			</tr>
 			<tr>
-				<td><p>酒莊網址：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['winery_site']->value;?>
-</td>
+				<td><p>煮法：</p></td>
+				<td><{$method}></td>
 			</tr>
 			<tr>
-				<td><p>葡萄：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['grape']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>年份：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['year']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>最佳年份：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['best_year']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>價格：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['price']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>配對食物：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['food']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>供應商：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['supplier']->value;?>
-</td>
-			</tr>
-			<tr>
-				<td><p>供應商網址：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['supplier_site']->value;?>
-</td>
+				<td><p>味道：</p></td>
+				<td><{$taste}></td>
 			</tr>
 			<tr>
 				<td><p>關鍵字：</p></td>
-				<td><?php echo $_smarty_tpl->tpl_vars['keyword']->value;?>
-</td>
+				<td><{$keyword}></td>
 			</tr>
 		</table>
 	</div>
@@ -245,8 +181,7 @@ td:first-child{
 
 <!--preview end-->
 
-<?php echo '<script'; ?>
- type="text/javascript">
+<script type="text/javascript">
 
 $(document).ready(function(){
 
@@ -528,10 +463,8 @@ $(document).ready(function(){
 
 });
 
-<?php echo '</script'; ?>
->
+</script>
 
 </body>
 
-</html> <?php }
-}
+</html> 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-25 17:06:16
+/* Smarty version 3.1.30, created on 2017-07-29 16:03:10
   from "D:\xampp\htdocs\redwine\tpl\tellyou.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59770a086a5922_04942981',
+  'unifunc' => 'content_597c959e7e55e0_41926089',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ec5f4bc9a4a2fdaaef23473e692f558247adf5d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\tellyou.html',
-      1 => 1500953406,
+      1 => 1500977168,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59770a086a5922_04942981 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">

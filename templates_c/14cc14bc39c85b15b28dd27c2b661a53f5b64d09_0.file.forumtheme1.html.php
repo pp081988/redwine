@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-28 15:11:44
+/* Smarty version 3.1.30, created on 2017-07-29 15:07:41
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597ae3b0a656e4_72120232',
+  'unifunc' => 'content_597c889df06dd8_67833619',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501225902,
+      1 => 1501333656,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597c889df06dd8_67833619 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,10 +111,50 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
 		body {width: 100%; }
 	}
 	
-    .up15{
-      width: 400px;
+    .upbig{
+      width: 400px!important;
+      height: 235px!important;
+      padding-top: 0px;
     /*  margin: 0 auto;
       transition: all 0.5s;*/
+    }
+    .food{
+      opacity: 0.3; 
+    }
+    .updiv{
+      height: 100%!important;
+    }
+    .wine{
+      position: relative;
+    }
+    .wine .rightImg{
+      position: absolute;
+      right: -30px;
+      top: 110px;
+    }
+
+    .match {
+     padding-left: 0;
+     overflow: hidden;
+    }
+    .match li {
+     float: left;
+     list-style: none;
+     width: 27px;
+     height: 27px;
+     background: url(images/star.gif)
+    }
+    .match li a {
+     display: block;
+     width: 100%;
+     padding-top: 27px;
+     overflow: hidden;
+    }
+    .match li.light {
+     background-position: 0 -29px;
+    }
+    .value{
+      display: none;
     }
 	</style>
 </head>
@@ -133,7 +173,9 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
 
   <!--========================================================
                             CONTENT
-  =========================================================-->  <section id="content"> 
+  =========================================================-->  
+
+  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
@@ -144,36 +186,41 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <form id= "uploadForm">  
 <div class="theme  wow fadeInUp"> 
-      <h2>主題類別 : <select name="" class="seltext">
+      <h2>主題類別 : <select name="" class="seltext selectTheme">
         <option value="forumtheme1">達人食評</option>
         <option value="forumtheme2">吹下水</option>
       </select></h2>  
       <li>
       <div class="up15">
         <div class="grid_6 m0 fl wine">
-          <h5 class="f18">美酒圖片 / 食物圖片（酒和美食自動生成）</h5>
+          <h5 class="f18">美酒圖片 (請先上傳美酒圖片)</h5>
            <div class="img-box full">
                         <section class=" img-section">
                             <div class="z_photo upimg-div clear">
                                      <section class="z_file fl">
                                         <img src="" class="add-img">
+                                        <input type="text" name="order" value="1" class="value">
                                         <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
                                      </section>
                              </div>
                          </section>
                          <!-- <input name="" type="submit" class="btn btn-success radius size-L" value="上传"> -->
                 </div>
+                <img class="rightImg" src="images/right.png">
         </div>
-        <!-- <div class="grid_6 m0 fl food">
-          <h5 class="f18"></h5> -->
-           <!-- <div class="wbg upbig">
+        <div class="grid_6 m0 fl">
+          <h5 class="f18">食物圖片</h5>
+           <div class="wbg upbig food">
              <div class="updiv"></div>
-             <i class="del"><img src="images/x.jpg"></i>
-           </div> -->
-           
-        <!-- </div> -->
+<!--              <i class="del"><img src="images/x.jpg"></i> -->
+           </div>
+        </div>
        </div>
        </form>
+       <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum'),$_smarty_tpl);?>
+" method="post" enctype="multipart/form-data">
+       <input type="text" name="wine_img" class="value">
+       <input type="text" name="food_img" class="value">
       </li> 
       <li class="clearfix"></li>      
       <li class="fl"><table width="100%" border="0" class="listbd">
@@ -184,36 +231,53 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
     </select></td>
     <td><em class="bfn2">酒類：</em><select name="category"  class="seltext">
       <option>--選擇酒類--</option>
+      <?php echo $_smarty_tpl->tpl_vars['wineCategory']->value;?>
+
     </select></td>
   </tr>
   <tr>
     <td><em class="bfn2">價錢：</em><select name="price"  class="seltext">
       <option>--選擇價錢--</option>
+      <?php echo $_smarty_tpl->tpl_vars['price']->value;?>
+
     </select></td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em><select name="food_name"  class="seltext">
+    <td colspan="2"><em class="bfn2">佳餚名稱：</em>
+    <select name="origin" order="1" class="seltext foodOption">
       <option>--選擇国家菜式--</option>
-    </select><select name=""  class="seltext">
+    </select><select name="type" order="2" class="seltext foodOption">
       <option>--選擇菜式--</option>
-    </select><select name=""  class="seltext">
+    </select><select name="name" order="3" class="seltext foodOption">
       <option>--選擇菜名--</option>
     </select></td>
     </tr>
   <tr>
-    <td><em class="bfn2">煮法：</em> <select name=""  class="seltext">
+    <td><em class="bfn2">煮法：</em>
+    <select name="method" order="4" class="seltext foodOption">
       <option>--選擇煮法--</option>
     </select></td>
-    <td><em class="bfn2">味道：</em><select name=""  class="seltext">
+    <td><em class="bfn2">味道：</em>
+    <select name="taste" order="5" class="seltext foodOption">
       <option>--選擇味道--</option>
     </select></td>
-    <td><em class="bfn2">絕配度：</em><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+    <td><em class="bfn2" style="float: left;">絕配度：</em>
+      <ul class="match">
+      <li class="light star"><a href="javascript:;">1</a></li>
+      <li class="star"><a href="javascript:;">2</a></li>
+      <li class="star"><a href="javascript:;">3</a></li>
+      <li class="star"><a href="javascript:;">4</a></li>
+      <li class="star"><a href="javascript:;">5</a></li>
+     </ul>
+     <input type="text" name="match" class="value">
+    </td>
   </tr>
 </table>
 </li>
    <li>短評：</li> 
-   <li  class="pd0"><textarea cols="" rows="3" class="mtext"></textarea></li>
+   <li  class="pd0"><textarea name="short_comment" cols="" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
-     <h2><em class="rt btback">下一步</em></h2>
+   <input type="text" name="themeType" class="value" value="wine">
+     <input type="submit" name="" class="rt btback" value="下一步">
   
  
    </div>
@@ -221,7 +285,7 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
 
   </section>
 
-
+</form>
   <!--========================================================
                             FOOTER
   =========================================================-->
@@ -246,34 +310,99 @@ function content_597ae3b0a656e4_72120232 (Smarty_Internal_Template $_smarty_tpl)
 <?php echo '<script'; ?>
 >
 $(function(){
-    $(".seltext").change(function(){
+
+  var num=finalnum = tempnum= 0;
+  var lis = $(".star");
+  //num:传入点亮星星的个数
+  //finalnum:最终点亮星星的个数
+  //tempnum:一个中间值
+  function fnShow(num) {
+   finalnum= num || tempnum;//如果传入的num为0，则finalnum取tempnum的值
+   for (var i = 0; i < lis.length; i++) {
+    lis[i].className = i < finalnum? "light" : "";//点亮星星就是加class为light的样式
+   }
+  }
+  for (var i = 1; i <= lis.length; i++) {
+   lis[i - 1].index = i;
+   lis[i - 1].onmouseover = function() { //鼠标经过点亮星星。
+    fnShow(this.index);//传入的值为正，就是finalnum
+   }
+   lis[i - 1].onmouseout = function() { //鼠标离开时星星变暗
+    fnShow(0);//传入值为0，finalnum为tempnum,初始为0
+   }
+   lis[i - 1].onclick = function() { //鼠标点击,同时会调用onmouseout,改变tempnum值点亮星星
+    tempnum= this.index;
+    $("input[name=match]").val($(this).find("a").html());
+   }
+  }
+
+
+
+
+
+
+
+
+    $(".selectTheme").change(function(){
         var page = $(this).val();
         window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'pageIndex'),$_smarty_tpl);?>
 &page="+page;
     });
+    var json = '<?php echo $_smarty_tpl->tpl_vars['options']->value;?>
+';
+    var options = eval('(' + json + ')');
+    for(i=0;i<options.length;i++){
+      if(options[i]['pId'] == 1){
+        $("select[name=origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
+      }
+    }
 
+    $(".foodOption").change(function(){
+      var id = $(this).val();
+      var order = parseInt($(this).attr("order"));
+      $(".foodOption").each(function(){
+        if($(this).attr("order") == order +1){
+          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id))
+        }
+      })
+    });
+
+    var time = new Date();
+    var year = time.getFullYear();
+    for(i=1970;i<=year;i++){
+      $("select[name=year]").append("<option value="+i+">"+i+"年</option>");
+    }
 
 })
+
+function getOption(options,id){
+  var result;
+  for(i=0;i<options.length;i++){
+    if(options[i]['pId'] == id){
+       result += "<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>";
+    }
+  }
+  return result;
+}
 
 function productQuery(condition){
   $.ajax({
     url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'productDetial'),$_smarty_tpl);?>
 ",
     type:"post",
-    data:{condition:condition,type:"forum"},
+    data:{condition:condition,type:"forum",product:"wine"},
     success:function(data){
       if(data == "10016"){
         alert("發生錯誤：10016<br>請聯繫系統管理員");
       }else{
         var dataObj = eval('(' + data + ')');
         $("input[name=wine_name]").val(dataObj['name']);
-        $("select[name=year]").find("option").html(dataObj['year']);
       }
     }
   });
 }
 
-function doUpload() {  
+function doUpload() { 
      var formData = new FormData($( "#uploadForm" )[0]);  
      $.ajax({  
           url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forumImgUpload'),$_smarty_tpl);?>
@@ -284,10 +413,19 @@ function doUpload() {
           cache: false,  
           contentType: false,  
           processData: false,  
-          success: function (returndata) {  
-              if(returndata != ""){
-                productQuery(returndata);
+          success: function (returndata) {
+            var order = $("input[name=order]").val();
+            if(order == "1"){
+              var data = eval('(' + returndata + ')');
+              if(data['compareImg'] != ""){
+                productQuery(data['compareImg']);
               }
+              $("input[name=order]").val("2");
+              $("input[name=wine_img]").val(data['uploadImg']);
+            }
+            if(order == "2"){
+              $("input[name=food_img]").val(returndata);
+            }
           } 
      });  
 }  

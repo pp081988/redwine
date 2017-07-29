@@ -47,7 +47,7 @@ class frontFuns extends spController
 		
 		$db = spClass("db",Array("site_users","id"));
 		$conversion = spClass("variable");
-		$columnNum = $conversion->conversion($column);
+		$columnNum = $conversion->conversion($column,"COLUMNS");
 		$otherColumn = $db->find(Array("id"=>$_SESSION['userid']),null,$otherType);
 		if($this->likeCheck($column,$id,$otherColumn,$otherType)){
 			echo "10008";
@@ -224,6 +224,14 @@ class frontFuns extends spController
 
 	function addForumIndex()
 	{
+		$this->options = $this->forumFoodOptionQuery();
+		$variable = new variable();
+		foreach ($variable->WINE as $key => $value) {
+			$this->wineCategory .= "<option value='".$key."'>".$value."</option>";
+		}
+		foreach ($variable->PRICE as $key => $value) {
+			$this->price .= "<option value='".$key."'>".$value."</option>";
+		}
 		$this->display("forumtheme1.html");
 	}
 
@@ -240,29 +248,64 @@ class frontFuns extends spController
 		$var = spClass("variable");
 		$id = $this->filter->filter($get->get("id"));
 		$type = $this->filter->filter($get->get("type"));
-		$db = new db("admin_product_wine","id");
-		if($type == "forum"){
-			$imgName = $this->filter->filter($get->get("condition"));
-			if($res = $db->find("images like '%".$imgName."%'")){
-				die(json_encode($res));
-			}else{
-				die("10016");
-			}
+		$product = $this->filter->filter($get->get("product"));
+		switch ($product){
+			case 'wine':
+				$db = new db("admin_product_wine","id");
+				if($type == "forum"){
+					$imgName = $this->filter->filter($get->get("condition"));
+					if($res = $db->find("images like '%".$imgName."%'",null,"name")){
+						die(json_encode($res));
+					}else{
+						die("10016");
+					}
+				}
+				$res = $db->find(Array("id"=>$id));
+				$this->name = $res['name'];
+				$this->origin = $res['origin'];
+				$this->winery = $res['winery'];
+				$this->winery_site = $res['winery_site'];
+				$this->grape = $res['grape'];
+				$this->year = $res['year'];
+				$this->best_year = $res['best_year'];
+				$this->price = $var->PRICE[$res['price']];
+				$this->food = $var->FOOD[$res['food']];
+				$this->supplier = $res['supplier'];
+				$this->supplier_site = $res['supplier_site'];
+				$this->keyword = $res['keyword'];
+				$imgArray = explode(",",substr($res['images'],1));
+				if($res['images'] == ""){
+					$this->fristImage = "images/noproductimg.png";
+				}else{
+					$this->fristImage = "images/product/".$imgArray[0];
+					foreach ($imgArray as $key => $value) {
+						$onclick = '';
+						if($key == "0"){
+							$onclick = 'id="onlickImg"';
+						}
+						$this->images .= '<li '.$onclick.'><img src="images/product/'.$value.'" width="68" height="68" alt="'.$res['name'].'"/></li>';
+					}
+				}
+				//$this->images = $images;
+				// echo count($imgArray);
+				//var_dump($res['images']);
+				$page = "productWineDetail.html";
+				$this->display($page);
+				break;
+			case 'food':
+				$db = new db("admin_product_food","id");
+				$res = $db->find(Array("id"=>$id));
+				$this->name = $res['name'];
+				$this->origin = $res['origin'];
+				$this->type = $res['type'];
+				$this->method = $res['method'];
+				$this->taste = $res['taste'];
+				$this->keyword = $res['keyword'];
+				$imgArray = explode(",",substr($res['images'],1));
+				$page = "productFoodDetail.html";
+				$this->display($page);
+				break;
 		}
-		$res = $db->find(Array("id"=>$id));
-		$this->name = $res['name'];
-		$this->origin = $res['origin'];
-		$this->winery = $res['winery'];
-		$this->winery_site = $res['winery_site'];
-		$this->grape = $res['grape'];
-		$this->year = $res['year'];
-		$this->best_year = $res['best_year'];
-		$this->price = $var->PRICE[$res['price']];
-		$this->food = $var->FOOD[$res['food']];
-		$this->supplier = $res['supplier'];
-		$this->supplier_site = $res['supplier_site'];
-		$this->keyword = $res['keyword'];
-		$imgArray = explode(",",substr($res['images'],1));
 		if($res['images'] == ""){
 			$this->fristImage = "images/noproductimg.png";
 		}else{
@@ -275,19 +318,21 @@ class frontFuns extends spController
 				$this->images .= '<li '.$onclick.'><img src="images/product/'.$value.'" width="68" height="68" alt="'.$res['name'].'"/></li>';
 			}
 		}
-		//$this->images = $images;
-		// echo count($imgArray);
-		//var_dump($res['images']);
-		$this->display("productDetail.html");
 	}
 
 	function forumImgUpload()
 	{
 		$file = $_FILES['file'];
+		$order = $_POST['order'];
 		if($file['name'] != ""){
 			$upload = spClass("upload");
 			$res = $upload->upload($file,$theme);
-			echo $this->compareImg($res);
+			if($order == 1){	
+				die(json_encode(Array("uploadImg"=>$res,"compareImg"=>$this->compareImg($res))));
+			}else{
+				die($res);
+			}
+			
 		}
 	}
 
@@ -305,5 +350,35 @@ class frontFuns extends spController
 		if($result[$pos] < 8){
 			return $pos;
 		}
+	}
+
+	function forumFoodOptionQuery()
+	{
+		$db = new db("admin_forum_food_option","id");
+		$res = $db->findAll();
+		return json_encode($res);
+	}
+
+	function forumSecondPage()
+	{
+		$this->wineImg = $_SESSION['forumWineThemeFormData']['wine_img'];
+		$this->foodImg = $_SESSION['forumWineThemeFormData']['food_img'];
+		$this->display("forumadd1.html");
+	}
+
+	function forum()
+	{
+		$get = spClass("spArgs");
+		if($get->get("themeType") == "wine"){
+			$newThemeFormData = [];
+			foreach ($get->get() as $key => $value) {
+				if($key != "c" && $key != "a" && $key != "themeType"){
+					$newThemeFormData[$key] = $value;
+				}
+			}
+			$_SESSION['forumWineThemeFormData'] = $newThemeFormData;
+			$this->jump(spUrl('frontFuns', 'forumSecondPage'));
+		}
+		
 	}
 }

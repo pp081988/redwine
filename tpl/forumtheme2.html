@@ -73,7 +73,7 @@
       </div>      
     </div>
 <div class="theme  wow fadeInUp"> 
-      <h2>主題類別 : <select name="" class="seltext">
+      <h2>主題類別 : <select name="" class="seltext selectTheme">
         <option value="forumtheme2">吹下水</option>
         <option value="forumtheme1">達人食評</option>
       </select></h2>
@@ -115,7 +115,7 @@
 
 <script>
 $(function(){
-    $(".seltext").change(function(){
+    $(".selectTheme").change(function(){
         var page = $(this).val();
         window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+page;
     });

@@ -21,7 +21,7 @@ $(function(){
 		if(fileList.length > 3 || totalNum > 3 ){
 			alert("上传图片数目不可以超过5个，请重新选择");  //一次选择上传超过5个 或者是已经上传和这次上传的到的总数也不可以超过5个
 		}
-		else if(numUp < 2){
+		else if(numUp < 3){
 			fileList = validateUp(fileList);
 			for(var i = 0;i<fileList.length;i++){
 			 var imgUrl = window.URL.createObjectURL(fileList[i]);
@@ -49,12 +49,11 @@ $(function(){
 		         $input2.appendTo($section);
 		         $(".z_file .add-img").css({"background-image":"url(images/upload.jpg)"})
 		         //ajaxFileUpload()
-		         
+		         doUpload();
+		         $(".food").css({"display":"none"});
 		         $(".ups").each(function(){
 		         	count++;
-		         	if(count < 2){
-		         		doUpload();
-		         	}
+		         	
 		         	if(count > 2){
 		         		$(".z_file").css({"display":"none"});
 		         		var imgurl1 = $(".up-section:nth-child(1)").find("img").attr("src");

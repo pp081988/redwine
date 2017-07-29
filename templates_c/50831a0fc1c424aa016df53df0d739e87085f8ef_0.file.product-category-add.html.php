@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 10:16:18
+/* Smarty version 3.1.30, created on 2017-07-29 15:59:12
   from "D:\xampp\htdocs\redwine\tpl\back\product-category-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5977fb72ccc4b9_06516591',
+  'unifunc' => 'content_597c94b0d92e78_70905500',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '50831a0fc1c424aa016df53df0d739e87085f8ef' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-category-add.html',
-      1 => 1501035364,
+      1 => 1501063257,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5977fb72ccc4b9_06516591 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597c94b0d92e78_70905500 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -165,6 +165,21 @@ class backFuns extends spController
 		$this->display("back\/".$pageName);
 	}
 
+	function forumFoodOptionData()
+	{
+		$db = new db("admin_forum_food_option","id");
+		$option = $db->findAll();
+		echo json_encode($option);
+	}
+
+	function forumFoodOptionIfame()
+	{
+		$post = spClass("spArgs");
+		$this->id = $post->get("id");
+		$this->pId = $post->get("pId");
+		$this->display("back\\forum-food-option-add.html");
+	}
+
 	function categoryData()
 	{
 		$db = new db("admin_product_category","id");
@@ -193,19 +208,25 @@ class backFuns extends spController
 			case 'product':
 				$dbname = "admin_product_category";
 				break;
+			case 'forum_food_option':
+				$dbname = "admin_forum_food_option";
+				break;
 		}
 		$db = new db($dbname,"id");
-		$checkResult = $db->findSql('SELECT MAX(id) as id FROM admin_product_category WHERE pId = "'.$id.'"');
+		$checkResult = $db->findSql('SELECT MAX(id) as id FROM '.$dbname.' WHERE pId = "'.$id.'"');
+		var_dump($checkResult);
 		$newrow = [
 			"id"		=>	$id.intval(str_replace($id,"",$checkResult[0]['id']))+1,
 			"pId"		=>	$id,
 			"name"		=>	$name,
-			"remark"	=>	$remark
+			"remark"	=>	$remark,
+			"open"		=>	"true"
 		];
 		if($id == "1"){
-			$newrow['id'] = intval($checkResult[0]['id']) + 10;
-			$newrow['open'] = "true";
+			$checkNum = substr($checkResult[0]['id'],0,1);
+			$newrow['id'] = (intval($checkNum) +1) * 10 + 1;
 		}
+		//echo $id.intval(str_replace($id,"",$checkResult[0]['id']))+1;
 		if(!$db->create($newrow)){
 			echo "10014";
 			exit;
@@ -221,7 +242,14 @@ class backFuns extends spController
 		$this->category_id = $get->get("category_id");
 		$this->category_pId = $get->get("category_pId");
 		$this->category_name = $get->get("category_name");
-		$this->display("back\product-list-iframe.html");
+		switch (substr($this->category_id,0,1)){
+			case '1':
+				$this->display("back\product-list-iframe_wine.html");
+				break;
+			case '2':
+				$this->display("back\product-list-iframe_food.html");
+				break;
+		}
 	}
 
 	function productAddPage()
@@ -237,19 +265,27 @@ class backFuns extends spController
 				$this->display("back\product-food-add.html");
 				break;
 		}
-		
 	}
 
 	function product()
 	{
 		$post = spClass("spArgs");
 		$newrow = [];
+		$category_id = $post->get("category_id");
+		switch (substr($category_id,0,1)){
+			case '1':
+				$dbName = "admin_product_wine";
+				break;
+			case '2':
+				$dbName = "admin_product_food";
+				break;
+		}
 		foreach ($post->get() as $key => $value) {
 			if($key != "c" && $key != "a" && $key !="file"){
 				$newrow[$key] = $value;
 			}
 		}
-		$db = new db("admin_product_wine","id");
+		$db = new db($dbName,"id");
 		if(!$db->create($newrow)){
 			die("10015");
 		}
@@ -261,7 +297,16 @@ class backFuns extends spController
 		$post = spClass("spArgs");
 		$category_id = $post->get("category_id");
 		$category_pId = $post->get("category_pId");
-		$db = new db("admin_product_wine","id");
+		$dbName = "";
+		switch (substr($category_id,0,1)){
+			case '1':
+				$dbName = "admin_product_wine";
+				break;
+			case '2':
+				$dbName = "admin_product_food";
+				break;
+		}
+		$db = new db($dbName,"id");
 		if($category_id == "" && $category_pId == ""){
 			$res = $db->findAll();
 			echo json_encode($res);
@@ -272,7 +317,7 @@ class backFuns extends spController
 			}
 			echo json_encode($res);
 		}
+		//echo $category_id." ".$dbName;
 	}
 
-	
 }
