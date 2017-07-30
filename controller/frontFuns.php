@@ -322,6 +322,9 @@ class frontFuns extends spController
 
 	function forumImgUpload()
 	{
+		if(!$this->unloginCheck->userLoginCheck()){		//未登陆判断
+			exit;
+		}
 		$file = $_FILES['file'];
 		$order = $_POST['order'];
 		if($file['name'] != ""){
@@ -368,17 +371,28 @@ class frontFuns extends spController
 
 	function forum()
 	{
+		if(!$this->unloginCheck->userLoginCheck()){		//未登陆判断
+			$this->error('請先登錄', spUrl('frontFuns', 'addForumIndex')); 
+			exit;
+		}
 		$get = spClass("spArgs");
 		if($get->get("themeType") == "wine"){
-			$newThemeFormData = [];
-			foreach ($get->get() as $key => $value) {
-				if($key != "c" && $key != "a" && $key != "themeType"){
-					$newThemeFormData[$key] = $value;
-				}
-			}
-			$_SESSION['forumWineThemeFormData'] = $newThemeFormData;
-			$this->jump(spUrl('frontFuns', 'forumSecondPage'));
+
 		}
-		
+		$conditions = [];
+		foreach ($get->get() as $key => $value) {
+			if($key != "c" && $key != "a" && $key != "themeType"){
+				$conditions[$key] = $this->filter->filter($value);
+			}
+		}
+		$conditions['create_time'] = time();
+		$conditions['username'] = $_SESSION['username'];
+		$db = new db("site_forum_matching","id");
+		//var_dump($conditions);
+		$result = $db->create($conditions);
+		if(!$result){
+			die("10017");
+		}
+		$this->success('提交完成，管理員審核后將會顯示', spUrl('main', 'forum'));
 	}
 }

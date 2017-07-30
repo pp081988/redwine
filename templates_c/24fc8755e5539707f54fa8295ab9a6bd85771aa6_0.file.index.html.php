@@ -1,4 +1,28 @@
-﻿<!DOCTYPE HTML>
+<?php
+/* Smarty version 3.1.30, created on 2017-07-30 12:29:35
+  from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_597db50f5f05c1_84962800',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
+      1 => 1501410573,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_597db50f5f05c1_84962800 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,8 +33,12 @@
 <link rel="Bookmark" href="/favicon.ico" >
 <link rel="Shortcut Icon" href="/favicon.ico" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/html5shiv.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/respond.min.js"><?php echo '</script'; ?>
+>
 <![endif]-->
 <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
@@ -18,8 +46,12 @@
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>DD_belatedPNG.fix('*');<?php echo '</script'; ?>
+>
 <![endif]-->
 <title>Redwine後台系統</title>
 </head>
@@ -45,10 +77,12 @@
 			<ul class="cl">
 				<li></li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A"><{$username}><i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A"><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+<i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
 						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-						<li><a href="<{spUrl c=back a=logout}>">退出</a></li>
+						<li><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'back','a'=>'logout'),$_smarty_tpl);?>
+">退出</a></li>
 				</ul>
 			</li>
 				<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
@@ -73,10 +107,14 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 資訊管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<{spUrl c=backFuns a=articleList title='達人搞乜鬼' id='0'}>" data-title="達人搞乜鬼" href="javascript:void(0)">達人搞乜鬼</a></li>
-					<li><a data-href="<{spUrl c=backFuns a=articleList title='達人好介紹' id='1'}>" data-title="達人好介紹" href="javascript:void(0)">達人好介紹</a></li>
-					<li><a data-href="<{spUrl c=backFuns a=articleList title='達人講你知' id='2'}>" data-title="達人講你知" href="javascript:void(0)">達人講你知</a></li>
-					<li><a data-href="<{spUrl c=backFuns a=articleList title='影院' id='3'}>" data-title="影院" href="javascript:void(0)">影院</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人搞乜鬼','id'=>'0'),$_smarty_tpl);?>
+" data-title="達人搞乜鬼" href="javascript:void(0)">達人搞乜鬼</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人好介紹','id'=>'1'),$_smarty_tpl);?>
+" data-title="達人好介紹" href="javascript:void(0)">達人好介紹</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'達人講你知','id'=>'2'),$_smarty_tpl);?>
+" data-title="達人講你知" href="javascript:void(0)">達人講你知</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleList','title'=>'影院','id'=>'3'),$_smarty_tpl);?>
+" data-title="影院" href="javascript:void(0)">影院</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -92,9 +130,12 @@
 			<dt><i class="Hui-iconfont">&#xe620;</i> 產品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<!-- <li><a data-href="<{spUrl c=backFuns a=pageIndex page='product-brand'}>" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li> -->
-					<li><a data-href="<{spUrl c=backFuns a=pageIndex page='product-category'}>" data-title="分類管理" href="javascript:void(0)">分類管理</a></li>
-					<li><a data-href="<{spUrl c=backFuns a=pageIndex page='product-list'}>" data-title="產品管理" href="javascript:void(0)">產品管理</a></li>
+					<!-- <li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-brand'),$_smarty_tpl);?>
+" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li> -->
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-category'),$_smarty_tpl);?>
+" data-title="分類管理" href="javascript:void(0)">分類管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-list'),$_smarty_tpl);?>
+" data-title="產品管理" href="javascript:void(0)">產品管理</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -102,8 +143,10 @@
 			<dt><i class="Hui-iconfont">&#xe62b;</i> 論壇<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<{spUrl c=backFuns a=pageIndex page='forum-food-option'}>" data-title="食物選項" href="javascript:void(0)">食物選項管理</a></li>
-					<li><a data-href="<{spUrl c=backFuns a=pageIndex page='forum-matching-list'}>" data-title="配對主題" href="javascript:void(0)">配對主題</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-food-option'),$_smarty_tpl);?>
+" data-title="食物選項" href="javascript:void(0)">食物選項管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-matching-list'),$_smarty_tpl);?>
+" data-title="配對主題" href="javascript:void(0)">配對主題</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -183,7 +226,8 @@
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
-			<iframe scrolling="yes" frameborder="0" src="<{spUrl c=back a=welcome}>"></iframe>
+			<iframe scrolling="yes" frameborder="0" src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'back','a'=>'welcome'),$_smarty_tpl);?>
+"></iframe>
 	</div>
 </div>
 </section>
@@ -195,14 +239,25 @@
 </ul>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/layer/2.4/layer.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui/js/H-ui.min.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"><?php echo '</script'; ?>
+> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery.contextmenu/jquery.contextmenu.r2.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript">
 $(function(){
 	/*$("#min_title_list li").contextMenu('Huiadminmenu', {
 		bindings: {
@@ -264,6 +319,8 @@ function member_add(title,url,w,h){
 }
 
 
-</script> 
+<?php echo '</script'; ?>
+> 
 </body>
-</html>
+</html><?php }
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-29 15:07:41
+/* Smarty version 3.1.30, created on 2017-07-30 12:10:57
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597c889df06dd8_67833619',
+  'unifunc' => 'content_597db0b16cf8c3_57260493',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501333656,
+      1 => 1501409429,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597c889df06dd8_67833619 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597db0b16cf8c3_57260493 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,6 +156,9 @@ function content_597c889df06dd8_67833619 (Smarty_Internal_Template $_smarty_tpl)
     .value{
       display: none;
     }
+    .themeColor{
+      cursor: pointer;
+    }
 	</style>
 </head>
 
@@ -226,38 +229,38 @@ function content_597c889df06dd8_67833619 (Smarty_Internal_Template $_smarty_tpl)
       <li class="fl"><table width="100%" border="0" class="listbd">
   <tr>
     <td><em class="bfn2">酒名：</em><input name="wine_name" type="text" class="seltext"></td>
-    <td><em class="bfn2">年份：</em><select name="year"  class="seltext">
-      <option>--選擇年份--</option>
+    <td><em class="bfn2">年份：</em><select name="wine_year"  class="seltext">
+      <option value="">--選擇年份--</option>
     </select></td>
-    <td><em class="bfn2">酒類：</em><select name="category"  class="seltext">
-      <option>--選擇酒類--</option>
+    <td><em class="bfn2">酒類：</em><select name="wine_category"  class="seltext">
+      <option value="">--選擇酒類--</option>
       <?php echo $_smarty_tpl->tpl_vars['wineCategory']->value;?>
 
     </select></td>
   </tr>
   <tr>
-    <td><em class="bfn2">價錢：</em><select name="price"  class="seltext">
-      <option>--選擇價錢--</option>
+    <td><em class="bfn2">價錢：</em><select name="wine_price"  class="seltext">
+      <option value="">--選擇價錢--</option>
       <?php echo $_smarty_tpl->tpl_vars['price']->value;?>
 
     </select></td>
     <td colspan="2"><em class="bfn2">佳餚名稱：</em>
-    <select name="origin" order="1" class="seltext foodOption">
-      <option>--選擇国家菜式--</option>
-    </select><select name="type" order="2" class="seltext foodOption">
-      <option>--選擇菜式--</option>
-    </select><select name="name" order="3" class="seltext foodOption">
-      <option>--選擇菜名--</option>
+    <select name="food_origin" order="1" class="seltext foodOption">
+      <option value="">--選擇国家菜式--</option>
+    </select><select name="food_type" order="2" class="seltext foodOption">
+      <option value="">--選擇菜式--</option>
+    </select><select name="food_name" order="3" class="seltext foodOption">
+      <option value="">--選擇菜名--</option>
     </select></td>
     </tr>
   <tr>
     <td><em class="bfn2">煮法：</em>
-    <select name="method" order="4" class="seltext foodOption">
-      <option>--選擇煮法--</option>
+    <select name="food_method" order="4" class="seltext foodOption">
+      <option value="">--選擇煮法--</option>
     </select></td>
     <td><em class="bfn2">味道：</em>
-    <select name="taste" order="5" class="seltext foodOption">
-      <option>--選擇味道--</option>
+    <select name="food_taste" order="5" class="seltext foodOption">
+      <option value="">--選擇味道--</option>
     </select></td>
     <td><em class="bfn2" style="float: left;">絕配度：</em>
       <ul class="match">
@@ -267,17 +270,30 @@ function content_597c889df06dd8_67833619 (Smarty_Internal_Template $_smarty_tpl)
       <li class="star"><a href="javascript:;">4</a></li>
       <li class="star"><a href="javascript:;">5</a></li>
      </ul>
-     <input type="text" name="match" class="value">
+     <input type="text" name="matching" class="value">
     </td>
   </tr>
 </table>
 </li>
+  <li class="black1" style="padding-left:2px;margin-top: 20px;"><em class="bfn2" style="float: left;">選擇主題顏色：</em><br>
+         <span class="flnew">
+          <em class="size35 sbg1 themeColor" value="0"></em>
+          <em class="size35 sbg2 themeColor" value="1"></em>
+          <em class="size35 sbg3 themeColor" value="2"></em>
+          <em class="size35 sbg4 themeColor" value="3"></em> 
+          <em class="size35 sbg5 themeColor" value="4"></em>
+          </span>
+           <span class="flnew">
+          <!-- <em class="rt btback">預覽</em> -->
+          </span>
+          </li>
+          <input type="text" name="theme_color" class="value">
    <li>短評：</li> 
    <li  class="pd0"><textarea name="short_comment" cols="" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
    <input type="text" name="themeType" class="value" value="wine">
-     <input type="submit" name="" class="rt btback" value="下一步">
+     <input type="submit" name="" class="rt btback subBtn" value="提交">
   
  
    </div>
@@ -337,8 +353,25 @@ $(function(){
   }
 
 
+  $(".subBtn").click(function(){
+    var wine_img = $("input[name=wine_img]").val();
+    var food_img = $("input[name=food_img]").val();
+    var wine_name = $("input[name=wine_name]").val();
+    var check = new Array(wine_img,food_img,wine_name);
+    var info = new Array("請上傳美酒圖片","請上傳美食圖片","請輸入美酒名稱");
+    for(i=0;i<check.length;i++){
+      if(check[i] == ""){
+        alert(info[i]);
+        return false;
+      }
+    }
+  });
 
-
+  $(".themeColor").click(function(){
+    $(this).css({"border":"3px solid rgb(140, 176, 68)"});
+    $(".themeColor").not($(this)).css({"border":"none"});
+    $("input[name=theme_color]").val($(this).attr("value"));
+  })
 
 
 
@@ -353,7 +386,7 @@ $(function(){
     var options = eval('(' + json + ')');
     for(i=0;i<options.length;i++){
       if(options[i]['pId'] == 1){
-        $("select[name=origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
+        $("select[name=food_origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
       }
     }
 
@@ -370,7 +403,7 @@ $(function(){
     var time = new Date();
     var year = time.getFullYear();
     for(i=1970;i<=year;i++){
-      $("select[name=year]").append("<option value="+i+">"+i+"年</option>");
+      $("select[name=wine_year]").append("<option value="+i+">"+i+"年</option>");
     }
 
 })
@@ -414,6 +447,11 @@ function doUpload() {
           contentType: false,  
           processData: false,  
           success: function (returndata) {
+            if(returndata == "false"){
+              alert("請先登錄");
+              location.reload();
+              return false;
+            }
             var order = $("input[name=order]").val();
             if(order == "1"){
               var data = eval('(' + returndata + ')');

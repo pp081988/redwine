@@ -83,7 +83,7 @@
 .bfn4{ color:#989892;margin-left:10px;}
 .bfn5{font-size:13px; color:#989892;margin-left:5px;}
 
-.size35{width:35px;height:35px; display:inline-block;margin-right:20px;}
+.size35{width:35px;height:35px;border-radius: 5px;display:inline-block;margin-right:20px;}
 .sbg1{ background-color:#dc143c}
 .sbg2{ background-color:#32cd32}
 .sbg3{ background-color:#8b4513}

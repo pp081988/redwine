@@ -108,16 +108,16 @@ $(function(){
 							// 类型符合，可以上传
 							if (file.size >= defaults.fileSize) {
 								alert(file.size);
-								alert('您这个"'+ file.name +'"文件大小过大');	
+								alert('圖片"'+ file.name +'"文件大小過大');	
 							} else {
 								// 在这里需要判断当前所有文件中
 								arrFiles.push(file);	
 							}
 						}else{
-							alert('您这个"'+ file.name +'"上传类型不符合');	
+							alert(file.name +'：請上傳合法圖片');	
 						}
 					}else{
-						alert('您这个"'+ file.name +'"没有类型, 无法识别');	
+						alert(file.name +'：請上傳合法圖片');	
 					}
 			}
 			return arrFiles;
