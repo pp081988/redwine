@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-29 15:48:02
+/* Smarty version 3.1.30, created on 2017-07-31 14:59:34
   from "D:\xampp\htdocs\redwine\tpl\forum.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597c92126d4a73_02881590',
+  'unifunc' => 'content_597ed556d8cac7_95853282',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '76f6fcc22437796b11928ef3f50bce1ff2e45651' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum.html',
-      1 => 1500808946,
+      1 => 1501484372,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597c92126d4a73_02881590 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597ed556d8cac7_95853282 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,12 @@ function content_597c92126d4a73_02881590 (Smarty_Internal_Template $_smarty_tpl)
 >
   <![endif]-->
 </head>
-
+<style>
+    .forum_matching_detail:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
 <body>
   <div class="big-wrapper">
   <!--========================================================
@@ -103,88 +108,9 @@ function content_597c92126d4a73_02881590 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div class="clear"></div>
             <div class="box2-wrapper1">
-              <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-                <div class="row  forum fbg1 mb20 fpd10">
-                <div class="grid_12 u1pr">
-                <i class="forarr"><img src="images/arrr1.png"></i>
-                  <div class="fl">
-                    <div >
-                      <img src="images/f1.jpg" alt="" class="img1"/> <img src="images/f2.jpg" alt=""  class="img1"/>
-                    </div>
-                  </div>
-                  <div class="grid_8 fl">                  
-                    <p class="fn18"> <em class="bfn1">達人食評紅酒 </em><em class="bfn2"> 配</em><em class="bfn3">伊比利亞火腿 (Iberian ham)</em><em class="font15 fc1">網友:</em>
-                     <em class="bfn2">Edward</em> <em class="fn13 fc1">2016-8-15</em> </p>
-                  <p class="fc1">聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利</p>
-                 
-                  <p class="mt15"><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                  </div>
-                </div> 
+              <div class="box2 wow fadeInUp forumCont" data-wow-duration="1s" data-wow-delay="0.1s">
                 
-                
-                </div>
-                
-                <div class="row  forum fbg2 mb20 fpd10">
-                <div class="grid_12 u1pr">
-                <i class="forarr"><img src="images/arrr2.png"></i>
-                  <div class="fl">
-                    <div >
-                      <img src="images/f1.jpg" alt="" class="img1"/> <img src="images/f2.jpg" alt=""  class="img1"/>
-                    </div>
-                  </div>
-                  <div class="grid_8 fl">                  
-                    <p class="fn18"> <em class="bfn1">達人食評紅酒 </em><em class="bfn2"> 配</em><em class="bfn3">伊比利亞火腿 (Iberian ham)</em><em class="font15 fc1">網友:</em>
-                     <em class="bfn2">Edward</em> <em class="fn13 fc1">2016-8-15</em> </p>
-                  <p class="fc1">聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利</p>
-                 
-                  <p class="mt15"><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                  </div>
-                </div> 
-                
-                
-                </div>
-                
-                <div class="row  forum fbg3 mb20 fpd10">
-                <div class="grid_12 u1pr">
-                <i class="forarr"><img src="images/arrr3.png"></i>
-                  <div class="fl">
-                    <div >
-                      <img src="images/f1.jpg" alt="" class="img1"/> <img src="images/f2.jpg" alt=""  class="img1"/>
-                    </div>
-                  </div>
-                  <div class="grid_8 fl">                  
-                    <p class="fn18"> <em class="bfn1">達人食評紅酒 </em><em class="bfn2"> 配</em><em class="bfn3">伊比利亞火腿 (Iberian ham)</em><em class="font15 fc1">網友:</em>
-                     <em class="bfn2">Edward</em> <em class="fn13 fc1">2016-8-15</em> </p>
-                  <p class="fc1">聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利</p>
-                 
-                  <p class="mt15"><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                  </div>
-                </div> 
-                
-                
-                </div>
-                
-                <div class="row  forum fbg4 mb20 fpd10">
-                <div class="grid_12 u1pr">
-                <i class="forarr"><img src="images/arrr4.png"></i>
-                  <div class="fl">
-                    <div >
-                      <img src="images/f1.jpg" alt="" class="img1"/> <img src="images/f2.jpg" alt=""  class="img1"/>
-                    </div>
-                  </div>
-                  <div class="grid_8 fl">                  
-                    <p class="fn18"> <em class="bfn1">達人食評紅酒 </em><em class="bfn2"> 配</em><em class="bfn3">伊比利亞火腿 (Iberian ham)</em><em class="font15 fc1">網友:</em>
-                     <em class="bfn2">Edward</em> <em class="fn13 fc1">2016-8-15</em> </p>
-                  <p class="fc1">聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利</p>
-                 
-                  <p class="mt15"><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                  </div>
-                </div> 
-                
-                
-                </div>
-                
-                <div class="row  forum fbg5 mb20 fpd10">
+                <!-- <div class="row  forum fbg5 mb20 fpd10">
                 <div class="grid_12 u1pr">
                 <i class="forarr"><img src="images/arrr5.png"></i>
                   <div class="fl">
@@ -200,9 +126,7 @@ function content_597c92126d4a73_02881590 (Smarty_Internal_Template $_smarty_tpl)
                   <p class="mt15"><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
                   </div>
                 </div> 
-                
-                
-                </div>
+                </div> -->
                 
               </div>
             </div>
@@ -244,6 +168,69 @@ function content_597c92126d4a73_02881590 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
  src="js/script.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+$(function(){
+    var timestamp = Date.parse(new Date());
+        timestamp = timestamp / 1000;
+    $.ajax({
+        url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum_matching_data','theme'=>'forum_matching'),$_smarty_tpl);?>
+",
+        type:"post",
+        data:{limit:"10"},
+        success:function(data){
+            var dataObj = eval('(' + data + ')');
+            for(i=0;i<dataObj.length;i++){
+            str = '<div class="row  forum mb20 fpd10" style="background:'+dataObj[i]['theme_color']+'">\
+                <div class="grid_12 u1pr">\
+                  <div class="fl">\
+                    <div >\
+                      <img src="'+dataObj[i]['wine_img']+'" alt="" class="img1"/> <img src="'+dataObj[i]['food_img']+'" alt=""  class="img1"/>\
+                    </div>\
+                  </div>\
+                  <div class="grid_8 fl">\
+                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'"><em class="bfn1">'+dataObj[i]['wine_name']+' </em><em class="bfn2"> 配 </em><em class="bfn3">'+dataObj[i]['food_name']+'</em></a><em class="font15 fc1">網友:</em>\
+                     <em class="bfn2">'+dataObj[i]['username']+'</em> <em class="fn13 fc1">'+translateTime(dataObj[i]['create_time'])+'</em> </p>\
+                  <p class="fc1">'+dataObj[i]['short_comment']+'</p>\
+                  <p class="mt15"><a class="bt5" href="#">'+dataObj[i]['like_num']+'</a><a class="btno" href="#">'+dataObj[i]['dislike_num']+'</a> </p>\
+                  </div>\
+                </div>\
+                </div>';
+            $(".forumCont").append(str);
+            }
+            //console.log(data);
+            $(".forum_matching_detail").click(function(){
+                var id = $(this).attr("id");
+                window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum_matching_detail','theme'=>'forum_matching'),$_smarty_tpl);?>
+&id="+id;
+            });
+        }
+    })
+    function translateTime(time){
+        var res = timestamp - time;
+        if(res < 3600){
+            return Math.round(res/60)+"分鐘前";
+        }
+        if(res <= 86400){
+            return Math.round(res/60/60)+"小时前";
+        }
+        var days = Math.floor(Math.round(res/60/60) / 24);
+        if(days <= 30){
+            return days+"天前";
+        }
+        var date = new Date(res);
+        Y = date.getFullYear() + '年';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
+        D = date.getDate() + '日 ';
+        h = date.getHours() + ':';
+        m = date.getMinutes() + ':';
+        s = date.getSeconds();
+        return Y+M+D+h+m+s;
+    }
+                    
+})
+<?php echo '</script'; ?>
 >
 </body>
 </html><?php }

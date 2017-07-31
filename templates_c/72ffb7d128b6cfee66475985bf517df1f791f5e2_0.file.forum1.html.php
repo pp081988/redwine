@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-29 15:52:12
+/* Smarty version 3.1.30, created on 2017-07-31 16:36:17
   from "D:\xampp\htdocs\redwine\tpl\forum1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597c930c1c5346_86017888',
+  'unifunc' => 'content_597eec01eaa457_51419790',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '72ffb7d128b6cfee66475985bf517df1f791f5e2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum1.html',
-      1 => 1498831533,
+      1 => 1501490176,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597c930c1c5346_86017888 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597eec01eaa457_51419790 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,41 +97,9 @@ function content_597c930c1c5346_86017888 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
-    <div class="container">
-      <div class="row">
-        <div class="grid_12  wpr">
-          <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="index.html"><img src="images/logo.png" width="146" height="21"></a>
-         <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
-                   <div class="wowdrop">
-            <a href="#">中文</a>
-            <a href="#">英文</a>           
-          </div>
-         </em>
-          </h1>
-          <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-            <ul class="sf-menu">             
-              <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="index-1.html">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>           
-              </li>
-                <li><a href="#">吹水園地</a></li>
-              <li><a href="index-3.html">影院</a>
-                
-              </li>
-              <li><a href="index-4.html">好介紹</a></li>
-               <li><a href="index-4.html">講你知</a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="#"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
@@ -141,83 +110,75 @@ function content_597c930c1c5346_86017888 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>所有卡片/達人食評既內文頁<em class="rt btback">返回上一頁</em></h2>
+              <h2>所有卡片/達人食評既內文頁<a class="rt btback" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'forum'),$_smarty_tpl);?>
+">返回上一頁</a></h2>
               </div>
        
       </div>      
     </div>
 <div class="bbs  wow fadeInUp"> 
-      <h2><em class="bfn1">達人食評紅酒</em><em class="bfn2"> 配</em><em class="bfn3"> 伊比利亞火腿</em><em class="bfn4">網友:</em><em class="bfn2"> Edward</em> <em class="bfn5">2016-8-15</em></h2>  
+      <h2><em class="bfn1"><?php echo $_smarty_tpl->tpl_vars['wine_name']->value;?>
+</em><em class="bfn2"> 配</em><em class="bfn3"> <?php echo $_smarty_tpl->tpl_vars['food_name']->value;?>
+</em><em class="bfn4">網友:</em><em class="bfn2"> <?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</em> <em class="bfn5 createTime"></em></h2>  
       <li>
       <div class="mg15 ">
-       <img src="images/cp3.jpg" class="imgbbs mb20">
-       <img src="images/cp4.jpg" class="imgbbs mb20">
+       <img src="<?php echo $_smarty_tpl->tpl_vars['wine_img']->value;?>
+" class="imgbbs mb20">
+       <img src="<?php echo $_smarty_tpl->tpl_vars['food_img']->value;?>
+" class="imgbbs mb20">
        </div>
       </li> 
       <li class="clearfix"></li>      
       <li><table width="100%" border="0" class="listbd">
   <tr>
-    <td><em class="bfn2">酒名：</em>波爾多紅酒</td>
-    <td><em class="bfn2">年份：</em>2008</td>
-    <td><em class="bfn2">酒類：</em>紅酒</td>
+    <td><em class="bfn2">酒名：</em><?php echo $_smarty_tpl->tpl_vars['wine_name']->value;?>
+</td>
+    <td><em class="bfn2">年份：</em><?php echo $_smarty_tpl->tpl_vars['wine_year']->value;?>
+</td>
+    <td><em class="bfn2">酒類：</em><?php echo $_smarty_tpl->tpl_vars['wine_category']->value;?>
+</td>
   </tr>
   <tr>
-    <td><em class="bfn2">價錢：</em>$100-$200</td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em> 法國菜 &gt; 巴黎菜 &gt; 黑毛豬</td>
+    <td><em class="bfn2">價錢：</em><?php echo $_smarty_tpl->tpl_vars['wine_price']->value;?>
+</td>
+    <td colspan="2"><em class="bfn2">佳餚名稱：</em> <?php echo $_smarty_tpl->tpl_vars['food_origin']->value;?>
+ &gt; <?php echo $_smarty_tpl->tpl_vars['food_type']->value;?>
+ &gt; <?php echo $_smarty_tpl->tpl_vars['food_name']->value;?>
+</td>
     </tr>
   <tr>
-    <td><em class="bfn2">煮法：</em> 即食</td>
-    <td><em class="bfn2">味道：</em>油甘甘香</td>
-    <td><em class="bfn2">絕配度：</em><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
+    <td><em class="bfn2">煮法：</em> <?php echo $_smarty_tpl->tpl_vars['food_method']->value;?>
+</td>
+    <td><em class="bfn2">味道：</em><?php echo $_smarty_tpl->tpl_vars['food_taste']->value;?>
+</td>
+    <td><em class="bfn2">絕配度：</em><span class="stars"></span></td>
   </tr>
 </table>
 </li>
-    <p>聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區。<br><br>
-
-聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同。聯盟20多個酒莊成員均來酒選擇 , 成員必須。<br><br>
-
-20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須。
-聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同步」及提供最聯盟20多個酒莊成員均來自意大利聯盟20多個酒莊成員均來自意大利盛產頂級紅酒的地區帶來300+以上的 紅酒/白酒/氣泡酒選擇 , 成員必須承諾「品質及價值同。</p>
-    <p class="apc"> <a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>       
+    <p><?php echo $_smarty_tpl->tpl_vars['detail_content']->value;?>
+</p>
+    <p class="apc"> <a class="bt5 likeBtn" name="like"><?php echo $_smarty_tpl->tpl_vars['like_num']->value;?>
+</a><a class="btno likeBtn" name="dislike"><?php echo $_smarty_tpl->tpl_vars['dislike_num']->value;?>
+</a> </p>       
         </div>
    <div class="say wow fadeInDown">
-     <h2>2则回应<em class="rt">排序方式：<select>
+     <h2><span class="commentCount">0</span>则回应<em class="rt">排序方式：<select>
        <option>最新</option>
      </select></em></h2>
   
       <li>
      <table width="100%" border="0">
   <tr>
-    <td width="60"><img src="images/man.jpg"></td>
-    <td><input name="" type="text" class="btext"></td>
+    <td width="60"><?php echo $_smarty_tpl->tpl_vars['avatar']->value;?>
+</td>
+    <td><input name="comment" type="text" class="btext"></td>
   </tr>
 </table>
      </li>
-     <li>
-     <table width="100%" border="0">
-  <tr>
-    <td width="60" valign="top"><img src="images/man.jpg"></td>
-    <td>
-    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
-    <p>繼續Candy...進軍2000年</p>
-    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
-    </td>
-  </tr>
-</table>
-     </li>
-      <li>
-     <table width="100%" border="0">
-  <tr>
-    <td width="60" valign="top"><img src="images/man.jpg"></td>
-    <td>
-    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
-    <p>繼續Candy...進軍2000年</p>
-    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
-    </td>
-  </tr>
-</table>
-     </li>
-     <h3><img src="images/facebook.jpg">Facebook Comments Plugin</h3>
+<a class="btmore rt commentBtn" type="button">確定</a>
+      <div class="commentCont"></div>
+     <h3 style="clear: both;">Redwine Comments Surport</h3>
    </div>
 
 
@@ -247,6 +208,329 @@ function content_597c930c1c5346_86017888 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
  src="js/script.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+  $(document).ready(function () {
+        if ($('html').hasClass('desktop')) {
+          new WOW().init();
+        }
+
+        var timestamp = Date.parse(new Date());
+        timestamp = timestamp / 1000;
+    var time = "<?php echo $_smarty_tpl->tpl_vars['create_time']->value;?>
+";
+
+    $(".createTime").html(translateTime(time));
+    var stars = "";
+    for(var i=0;i<<?php echo $_smarty_tpl->tpl_vars['matching']->value;?>
+;i++){
+      stars += '<img src="images/star.png">';
+    }
+    $(".stars").html(stars);
+
+    function translateTime(time){
+      var res = timestamp - time;
+      if(res < 3600){
+          return Math.round(res/60)+"分鐘前";
+      }
+      if(res <= 86400){
+          return Math.round(res/60/60)+"小时前";
+      }
+      var days = Math.floor(Math.round(res/60/60) / 24);
+      if(days <= 30){
+          return days+"天前";
+      }
+      var date = new Date(res);
+      Y = date.getFullYear() + '年';
+      M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
+      D = date.getDate() + '日 ';
+      h = date.getHours() + ':';
+      m = date.getMinutes() + ':';
+      s = date.getSeconds();
+      return Y+M+D+h+m+s;
+    }
+
+        $.extend({
+            tipsBox: function(options) {
+                options = $.extend({
+                    obj: null,
+                    str: "+1",
+                    startSize: "12px",
+                    endSize: "30px",
+                    interval: 600,
+                    color: "red",
+                    callback: function() {}
+                }, options);
+                $("body").append("<span class='num'>"+ options.str +"</span>");
+                var box = $(".num");
+                var left = options.obj.offset().left + options.obj.width() / 2;
+                var top = options.obj.offset().top - options.obj.height();
+                box.css({
+                    "position": "absolute",
+                    "left": left + "px",
+                    "top": top + "px",
+                    "z-index": 9999,
+                    "font-size": options.startSize,
+                    "line-height": options.endSize,
+                    "color": options.color
+                });
+                box.animate({
+                    "font-size": options.endSize,
+                    "opacity": "0",
+                    "top": top - parseInt(options.endSize) + "px"
+                }, options.interval , function() {
+                    box.remove();
+                    options.callback();
+                });
+            }
+        });
+
+        function videoPlayer(){
+            $(".article").find("img").each(function(){
+                var videoUrl = $(this).attr("_url");
+                if(videoUrl){
+                    var videoType = videoUrl.substr(videoUrl.length-3,3);
+                    var playerHtml = '<video controls="controls">\
+                                    <source src="'+videoUrl+'" type="video/'+videoType+'" />\
+                                    你的瀏覽器不支持播放器.\
+                                </video>';
+                    $(this).replaceWith(playerHtml);
+                }
+            });
+        }
+        videoPlayer();
+      
+        var timestamp = Date.parse(new Date());
+        timestamp = timestamp / 1000;
+
+        function likeOrDislike(type,selecter){
+            var column = getUrlParam("theme");
+            var id = getUrlParam("id");
+            if(type == "like"){
+                str="+1";color="red";
+            }else{
+                str="-1";color="gray";
+            }
+            $.ajax({
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'likeOrDislike'),$_smarty_tpl);?>
+",
+                type:"post",
+                data:{column:column,id:id,type:type},
+                success:function(data){
+                    var oldValue = parseInt(selecter.html());
+                    switch(data){
+                        case "false":
+                            alert("請先登錄");
+                        break;
+                        case "add":
+                            selecter.html(oldValue+1);
+                                $.tipsBox({
+                                    obj: selecter,
+                                    str: str,
+                                    color: color,
+                                    callback: function() {
+
+                                    }
+                                });
+                        break;
+                        case "reduce":
+                            selecter.html(oldValue-1);
+                        break;
+                        case "10001":
+                            alert("操作頻繁，請休息一下再試");
+                        break;
+                    }
+                }
+            });
+        }
+
+        $(".likeBtn").click(function(){
+            var type = $(this).attr("name");
+            likeOrDislike(type,$(this));
+        });
+
+        function replyFun(){
+            $(".reply").bind("click",function(){
+                var thisGranddad = $(this).parent().parent();
+                if(thisGranddad.find(".replyInputDiv").html() == undefined){
+                    var thisCommentUsername = "<span class='replyUser'>"+thisGranddad.find(".commentUsername").html()+"</span>";
+                    var replyInputDiv = "<div class='replyInputDiv'><input type='text' class='btext replyInput'></input><div class='addCommentUsername'>@"+thisCommentUsername+":</div><a class='btmore rt replybtn'>確定</a></div>";
+                    var thisReplyInputDiv = thisGranddad.append(replyInputDiv);
+                    var thisCommentUsernameWidth = thisGranddad.find(".addCommentUsername").width();
+                    thisGranddad.find(".replyInput").css({"padding-left":thisCommentUsernameWidth + 15});
+                    thisGranddad.find(".replyInput").focus();
+                    $(".addCommentUsername").click(function(){
+                        $(".replyInput").focus();
+                    });
+                    $(".replyInputDiv").not(thisGranddad.find(".replyInputDiv")).remove();
+                    //$(".replyInputDiv").not(thisGranddad.find(".replybtn")).remove();
+                    $(".replybtn").bind("click",function(){
+                        var replyUser = $(".replyUser").html();
+                        var content = $.trim($(".replyInput").val());
+                        reply(content,replyUser);
+                    });
+                }
+            });
+        }
+
+        function reply(content,replyUser){
+            comment(content,replyUser);
+        }
+
+        function commentQuery(){
+            var column = getUrlParam("theme");
+            var id = getUrlParam("id");
+            $.ajax({
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentQuery'),$_smarty_tpl);?>
+",
+                type:"post",
+                data:{column:column,id:id},
+                success:function(data){
+                    switch(data){
+                        case "empty":
+                            return false;
+                        break;
+                    }
+                    var dataObj = eval('(' + data + ')');
+                    var avatar;
+                    var thumbsUpNum = "0";
+                    var createTime;
+                    var replyUser;
+                    if(dataObj.length){
+                        $(".commentCount").html(dataObj.length);
+                    }
+                    for(i=0;i<dataObj.length;i++){
+                        if(dataObj[i]['usersDetail']['avatar'] == null){
+                            avatar = 'images/defaultAvatar.png';
+                        }else{
+                            avatar = dataObj[i]['usersDetail']['avatar'];
+                        }
+                        if(dataObj[i]['thumbs_up'] != "0"){
+                            thumbsUpNum = dataObj[i]['thumbs_up'];
+                        }else{
+                            thumbsUpNum = "0";
+                        }
+                        if(dataObj[i]['reply'] != null){
+                            replyUser = "<a class='replyUserDetail mgr0'>@"+dataObj[i]['reply']+"</a>: ";
+                        }else{
+                            replyUser = "";
+                        }
+                        time = translateTime(dataObj[i]['create_time']);
+                        str = '<li>\
+                                    <table width="100%" border="0">\
+                                        <tr>\
+                                            <td width="60" class="vertical_align_top" valign="top"><img class="commentAvatar" src="'+avatar+'"></td>\
+                                            <td>\
+                                            <p class="pd5 gray"><em class="fblue commentUsername">'+dataObj[i]['username']+'</em></p>\
+                                            <p class="commentContent">'+replyUser+dataObj[i]['content']+'</p>\
+                                            <p class="gray"><a class="reply">回復</a><a class="thumbsUpBtn" value="'+dataObj[i]['id']+'"><img src="images/good.jpg"><span class="thumbsUpNum">'+thumbsUpNum+'</span></a>'+time+'</p>\
+                                            </td>\
+                                        </tr>\
+                                    </table>\
+                                </li>';
+                        $(".commentCont").append(str);
+                    }
+                    //console.log(data);
+
+                    $(".thumbsUpBtn").click(function(){
+                        var id = $(this).attr("value");
+                        thumbsUp(id,$(this));
+                    });
+                    replyFun();
+                }
+            })
+        }
+        commentQuery();
+
+        function translateTime(time){
+            var res = timestamp - time;
+            if(res < 3600){
+                return Math.round(res/60)+"分鐘前";
+            }
+            if(res <= 86400){
+                return Math.round(res/60/60)+"小时前";
+            }
+            var days = Math.floor(Math.round(res/60/60) / 24);
+            if(days <= 30){
+                return days+"天前";
+            }
+            var date = new Date(res);
+            Y = date.getFullYear() + '年';
+            M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
+            D = date.getDate() + '日 ';
+            h = date.getHours() + ':';
+            m = date.getMinutes() + ':';
+            s = date.getSeconds();
+            return Y+M+D+h+m+s;
+        }
+
+        function comment(content,replyUser){
+            if(content == ""){
+                return false;
+            }
+            var column = getUrlParam("theme");
+            var id = getUrlParam("id");
+            $.ajax({
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentInsert'),$_smarty_tpl);?>
+",
+                type:"post",
+                data:{column:column,id:id,content:content,replyUser:replyUser},
+                success:function(data){
+                    switch(data){
+                        case "false":
+                            alert("請先登錄");
+                            return false;
+                        break;
+                        case "10001":
+                            alert("發生錯誤：10001，請聯繫管理員");
+                            return false;
+                        break;
+                        case "10002":
+                            alert("發生錯誤：10002，請聯繫管理員");
+                            return false;
+                        break;
+                    }
+                    $(".commentCont").html("");
+                    commentQuery();
+                }
+            })
+        }
+
+        $(".commentBtn").click(function(){
+            var content = $(".btext").val();
+            comment(content);
+        })
+
+    });
+
+
+  function thumbsUp(id,selecter){
+        $.ajax({
+            url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'thumbsUp'),$_smarty_tpl);?>
+",
+            type:"post",
+            data:{id:id},
+            success:function(data){
+                if(data == "ok"){
+                    var thumbsUpNum = selecter.find(".thumbsUpNum").html();
+                    selecter.find(".thumbsUpNum").html(parseInt(thumbsUpNum)+1);
+                }
+                switch(data){
+                    case "false":
+                      alert("請先登錄");
+                    break;
+                }
+            }
+        })
+    }
+
+    function getUrlParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return unescape(r[2]); return null;
+    }
+<?php echo '</script'; ?>
 >
 </body>
 </html><?php }

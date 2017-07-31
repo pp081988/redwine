@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-30 12:10:57
+/* Smarty version 3.1.30, created on 2017-07-31 16:59:21
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597db0b16cf8c3_57260493',
+  'unifunc' => 'content_597ef16996a152_93015897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501409429,
+      1 => 1501491501,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597db0b16cf8c3_57260493 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597ef16996a152_93015897 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -289,10 +289,12 @@ function content_597db0b16cf8c3_57260493 (Smarty_Internal_Template $_smarty_tpl)
           </li>
           <input type="text" name="theme_color" class="value">
    <li>短評：</li> 
-   <li  class="pd0"><textarea name="short_comment" cols="" rows="3" class="mtext"></textarea></li>
+   <li  class="pd0"><input name="short_comment" cols="" rows="3" class="mtext"></input></li>
+   <li>詳細內容：</li> 
+   <li  class="pd0"><textarea name="detail_content" cols="" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
-   <input type="text" name="themeType" class="value" value="wine">
+   <input type="text" name="themeType" class="value" value="matching">
      <input type="submit" name="" class="rt btback subBtn" value="提交">
   
  
@@ -322,7 +324,9 @@ function content_597db0b16cf8c3_57260493 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </footer>
 </div>
-
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 <?php echo '<script'; ?>
 >
 $(function(){
@@ -348,7 +352,7 @@ $(function(){
    }
    lis[i - 1].onclick = function() { //鼠标点击,同时会调用onmouseout,改变tempnum值点亮星星
     tempnum= this.index;
-    $("input[name=match]").val($(this).find("a").html());
+    $("input[name=matching]").val($(this).find("a").html());
    }
   }
 
@@ -357,8 +361,9 @@ $(function(){
     var wine_img = $("input[name=wine_img]").val();
     var food_img = $("input[name=food_img]").val();
     var wine_name = $("input[name=wine_name]").val();
-    var check = new Array(wine_img,food_img,wine_name);
-    var info = new Array("請上傳美酒圖片","請上傳美食圖片","請輸入美酒名稱");
+    var food_name = $("select[name=food_name]").val();
+    var check = new Array(wine_img,food_img,wine_name,food_name);
+    var info = new Array("請上傳美酒圖片","請上傳美食圖片","請輸入美酒名稱","請選擇美食名稱");
     for(i=0;i<check.length;i++){
       if(check[i] == ""){
         alert(info[i]);
@@ -455,7 +460,7 @@ function doUpload() {
             var order = $("input[name=order]").val();
             if(order == "1"){
               var data = eval('(' + returndata + ')');
-              if(data['compareImg'] != ""){
+              if(data['compareImg'] != null &&  data['compareImg'] != ""){
                 productQuery(data['compareImg']);
               }
               $("input[name=order]").val("2");

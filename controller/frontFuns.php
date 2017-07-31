@@ -131,7 +131,7 @@ class frontFuns extends spController
 		// }
 		
 		$post = spClass("spArgs");
-		$column = $this->filter->filter($post->get("column"));
+		$column = $post->get("column");
 		$id = $this->filter->filter($post->get("id"));
 		$db = spClass("db",Array("site_".$column,"id"));
 		$res = $db->find(Array("id"=>$id),null,"comment");
@@ -156,7 +156,7 @@ class frontFuns extends spController
 			exit;
 		}
 		$post = spClass("spArgs");
-		$column = $this->filter->filter($post->get("column"));
+		$column = $post->get("column");
 		$id = $this->filter->filter($post->get("id"));
 		$content = $this->filter->filter($post->get("content"));
 		if($content == ""){
@@ -376,8 +376,14 @@ class frontFuns extends spController
 			exit;
 		}
 		$get = spClass("spArgs");
-		if($get->get("themeType") == "wine"){
-
+		if($themeType = $get->get("themeType"))
+		switch ($themeType) {
+			case 'matching':
+				$DBname = "site_forum_matching";
+				break;
+			case 'chat':
+				$DBname = "site_forum_chat";
+				break;
 		}
 		$conditions = [];
 		foreach ($get->get() as $key => $value) {
@@ -387,12 +393,52 @@ class frontFuns extends spController
 		}
 		$conditions['create_time'] = time();
 		$conditions['username'] = $_SESSION['username'];
-		$db = new db("site_forum_matching","id");
-		//var_dump($conditions);
+		$conditions['display'] = 1;
+		$db = new db($DBname,"id");
+		//var_dump($DBname);
+
 		$result = $db->create($conditions);
 		if(!$result){
 			die("10017");
 		}
 		$this->success('提交完成，管理員審核后將會顯示', spUrl('main', 'forum'));
+	}
+
+	function forum_matching_data()
+	{
+		$theme = $_GET['theme'];
+		$forumData = spClass("forumData");
+		echo json_encode($forumData->data($theme,"",$id));
+	}
+
+	function forum_matching_detail()
+	{
+		$theme = $_GET['theme'];
+		$id = $_GET['id'];
+		$forumData = spClass("forumData");
+		$res = $forumData->data($theme,"",$id);
+		$this->create_time = $res[0]['create_time'];
+		$this->wine_name = $res[0]['wine_name'];
+		$this->wine_year = $res[0]['wine_year'];
+		$this->food_name = $res[0]['food_name'];
+		$this->username = $res[0]['username'];
+		$this->wine_category = $res[0]['wine_category'];
+		$this->wine_price = $res[0]['wine_price'];
+		$this->food_origin = $res[0]['food_origin'];
+		$this->food_type = $res[0]['food_type'];
+		$this->food_method = $res[0]['food_method'];
+		$this->food_taste = $res[0]['food_taste'];
+		$this->matching = $res[0]['matching'];
+		$this->detail_content = $res[0]['detail_content'];
+		$this->wine_img = $res[0]['wine_img'];
+		$this->food_img = $res[0]['food_img'];
+		$this->like_num = $res[0]['like_num'];
+		$this->dislike_num = $res[0]['dislike_num'];
+		if($_SESSION['avatar']){
+			$this->avatar = "<img src='".$_SESSION['avatar']."'>";
+		}else{
+			$this->avatar = "<img src='images/defaultAvatar.png'>";
+		}
+		$this->display("forum1.html");
 	}
 }

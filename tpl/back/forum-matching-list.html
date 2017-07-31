@@ -202,7 +202,7 @@ $(function(){
 	function dataHandle(){
 		var id = "<{$column}>";
 		$.ajax({
-			url:"<{spUrl c=backFuns a=forumData theme=forum_matching}>",
+			url:"<{spUrl c=backFuns a=forum_matching_data theme=forum_matching}>",
 			type:"post",
 			data:{id:id},
 			success:function(data){
@@ -240,6 +240,7 @@ $(function(){
 					  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 					]
 				});
+				//console.log(data);
 			}
 		})
 	}

@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-31 17:10:42
+  from "D:\xampp\htdocs\redwine\tpl\forumtheme2.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_597ef41236ad92_60055726',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '1fe68ec726a119b9c1e55b363058bcfcdc5250b3' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme2.html',
+      1 => 1501492089,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./header.html' => 1,
+  ),
+),false)) {
+function content_597ef41236ad92_60055726 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,42 +35,42 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-   <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/common.css" />
+      <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/common.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/index.css" />
-  <script src="js/jquery-1.7.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery-1.7.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script type="text/javascript" src="js/imgUp.js"></script>
-    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
-  <style>
-      .img-box .upimg-div .z_file,.upimg-div .up-section,.z_file .add-img{
-        width: 400px!important;
-        height: 235px!important;
-        margin-right: 45px;
-      }
-
-      .z_file .add-img{
-        background-image: url(images/upload1.jpg);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: white;
-      }
-  </style>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
   <style>
   .listbd td { padding-top:15px;margin:10px ;font-size:16px;}		
@@ -65,50 +90,7 @@
 	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 		body {width: 100%; }
 	}
-	
-    .upbig{
-      width: 400px!important;
-      height: 235px!important;
-      padding-top: 0px;
-    /*  margin: 0 auto;
-      transition: all 0.5s;*/
-    }
-    .food{
-      opacity: 0.3; 
-    }
-    .updiv{
-      height: 100%!important;
-    }
-    .wine{
-      position: relative;
-    }
-    .wine .rightImg{
-      position: absolute;
-      right: -30px;
-      top: 110px;
-    }
-
-    .match {
-     padding-left: 0;
-     overflow: hidden;
-    }
-    .match li {
-     float: left;
-     list-style: none;
-     width: 27px;
-     height: 27px;
-     background: url(images/star.gif)
-    }
-    .match li a {
-     display: block;
-     width: 100%;
-     padding-top: 27px;
-     overflow: hidden;
-    }
-    .match li.light {
-     background-position: 0 -29px;
-    }
-    .value{
+	.value{
       display: none;
     }
     .themeColor{
@@ -122,16 +104,16 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-  <{include file="./header.html"}>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
 
   <!--========================================================
                             CONTENT
-  =========================================================-->  
-
-  <section id="content"> 
+  =========================================================-->  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
@@ -140,92 +122,14 @@
        
       </div>      
     </div>
-    <form id= "uploadForm">  
 <div class="theme  wow fadeInUp"> 
       <h2>主題類別 : <select name="" class="seltext selectTheme">
-        <option value="forumtheme1">達人食評</option>
         <option value="forumtheme2">吹下水</option>
-      </select></h2>  
-      <li>
-      <div class="up15">
-        <div class="grid_6 m0 fl wine">
-          <h5 class="f18">美酒圖片 (請先上傳美酒圖片)</h5>
-           <div class="img-box full">
-                        <section class=" img-section">
-                            <div class="z_photo upimg-div clear">
-                                     <section class="z_file fl">
-                                        <img src="" class="add-img">
-                                        <input type="text" name="order" value="1" class="value">
-                                        <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
-                                     </section>
-                             </div>
-                         </section>
-                         <!-- <input name="" type="submit" class="btn btn-success radius size-L" value="上传"> -->
-                </div>
-                <img class="rightImg" src="images/right.png">
-        </div>
-        <div class="grid_6 m0 fl">
-          <h5 class="f18">食物圖片</h5>
-           <div class="wbg upbig food">
-             <div class="updiv"></div>
-<!--              <i class="del"><img src="images/x.jpg"></i> -->
-           </div>
-        </div>
-       </div>
-       </form>
-       <form action="<{spUrl c=frontFuns a=forum}>" method="post" enctype="multipart/form-data">
-       <input type="text" name="wine_img" class="value">
-       <input type="text" name="food_img" class="value">
-      </li> 
-      <li class="clearfix"></li>      
-      <li class="fl"><table width="100%" border="0" class="listbd">
-  <tr>
-    <td><em class="bfn2">酒名：</em><input name="wine_name" type="text" class="seltext"></td>
-    <td><em class="bfn2">年份：</em><select name="wine_year"  class="seltext">
-      <option value="">--選擇年份--</option>
-    </select></td>
-    <td><em class="bfn2">酒類：</em><select name="wine_category"  class="seltext">
-      <option value="">--選擇酒類--</option>
-      <{$wineCategory}>
-    </select></td>
-  </tr>
-  <tr>
-    <td><em class="bfn2">價錢：</em><select name="wine_price"  class="seltext">
-      <option value="">--選擇價錢--</option>
-      <{$price}>
-    </select></td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em>
-    <select name="food_origin" order="1" class="seltext foodOption">
-      <option value="">--選擇国家菜式--</option>
-    </select><select name="food_type" order="2" class="seltext foodOption">
-      <option value="">--選擇菜式--</option>
-    </select><select name="food_name" order="3" class="seltext foodOption">
-      <option value="">--選擇菜名--</option>
-    </select></td>
-    </tr>
-  <tr>
-    <td><em class="bfn2">煮法：</em>
-    <select name="food_method" order="4" class="seltext foodOption">
-      <option value="">--選擇煮法--</option>
-    </select></td>
-    <td><em class="bfn2">味道：</em>
-    <select name="food_taste" order="5" class="seltext foodOption">
-      <option value="">--選擇味道--</option>
-    </select></td>
-    <td><em class="bfn2" style="float: left;">絕配度：</em>
-      <ul class="match">
-      <li class="light star"><a href="javascript:;">1</a></li>
-      <li class="star"><a href="javascript:;">2</a></li>
-      <li class="star"><a href="javascript:;">3</a></li>
-      <li class="star"><a href="javascript:;">4</a></li>
-      <li class="star"><a href="javascript:;">5</a></li>
-     </ul>
-     <input type="text" name="matching" class="value">
-    </td>
-  </tr>
-</table>
-</li>
-  <li class="black1" style="padding-left:2px;margin-top: 20px;"><em class="bfn2" style="float: left;">選擇主題顏色：</em><br>
+        <option value="forumtheme1">達人食評</option>
+      </select></h2>
+      <form action="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum'),$_smarty_tpl);?>
+" method="post">
+     <li class="black1" style="padding-left:2px;margin-top: 20px;"><em class="bfn2" style="float: left;">選擇主題顏色：</em><br>
          <span class="flnew">
           <em class="size35 sbg1 themeColor" value="0"></em>
           <em class="size35 sbg2 themeColor" value="1"></em>
@@ -238,22 +142,21 @@
           </span>
           </li>
           <input type="text" name="theme_color" class="value">
-   <li>短評：</li> 
-   <li  class="pd0"><input name="short_comment" cols="" rows="3" class="mtext"></input></li>
-   <li>詳細內容：</li> 
-   <li  class="pd0"><textarea name="detail_content" cols="" rows="3" class="mtext"></textarea></li>
+      <li class="f18">主題描述及內文：</li> 
+         <li  class="pd0"><input name="title" type="text" class="mtext"></li>
+   <li  class="pd0"><textarea cols="" name="content" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
-   <input type="text" name="themeType" class="value" value="matching">
-     <input type="submit" name="" class="rt btback subBtn" value="提交">
-  
+   <input type="text" name="themeType" class="value" value="chat">
+     <h2><input type="submit" class="rt btback" value="提交"></h2>
+  </form>
  
    </div>
 
 
   </section>
 
-</form>
+
   <!--========================================================
                             FOOTER
   =========================================================-->
@@ -274,9 +177,17 @@
     </div>
   </footer>
 </div>
-<script src="js/script.js"></script>
-<script>
+
+<?php echo '<script'; ?>
+>
+
 $(function(){
+
+  $(".selectTheme").change(function(){
+        var page = $(this).val();
+        window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'addForumIndex'),$_smarty_tpl);?>
+";
+    });
 
   var num=finalnum = tempnum= 0;
   var lis = $(".star");
@@ -326,20 +237,6 @@ $(function(){
   })
 
 
-
-
-    $(".selectTheme").change(function(){
-        var page = $(this).val();
-        window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+page;
-    });
-    var json = '<{$options}>';
-    var options = eval('(' + json + ')');
-    for(i=0;i<options.length;i++){
-      if(options[i]['pId'] == 1){
-        $("select[name=food_origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
-      }
-    }
-
     $(".foodOption").change(function(){
       var id = $(this).val();
       var order = parseInt($(this).attr("order"));
@@ -370,7 +267,8 @@ function getOption(options,id){
 
 function productQuery(condition){
   $.ajax({
-    url:"<{spUrl c=frontFuns a=productDetial}>",
+    url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'productDetial'),$_smarty_tpl);?>
+",
     type:"post",
     data:{condition:condition,type:"forum",product:"wine"},
     success:function(data){
@@ -387,7 +285,8 @@ function productQuery(condition){
 function doUpload() { 
      var formData = new FormData($( "#uploadForm" )[0]);  
      $.ajax({  
-          url: '<{spUrl c=frontFuns a=forumImgUpload}>' ,  
+          url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forumImgUpload'),$_smarty_tpl);?>
+' ,  
           type: 'POST',  
           data: formData,  
           async: false,  
@@ -420,7 +319,8 @@ function ajaxFileUpload() {
             $.ajaxFileUpload
             (
                 {
-                    url: '<{spUrl c=frontFuns a=imgUpload}>', //用于文件上传的服务器端请求地址
+                    url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'imgUpload'),$_smarty_tpl);?>
+', //用于文件上传的服务器端请求地址
                     secureuri: false, //是否需要安全协议，一般设置为false
                     fileElementId: 'file', //文件上传域的ID
                     dataType: 'json', //返回值类型 一般设置为json
@@ -445,6 +345,8 @@ function ajaxFileUpload() {
             return false;
         }
 
-</script>
+<?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

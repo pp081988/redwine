@@ -20,7 +20,7 @@ class filter
   		}
   		$this->data = str_replace("_", "\_", $this->data);    // 把 '_'过滤掉    
   		$this->data = str_replace("%", "\%", $this->data);    // 把 '%'过滤掉    
-  		$this->data = nl2br($this->data);    // 回车转换    
+  		//$this->data = nl2br($this->data);    // 回车转换    
   		$this->data = htmlspecialchars($this->data);    // html标记转换 防止xss   
 
   		return $this->data;    

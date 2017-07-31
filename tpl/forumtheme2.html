@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
+      <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/common.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/index.css" />
+  <script src="js/jquery-1.7.js"></script>
   <script src="js/jquery-migrate-1.2.1.js"></script>
   <script src="js/camera.js"></script>
   <script src="js/owl.carousel.js"></script>
@@ -47,7 +49,12 @@
 	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
 		body {width: 100%; }
 	}
-	
+	.value{
+      display: none;
+    }
+    .themeColor{
+      cursor: pointer;
+    }
 	</style>
 </head>
 
@@ -77,14 +84,28 @@
         <option value="forumtheme2">吹下水</option>
         <option value="forumtheme1">達人食評</option>
       </select></h2>
-     
+      <form action="<{spUrl c=frontFuns a=forum}>" method="post">
+     <li class="black1" style="padding-left:2px;margin-top: 20px;"><em class="bfn2" style="float: left;">選擇主題顏色：</em><br>
+         <span class="flnew">
+          <em class="size35 sbg1 themeColor" value="0"></em>
+          <em class="size35 sbg2 themeColor" value="1"></em>
+          <em class="size35 sbg3 themeColor" value="2"></em>
+          <em class="size35 sbg4 themeColor" value="3"></em> 
+          <em class="size35 sbg5 themeColor" value="4"></em>
+          </span>
+           <span class="flnew">
+          <!-- <em class="rt btback">預覽</em> -->
+          </span>
+          </li>
+          <input type="text" name="theme_color" class="value">
       <li class="f18">主題描述及內文：</li> 
-         <li  class="pd0"><input name="" type="text" class="mtext"></li>
-   <li  class="pd0"><textarea cols="" rows="3" class="mtext"></textarea></li>
+         <li  class="pd0"><input name="title" type="text" class="mtext"></li>
+   <li  class="pd0"><textarea cols="" name="content" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
-     <h2><em class="rt btback">下一步</em></h2>
-  
+   <input type="text" name="themeType" class="value" value="chat">
+     <h2><input type="submit" class="rt btback" value="提交"></h2>
+  </form>
  
    </div>
 
@@ -114,12 +135,167 @@
 </div>
 
 <script>
+
 $(function(){
-    $(".selectTheme").change(function(){
+
+  $(".selectTheme").change(function(){
         var page = $(this).val();
-        window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+page;
+        window.location.href="<{spUrl c=frontFuns a=addForumIndex}>";
     });
+
+  var num=finalnum = tempnum= 0;
+  var lis = $(".star");
+  //num:传入点亮星星的个数
+  //finalnum:最终点亮星星的个数
+  //tempnum:一个中间值
+  function fnShow(num) {
+   finalnum= num || tempnum;//如果传入的num为0，则finalnum取tempnum的值
+   for (var i = 0; i < lis.length; i++) {
+    lis[i].className = i < finalnum? "light" : "";//点亮星星就是加class为light的样式
+   }
+  }
+  for (var i = 1; i <= lis.length; i++) {
+   lis[i - 1].index = i;
+   lis[i - 1].onmouseover = function() { //鼠标经过点亮星星。
+    fnShow(this.index);//传入的值为正，就是finalnum
+   }
+   lis[i - 1].onmouseout = function() { //鼠标离开时星星变暗
+    fnShow(0);//传入值为0，finalnum为tempnum,初始为0
+   }
+   lis[i - 1].onclick = function() { //鼠标点击,同时会调用onmouseout,改变tempnum值点亮星星
+    tempnum= this.index;
+    $("input[name=matching]").val($(this).find("a").html());
+   }
+  }
+
+
+  $(".subBtn").click(function(){
+    var wine_img = $("input[name=wine_img]").val();
+    var food_img = $("input[name=food_img]").val();
+    var wine_name = $("input[name=wine_name]").val();
+    var food_name = $("select[name=food_name]").val();
+    var check = new Array(wine_img,food_img,wine_name,food_name);
+    var info = new Array("請上傳美酒圖片","請上傳美食圖片","請輸入美酒名稱","請選擇美食名稱");
+    for(i=0;i<check.length;i++){
+      if(check[i] == ""){
+        alert(info[i]);
+        return false;
+      }
+    }
+  });
+
+  $(".themeColor").click(function(){
+    $(this).css({"border":"3px solid rgb(140, 176, 68)"});
+    $(".themeColor").not($(this)).css({"border":"none"});
+    $("input[name=theme_color]").val($(this).attr("value"));
+  })
+
+
+    $(".foodOption").change(function(){
+      var id = $(this).val();
+      var order = parseInt($(this).attr("order"));
+      $(".foodOption").each(function(){
+        if($(this).attr("order") == order +1){
+          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id))
+        }
+      })
+    });
+
+    var time = new Date();
+    var year = time.getFullYear();
+    for(i=1970;i<=year;i++){
+      $("select[name=wine_year]").append("<option value="+i+">"+i+"年</option>");
+    }
+
 })
+
+function getOption(options,id){
+  var result;
+  for(i=0;i<options.length;i++){
+    if(options[i]['pId'] == id){
+       result += "<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>";
+    }
+  }
+  return result;
+}
+
+function productQuery(condition){
+  $.ajax({
+    url:"<{spUrl c=frontFuns a=productDetial}>",
+    type:"post",
+    data:{condition:condition,type:"forum",product:"wine"},
+    success:function(data){
+      if(data == "10016"){
+        alert("發生錯誤：10016<br>請聯繫系統管理員");
+      }else{
+        var dataObj = eval('(' + data + ')');
+        $("input[name=wine_name]").val(dataObj['name']);
+      }
+    }
+  });
+}
+
+function doUpload() { 
+     var formData = new FormData($( "#uploadForm" )[0]);  
+     $.ajax({  
+          url: '<{spUrl c=frontFuns a=forumImgUpload}>' ,  
+          type: 'POST',  
+          data: formData,  
+          async: false,  
+          cache: false,  
+          contentType: false,  
+          processData: false,  
+          success: function (returndata) {
+            if(returndata == "false"){
+              alert("請先登錄");
+              location.reload();
+              return false;
+            }
+            var order = $("input[name=order]").val();
+            if(order == "1"){
+              var data = eval('(' + returndata + ')');
+              if(data['compareImg'] != null &&  data['compareImg'] != ""){
+                productQuery(data['compareImg']);
+              }
+              $("input[name=order]").val("2");
+              $("input[name=wine_img]").val(data['uploadImg']);
+            }
+            if(order == "2"){
+              $("input[name=food_img]").val(returndata);
+            }
+          } 
+     });  
+}  
+
+function ajaxFileUpload() {
+            $.ajaxFileUpload
+            (
+                {
+                    url: '<{spUrl c=frontFuns a=imgUpload}>', //用于文件上传的服务器端请求地址
+                    secureuri: false, //是否需要安全协议，一般设置为false
+                    fileElementId: 'file', //文件上传域的ID
+                    dataType: 'json', //返回值类型 一般设置为json
+                    success: function (data, status)  //服务器成功响应处理函数
+                    {
+                      alert("ok")
+                        // $("#img1").attr("src", data.imgurl);
+                        // if (typeof (data.error) != 'undefined') {
+                        //     if (data.error != '') {
+                        //         alert(data.error);
+                        //     } else {
+                        //         alert(data.msg);
+                        //     }
+                        // }
+                    },
+                    error: function (data, status, e)//服务器响应失败处理函数
+                    {
+                        alert(e);
+                    }
+                }
+            )
+            return false;
+        }
+
 </script>
 </body>
 </html>

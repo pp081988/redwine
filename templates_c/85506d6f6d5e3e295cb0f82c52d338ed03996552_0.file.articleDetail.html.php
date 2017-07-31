@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-31 16:22:55
+  from "D:\xampp\htdocs\redwine\tpl\articleDetail.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_597ee8dfdb2090_76304888',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '85506d6f6d5e3e295cb0f82c52d338ed03996552' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\articleDetail.html',
+      1 => 1500965252,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./header.html' => 1,
+  ),
+),false)) {
+function content_597ee8dfdb2090_76304888 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,46 +34,33 @@
   <link rel="stylesheet" href="css/camera.css">
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+    <link rel="stylesheet" href="css/user.css">
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script>
-    $(document).ready(function () {
-      if ($('html').hasClass('desktop')) {
-        new WOW().init();
-      }
-    });
-  </script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
-  <style>
-  .listbd td { padding-top:15px;margin:10px;font-size:16px; }		
-	@media 	only screen and (max-width: 760px),	(min-device-width: 768px) and (max-device-width: 1024px)  {	
-		table, thead, tbody, th, td, tr {display: block; }
-		.listbd thead tr {position: absolute;top: -9999px;left: -9999px;}		
-		.listbd td { border: none;position: relative;padding-left: 5px;line-height:15px;padding-bottom:5px;}		
-		.listbd td:before {position: absolute;top: 6px;left: 6px;width: 100%; padding-right: 15px; white-space: nowrap;margin-top:-20px; font-size:14px; font-weight:600}
-
-	}
-	@media only screen
-	and (min-device-width : 320px)
-	and (max-device-width : 480px) {
-		body {padding: 0; margin: 0;  }
-		}	
-
-	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-		body {width: 100%; }
-	}
-	
-	</style>
 </head>
 
 <body>
@@ -56,51 +68,35 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-<{include file="./header.html"}>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
 
   <!--========================================================
                             CONTENT
-  =========================================================-->  <section id="content"> 
+  =========================================================-->  
+  <section id="content"> 
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>所有卡片/達人食評既內文頁<a class="rt btback" href="<{spUrl c=main a=forum}>">返回上一頁</a></h2>
-              </div>
-       
+              <h2><?php echo $_smarty_tpl->tpl_vars['article_title']->value;?>
+<em class="fn15"><?php echo $_smarty_tpl->tpl_vars['article_title2']->value;?>
+</em></h2>
+              <span>創建時間：<?php echo $_smarty_tpl->tpl_vars['create_time']->value;?>
+</span><span class="mf20">/更新時間：<?php echo $_smarty_tpl->tpl_vars['update_time']->value;?>
+</span><span class="mf20">/作者：<?php echo $_smarty_tpl->tpl_vars['author']->value;?>
+</span>
+              <div class="mt20 articleCont"><?php echo $_smarty_tpl->tpl_vars['editorCont']->value;?>
+</div>
+        </div>
       </div>      
     </div>
-<div class="bbs  wow fadeInUp"> 
-      <h2><em class="bfn1"><{$wine_name}></em><em class="bfn2"> 配</em><em class="bfn3"> <{$food_name}></em><em class="bfn4">網友:</em><em class="bfn2"> <{$username}></em> <em class="bfn5 createTime"></em></h2>  
-      <li>
-      <div class="mg15 ">
-       <img src="<{$wine_img}>" class="imgbbs mb20">
-       <img src="<{$food_img}>" class="imgbbs mb20">
-       </div>
-      </li> 
-      <li class="clearfix"></li>      
-      <li><table width="100%" border="0" class="listbd">
-  <tr>
-    <td><em class="bfn2">酒名：</em><{$wine_name}></td>
-    <td><em class="bfn2">年份：</em><{$wine_year}></td>
-    <td><em class="bfn2">酒類：</em><{$wine_category}></td>
-  </tr>
-  <tr>
-    <td><em class="bfn2">價錢：</em><{$wine_price}></td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em> <{$food_origin}> &gt; <{$food_type}> &gt; <{$food_name}></td>
-    </tr>
-  <tr>
-    <td><em class="bfn2">煮法：</em> <{$food_method}></td>
-    <td><em class="bfn2">味道：</em><{$food_taste}></td>
-    <td><em class="bfn2">絕配度：</em><span class="stars"></span></td>
-  </tr>
-</table>
-</li>
-    <p><{$detail_content}></p>
-    <p class="apc"> <a class="bt5 likeBtn" name="like"><{$like_num}></a><a class="btno likeBtn" name="dislike"><{$dislike_num}></a> </p>       
-        </div>
+    <div class="likeOrDislike"><a class="likeBtn bt5" name="like"><?php echo $_smarty_tpl->tpl_vars['likeNum']->value;?>
+</a><a class="likeBtn btno" name="dislike"><?php echo $_smarty_tpl->tpl_vars['dislikeNum']->value;?>
+</a></div>
    <div class="say wow fadeInDown">
      <h2><span class="commentCount">0</span>则回应<em class="rt">排序方式：<select>
        <option>最新</option>
@@ -109,12 +105,25 @@
       <li>
      <table width="100%" border="0">
   <tr>
-    <td width="60"><{$avatar}></td>
+    <td width="60"><?php echo $_smarty_tpl->tpl_vars['avatar']->value;?>
+</td>
     <td><input name="comment" type="text" class="btext"></td>
   </tr>
 </table>
      </li>
 <a class="btmore rt commentBtn" type="button">確定</a>
+     <!-- <li>
+     <table width="100%" border="0">
+  <tr>
+    <td width="60" valign="top"><img src="images/man.jpg"></td>
+    <td>
+    <p class="pd5 gray"><em class="fblue">Simo Ip</em> CMA Secondary School</p>
+    <p>繼續Candy...進軍2000年</p>
+    <p class="gray"><a href="#">讀好</a><a href="#">回復<img src="images/good.jpg">1</a> 16小時</p>
+    </td>
+  </tr>
+</table>
+     </li> -->
       <div class="commentCont"></div>
      <h3 style="clear: both;">Redwine Comments Surport</h3>
    </div>
@@ -144,45 +153,12 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
-<script>
-  $(document).ready(function () {
+<?php echo '<script'; ?>
+>
+    $(document).ready(function () {
         if ($('html').hasClass('desktop')) {
           new WOW().init();
         }
-
-        var timestamp = Date.parse(new Date());
-        timestamp = timestamp / 1000;
-    var time = "<{$create_time}>";
-
-    $(".createTime").html(translateTime(time));
-    var stars = "";
-    for(var i=0;i<<{$matching}>;i++){
-      stars += '<img src="images/star.png">';
-    }
-    $(".stars").html(stars);
-
-    function translateTime(time){
-      var res = timestamp - time;
-      if(res < 3600){
-          return Math.round(res/60)+"分鐘前";
-      }
-      if(res <= 86400){
-          return Math.round(res/60/60)+"小时前";
-      }
-      var days = Math.floor(Math.round(res/60/60) / 24);
-      if(days <= 30){
-          return days+"天前";
-      }
-      var date = new Date(res);
-      Y = date.getFullYear() + '年';
-      M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
-      D = date.getDate() + '日 ';
-      h = date.getHours() + ':';
-      m = date.getMinutes() + ':';
-      s = date.getSeconds();
-      return Y+M+D+h+m+s;
-    }
 
         $.extend({
             tipsBox: function(options) {
@@ -238,7 +214,7 @@
         timestamp = timestamp / 1000;
 
         function likeOrDislike(type,selecter){
-            var column = getUrlParam("theme");
+            var column = getUrlParam("column");
             var id = getUrlParam("id");
             if(type == "like"){
                 str="+1";color="red";
@@ -246,7 +222,8 @@
                 str="-1";color="gray";
             }
             $.ajax({
-                url:"<{spUrl c=frontFuns a=likeOrDislike}>",
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'likeOrDislike'),$_smarty_tpl);?>
+",
                 type:"post",
                 data:{column:column,id:id,type:type},
                 success:function(data){
@@ -311,10 +288,11 @@
         }
 
         function commentQuery(){
-            var column = getUrlParam("theme");
+            var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({
-                url:"<{spUrl c=frontFuns a=commentQuery}>",
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentQuery'),$_smarty_tpl);?>
+",
                 type:"post",
                 data:{column:column,id:id},
                 success:function(data){
@@ -400,10 +378,11 @@
             if(content == ""){
                 return false;
             }
-            var column = getUrlParam("theme");
+            var column = getUrlParam("column");
             var id = getUrlParam("id");
             $.ajax({
-                url:"<{spUrl c=frontFuns a=commentInsert}>",
+                url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentInsert'),$_smarty_tpl);?>
+",
                 type:"post",
                 data:{column:column,id:id,content:content,replyUser:replyUser},
                 success:function(data){
@@ -434,10 +413,10 @@
 
     });
 
-
-  function thumbsUp(id,selecter){
+    function thumbsUp(id,selecter){
         $.ajax({
-            url:"<{spUrl c=frontFuns a=thumbsUp}>",
+            url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'thumbsUp'),$_smarty_tpl);?>
+",
             type:"post",
             data:{id:id},
             success:function(data){
@@ -459,6 +438,8 @@
         var r = window.location.search.substr(1).match(reg);
         if (r!=null) return unescape(r[2]); return null;
     }
-</script>
+<?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

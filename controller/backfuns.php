@@ -1,5 +1,5 @@
 <?php
-
+require_once(APP_PATH."/model/forumData.php");
 require_once(APP_PATH."/model/upload.php");
 require_once(APP_PATH."/model/variable.php");
 require_once(APP_PATH."/model/unloginCheck.php");
@@ -320,32 +320,10 @@ class backFuns extends spController
 		//echo $category_id." ".$dbName;
 	}
 
-	function forumData()
+	function forum_matching_data()
 	{
 		$theme = $_GET['theme'];
-		$forumDB = new db("site_".$theme,"id");
-		$forumRes = $forumDB->findAll();
-		$foodOptionDB = new db("admin_forum_food_option","id");
-		$foodOptionRes = $foodOptionDB->findAll();
-		foreach ($forumRes as $key => $value) {
-			$forumRes[$key]["wine_category"] = $this->var->WINE[$value["wine_category"]];
-			$forumRes[$key]["wine_price"] = $this->var->PRICE[$value["wine_category"]];
-			$forumRes[$key]["food_origin"] = $this->foodOption($foodOptionRes,$value["food_origin"]);
-			$forumRes[$key]["food_type"] = $this->foodOption($foodOptionRes,$value["food_type"]);
-			$forumRes[$key]["food_name"] = $this->foodOption($foodOptionRes,$value["food_name"]);
-			$forumRes[$key]["food_method"] = $this->foodOption($foodOptionRes,$value["food_method"]);
-			$forumRes[$key]["food_taste"] = $this->foodOption($foodOptionRes,$value["food_taste"]);
-		}
-		echo json_encode($forumRes);
-
-	}
-
-	function foodOption($resultArray,$val)
-	{
-		foreach ($resultArray as $key => $value) {
-			if($resultArray[$key]['id'] == $val){
-				return $resultArray[$key]['name'];
-			}
-		}
+		$forumData = spClass("forumData");
+		echo json_encode($forumData->data($theme));
 	}
 }

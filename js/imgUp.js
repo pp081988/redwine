@@ -2,7 +2,7 @@ $(function(){
 	var delParent;
 	var defaults = {
 		fileType         : ["jpg","png","bmp","jpeg"],   // 上传文件的类型
-		fileSize         : 1024 * 1024 * 0.5                  // 上传文件的大小 10M
+		fileSize         : 1024 * 1024 * 10                  // 上传文件的大小 10M
 	};
 
 	var fileList;

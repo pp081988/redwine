@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-30 14:04:25
+/* Smarty version 3.1.30, created on 2017-07-31 14:27:22
   from "D:\xampp\htdocs\redwine\tpl\back\forum-matching-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597dcb49169fc7_73723346',
+  'unifunc' => 'content_597ecdca63dbf7_52017236',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '21edbd45815718a10575408a5bcafe92fc61279d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-matching-list.html',
-      1 => 1501416261,
+      1 => 1501482437,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597dcb49169fc7_73723346 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597ecdca63dbf7_52017236 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -262,7 +262,7 @@ $(function(){
 		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
 ";
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forumData','theme'=>'forum_matching'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forum_matching_data','theme'=>'forum_matching'),$_smarty_tpl);?>
 ",
 			type:"post",
 			data:{id:id},
@@ -308,6 +308,7 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 					  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 					]
 				});
+				//console.log(data);
 			}
 		})
 	}
