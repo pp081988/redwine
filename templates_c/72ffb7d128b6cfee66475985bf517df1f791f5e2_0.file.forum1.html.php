@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 16:36:17
+/* Smarty version 3.1.30, created on 2017-07-31 12:40:18
   from "D:\xampp\htdocs\redwine\tpl\forum1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597eec01eaa457_51419790',
+  'unifunc' => 'content_597f09124ae995_39996153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '72ffb7d128b6cfee66475985bf517df1f791f5e2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum1.html',
-      1 => 1501490176,
+      1 => 1501497616,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597eec01eaa457_51419790 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f09124ae995_39996153 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +110,7 @@ function content_597eec01eaa457_51419790 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>所有卡片/達人食評既內文頁<a class="rt btback" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'forum'),$_smarty_tpl);?>
+              <h2><a class="rt btback" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'forum'),$_smarty_tpl);?>
 ">返回上一頁</a></h2>
               </div>
        
@@ -379,7 +379,7 @@ function content_597eec01eaa457_51419790 (Smarty_Internal_Template $_smarty_tpl)
         }
 
         function commentQuery(){
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             $.ajax({
                 url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentQuery'),$_smarty_tpl);?>

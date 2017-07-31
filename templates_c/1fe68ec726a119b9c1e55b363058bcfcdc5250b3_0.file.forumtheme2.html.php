@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 17:10:42
+/* Smarty version 3.1.30, created on 2017-07-31 12:09:51
   from "D:\xampp\htdocs\redwine\tpl\forumtheme2.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597ef41236ad92_60055726',
+  'unifunc' => 'content_597f01ef5b5ba4_51110874',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1fe68ec726a119b9c1e55b363058bcfcdc5250b3' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme2.html',
-      1 => 1501492089,
+      1 => 1501495789,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597ef41236ad92_60055726 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f01ef5b5ba4_51110874 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -143,11 +143,11 @@ function content_597ef41236ad92_60055726 (Smarty_Internal_Template $_smarty_tpl)
           </li>
           <input type="text" name="theme_color" class="value">
       <li class="f18">主題描述及內文：</li> 
-         <li  class="pd0"><input name="title" type="text" class="mtext"></li>
-   <li  class="pd0"><textarea cols="" name="content" rows="3" class="mtext"></textarea></li>
+         <li  class="pd0"><input name="short_comment" type="text" class="mtext"></li>
+   <li  class="pd0"><textarea cols="" name="detail_content" rows="3" class="mtext"></textarea></li>
  </div>
    <div class="next wow fadeInDown">
-   <input type="text" name="themeType" class="value" value="chat">
+   <input type="text" name="themeType" class="value" value="matching">
      <h2><input type="submit" class="rt btback" value="提交"></h2>
   </form>
  

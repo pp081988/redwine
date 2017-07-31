@@ -416,7 +416,7 @@ class frontFuns extends spController
 		$theme = $_GET['theme'];
 		$id = $_GET['id'];
 		$forumData = spClass("forumData");
-		$res = $forumData->data($theme,"",$id);
+		$res = $forumData->data("site_forum","",$id);
 		$this->create_time = $res[0]['create_time'];
 		$this->wine_name = $res[0]['wine_name'];
 		$this->wine_year = $res[0]['wine_year'];
@@ -434,11 +434,17 @@ class frontFuns extends spController
 		$this->food_img = $res[0]['food_img'];
 		$this->like_num = $res[0]['like_num'];
 		$this->dislike_num = $res[0]['dislike_num'];
+		$this->short_comment = $res[0]['short_comment'];
 		if($_SESSION['avatar']){
 			$this->avatar = "<img src='".$_SESSION['avatar']."'>";
 		}else{
 			$this->avatar = "<img src='images/defaultAvatar.png'>";
 		}
-		$this->display("forum1.html");
+		if($theme == "forum_matching"){
+			$this->display("forum1.html");
+		}else{
+			$this->display("forum2.html");
+		}
+		
 	}
 }

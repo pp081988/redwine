@@ -67,7 +67,7 @@
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>所有卡片/達人食評既內文頁<a class="rt btback" href="<{spUrl c=main a=forum}>">返回上一頁</a></h2>
+              <h2><a class="rt btback" href="<{spUrl c=main a=forum}>">返回上一頁</a></h2>
               </div>
        
       </div>      
@@ -238,7 +238,7 @@
         timestamp = timestamp / 1000;
 
         function likeOrDislike(type,selecter){
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             if(type == "like"){
                 str="+1";color="red";
@@ -311,7 +311,7 @@
         }
 
         function commentQuery(){
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             $.ajax({
                 url:"<{spUrl c=frontFuns a=commentQuery}>",
@@ -400,7 +400,7 @@
             if(content == ""){
                 return false;
             }
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             $.ajax({
                 url:"<{spUrl c=frontFuns a=commentInsert}>",

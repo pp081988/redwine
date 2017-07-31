@@ -5,7 +5,7 @@ class forumData extends spController
 {
 	function data($theme,$display,$id,$lilmit)
 	{
-		$forumDB = new db("site_".$theme,"id");
+		$forumDB = new db("site_forum","id");
 		$conditions = Array();
 		if($id != ""){
 			$conditions["id"] = $id;

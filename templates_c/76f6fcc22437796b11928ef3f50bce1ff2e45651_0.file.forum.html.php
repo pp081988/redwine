@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 14:59:34
+/* Smarty version 3.1.30, created on 2017-07-31 12:37:24
   from "D:\xampp\htdocs\redwine\tpl\forum.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597ed556d8cac7_95853282',
+  'unifunc' => 'content_597f0864599317_42985375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '76f6fcc22437796b11928ef3f50bce1ff2e45651' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum.html',
-      1 => 1501484372,
+      1 => 1501497441,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597ed556d8cac7_95853282 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597f0864599317_42985375 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -182,7 +182,22 @@ $(function(){
         success:function(data){
             var dataObj = eval('(' + data + ')');
             for(i=0;i<dataObj.length;i++){
-            str = '<div class="row  forum mb20 fpd10" style="background:'+dataObj[i]['theme_color']+'">\
+              if(dataObj[i]['wine_name'] == ""){
+                str = '<div class="row  forum mb20 fpd10" style="background:'+dataObj[i]['theme_color']+';padding: 12px 0px;">\
+                <div class="grid_12 u1pr">\
+                  <div class="fl">\
+                    \
+                  </div>\
+                  <div class="grid_8 fl">\
+                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'" theme="forum_chat"><em class="bfn1">'+dataObj[i]['short_comment']+' </em></a><em class="font15 fc1">網友:</em>\
+                     <em class="bfn2">'+dataObj[i]['username']+'</em> <em class="fn13 fc1">'+translateTime(dataObj[i]['create_time'])+'</em> </p>\
+                  <p class="fc1" style="text-overflow: ellipsis;">'+dataObj[i]['detail_content']+'</p>\
+                  <p class="mt15"><a class="bt5" href="#">'+dataObj[i]['like_num']+'</a><a class="btno" href="#">'+dataObj[i]['dislike_num']+'</a> </p>\
+                  </div>\
+                </div>\
+                </div>';
+              }else{
+                str = '<div class="row  forum mb20 fpd10" style="background:'+dataObj[i]['theme_color']+'">\
                 <div class="grid_12 u1pr">\
                   <div class="fl">\
                     <div >\
@@ -190,20 +205,23 @@ $(function(){
                     </div>\
                   </div>\
                   <div class="grid_8 fl">\
-                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'"><em class="bfn1">'+dataObj[i]['wine_name']+' </em><em class="bfn2"> 配 </em><em class="bfn3">'+dataObj[i]['food_name']+'</em></a><em class="font15 fc1">網友:</em>\
+                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'" theme="forum_matching"><em class="bfn1">'+dataObj[i]['wine_name']+' </em><em class="bfn2"> 配 </em><em class="bfn3">'+dataObj[i]['food_name']+'</em></a><em class="font15 fc1">網友:</em>\
                      <em class="bfn2">'+dataObj[i]['username']+'</em> <em class="fn13 fc1">'+translateTime(dataObj[i]['create_time'])+'</em> </p>\
                   <p class="fc1">'+dataObj[i]['short_comment']+'</p>\
                   <p class="mt15"><a class="bt5" href="#">'+dataObj[i]['like_num']+'</a><a class="btno" href="#">'+dataObj[i]['dislike_num']+'</a> </p>\
                   </div>\
                 </div>\
                 </div>';
+              }
+            
             $(".forumCont").append(str);
             }
             //console.log(data);
             $(".forum_matching_detail").click(function(){
                 var id = $(this).attr("id");
-                window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum_matching_detail','theme'=>'forum_matching'),$_smarty_tpl);?>
-&id="+id;
+                var theme = $(this).attr("theme");
+                window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum_matching_detail'),$_smarty_tpl);?>
+&theme="+theme+"&id="+id;
             });
         }
     })
