@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-08-01 14:05:54
+  from "D:\xampp\htdocs\redwine\tpl\search3.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59801a4230b282_28440181',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '9eb38f777fd83f9d76edbbe2edf42f6f4efc9312' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search3.html',
+      1 => 1496623330,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59801a4230b282_28440181 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +34,40 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
 </head>
 
@@ -83,70 +123,70 @@
         <div class="row">         
             <div class="heading1 mt20">
               <h2 class="pdl20 fn24">佳餚配美酒<em class="rt btback">返回上一頁</em></h2>
-              <h5 class="pdl20 f15">請選擇以下食品分類</h5>
+              <h5 class="pdl20 f15">已選食品分類：<em class=" bfn2">牛</em> > <em class="black1">牛尾</em></h5>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0">
-                 <div class="grid_3 wbg mb20 cattle">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                 <div class="grid_3 wbg mb20">                 
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">牛</p>           
+                     <p class="fgr2">牛</p>           
                  </div>                 
-                 <div class="grid_3 wbg mb20 sheep">                 
-                    <div class="spic">
-                      <img style="width: 150px;" src="images/e2.jpg" alt=""/>
+                 <div class="grid_3 wbg mb20">                 
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">羊</p>           
+                     <p class="fgr2">牛</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">豬</p>           
+                     <p class="fgr2">牛</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">家禽</p>           
+                     <p class="fgr2">牛</p>           
                  </div> 
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">海鮮</p>           
+                     <p class="fgr2">牛</p>           
                  </div>                 
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">小食</p>           
+                     <p class="fgr2">牛</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">甜品</p>           
+                     <p class="fgr2">牛</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">頭盤</p>           
+                     <p class="fgr2">牛</p>           
                  </div>  
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">街頭食品</p>           
+                     <p class="fgr2">牛</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
-                    <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                    <div class="spic fgr1">
+                     圖片稍後提供
                     </div>
-                     <p class="h40 grayb">各國菜式</p>           
+                     <p class="fgr2">牛</p>           
                  </div>                   
                 </div>
               </div>
@@ -183,13 +223,9 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
-<script>
-$(function(){
-  $(".cattle").click(function(){
-    window.location.href="<{spUrl c=frontFuns a=}>"
-  })
-})
-</script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

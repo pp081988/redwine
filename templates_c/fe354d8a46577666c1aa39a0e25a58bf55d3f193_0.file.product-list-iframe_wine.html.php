@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 14:45:56
-  from "D:\xampp\htdocs\redwine\tpl\back\forum-matching-list.html" */
+/* Smarty version 3.1.30, created on 2017-08-01 14:23:36
+  from "D:\xampp\htdocs\redwine\tpl\back\product-list-iframe_wine.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598023a4bae192_67359953',
+  'unifunc' => 'content_59801e6860ad66_82251264',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '21edbd45815718a10575408a5bcafe92fc61279d' => 
+    'fe354d8a46577666c1aa39a0e25a58bf55d3f193' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-matching-list.html',
-      1 => 1501569954,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list-iframe_wine.html',
+      1 => 1501468532,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598023a4bae192_67359953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59801e6860ad66_82251264 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -51,70 +51,55 @@ function content_598023a4bae192_67359953 (Smarty_Internal_Template $_smarty_tpl)
 >DD_belatedPNG.fix('*');<?php echo '</script'; ?>
 >
 <![endif]-->
-<title>資訊列表</title>
+<style>
+	html,body{
+		overflow: auto!important;
+	}
+</style>
+<title>產品列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首頁 <span class="c-gray en">&gt;</span> 資訊管理 <span class="c-gray en">&gt;</span> <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
- <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-<div class="page-container">
-	<div class="text-c">
-	 <span class="select-box inline">
-		<select name="" class="select">
-			<option value="0">全部分类</option>
-			<option value="1">分类一</option>
-			<option value="2">分类二</option>
-		</select>
-		</span> 日期范围：
-		<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
-		-
-		<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
-		<input type="text" name="" id="" placeholder=" 资讯名称" style="width:250px" class="input-text">
-		<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
-	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span>  </div>
-	<div class="mt-20">
-		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive dataTable">
-			<thead>
-				<tr class="text-c">
-					<th width="25"><input type="checkbox" name="" value=""></th>
-					<th>ID</th>
-					<th>酒名</th>
-					<th>食物</th>
-					<th>短評</th>
-					<th>創建者</th>
-					<th>創建時間</th>
-					<th>審核狀態</th>
-					<th>審核者</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<!-- <tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
-					<td>10001</td>
-					<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10001')" title="查看">资讯阿斯利康打飞机撒旦法立刻接拉萨打飞机标题</u></td>
-					<td>行业动态</td>
-					<td>H-ui</td>
-					<td>wocao</td>
-					<td>2014-6-11 11:11:42</td>
-					<td>21212</td>
-					<td class="td-status"><span class="label label-success radius">已发布</span></td>
-					<td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_edit('资讯编辑','article-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-				</tr>
-				<tr class="text-c">
-					<td><input type="checkbox" value="" name=""></td>
-					<td>10002</td>
-					<td class="text-l"><u style="cursor:pointer" class="text-primary" onClick="article_edit('查看','article-zhang.html','10002')" title="查看">资讯标题</u></td>
-					<td>行业动态</td>
-					<td>H-ui</td>
-					<td>nimei</td>
-					<td>2014-6-11 11:11:42</td>
-					<td>21212</td>
-					<td class="td-status"><span class="label label-success radius">草稿</span></td>
-					<td class="f-14 td-manage"><a style="text-decoration:none" onClick="article_shenhe(this,'10001')" href="javascript:;" title="审核">审核</a> <a style="text-decoration:none" class="ml-5" onClick="article_edit('资讯编辑','article-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-				</tr> -->
-			</tbody>
-		</table>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首頁 <span class="c-gray en">&gt;</span> 產品管理 <span class="c-gray en">&gt;</span> 產品列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="page-container">
+		<div class="text-c"> 日期范围：
+			<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
+			-
+			<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
+			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
+			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜产品</button>
+		</div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量刪除</a> <a class="btn btn-primary radius addProduct" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加產品</a></span> <span class="r">共有數據：<strong class="rows">0</strong> 條</span> </div>
+		<div class="mt-20">
+			<table class="dataTable table table-border table-bordered table-bg table-hover table-sort">
+				<thead>
+					<tr class="text-c">
+						<th><input name="" type="checkbox" value=""></th>
+						<th>ID</th>
+						<th>酒名</th>
+						<th>產地</th>
+						<th>酒莊名</th>
+						<th>葡萄</th>
+						<th>年份</th>
+						<th>價格</th>
+						<th>配對食物</th>
+						<th>供應商</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- <tr class="text-c va-m">
+						<td><input name="" type="checkbox" value=""></td>
+						<td>001</td>
+						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="temp/product/Thumb/6204.jpg"></a></td>
+						<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img title="国内品牌" src="static/h-ui.admin/images/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
+						<td class="text-l">原木的外在,实木条形结构,色泽花纹自然,写意;款式设计吸取实木地板的天然去雕饰之美,在视觉上给人带来深邃联想.多款产品适合搭配不同的风格的室内装饰;功能流露出尊贵典雅的大气韵味。</td>
+						<td><span class="price">356.0</span> 元/平米</td>
+						<td class="td-status"><span class="label label-success radius">已发布</span></td>
+						<td class="td-manage"><a style="text-decoration:none" onClick="product_stop(this,'10001')" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr> -->
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
@@ -248,41 +233,57 @@ function article_shenqing(obj,id){
 	layer.msg('已提交申请，耐心等待审核!', {icon: 1,time:2000});
 }
 
+function productDetail(name,id){
+	parent.product_add('產品詳情--'+name,'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'productDetial'),$_smarty_tpl);?>
+&id='+id+'&product=wine');
+}
+
 $(function(){
-	var timestamp = Date.parse(new Date());
-        timestamp = timestamp / 1000;
-	function dataHandle(){
-		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
+	var category_id = "<?php echo $_smarty_tpl->tpl_vars['category_id']->value;?>
 ";
+	var category_pId = "<?php echo $_smarty_tpl->tpl_vars['category_pId']->value;?>
+";
+	var category_name = "<?php echo $_smarty_tpl->tpl_vars['category_name']->value;?>
+";
+
+	$(".addProduct").click(function(){
+		if(category_id == "" || category_pId == ""){
+			alert("請選擇要添加到分類欄目的位置");
+			return false;
+		}
+		parent.product_add('添加產品--'+category_name,'<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productAddPage'),$_smarty_tpl);?>
+&category_id='+category_id+'&category_pId='+category_pId);
+	})
+
+	
+
+
+	function dataHandle(category_id,category_pId){
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forum_matching_data','theme'=>'forum_matching'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productQuery'),$_smarty_tpl);?>
 ",
 			type:"post",
-			data:{id:id},
+			data:{category_id:category_id,category_pId:category_pId},
 			success:function(data){
-				var dataObj = eval('(' + data + ')');
-				var display;
-				var update_time;
-				var displaySwitch;
+				$PRICE = Array("<$50","$51-$100","$101-$150","$151-$200","$201-$300","$301-$400",">$400");
+				$FOOD = Array("牛","羊","豬","家禽","海鮮","小食","甜品","頭盤","街頭食品","各國菜式");
+				if(data != ""){
+					var dataObj = eval('(' + data + ')');
+					$(".rows").html(dataObj.length);
 				for(i=0;i<dataObj.length;i++){
-					switch(dataObj[i]['display']){
-						case "0":display = '<span class="label label-success radius" style="background-color: #dd514c;">待審核</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="審核"><i class="Hui-iconfont">&#xe603;</i></a>';break;
-						case "1":display = '<span class="label label-success radius">已審核</span>';displaySwitch = '<a style="text-decoration:none" onclick="article_stop(this,'+dataObj[i]['id']+')" href="javascript:;" title="下線"><i class="Hui-iconfont">&#xe6de;</i></a>';break;
-						case "2":display = '<span class="label label-success radius" style="background-color: #a0a0a0;">已下線</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="審核"><i class="Hui-iconfont">&#xe603;</i></a>';break;
-					}
-					if(dataObj[i]['wine_name'] != ""){
-						var str = '\
-						<tr class="text-c">\
+					var str = '\
+					<tr class="text-c">\
 						<td><input type="checkbox" value="" name=""></td>\
 						<td>'+dataObj[i]['id']+'</td>\
-						<td>'+dataObj[i]['wine_name']+'</td>\
-						<td>'+dataObj[i]['food_name']+'</td>\
-						<td>'+dataObj[i]['short_comment']+'</td>\
-						<td>'+dataObj[i]['username']+'</td>\
-						<td>'+translateTime(dataObj[i]['create_time'])+'</td>\
-						<td class="td-status">'+display+'</td>\
-						<td>'+dataObj[i]['display_by']+'</td>\
-						<td class="f-14 td-manage">'+displaySwitch+' <a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
+						<td class="text-l"><a style="text-decoration:underline" onclick="productDetail(\''+dataObj[i]['name']+'\',\''+dataObj[i]['id']+'\')" class="productName" href="javascript:;">'+dataObj[i]['name']+'</a></td>\
+						<td>'+dataObj[i]['origin']+'</td>\
+						<td>'+dataObj[i]['winery']+'</td>\
+						<td>'+dataObj[i]['grape']+'</td>\
+						<td>'+dataObj[i]['year']+'</td>\
+						<td>'+$PRICE[dataObj[i]['price']]+'</td>\
+						<td>'+$FOOD[dataObj[i]['food']]+'</td>\
+						<td>'+dataObj[i]['supplier']+'</td>\
+						<td class="f-14 td-manage"><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['column']->value;
 $_prefixVariable1=ob_get_clean();
 ob_start();
@@ -291,9 +292,12 @@ $_prefixVariable2=ob_get_clean();
 echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
 &articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
-					}
 					$(".dataTable tbody").append(str);
 				}
+			}else{
+					$(".dataTable tbody").html("");
+				}
+				// productDetail(id);
 				$('.table-sort').dataTable({
 					"aaSorting": [[ 1, "desc" ]],//默认第几个排序
 					"bStateSave": true,//状态保存
@@ -303,36 +307,13 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 					  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
 					]
 				});
-				//console.log(data);
+//console.log(data);
+				
 			}
 		})
 	}
-	dataHandle();
-
-	function translateTime(time){
-	    var res = timestamp - time;
-	    if(res < 3600){
-	        return Math.round(res/60)+"分鐘前";
-	    }
-	    if(res <= 86400){
-	        return Math.round(res/60/60)+"小时前";
-	    }
-	    var days = Math.floor(Math.round(res/60/60) / 24);
-	    if(days <= 30){
-	        return days+"天前";
-	    }
-	    var date = new Date(res);
-	    Y = date.getFullYear() + '年';
-	    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
-	    D = date.getDate() + '日 ';
-	    h = date.getHours() + ':';
-	    m = date.getMinutes() + ':';
-	    s = date.getSeconds();
-	    return Y+M+D+h+m+s;
-	}
+dataHandle(category_id,category_pId);
 })
-
-
 
 <?php echo '</script'; ?>
 > 

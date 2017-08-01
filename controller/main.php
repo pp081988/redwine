@@ -92,4 +92,9 @@ class main extends spController
 
 		$this->display("articleDetail.html");
 	}
+
+	function searching()
+	{
+		$this->display("search.html");
+	}
 }	

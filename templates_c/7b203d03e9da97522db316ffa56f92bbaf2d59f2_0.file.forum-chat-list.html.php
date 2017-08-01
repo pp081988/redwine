@@ -1,4 +1,28 @@
-﻿<!DOCTYPE HTML>
+<?php
+/* Smarty version 3.1.30, created on 2017-08-01 14:44:33
+  from "D:\xampp\htdocs\redwine\tpl\back\forum-chat-list.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_598023512bcba8_91042517',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7b203d03e9da97522db316ffa56f92bbaf2d59f2' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-chat-list.html',
+      1 => 1501569846,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_598023512bcba8_91042517 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -7,8 +31,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/html5shiv.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/respond.min.js"><?php echo '</script'; ?>
+>
 <![endif]-->
 <link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
@@ -16,13 +44,18 @@
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>DD_belatedPNG.fix('*');<?php echo '</script'; ?>
+>
 <![endif]-->
 <title>資訊列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首頁 <span class="c-gray en">&gt;</span> 資訊管理 <span class="c-gray en">&gt;</span> <{$title}> <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首頁 <span class="c-gray en">&gt;</span> 資訊管理 <span class="c-gray en">&gt;</span> <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+ <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="text-c">
 	 <span class="select-box inline">
@@ -85,16 +118,31 @@
 	</div>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/layer/2.4/layer.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui/js/H-ui.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"><?php echo '</script'; ?>
+> <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script> 
-<script type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript">
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/datatables/1.10.0/jquery.dataTables.min.js"><?php echo '</script'; ?>
+> 
+<?php echo '<script'; ?>
+ type="text/javascript" src="lib/laypage/1.2/laypage.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+ type="text/javascript">
 
 
 /*资讯-添加*/
@@ -119,10 +167,12 @@ function article_edit(title,url,id,w,h){
 /*资讯-删除*/
 function article_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		var column = '<{$column}>';
+		var column = '<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
+';
 		$.ajax({
 			type: 'POST',
-			url: '<{spUrl c=backFuns a=articleDelete}>',
+			url: '<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDelete'),$_smarty_tpl);?>
+',
 			data:{column:column,id:id},
 			success: function(data){
 				if(data == "done"){
@@ -157,9 +207,11 @@ function article_shenhe(obj,id){
 
 function displaySwitch(id,act){
 	$.ajax({
-		url:"<{spUrl c=backFuns a=displaySwitch}>",
+		url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'displaySwitch'),$_smarty_tpl);?>
+",
 		type:"post",
-		data:{id:id,act:act,column:"<{$column}>"},
+		data:{id:id,act:act,column:"<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
+"},
 		success:function(data){
 			if(data == "ok"){
 				return "ok";
@@ -200,9 +252,11 @@ $(function(){
 	var timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
 	function dataHandle(){
-		var id = "<{$column}>";
+		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
+";
 		$.ajax({
-			url:"<{spUrl c=backFuns a=forum_matching_data theme=forum_matching}>",
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forum_matching_data','theme'=>'forum_chat'),$_smarty_tpl);?>
+",
 			type:"post",
 			data:{id:id},
 			success:function(data){
@@ -216,21 +270,26 @@ $(function(){
 						case "1":display = '<span class="label label-success radius">已審核</span>';displaySwitch = '<a style="text-decoration:none" onclick="article_stop(this,'+dataObj[i]['id']+')" href="javascript:;" title="下線"><i class="Hui-iconfont">&#xe6de;</i></a>';break;
 						case "2":display = '<span class="label label-success radius" style="background-color: #a0a0a0;">已下線</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="審核"><i class="Hui-iconfont">&#xe603;</i></a>';break;
 					}
-					if(dataObj[i]['wine_name'] != ""){
-						var str = '\
-						<tr class="text-c">\
-						<td><input type="checkbox" value="" name=""></td>\
-						<td>'+dataObj[i]['id']+'</td>\
-						<td>'+dataObj[i]['wine_name']+'</td>\
-						<td>'+dataObj[i]['food_name']+'</td>\
-						<td>'+dataObj[i]['short_comment']+'</td>\
-						<td>'+dataObj[i]['username']+'</td>\
-						<td>'+translateTime(dataObj[i]['create_time'])+'</td>\
-						<td class="td-status">'+display+'</td>\
-						<td>'+dataObj[i]['display_by']+'</td>\
-						<td class="f-14 td-manage">'+displaySwitch+' <a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<{spUrl c=backFuns a=articleDataEdit columnId=<{$column}> title=<{$title}>}>&articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
+					var str = '\
+					<tr class="text-c">\
+					<td><input type="checkbox" value="" name=""></td>\
+					<td>'+dataObj[i]['id']+'</td>\
+					<td>'+dataObj[i]['wine_name']+'</td>\
+					<td>'+dataObj[i]['food_name']+'</td>\
+					<td>'+dataObj[i]['short_comment']+'</td>\
+					<td>'+dataObj[i]['username']+'</td>\
+					<td>'+translateTime(dataObj[i]['create_time'])+'</td>\
+					<td class="td-status">'+display+'</td>\
+					<td>'+dataObj[i]['display_by']+'</td>\
+					<td class="f-14 td-manage">'+displaySwitch+' <a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
+echo $_smarty_tpl->tpl_vars['column']->value;
+$_prefixVariable1=ob_get_clean();
+ob_start();
+echo $_smarty_tpl->tpl_vars['title']->value;
+$_prefixVariable2=ob_get_clean();
+echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
+&articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
-					}
 					$(".dataTable tbody").append(str);
 				}
 				$('.table-sort').dataTable({
@@ -273,6 +332,8 @@ $(function(){
 
 
 
-</script> 
+<?php echo '</script'; ?>
+> 
 </body>
-</html>
+</html><?php }
+}

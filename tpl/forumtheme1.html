@@ -195,11 +195,11 @@
       <{$price}>
     </select></td>
     <td colspan="2"><em class="bfn2">佳餚名稱：</em>
-    <select name="food_origin" order="1" class="seltext foodOption">
-      <option value="">--選擇国家菜式--</option>
-    </select><select name="food_type" order="2" class="seltext foodOption">
+    <select name="food_category" order="1" class="seltext foodOption">
+      <option value="">--選擇類型--</option>
+    </select><select name="food_type" order="2" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜式--</option>
-    </select><select name="food_name" order="3" class="seltext foodOption">
+    </select><select name="food_name" order="3" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜名--</option>
     </select></td>
     </tr>
@@ -335,10 +335,25 @@ $(function(){
     var json = '<{$options}>';
     var options = eval('(' + json + ')');
     for(i=0;i<options.length;i++){
-      if(options[i]['pId'] == 1){
-        $("select[name=food_origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
+      if(options[i]['pId'] == 21){
+        $("select[name=food_category]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
       }
     }
+
+    $("select[name=food_category]").change(function(){
+      var thisVal = $(this).val();
+      if(thisVal == "211" || thisVal == "212" || thisVal == "213"){
+        $("select[name=food_type]").css({"display":"block"});
+        $("select[name=food_name]").css({"display":"none"});
+      }else{
+        $("select[name=food_type]").css({"display":"none"});
+        $("select[name=food_name]").css({"display":"block"});
+      }
+    });
+
+    $("select[name=food_type]").change(function(){
+      $("select[name=food_name]").css({"display":"block"});
+    })
 
     $(".foodOption").change(function(){
       var id = $(this).val();

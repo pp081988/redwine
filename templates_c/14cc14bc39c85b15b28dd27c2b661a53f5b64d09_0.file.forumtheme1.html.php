@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 16:59:21
+/* Smarty version 3.1.30, created on 2017-08-01 17:14:33
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597ef16996a152_93015897',
+  'unifunc' => 'content_59804679326f27_74641281',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501491501,
+      1 => 1501578871,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597ef16996a152_93015897 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59804679326f27_74641281 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -245,11 +245,11 @@ function content_597ef16996a152_93015897 (Smarty_Internal_Template $_smarty_tpl)
 
     </select></td>
     <td colspan="2"><em class="bfn2">佳餚名稱：</em>
-    <select name="food_origin" order="1" class="seltext foodOption">
-      <option value="">--選擇国家菜式--</option>
-    </select><select name="food_type" order="2" class="seltext foodOption">
+    <select name="food_category" order="1" class="seltext foodOption">
+      <option value="">--選擇類型--</option>
+    </select><select name="food_type" order="2" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜式--</option>
-    </select><select name="food_name" order="3" class="seltext foodOption">
+    </select><select name="food_name" order="3" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜名--</option>
     </select></td>
     </tr>
@@ -390,10 +390,25 @@ $(function(){
 ';
     var options = eval('(' + json + ')');
     for(i=0;i<options.length;i++){
-      if(options[i]['pId'] == 1){
-        $("select[name=food_origin]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
+      if(options[i]['pId'] == 21){
+        $("select[name=food_category]").append("<option value='"+options[i]['id']+"'>"+options[i]['name']+"</option>");
       }
     }
+
+    $("select[name=food_category]").change(function(){
+      var thisVal = $(this).val();
+      if(thisVal == "211" || thisVal == "212" || thisVal == "213"){
+        $("select[name=food_type]").css({"display":"block"});
+        $("select[name=food_name]").css({"display":"none"});
+      }else{
+        $("select[name=food_type]").css({"display":"none"});
+        $("select[name=food_name]").css({"display":"block"});
+      }
+    });
+
+    $("select[name=food_type]").change(function(){
+      $("select[name=food_name]").css({"display":"block"});
+    })
 
     $(".foodOption").change(function(){
       var id = $(this).val();

@@ -224,7 +224,7 @@ class frontFuns extends spController
 
 	function addForumIndex()
 	{
-		$this->options = $this->forumFoodOptionQuery();
+		$this->options = $this->forumOptionQuery();
 		$variable = new variable();
 		foreach ($variable->WINE as $key => $value) {
 			$this->wineCategory .= "<option value='".$key."'>".$value."</option>";
@@ -355,11 +355,17 @@ class frontFuns extends spController
 		}
 	}
 
-	function forumFoodOptionQuery()
+	function forumOptionQuery()
 	{
-		$db = new db("admin_forum_food_option","id");
-		$res = $db->findAll();
+		$db = new db("admin_product_category","id");
+		$res = $db->findAll("id LIKE '2__%'");
 		return json_encode($res);
+	}
+
+	function forumFoodQuery()
+	{
+		$id = $_GET['id'];
+		
 	}
 
 	function forumSecondPage()
@@ -447,4 +453,11 @@ class frontFuns extends spController
 		}
 		
 	}
+
+	function foodToWine()
+	{
+		$this->display("search4.html");
+	}
+
+
 }

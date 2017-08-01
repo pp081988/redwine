@@ -1,3 +1,28 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-08-01 14:59:49
+  from "D:\xampp\htdocs\redwine\tpl\search.html" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_598026e52efd68_78307954',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'ec1a5a58596f2362fdd6d83996c413f5b0de00ed' => 
+    array (
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search.html',
+      1 => 1501570784,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:./header.html' => 1,
+  ),
+),false)) {
+function content_598026e52efd68_78307954 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +35,40 @@
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery-migrate-1.2.1.js"></script>
-  <script src="js/camera.js"></script>
-  <script src="js/owl.carousel.js"></script>
+  <?php echo '<script'; ?>
+ src="js/jquery.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/camera.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/owl.carousel.js"><?php echo '</script'; ?>
+>
   <!--[if (gt IE 9)|!(IE)]><!-->
-  <script src="js/jquery.mobile.customized.min.js"></script>
-  <script src="js/wow/wow.js"></script>
-  <script>
+  <?php echo '<script'; ?>
+ src="js/jquery.mobile.customized.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="js/wow/wow.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+>
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
     });
-  </script>
+  <?php echo '</script'; ?>
+>
   <!--<![endif]-->
   
   <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
+  <?php echo '<script'; ?>
+ src="js/html5shiv.js"><?php echo '</script'; ?>
+>
   <![endif]-->
 </head>
 
@@ -36,7 +77,9 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-<{include file="./header.html"}>
+<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 
 
 
@@ -102,16 +145,22 @@
   </footer>
 </div>
 
-<script src="js/script.js"></script>
-<script>
+<?php echo '<script'; ?>
+ src="js/script.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
 $(function(){
   $(".foodToWine").click(function(){
-    window.location.href="<{spUrl c=frontFuns a=foodToWine}>";
+    window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'foodToWine'),$_smarty_tpl);?>
+";
   });
   $(".wineToFood").click(function(){
     window.location.href="www.baidu.com";
   });
 })
-</script>
+<?php echo '</script'; ?>
+>
 </body>
-</html>
+</html><?php }
+}

@@ -7,14 +7,17 @@ class forumData extends spController
 	{
 		$forumDB = new db("site_forum","id");
 		$conditions = Array();
+		if($id == "" && $display == ""){
+			$conditions = "";
+		}
+		if($theme == "forum_chat"){
+			$conditions["wine_name"] = "";
+		}
 		if($id != ""){
 			$conditions["id"] = $id;
 		}
 		if($display == "1"){
 			$conditions["display"] = "1";
-		}
-		if($id == "" && $display == ""){
-			$conditions = "";
 		}
 		//return $conditions;
 		$forumRes = $forumDB->findAll($conditions,"create_time DESC",null,$lilmit);
