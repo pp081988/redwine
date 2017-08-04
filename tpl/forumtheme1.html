@@ -201,16 +201,17 @@
       <option value="">--選擇菜式--</option>
     </select><select name="food_name" order="3" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜名--</option>
-    </select></td>
+    </select><input type="text" name="custom_food_name" class="value seltext foodOption" placeholder="請輸入菜名"></td>
     </tr>
   <tr>
-    <td><em class="bfn2">煮法：</em>
-    <select name="food_method" order="4" class="seltext foodOption">
-      <option value="">--選擇煮法--</option>
-    </select></td>
-    <td><em class="bfn2">味道：</em>
+    <td class="value taste"><em class="bfn2">味道：</em>
     <select name="food_taste" order="5" class="seltext foodOption">
       <option value="">--選擇味道--</option>
+      <option value="0">甜</option>
+      <option value="1">咸</option>
+      <option value="2">酸</option>
+      <option value="3">辣</option>
+      <option value="4">苦</option>
     </select></td>
     <td><em class="bfn2" style="float: left;">絕配度：</em>
       <ul class="match">
@@ -325,9 +326,6 @@ $(function(){
     $("input[name=theme_color]").val($(this).attr("value"));
   })
 
-
-
-
     $(".selectTheme").change(function(){
         var page = $(this).val();
         window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+page;
@@ -343,16 +341,23 @@ $(function(){
     $("select[name=food_category]").change(function(){
       var thisVal = $(this).val();
       if(thisVal == "211" || thisVal == "212" || thisVal == "213"){
-        $("select[name=food_type]").css({"display":"block"});
+        $("select[name=food_type]").css({"display":"inline-block"});
         $("select[name=food_name]").css({"display":"none"});
       }else{
+        $("select[name=food_name]").html("<option>>>請選擇<<</option>");
+        var id = $(this).val();
+        getFoodName(id);
         $("select[name=food_type]").css({"display":"none"});
-        $("select[name=food_name]").css({"display":"block"});
+        $("select[name=food_name]").css({"display":"inline-block"});
       }
+      $("input[name=custom_food_name],.taste").css({"display":"none"});
     });
 
     $("select[name=food_type]").change(function(){
-      $("select[name=food_name]").css({"display":"block"});
+      $("select[name=food_name]").html("<option>>>請選擇<<</option>");
+      var id = $(this).val();
+      getFoodName(id);
+      $("select[name=food_name]").css({"display":"inline-block"});
     })
 
     $(".foodOption").change(function(){
@@ -360,7 +365,7 @@ $(function(){
       var order = parseInt($(this).attr("order"));
       $(".foodOption").each(function(){
         if($(this).attr("order") == order +1){
-          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id))
+          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id));
         }
       })
     });
@@ -372,6 +377,33 @@ $(function(){
     }
 
 })
+
+function getFoodName(id){
+  $.ajax({
+    url:"<{spUrl c=frontFuns a=getFoodName}>",
+    type:"post",
+    data:{id:id},
+    success:function(data){
+      //$("select[name=food_name]").html("");
+      $("input[name=custom_food_name],.taste").css({"display":"none"});
+      if(data != ""){
+        var dataObj = eval('(' + data + ')');
+        for(i=0;i<dataObj.length;i++){
+          var options = '<option value="'+dataObj[i]['id']+'">'+dataObj[i]['name']+'</option>';
+          $("select[name=food_name]").append(options);
+        }
+      }else{
+        $("select[name=food_name]").css({"display":"inline-block"});
+      }
+      $("select[name=food_name]").append("<option value='other'>其他</option>");
+      $("select[name=food_name]").change(function(){
+        if($(this).val() == "other"){
+          $("input[name=custom_food_name],.taste").css({"display":"inline-block"});
+        }
+      });
+    }
+  });
+}
 
 function getOption(options,id){
   var result;

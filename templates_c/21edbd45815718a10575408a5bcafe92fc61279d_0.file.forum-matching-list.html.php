@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 14:45:56
+/* Smarty version 3.1.30, created on 2017-08-02 15:00:48
   from "D:\xampp\htdocs\redwine\tpl\back\forum-matching-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598023a4bae192_67359953',
+  'unifunc' => 'content_598178a073f020_62800285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '21edbd45815718a10575408a5bcafe92fc61279d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-matching-list.html',
-      1 => 1501569954,
+      1 => 1501657246,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598023a4bae192_67359953 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598178a073f020_62800285 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -255,7 +255,7 @@ $(function(){
 		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
 ";
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forum_matching_data','theme'=>'forum_matching'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forumData'),$_smarty_tpl);?>
 ",
 			type:"post",
 			data:{id:id},
@@ -270,13 +270,17 @@ $(function(){
 						case "1":display = '<span class="label label-success radius">已審核</span>';displaySwitch = '<a style="text-decoration:none" onclick="article_stop(this,'+dataObj[i]['id']+')" href="javascript:;" title="下線"><i class="Hui-iconfont">&#xe6de;</i></a>';break;
 						case "2":display = '<span class="label label-success radius" style="background-color: #a0a0a0;">已下線</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="審核"><i class="Hui-iconfont">&#xe603;</i></a>';break;
 					}
+					var food_name = dataObj[i]['food_name'];
+					if(dataObj[i]['food_name'] == 0){
+						food_name = dataObj[i]['custom_food_name'];
+					}
 					if(dataObj[i]['wine_name'] != ""){
 						var str = '\
 						<tr class="text-c">\
 						<td><input type="checkbox" value="" name=""></td>\
 						<td>'+dataObj[i]['id']+'</td>\
 						<td>'+dataObj[i]['wine_name']+'</td>\
-						<td>'+dataObj[i]['food_name']+'</td>\
+						<td>'+food_name+'</td>\
 						<td>'+dataObj[i]['short_comment']+'</td>\
 						<td>'+dataObj[i]['username']+'</td>\
 						<td>'+translateTime(dataObj[i]['create_time'])+'</td>\
@@ -291,8 +295,9 @@ $_prefixVariable2=ob_get_clean();
 echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'articleDataEdit','columnId'=>$_prefixVariable1,'title'=>$_prefixVariable2),$_smarty_tpl);?>
 &articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
-					}
 					$(".dataTable tbody").append(str);
+					}
+					
 				}
 				$('.table-sort').dataTable({
 					"aaSorting": [[ 1, "desc" ]],//默认第几个排序

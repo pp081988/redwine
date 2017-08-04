@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 15:53:12
+/* Smarty version 3.1.30, created on 2017-08-02 15:10:06
   from "D:\xampp\htdocs\redwine\tpl\back\product-wine-add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59803368f0cb78_05451338',
+  'unifunc' => 'content_59817ace6f4759_97519664',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3db5f0e6553a0c13cf659b3d2516cacde28b386d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-wine-add.html',
-      1 => 1501231620,
+      1 => 1501657795,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59803368f0cb78_05451338 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59817ace6f4759_97519664 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!--_meta 作为公共模版分离出去-->
 <!DOCTYPE HTML>
@@ -121,7 +121,7 @@ function content_59803368f0cb78_05451338 (Smarty_Internal_Template $_smarty_tpl)
 				</select>
 				</span> </div>
 		</div>
-		<div class="row cl">
+		<!-- <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">配對食物：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" name="food">
@@ -138,7 +138,7 @@ function content_59803368f0cb78_05451338 (Smarty_Internal_Template $_smarty_tpl)
 					<option value="9">各國菜式</option>
 				</select>
 				</span> </div>
-		</div>
+		</div> -->
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">供應商：</label>
 			<div class="formControls col-xs-8 col-sm-9">

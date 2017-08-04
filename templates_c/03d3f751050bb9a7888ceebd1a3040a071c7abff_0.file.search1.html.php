@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 15:06:02
+/* Smarty version 3.1.30, created on 2017-08-04 15:26:12
   from "D:\xampp\htdocs\redwine\tpl\search1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5980285a0721d8_04054175',
+  'unifunc' => 'content_59842194622329_76869969',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03d3f751050bb9a7888ceebd1a3040a071c7abff' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search1.html',
-      1 => 1501571160,
+      1 => 1501831571,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5980285a0721d8_04054175 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59842194622329_76869969 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +63,14 @@ function content_5980285a0721d8_04054175 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '</script'; ?>
 >
   <!--<![endif]-->
-  
+  <style>
+    .spic img{
+      height: 130px;
+    }
+    .grid_3{
+      cursor: pointer;
+    }
+  </style>
   <!--[if lt IE 9]>
   <?php echo '<script'; ?>
  src="js/html5shiv.js"><?php echo '</script'; ?>
@@ -128,21 +135,21 @@ function content_5980285a0721d8_04054175 (Smarty_Internal_Template $_smarty_tpl)
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0">
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20" target="search-cow">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/cow.png" alt=""/>
                     </div>
                      <p class="h40 grayb">牛</p>           
                  </div>                 
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img style="width: 150px;" src="images/e2.jpg" alt=""/>
+                      <img src="images/sheep.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">羊</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/pig.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">豬</p>           
                  </div>
@@ -154,31 +161,31 @@ function content_5980285a0721d8_04054175 (Smarty_Internal_Template $_smarty_tpl)
                  </div> 
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/seafood.gif" alt=""/>
                     </div>
                      <p class="h40 grayb">海鮮</p>           
                  </div>                 
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/snacks.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">小食</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/dessert.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">甜品</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/appetiser.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">頭盤</p>           
                  </div>  
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/streetfoods.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">街頭食品</p>           
                  </div>
@@ -225,6 +232,17 @@ function content_5980285a0721d8_04054175 (Smarty_Internal_Template $_smarty_tpl)
 
 <?php echo '<script'; ?>
  src="js/script.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+$(function(){
+  $(".grid_3").click(function(){
+    var target = $(this).attr("target");
+    window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'pageIndex'),$_smarty_tpl);?>
+&page="+target;
+  })
+})
+<?php echo '</script'; ?>
 >
 </body>
 </html><?php }

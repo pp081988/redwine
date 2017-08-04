@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 17:14:33
+/* Smarty version 3.1.30, created on 2017-08-02 10:51:37
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59804679326f27_74641281',
+  'unifunc' => 'content_59813e39420930_00239965',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501578871,
+      1 => 1501642296,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59804679326f27_74641281 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59813e39420930_00239965 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -251,16 +251,17 @@ function content_59804679326f27_74641281 (Smarty_Internal_Template $_smarty_tpl)
       <option value="">--選擇菜式--</option>
     </select><select name="food_name" order="3" style="display: none;" class="seltext foodOption">
       <option value="">--選擇菜名--</option>
-    </select></td>
+    </select><input type="text" name="custom_food_name" class="value seltext foodOption" placeholder="請輸入菜名"></td>
     </tr>
   <tr>
-    <td><em class="bfn2">煮法：</em>
-    <select name="food_method" order="4" class="seltext foodOption">
-      <option value="">--選擇煮法--</option>
-    </select></td>
-    <td><em class="bfn2">味道：</em>
+    <td class="value taste"><em class="bfn2">味道：</em>
     <select name="food_taste" order="5" class="seltext foodOption">
       <option value="">--選擇味道--</option>
+      <option value="0">甜</option>
+      <option value="1">咸</option>
+      <option value="2">酸</option>
+      <option value="3">辣</option>
+      <option value="4">苦</option>
     </select></td>
     <td><em class="bfn2" style="float: left;">絕配度：</em>
       <ul class="match">
@@ -378,9 +379,6 @@ $(function(){
     $("input[name=theme_color]").val($(this).attr("value"));
   })
 
-
-
-
     $(".selectTheme").change(function(){
         var page = $(this).val();
         window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'pageIndex'),$_smarty_tpl);?>
@@ -398,16 +396,23 @@ $(function(){
     $("select[name=food_category]").change(function(){
       var thisVal = $(this).val();
       if(thisVal == "211" || thisVal == "212" || thisVal == "213"){
-        $("select[name=food_type]").css({"display":"block"});
+        $("select[name=food_type]").css({"display":"inline-block"});
         $("select[name=food_name]").css({"display":"none"});
       }else{
+        $("select[name=food_name]").html("<option>>>請選擇<<</option>");
+        var id = $(this).val();
+        getFoodName(id);
         $("select[name=food_type]").css({"display":"none"});
-        $("select[name=food_name]").css({"display":"block"});
+        $("select[name=food_name]").css({"display":"inline-block"});
       }
+      $("input[name=custom_food_name],.taste").css({"display":"none"});
     });
 
     $("select[name=food_type]").change(function(){
-      $("select[name=food_name]").css({"display":"block"});
+      $("select[name=food_name]").html("<option>>>請選擇<<</option>");
+      var id = $(this).val();
+      getFoodName(id);
+      $("select[name=food_name]").css({"display":"inline-block"});
     })
 
     $(".foodOption").change(function(){
@@ -415,7 +420,7 @@ $(function(){
       var order = parseInt($(this).attr("order"));
       $(".foodOption").each(function(){
         if($(this).attr("order") == order +1){
-          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id))
+          $(this).html("<option>>>請選擇<<</option>"+getOption(options,id));
         }
       })
     });
@@ -427,6 +432,34 @@ $(function(){
     }
 
 })
+
+function getFoodName(id){
+  $.ajax({
+    url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'getFoodName'),$_smarty_tpl);?>
+",
+    type:"post",
+    data:{id:id},
+    success:function(data){
+      //$("select[name=food_name]").html("");
+      $("input[name=custom_food_name],.taste").css({"display":"none"});
+      if(data != ""){
+        var dataObj = eval('(' + data + ')');
+        for(i=0;i<dataObj.length;i++){
+          var options = '<option value="'+dataObj[i]['id']+'">'+dataObj[i]['name']+'</option>';
+          $("select[name=food_name]").append(options);
+        }
+      }else{
+        $("select[name=food_name]").css({"display":"inline-block"});
+      }
+      $("select[name=food_name]").append("<option value='other'>其他</option>");
+      $("select[name=food_name]").change(function(){
+        if($(this).val() == "other"){
+          $("input[name=custom_food_name],.taste").css({"display":"inline-block"});
+        }
+      });
+    }
+  });
+}
 
 function getOption(options,id){
   var result;

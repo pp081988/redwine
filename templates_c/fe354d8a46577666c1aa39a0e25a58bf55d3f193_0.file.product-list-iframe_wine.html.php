@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 14:23:36
+/* Smarty version 3.1.30, created on 2017-08-04 10:15:14
   from "D:\xampp\htdocs\redwine\tpl\back\product-list-iframe_wine.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59801e6860ad66_82251264',
+  'unifunc' => 'content_5983d8b2ac9910_56130954',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe354d8a46577666c1aa39a0e25a58bf55d3f193' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list-iframe_wine.html',
-      1 => 1501468532,
+      1 => 1501811442,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59801e6860ad66_82251264 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5983d8b2ac9910_56130954 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -55,6 +55,9 @@ function content_59801e6860ad66_82251264 (Smarty_Internal_Template $_smarty_tpl)
 	html,body{
 		overflow: auto!important;
 	}
+	.addMatching{
+		font-size: 12px;
+	}
 </style>
 <title>產品列表</title>
 </head>
@@ -81,7 +84,6 @@ function content_59801e6860ad66_82251264 (Smarty_Internal_Template $_smarty_tpl)
 						<th>葡萄</th>
 						<th>年份</th>
 						<th>價格</th>
-						<th>配對食物</th>
 						<th>供應商</th>
 						<th>操作</th>
 					</tr>
@@ -255,9 +257,6 @@ $(function(){
 &category_id='+category_id+'&category_pId='+category_pId);
 	})
 
-	
-
-
 	function dataHandle(category_id,category_pId){
 		$.ajax({
 			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productQuery'),$_smarty_tpl);?>
@@ -266,7 +265,6 @@ $(function(){
 			data:{category_id:category_id,category_pId:category_pId},
 			success:function(data){
 				$PRICE = Array("<$50","$51-$100","$101-$150","$151-$200","$201-$300","$301-$400",">$400");
-				$FOOD = Array("牛","羊","豬","家禽","海鮮","小食","甜品","頭盤","街頭食品","各國菜式");
 				if(data != ""){
 					var dataObj = eval('(' + data + ')');
 					$(".rows").html(dataObj.length);
@@ -281,9 +279,8 @@ $(function(){
 						<td>'+dataObj[i]['grape']+'</td>\
 						<td>'+dataObj[i]['year']+'</td>\
 						<td>'+$PRICE[dataObj[i]['price']]+'</td>\
-						<td>'+$FOOD[dataObj[i]['food']]+'</td>\
 						<td>'+dataObj[i]['supplier']+'</td>\
-						<td class="f-14 td-manage"><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
+						<td class="f-14 td-manage"><a class="addMatching" onclick="addMatching('+dataObj[i]['id']+','+dataObj[i]['category_id']+',\''+dataObj[i]['name']+'\')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加配對</a><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['column']->value;
 $_prefixVariable1=ob_get_clean();
 ob_start();
@@ -304,7 +301,7 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 					"pading":false,
 					"aoColumnDefs": [
 					  //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-					  {"orderable":false,"aTargets":[0,8]}// 不参与排序的列
+					  {"orderable":false,"aTargets":[0,9]}// 不参与排序的列
 					]
 				});
 //console.log(data);
@@ -314,6 +311,12 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 	}
 dataHandle(category_id,category_pId);
 })
+
+function addMatching(id,category_id,name){
+	parent.product_add('添加配對','<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productMatchingAdd','type'=>'wine'),$_smarty_tpl);?>
+&id='+id+'&category_id'+category_id+'&name='+name);
+}
+
 
 <?php echo '</script'; ?>
 > 

@@ -382,15 +382,15 @@ class frontFuns extends spController
 			exit;
 		}
 		$get = spClass("spArgs");
-		if($themeType = $get->get("themeType"))
-		switch ($themeType) {
-			case 'matching':
-				$DBname = "site_forum_matching";
-				break;
-			case 'chat':
-				$DBname = "site_forum_chat";
-				break;
-		}
+		// if($themeType = $get->get("themeType"))
+		// switch ($themeType) {
+		// 	case 'matching':
+		// 		$DBname = "site_forum_matching";
+		// 		break;
+		// 	case 'chat':
+		// 		$DBname = "site_forum_chat";
+		// 		break;
+		// }
 		$conditions = [];
 		foreach ($get->get() as $key => $value) {
 			if($key != "c" && $key != "a" && $key != "themeType"){
@@ -400,7 +400,7 @@ class frontFuns extends spController
 		$conditions['create_time'] = time();
 		$conditions['username'] = $_SESSION['username'];
 		$conditions['display'] = 1;
-		$db = new db($DBname,"id");
+		$db = new db("site_forum","id");
 		//var_dump($DBname);
 
 		$result = $db->create($conditions);
@@ -410,11 +410,11 @@ class frontFuns extends spController
 		$this->success('提交完成，管理員審核后將會顯示', spUrl('main', 'forum'));
 	}
 
-	function forum_matching_data()
+	function forumData()
 	{
-		$theme = $_GET['theme'];
+		$limit = $_GET['limit'];
 		$forumData = spClass("forumData");
-		echo json_encode($forumData->data($theme,"",$id));
+		echo json_encode($forumData->coverData($limit));
 	}
 
 	function forum_matching_detail()
@@ -430,7 +430,8 @@ class frontFuns extends spController
 		$this->username = $res[0]['username'];
 		$this->wine_category = $res[0]['wine_category'];
 		$this->wine_price = $res[0]['wine_price'];
-		$this->food_origin = $res[0]['food_origin'];
+		$this->food_category = $res[0]['food_category'];
+		$this->custom_food_name = $res[0]['custom_food_name'];
 		$this->food_type = $res[0]['food_type'];
 		$this->food_method = $res[0]['food_method'];
 		$this->food_taste = $res[0]['food_taste'];
@@ -441,6 +442,10 @@ class frontFuns extends spController
 		$this->like_num = $res[0]['like_num'];
 		$this->dislike_num = $res[0]['dislike_num'];
 		$this->short_comment = $res[0]['short_comment'];
+		if($this->food_name != null){
+			$productFood = new db("admin_product_food","id");
+			$this->food_name = $productFood->find(Array("id"=>$this->food_name),null,"name")['name'];
+		}
 		if($_SESSION['avatar']){
 			$this->avatar = "<img src='".$_SESSION['avatar']."'>";
 		}else{
@@ -451,13 +456,20 @@ class frontFuns extends spController
 		}else{
 			$this->display("forum2.html");
 		}
-		
+		//var_dump($this->food_name);
 	}
 
 	function foodToWine()
 	{
-		$this->display("search4.html");
+		$this->display("search1.html");
 	}
 
-
+	function getFoodName()
+	{
+		$post = spClass("spArgs");
+		$id = $post->get("id");
+		$db = new db("admin_product_food","id");
+		$res = $db->findAll(Array("category_id"=>$id),null,"name,id");
+		if($res)echo json_encode($res);
+	}
 }

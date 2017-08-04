@@ -7,6 +7,7 @@ class variable
 	public $FOOD = Array("牛","羊","豬","家禽","海鮮","小食","甜品","頭盤","街頭食品","各國菜式");
 	public $WINE = Array("紅酒","白酒","甜酒","啤酒","威士忌","白蘭地","清酒");
 	public $COLOR = Array("rgba(220, 20, 60 ,0.1)","rgba(50, 205, 50 ,0.1)","rgba(139, 69, 19 ,0.1)","rgba(255, 255, 0 ,0.1)","rgba(153, 50, 204 ,0.1)");
+	public $TASTE = Array("甜","咸","酸","辣","苦");
 
 	function conversion($condition,$type)
 	{

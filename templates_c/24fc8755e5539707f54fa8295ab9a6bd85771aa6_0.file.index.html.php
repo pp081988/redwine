@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 15:51:01
+/* Smarty version 3.1.30, created on 2017-08-04 10:58:22
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598032e5a71018_67621275',
+  'unifunc' => 'content_5983e2ce921854_78578455',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1501573856,
+      1 => 1501815497,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598032e5a71018_67621275 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5983e2ce921854_78578455 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -88,11 +88,11 @@ function content_598032e5a71018_67621275 (Smarty_Internal_Template $_smarty_tpl)
 				<li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
 				<li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
-						<li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
-						<li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
-						<li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-						<li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
-						<li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
+						<li><a href="javascript:;" data-val="green" title="綠色(默認)">綠色(默認)</a></li>
+						<li><a href="javascript:;" data-val="default" title="黑色">黑色</a></li>
+						<li><a href="javascript:;" data-val="blue" title="藍色">藍色</a></li>
+						<li><a href="javascript:;" data-val="red" title="紅色">紅色</a></li>
+						<li><a href="javascript:;" data-val="yellow" title="黃色">黃色</a></li>
 						<li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
 					</ul>
 				</li>
@@ -136,17 +136,8 @@ function content_598032e5a71018_67621275 (Smarty_Internal_Template $_smarty_tpl)
 " data-title="分類管理" href="javascript:void(0)">分類管理</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-list'),$_smarty_tpl);?>
 " data-title="產品管理" href="javascript:void(0)">產品管理</a></li>
-			</ul>
-		</dd>
-	</dl>
-		<dl id="menu-picture">
-			<dt><i class="Hui-iconfont">&#xe701;</i> 食物對對碰<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-			<dd>
-				<ul>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-food-option'),$_smarty_tpl);?>
-" data-title="酒商建議管理" href="javascript:void(0)">酒商建議管理</a></li>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-matching-list'),$_smarty_tpl);?>
-" data-title="品酒師建議管理" href="javascript:void(0)">品酒師建議管理</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'product-matching'),$_smarty_tpl);?>
+" data-title="配對管理" href="javascript:void(0)">配對管理</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -154,8 +145,6 @@ function content_598032e5a71018_67621275 (Smarty_Internal_Template $_smarty_tpl)
 			<dt><i class="Hui-iconfont">&#xe62b;</i> 吹水園地<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-food-option'),$_smarty_tpl);?>
-" data-title="食物選項" href="javascript:void(0)">食物選項管理</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-matching-list'),$_smarty_tpl);?>
 " data-title="配對主題" href="javascript:void(0)">配對主題</a></li>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'forum-chat-list'),$_smarty_tpl);?>

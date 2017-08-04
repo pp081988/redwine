@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 12:40:18
+/* Smarty version 3.1.30, created on 2017-08-02 15:42:09
   from "D:\xampp\htdocs\redwine\tpl\forum1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f09124ae995_39996153',
+  'unifunc' => 'content_598182514e50b3_38691558',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '72ffb7d128b6cfee66475985bf517df1f791f5e2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum1.html',
-      1 => 1501497616,
+      1 => 1501659728,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597f09124ae995_39996153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598182514e50b3_38691558 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,22 +142,23 @@ function content_597f09124ae995_39996153 (Smarty_Internal_Template $_smarty_tpl)
   <tr>
     <td><em class="bfn2">價錢：</em><?php echo $_smarty_tpl->tpl_vars['wine_price']->value;?>
 </td>
-    <td colspan="2"><em class="bfn2">佳餚名稱：</em> <?php echo $_smarty_tpl->tpl_vars['food_origin']->value;?>
+    <td colspan="2"><em class="bfn2">佳餚名稱：</em> <?php echo $_smarty_tpl->tpl_vars['food_category']->value;?>
  &gt; <?php echo $_smarty_tpl->tpl_vars['food_type']->value;?>
  &gt; <?php echo $_smarty_tpl->tpl_vars['food_name']->value;?>
+ <?php echo $_smarty_tpl->tpl_vars['custom_food_name']->value;?>
 </td>
     </tr>
   <tr>
-    <td><em class="bfn2">煮法：</em> <?php echo $_smarty_tpl->tpl_vars['food_method']->value;?>
-</td>
+    <!-- <td><em class="bfn2">煮法：</em> <?php echo $_smarty_tpl->tpl_vars['food_method']->value;?>
+</td> -->
     <td><em class="bfn2">味道：</em><?php echo $_smarty_tpl->tpl_vars['food_taste']->value;?>
 </td>
     <td><em class="bfn2">絕配度：</em><span class="stars"></span></td>
   </tr>
 </table>
 </li>
-    <p><?php echo $_smarty_tpl->tpl_vars['detail_content']->value;?>
-</p>
+    <?php echo $_smarty_tpl->tpl_vars['detail_content']->value;?>
+
     <p class="apc"> <a class="bt5 likeBtn" name="like"><?php echo $_smarty_tpl->tpl_vars['like_num']->value;?>
 </a><a class="btno likeBtn" name="dislike"><?php echo $_smarty_tpl->tpl_vars['dislike_num']->value;?>
 </a> </p>       
@@ -305,7 +306,7 @@ function content_597f09124ae995_39996153 (Smarty_Internal_Template $_smarty_tpl)
         timestamp = timestamp / 1000;
 
         function likeOrDislike(type,selecter){
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             if(type == "like"){
                 str="+1";color="red";
@@ -469,7 +470,7 @@ function content_597f09124ae995_39996153 (Smarty_Internal_Template $_smarty_tpl)
             if(content == ""){
                 return false;
             }
-            var column = getUrlParam("theme");
+            var column = "forum";
             var id = getUrlParam("id");
             $.ajax({
                 url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'commentInsert'),$_smarty_tpl);?>

@@ -25,7 +25,14 @@
     });
   </script>
   <!--<![endif]-->
-  
+  <style>
+    .spic img{
+      height: 130px;
+    }
+    .grid_3{
+      cursor: pointer;
+    }
+  </style>
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <![endif]-->
@@ -88,21 +95,21 @@
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0">
-                 <div class="grid_3 wbg mb20 cattle">                 
+                 <div class="grid_3 wbg mb20" target="search-cow">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/cow.png" alt=""/>
                     </div>
                      <p class="h40 grayb">牛</p>           
                  </div>                 
-                 <div class="grid_3 wbg mb20 sheep">                 
+                 <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img style="width: 150px;" src="images/e2.jpg" alt=""/>
+                      <img src="images/sheep.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">羊</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/pig.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">豬</p>           
                  </div>
@@ -114,31 +121,31 @@
                  </div> 
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/seafood.gif" alt=""/>
                     </div>
                      <p class="h40 grayb">海鮮</p>           
                  </div>                 
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/snacks.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">小食</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/dessert.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">甜品</p>           
                  </div>
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/appetiser.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">頭盤</p>           
                  </div>  
                  <div class="grid_3 wbg mb20">                 
                     <div class="spic">
-                      <img src="images/e1.jpg" alt=""/>
+                      <img src="images/streetfoods.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">街頭食品</p>           
                  </div>
@@ -186,8 +193,9 @@
 <script src="js/script.js"></script>
 <script>
 $(function(){
-  $(".cattle").click(function(){
-    window.location.href="<{spUrl c=frontFuns a=}>"
+  $(".grid_3").click(function(){
+    var target = $(this).attr("target");
+    window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+target;
   })
 })
 </script>

@@ -128,7 +128,7 @@ $(function(){
     var timestamp = Date.parse(new Date());
         timestamp = timestamp / 1000;
     $.ajax({
-        url:"<{spUrl c=frontFuns a=forum_matching_data theme=forum_matching}>",
+        url:"<{spUrl c=frontFuns a=forumData}>",
         type:"post",
         data:{limit:"10"},
         success:function(data){
@@ -149,6 +149,10 @@ $(function(){
                 </div>\
                 </div>';
               }else{
+                var food_name = dataObj[i]['food_name'];
+                if(dataObj[i]['food_name'] == 0){
+                  food_name = dataObj[i]['custom_food_name'];
+                }
                 str = '<div class="row  forum mb20 fpd10" style="background:'+dataObj[i]['theme_color']+'">\
                 <div class="grid_12 u1pr">\
                   <div class="fl">\
@@ -157,7 +161,7 @@ $(function(){
                     </div>\
                   </div>\
                   <div class="grid_8 fl">\
-                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'" theme="forum_matching"><em class="bfn1">'+dataObj[i]['wine_name']+' </em><em class="bfn2"> 配 </em><em class="bfn3">'+dataObj[i]['food_name']+'</em></a><em class="font15 fc1">網友:</em>\
+                    <p class="fn18"><a class="forum_matching_detail" id="'+dataObj[i]['id']+'" theme="forum_matching"><em class="bfn1">'+dataObj[i]['wine_name']+' </em><em class="bfn2"> 配 </em><em class="bfn3">'+food_name+'</em></a><em class="font15 fc1">網友:</em>\
                      <em class="bfn2">'+dataObj[i]['username']+'</em> <em class="fn13 fc1">'+translateTime(dataObj[i]['create_time'])+'</em> </p>\
                   <p class="fc1">'+dataObj[i]['short_comment']+'</p>\
                   <p class="mt15"><a class="bt5" href="#">'+dataObj[i]['like_num']+'</a><a class="btno" href="#">'+dataObj[i]['dislike_num']+'</a> </p>\

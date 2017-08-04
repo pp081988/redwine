@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 14:44:33
+/* Smarty version 3.1.30, created on 2017-08-02 15:03:26
   from "D:\xampp\htdocs\redwine\tpl\back\forum-chat-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598023512bcba8_91042517',
+  'unifunc' => 'content_5981793e6b2858_38847392',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7b203d03e9da97522db316ffa56f92bbaf2d59f2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\forum-chat-list.html',
-      1 => 1501569846,
+      1 => 1501657399,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598023512bcba8_91042517 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5981793e6b2858_38847392 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -78,9 +78,8 @@ function content_598023512bcba8_91042517 (Smarty_Internal_Template $_smarty_tpl)
 				<tr class="text-c">
 					<th width="25"><input type="checkbox" name="" value=""></th>
 					<th>ID</th>
-					<th>酒名</th>
-					<th>食物</th>
-					<th>短評</th>
+					<th>標題</th>
+					<th>內容</th>
 					<th>創建者</th>
 					<th>創建時間</th>
 					<th>審核狀態</th>
@@ -255,7 +254,7 @@ $(function(){
 		var id = "<?php echo $_smarty_tpl->tpl_vars['column']->value;?>
 ";
 		$.ajax({
-			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forum_matching_data','theme'=>'forum_chat'),$_smarty_tpl);?>
+			url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'forumData'),$_smarty_tpl);?>
 ",
 			type:"post",
 			data:{id:id},
@@ -270,13 +269,13 @@ $(function(){
 						case "1":display = '<span class="label label-success radius">已審核</span>';displaySwitch = '<a style="text-decoration:none" onclick="article_stop(this,'+dataObj[i]['id']+')" href="javascript:;" title="下線"><i class="Hui-iconfont">&#xe6de;</i></a>';break;
 						case "2":display = '<span class="label label-success radius" style="background-color: #a0a0a0;">已下線</span>';displaySwitch = '<a style="text-decoration:none" onClick="article_start(this,'+dataObj[i]['id']+')" href="javascript:;" title="審核"><i class="Hui-iconfont">&#xe603;</i></a>';break;
 					}
+					if(dataObj[i]['wine_name'] == ""){
 					var str = '\
 					<tr class="text-c">\
 					<td><input type="checkbox" value="" name=""></td>\
 					<td>'+dataObj[i]['id']+'</td>\
-					<td>'+dataObj[i]['wine_name']+'</td>\
-					<td>'+dataObj[i]['food_name']+'</td>\
 					<td>'+dataObj[i]['short_comment']+'</td>\
+					<td style="text-overflow:ellipsis">'+dataObj[i]['detail_content']+'</td>\
 					<td>'+dataObj[i]['username']+'</td>\
 					<td>'+translateTime(dataObj[i]['create_time'])+'</td>\
 					<td class="td-status">'+display+'</td>\
@@ -291,6 +290,7 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 &articleId='+dataObj[i]['id']+'" onclick="Hui_admin_tab(this)" href="javascript:;"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="article_del(this,'+dataObj[i]['id']+')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 					</tr>'
 					$(".dataTable tbody").append(str);
+					}
 				}
 				$('.table-sort').dataTable({
 					"aaSorting": [[ 1, "desc" ]],//默认第几个排序

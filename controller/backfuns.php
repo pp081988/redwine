@@ -8,6 +8,7 @@ class backFuns extends spController
 {
 	private $close;
 	private $var;
+	private $exists;
 
 	function __construct()
 	{
@@ -180,11 +181,16 @@ class backFuns extends spController
 		$this->display("back\\forum-food-option-add.html");
 	}
 
-	function categoryData()
+	function categoryData($sql)
 	{
 		$db = new db("admin_product_category","id");
-		$category = $db->findAll();
-		echo json_encode($category);
+		if(!$sql){
+			$category = $db->findAll();
+			echo json_encode($category);
+		}else{
+			$category = $db->findSql($sql);
+			return json_encode($category);
+		}
 	}
 
 	function productCategoryIfame()
@@ -320,10 +326,99 @@ class backFuns extends spController
 		//echo $category_id." ".$dbName;
 	}
 
-	function forum_matching_data()
+	function forumData()
 	{
-		$theme = $_GET['theme'];
+		$limit = $_GET['limit'];
 		$forumData = spClass("forumData");
-		echo json_encode($forumData->data($theme));
+		echo json_encode($forumData->coverData($limit));
+	}
+
+	function productMatchingAdd()
+	{
+		$get = spClass("spArgs");
+		$this->type = $get->get("type");
+		$name = $get->get("name");
+		$this->id = $get->get("id");
+		$this->category_id = $get->get("category_id");
+		if($this->type == "wine"){
+			$this->wineName = $name;
+		}
+		if($this->type == "food"){
+			$this->foodName = $name;
+		}
+		$this->display("back\product-matching-add.html");
+	}
+
+	function productMatchingSelect()
+	{
+		$get = spClass("spArgs");
+		$id = $get->get("id");
+		$this->type = $get->get("type");
+		switch ($this->type) {
+			case 'selectFood':
+				$condition = "2__%";
+				break;
+			case 'selectWine':
+				$condition = "1__%";
+				break;
+		}
+		$_SESSION['existsSelect'] = $get->get("exists");
+		$sql = "SELECT * FROM admin_product_category WHERE id LIKE '".$condition."'";
+		$this->category = json_encode($this->categoryData($sql));
+		$this->display("back\product-matching-select.html");
+	}
+
+	function productMatchingSelectIframe()
+	{
+		$get = spClass("spArgs");
+		$this->id = $get->get("id");
+		$this->type = $get->get("type");
+		$this->existsSelect = $_SESSION['existsSelect'];
+		$this->display("back\product-matching-select-iframe.html");
+	}
+
+	function productMatchingSelectQuery()
+	{
+		$post = spClass("spArgs");
+		$type = $post->get("type");
+		$id = $post->get("id");
+		switch ($type) {
+			case 'selectFood':
+				$dbName = "admin_product_food";
+				break;
+			case 'selectWine':
+				$dbName = "admin_product_wine";
+				break;
+		}
+		$condition = "";
+		if($id){
+			$condition['category_id'] = $id;
+		}
+		
+		$db = new db($dbName,"id");
+		$res = $db->findAll($condition);
+		if($res){
+			die(json_encode($res));
+		}
+	}
+
+	function productMatching()
+	{
+		$get = spClass("spArgs");
+		$conditions = [];
+		foreach ($get->get() as $key => $value) {
+			if($key != "c" && $key != "a"){
+				$conditions[$key] = $value;
+			}
+		}
+		$conditions['create_time'] = date("Y-m-d H:i:s");
+		$conditions['creator'] = $_SESSION['admin_username'];
+		$db = new db("admin_product_matching","id");
+		$res = $db->create($conditions);
+		if(!$res){
+			die("10018");
+		}else{
+			die("ok");
+		}
 	}
 }

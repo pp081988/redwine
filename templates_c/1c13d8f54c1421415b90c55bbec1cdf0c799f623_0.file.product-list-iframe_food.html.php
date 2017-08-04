@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-01 14:23:32
+/* Smarty version 3.1.30, created on 2017-08-04 09:51:32
   from "D:\xampp\htdocs\redwine\tpl\back\product-list-iframe_food.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59801e649e6db1_44948385',
+  'unifunc' => 'content_5983d32491cf65_01654854',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c13d8f54c1421415b90c55bbec1cdf0c799f623' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\product-list-iframe_food.html',
-      1 => 1501468532,
+      1 => 1501811479,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59801e649e6db1_44948385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5983d32491cf65_01654854 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -277,7 +277,7 @@ $(function(){
 						<td>'+dataObj[i]['method']+'</td>\
 						<td>'+dataObj[i]['taste']+'</td>\
 						<td>'+dataObj[i]['keyword']+'</td>\
-						<td class="f-14 td-manage"><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
+						<td class="f-14 td-manage"><a class="addMatching" onclick="addMatching('+dataObj[i]['id']+','+dataObj[i]['category_id']+',\''+dataObj[i]['name']+'\')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加配對</a><a style="text-decoration:none" class="ml-5" data-title="編輯" data-href="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['column']->value;
 $_prefixVariable1=ob_get_clean();
 ob_start();
@@ -308,6 +308,11 @@ echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][
 	}
 dataHandle(category_id,category_pId);
 })
+
+function addMatching(id,category_id,name){
+	parent.product_add('添加配對','<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'productMatchingAdd','type'=>'food'),$_smarty_tpl);?>
+&id='+id+'&category_id'+category_id+'&name='+name);
+}
 
 <?php echo '</script'; ?>
 > 
