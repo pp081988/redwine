@@ -3,6 +3,7 @@ require_once(APP_PATH."/model/siteCommentLinker.php");
 require_once(APP_PATH."/model/unloginCheck.php");
 require_once(APP_PATH."/model/frequently.php");
 require_once(APP_PATH."/model/compare.php");
+require_once(APP_PATH."/model/getProduct.php");
 
 class frontFuns extends spController
 {
@@ -290,7 +291,7 @@ class frontFuns extends spController
 				// echo count($imgArray);
 				//var_dump($res['images']);
 				$page = "productWineDetail.html";
-				$this->display($page);
+				//$this->display($page);
 				break;
 			case 'food':
 				$db = new db("admin_product_food","id");
@@ -303,7 +304,7 @@ class frontFuns extends spController
 				$this->keyword = $res['keyword'];
 				$imgArray = explode(",",substr($res['images'],1));
 				$page = "productFoodDetail.html";
-				$this->display($page);
+				
 				break;
 		}
 		if($res['images'] == ""){
@@ -318,6 +319,7 @@ class frontFuns extends spController
 				$this->images .= '<li '.$onclick.'><img src="images/product/'.$value.'" width="68" height="68" alt="'.$res['name'].'"/></li>';
 			}
 		}
+		$this->display($page);
 	}
 
 	function forumImgUpload()
@@ -471,5 +473,120 @@ class frontFuns extends spController
 		$db = new db("admin_product_food","id");
 		$res = $db->findAll(Array("category_id"=>$id),null,"name,id");
 		if($res)echo json_encode($res);
+	}
+
+	function searchSelectResult()
+	{
+		$get = spClass("spArgs");
+		$pId = $get->get("pId");
+		$Id = $get->get("Id");
+		$theme = $get->get("theme");
+		if($theme == "food"){
+			$dbName = "admin_product_food";
+		}
+		$db = new db("admin_product_category","id");
+		$this->category = $db->find(Array("id"=>$pId))['name'];
+		$this->subClass = $db->find(Array("id"=>$Id))['name'];
+		$this->id = $Id;
+		$this->theme = $theme;
+		$productDB = new db($dbName,"id");
+		$this->totailNum = $productDB->findCount();
+		//var_dump($productDB->findCount());
+
+		$this->display("search-select-result.html");
+	}
+
+	function searchSelectData()
+	{
+		$get = spClass("spArgs");
+		$id = $get->get("id");
+		$theme = $get->get("theme");
+		$current = $get->get("current");
+		$count = $get->get("count");
+		$start = ($current - 1) * $count;
+		$end = $current * $count - 1;
+		if($theme == "food"){
+			$dbName = "admin_product_food";
+		}
+		$db = new db($dbName,"id");
+		$res = $db->findAll(Array("category_id"=>$id),"id DESC",null,$start.",".$end);
+		if($res){
+			die(json_encode($res));
+		}
+	}
+
+	function searchSelectMatching()
+	{
+		$get = spClass("spArgs");
+		$this->id = $get->get("id");
+		$this->name = $get->get("name");
+		$this->theme = $get->get("theme");
+		if($this->theme == "food"){
+			$column = "food";
+			$reColumn = "wine";
+		}elseif($this->theme == "wine"){
+			$column = "wine";
+			$reColumn = "food";
+		}
+		$back = new db("admin_product_matching","id");
+		$front = new db("site_forum","id");
+		$getProduct = new getProduct();
+		$suggestType = $get->get("suggestType");
+		switch ($suggestType) {
+			case 'supplier':
+				$supplierSuggest = $back->find($column."_id = ".$this->id." AND suggest_type = 0 ");
+				if($supplierSuggest){
+					$result = [];
+					$reColumn = $reColumn."_id";
+					$resArr = explode(",",substr($supplierSuggest[$reColumn],1));
+					foreach ($resArr as $value) {
+						if($reColumn == "food_id"){
+							$result[] = $getProduct->foodInfo($value);
+						}elseif($reColumn == "wine_id"){
+							$result[] = $getProduct->wineInfo($value);
+						}
+					}
+					echo json_encode($result);
+				}
+				break;
+			case 'wineTaster':
+				$wineTasterSuggest = $back->find($column."_id = ".$this->id." AND suggest_type = 1 ");
+				if($wineTasterSuggest){
+					$result = [];
+					$reColumn = $reColumn."_id";
+					$resArr = explode(",",substr($wineTasterSuggest[$reColumn],1));
+					foreach ($resArr as $value) {
+						if($reColumn == "food_id"){
+							$result[] = $getProduct->foodInfo($value);
+						}elseif($reColumn == "wine_id"){
+							$result[] = $getProduct->wineInfo($value);
+						}
+					}
+					echo json_encode($result);
+				}
+				break;
+			case 'epal':
+				$epalSuggest = $front->findAll($column."_name = ".$this->id);
+				if($epalSuggest){
+					$result = [];
+					$reColumn = $reColumn."_name";
+					$db = new db("admin_product_wine","id");
+					foreach ($epalSuggest as $key => $value) {
+						if($reColumn == "wine_name"){
+							$name = $value[$reColumn];
+							$result[] = $db->find(Array("name"=>$name));
+						}elseif($reColumn == "food_name"){
+								$name = $value["food_id"];
+							$result[] = $getProduct->foodInfo($name);
+						}
+						
+					}
+					echo json_encode($result);
+				}
+				break;
+			default:
+				$this->display("search-select-matching.html");
+				break;
+		}
 	}
 }

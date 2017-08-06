@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name = "format-detection" content = "telephone=no" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/camera.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/user.css">
+   <link rel="stylesheet" href="css/jquery.pagination.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-migrate-1.2.1.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/owl.carousel.js"></script>
+  <!--[if (gt IE 9)|!(IE)]><!-->
+  <script src="js/jquery.mobile.customized.min.js"></script>
+  <script src="js/wow/wow.js"></script>
+  <script src="js/jquery.pagination.min.js"></script>
+  <!--<![endif]-->
+  
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <![endif]-->
+  <style>
+    .fgr1{
+      padding-top: 0!important;
+      overflow: hidden;
+    }
+    .resultMsg{
+      text-align: center;
+      padding: 100px 0px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="big-wrapper">
+  <!--========================================================
+                            HEADER
+  =========================================================-->
+<{include file="./header.html"}>
+
+
+
+
+  <!--========================================================
+                            CONTENT
+  =========================================================-->  <section id="content"> 
+      <div class="wrapper1">
+      <div class="container">
+        <div class="row">         
+            <div class="heading1 mt20">
+              <h2 class="pdl20 fn24">佳餚配美酒<a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
+              <h5 class="pdl20 f15">已選食品分類：<em class=" bfn2"><{$category}></em> > <em class="black1"><{$subClass}></em></h5>
+            </div>
+            <div class="box2-wrapper1">
+              <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+                <div class="row mg0 contentData">
+                
+                </div>
+              </div>
+            </div>
+          <div class="box">
+      <div id="pagination" class="page fl"></div>
+      <div class="info fl">
+        <p>當前頁數：<span id="current">4</span></p>
+      </div>
+    </div>
+        </div>
+      </div>
+      </div>      
+      
+      
+  
+  </section>
+<div class="clearfix"></div>
+
+  <!--========================================================
+                            FOOTER
+  =========================================================-->
+  <footer id="footer">
+  <div class="gr gbg">瀏覽人次 :  45507</div>
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="grid_12 mt20">
+            <div class="privacy-block wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
+            <div class="fl"><a href="#">联系我们</a>  |  <a href="#">免责说明</a></div>
+            <div class="grid_10 tar">Copyright @Redwinemeat.com All Rights Reseved</div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+  $(function(){
+    if ($('html').hasClass('desktop')) {
+      new WOW().init();
+    }
+
+    var id = "<{$id}>";
+    var theme = "<{$theme}>";
+    var count = 10;
+    var totailNum = <{$totailNum}>;
+    var totalPage = Math.ceil(totailNum/count);
+   $("#pagination").pagination({
+      currentPage: 1,
+      totalPage: totalPage,
+      isShow: true,
+      count: count,
+      homePageText: "首頁",
+      endPageText: "尾頁",
+      prevPageText: "上一頁",
+      nextPageText: "下一頁",
+      callback: function(current) {
+        getData(id,theme,current,count);
+      }
+    });
+
+   getData(id,theme,1,count);
+   function getData(id,theme,current,count){
+    $("#current").html(current);
+    $.ajax({
+      url:"<{spUrl c=frontFuns a=searchSelectData}>",
+      type:"post",
+      data:{id:id,theme:theme,current:current,count:count},
+      success:function(data){
+        if(data != ""){
+          $(".contentData").html("");
+          var dataObj = eval('(' + data + ')');
+          for(i=0;i<dataObj.length;i++){
+            var src = "images/noproductimg.png";
+            if(dataObj[i]['images'] != ""){
+              var images = dataObj[i]['images'].substr(1);
+              var imageUrl = images.split(",");
+              src = 'images/product/'+imageUrl[0];
+            }
+            str = '<div class="grid_3 wbg mb20 food" id="'+dataObj[i]['id']+'">\
+                    <div class="spic fgr1">\
+                      <img class="productImg" src="'+src+'">\
+                    </div>\
+                    <p class="fgr2">'+dataObj[i]['name']+'</p>\
+                  </div>';
+            $(".contentData").append(str);
+          }
+          searchMatching();
+        }else{
+          $(".contentData").html("<div class='resultMsg'>沒有找到相關信息。</div>");
+        }
+      }
+    });
+   }
+
+   function searchMatching(){
+    $(".food").click(function(){
+      var id = $(this).attr("id");
+      var name = $(this).find(".fgr2").html();
+      var theme = "food";
+      window.location.href="<{spUrl c=frontFuns a=searchSelectMatching}>&id="+id+"&name="+name+"&theme="+theme;
+    });
+   }
+
+  });
+</script>>
+</body>
+</html>
