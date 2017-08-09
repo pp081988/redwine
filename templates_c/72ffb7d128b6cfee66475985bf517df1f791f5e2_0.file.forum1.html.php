@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 15:42:09
+/* Smarty version 3.1.30, created on 2017-08-07 15:18:35
   from "D:\xampp\htdocs\redwine\tpl\forum1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598182514e50b3_38691558',
+  'unifunc' => 'content_5988144b0d0ca6_41056291',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '72ffb7d128b6cfee66475985bf517df1f791f5e2' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum1.html',
-      1 => 1501659728,
+      1 => 1502090314,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_598182514e50b3_38691558 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5988144b0d0ca6_41056291 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,8 +110,7 @@ function content_598182514e50b3_38691558 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2><a class="rt btback" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'forum'),$_smarty_tpl);?>
-">返回上一頁</a></h2>
+              <h2><a class="rt btback" onclick="window.history.back();">返回上一頁</a></h2>
               </div>
        
       </div>      

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-31 12:57:25
+/* Smarty version 3.1.30, created on 2017-08-09 16:08:32
   from "D:\xampp\htdocs\redwine\tpl\forum2.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597f0d15714098_39945020',
+  'unifunc' => 'content_598ac300003542_90924043',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eb0a5ddb651f7a8598b386745c5a6a5cbcce44b1' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forum2.html',
-      1 => 1501498644,
+      1 => 1502266105,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597f0d15714098_39945020 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598ac300003542_90924043 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,8 +110,7 @@ function content_597f0d15714098_39945020 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>吹下水<a class="rt btback" href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'forum'),$_smarty_tpl);?>
-">返回上一頁</a></h2>
+              <h2>吹下水<a class="rt btback" onclick="window.history.back();">返回上一頁</a></h2>
               </div>
        
       </div>      

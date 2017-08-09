@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 10:51:37
+/* Smarty version 3.1.30, created on 2017-08-08 10:14:38
   from "D:\xampp\htdocs\redwine\tpl\forumtheme1.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59813e39420930_00239965',
+  'unifunc' => 'content_59891e8e5afcc4_75770740',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14cc14bc39c85b15b28dd27c2b661a53f5b64d09' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\forumtheme1.html',
-      1 => 1501642296,
+      1 => 1502158473,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_59813e39420930_00239965 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59891e8e5afcc4_75770740 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -479,7 +479,7 @@ function productQuery(condition){
     data:{condition:condition,type:"forum",product:"wine"},
     success:function(data){
       if(data == "10016"){
-        alert("發生錯誤：10016<br>請聯繫系統管理員");
+        console.log("發生錯誤：10016<br>請聯繫系統管理員");
       }else{
         var dataObj = eval('(' + data + ')');
         $("input[name=wine_name]").val(dataObj['name']);

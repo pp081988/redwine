@@ -338,7 +338,7 @@ class backFuns extends spController
 		$get = spClass("spArgs");
 		$this->type = $get->get("type");
 		$name = $get->get("name");
-		$this->id = $get->get("id");
+		$this->id = ",".$get->get("id");
 		$this->category_id = $get->get("category_id");
 		if($this->type == "wine"){
 			$this->wineName = $name;

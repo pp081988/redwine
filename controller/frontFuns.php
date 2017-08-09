@@ -255,7 +255,7 @@ class frontFuns extends spController
 				$db = new db("admin_product_wine","id");
 				if($type == "forum"){
 					$imgName = $this->filter->filter($get->get("condition"));
-					if($res = $db->find("images like '%".$imgName."%'",null,"name")){
+					if($res = $db->find("images like '%".$imgName."%'",null,"id,name")){
 						die(json_encode($res));
 					}else{
 						die("10016");
@@ -272,7 +272,10 @@ class frontFuns extends spController
 				$this->price = $var->PRICE[$res['price']];
 				$this->food = $var->FOOD[$res['food']];
 				$this->supplier = $res['supplier'];
-				$this->supplier_site = $res['supplier_site'];
+				$this->supplier_site = "有興趣尋找代理商(在香港/中國/其他亞洲地區)";
+				if($res['supplier_site'] != ""){
+					$this->supplier_site = $res['supplier_site'];
+				}
 				$this->keyword = $res['keyword'];
 				$imgArray = explode(",",substr($res['images'],1));
 				if($res['images'] == ""){
@@ -466,6 +469,11 @@ class frontFuns extends spController
 		$this->display("search1.html");
 	}
 
+	function wineToFood()
+	{
+		$this->display("search2.html");
+	}
+
 	function getFoodName()
 	{
 		$post = spClass("spArgs");
@@ -534,7 +542,7 @@ class frontFuns extends spController
 		$suggestType = $get->get("suggestType");
 		switch ($suggestType) {
 			case 'supplier':
-				$supplierSuggest = $back->find($column."_id = ".$this->id." AND suggest_type = 0 ");
+				$supplierSuggest = $back->find($column."_id LIKE '_".$this->id."%' AND suggest_type = 0 ");
 				if($supplierSuggest){
 					$result = [];
 					$reColumn = $reColumn."_id";
@@ -550,7 +558,7 @@ class frontFuns extends spController
 				}
 				break;
 			case 'wineTaster':
-				$wineTasterSuggest = $back->find($column."_id = ".$this->id." AND suggest_type = 1 ");
+				$wineTasterSuggest = $back->find($column."_id LIKE '_".$this->id."%' AND suggest_type = 1 ");
 				if($wineTasterSuggest){
 					$result = [];
 					$reColumn = $reColumn."_id";
@@ -561,32 +569,52 @@ class frontFuns extends spController
 						}elseif($reColumn == "wine_id"){
 							$result[] = $getProduct->wineInfo($value);
 						}
+						//echo $value;
 					}
 					echo json_encode($result);
 				}
 				break;
 			case 'epal':
-				$epalSuggest = $front->findAll($column."_name = ".$this->id);
+				if($this->theme == "food"){
+					$value = $this->id;
+				}elseif($this->theme == "wine"){
+					$value = $this->name;
+				}
+				$epalSuggest = $front->findAll($column."_name = '".$value."'");
 				if($epalSuggest){
 					$result = [];
 					$reColumn = $reColumn."_name";
-					$db = new db("admin_product_wine","id");
+					//$db = new db("admin_product_wine","id");
 					foreach ($epalSuggest as $key => $value) {
-						if($reColumn == "wine_name"){
-							$name = $value[$reColumn];
-							$result[] = $db->find(Array("name"=>$name));
-						}elseif($reColumn == "food_name"){
-								$name = $value["food_id"];
-							$result[] = $getProduct->foodInfo($name);
+						if($reColumn == "food_name"){
+							if($value['food_name'] != "0"){
+								//echo $value['food_name'];
+								$epalSuggest[$key]['food_name'] = $getProduct->foodInfo($value['food_name'])['name'];
+								//var_dump($value['food_name']);
+								//echo "hao";
+							}
+							// $name = $value[$reColumn];
+							// $res = $db->find(Array("name"=>$name));
+							// $res['forumId'] = $epalSuggest[0]['id'];
+							// $result[] = $res;
 						}
-						
 					}
-					echo json_encode($result);
+					echo json_encode($epalSuggest);
+					//var_dump($result);
 				}
+				//var_dump($this->name);
 				break;
 			default:
 				$this->display("search-select-matching.html");
 				break;
 		}
+	}
+
+	function productDetailPage()
+	{
+		$get = spClass("spArgs");
+		$this->id = $get->get("id");
+		$this->product = $get->get("product");
+		$this->display("product.html");
 	}
 }

@@ -43,41 +43,7 @@
   <!--========================================================
                             HEADER
   =========================================================-->
-  <header id="header">
-    <div class="container">
-      <div class="row">
-        <div class="grid_12  wpr">
-          <h1 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.1s">
-          <a href="index.html"><img src="images/logo.png" width="146" height="21"></a>
-         <em class="wpa">&nbsp;&nbsp;繁&nbsp;<img class="x" src="images/ga1.png" /><img class="s" src="images/ga2.png" />
-                   <div class="wowdrop">
-            <a href="#">中文</a>
-            <a href="#">英文</a>           
-          </div>
-         </em>
-          </h1>
-          <nav class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-            <ul class="sf-menu">             
-              <li class="current"><a href="index.html">關於我們</a></li>
-              <li><a href="index-1.html">達人搞乜鬼</a></li>
-              <li><a href="index-2.html">食物對對碰</a>           
-              </li>
-                <li><a href="#">吹水園地</a></li>
-              <li><a href="index-3.html">影院</a>
-                
-              </li>
-              <li><a href="index-4.html">好介紹</a></li>
-               <li><a href="index-4.html">講你知</a></li>
-            </ul>
-            <div class="clearfix"></div>
-          </nav>
-          <ul class="socials1">
-            <li class="wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s"><a href="#"><img src="images/login.png" alt=""/></a></li>         
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
+  <{include file="./header.html"}>
 
 
 
@@ -89,67 +55,67 @@
       <div class="container">
         <div class="row">         
             <div class="heading1 mt20">
-              <h2 class="pdl20 fn24">佳餚配美酒<em class="rt btback">返回上一頁</em></h2>
+              <h2 class="pdl20 fn24">佳餚配美酒<a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
               <h5 class="pdl20 f15">請選擇以下食品分類</h5>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0">
-                 <div class="grid_3 wbg mb20" target="search-cow">                 
+                 <div class="grid_3 wbg mb20 subClass" target="search-cow">                 
                     <div class="spic">
                       <img src="images/cow.png" alt=""/>
                     </div>
                      <p class="h40 grayb">牛</p>           
                  </div>                 
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 subClass" target="search-sheep">                 
                     <div class="spic">
                       <img src="images/sheep.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">羊</p>           
                  </div>
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 subClass" target="search-pig">                 
                     <div class="spic">
                       <img src="images/pig.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">豬</p>           
                  </div>
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="214">                 
                     <div class="spic">
                       <img src="images/e1.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">家禽</p>           
                  </div> 
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="215">                 
                     <div class="spic">
                       <img src="images/seafood.gif" alt=""/>
                     </div>
                      <p class="h40 grayb">海鮮</p>           
                  </div>                 
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="216">                 
                     <div class="spic">
                       <img src="images/snacks.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">小食</p>           
                  </div>
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="217">                 
                     <div class="spic">
                       <img src="images/dessert.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">甜品</p>           
                  </div>
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="218">                 
                     <div class="spic">
                       <img src="images/appetiser.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">頭盤</p>           
                  </div>  
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="219">                 
                     <div class="spic">
                       <img src="images/streetfoods.jpg" alt=""/>
                     </div>
                      <p class="h40 grayb">街頭食品</p>           
                  </div>
-                 <div class="grid_3 wbg mb20">                 
+                 <div class="grid_3 wbg mb20 category" id="220">                 
                     <div class="spic">
                       <img src="images/e1.jpg" alt=""/>
                     </div>
@@ -193,11 +159,15 @@
 <script src="js/script.js"></script>
 <script>
 $(function(){
-  $(".grid_3").click(function(){
+  $(".subClass").click(function(){
     var target = $(this).attr("target");
     window.location.href="<{spUrl c=frontFuns a=pageIndex}>&page="+target;
-  })
-})
+  });
+  $(".category").click(function(){
+    var id = $(this).attr("id");
+    window.location.href="<{spUrl c=frontFuns a=searchSelectResult theme=food}>&Id="+id;
+  });
+});
 </script>
 </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-06 08:44:32
+/* Smarty version 3.1.30, created on 2017-08-08 17:08:58
   from "D:\xampp\htdocs\redwine\tpl\search-select-result.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5986bad0636d26_82764630',
+  'unifunc' => 'content_59897faa453c71_18925869',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a93b52c23a81b0cbb66e37fd55258e0c5126a09d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search-select-result.html',
-      1 => 1502001871,
+      1 => 1502182242,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5986bad0636d26_82764630 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59897faa453c71_18925869 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +73,7 @@ function content_5986bad0636d26_82764630 (Smarty_Internal_Template $_smarty_tpl)
     .resultMsg{
       text-align: center;
       padding: 100px 0px;
-      font-size: 20px;
+      font-size: 15px;
     }
   </style>
 </head>
@@ -208,6 +208,7 @@ function content_5986bad0636d26_82764630 (Smarty_Internal_Template $_smarty_tpl)
         }else{
           $(".contentData").html("<div class='resultMsg'>沒有找到相關信息。</div>");
         }
+        //console.log(data);
       }
     });
    }

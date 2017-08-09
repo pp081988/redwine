@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-04 11:28:39
+/* Smarty version 3.1.30, created on 2017-08-08 16:24:03
   from "D:\xampp\htdocs\redwine\tpl\search.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5983e9e7bbc707_82725514',
+  'unifunc' => 'content_59897523552a76_94793489',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ec1a5a58596f2362fdd6d83996c413f5b0de00ed' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search.html',
-      1 => 1501571317,
+      1 => 1502180642,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5983e9e7bbc707_82725514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59897523552a76_94793489 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +64,11 @@ function content_5983e9e7bbc707_82725514 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '</script'; ?>
 >
   <!--<![endif]-->
-  
+  <style>
+  .mb20{
+    cursor: pointer;
+  }
+  </style>
   <!--[if lt IE 9]>
   <?php echo '<script'; ?>
  src="js/html5shiv.js"><?php echo '</script'; ?>
@@ -156,7 +160,8 @@ $(function(){
 ";
   });
   $(".wineToFood").click(function(){
-    window.location.href="www.baidu.com";
+    window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'wineToFood'),$_smarty_tpl);?>
+";
   });
 })
 <?php echo '</script'; ?>

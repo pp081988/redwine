@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-06 12:37:21
+/* Smarty version 3.1.30, created on 2017-08-08 16:50:48
   from "D:\xampp\htdocs\redwine\tpl\search-select-matching.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5986f161bee8b5_83001025',
+  'unifunc' => 'content_59897b687a60b7_81787385',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7090da46e41435b25981d73b531b0d651501b255' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\search-select-matching.html',
-      1 => 1502015840,
+      1 => 1502182247,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59897b687a60b7_81787385 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,16 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
 >
   <![endif]-->
 </head>
-
+<style>
+.epal,.product{
+  cursor: pointer;
+}
+.resultMsg{
+  padding: 50px 0px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+</style>
 <body>
   <div class="big-wrapper">
   <!--========================================================
@@ -82,28 +91,14 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
       <div class="container">
         <div class="row ">         
             <div class="heading1 mt20">
-              <h2 class="pdl20 fn24">佳餚配美酒<a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
+              <h2 class="pdl20 fn24">匹配結果：<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+<a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
              <h2  class="pdl20 fn24  mt20">酒商建議</h2>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0 supplierSuggest"> 
-                <!-- <div class="grid_3 wbg mb10"> 
-                  <div class="spic beer1">
-                    <img src="images/beer.jpg">
-                      <i class="b1arr"><img src="images/arrr1.png"></i>
-                  </div>
-                  <div class="clear"></div>
-                    <div class="beer2 bbg1">
-                      <li>
-                      <em class="bfn1">波爾多紅酒</em><em class="bfn2"> 配</em><em class="bfn3">Ibérico 火腿</em>
-                      </li>
-                      <p><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                    </div>           
-                </div>  -->
                 
-                  
-                                      
                 </div>
               </div>
             </div>
@@ -187,9 +182,10 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
 ";
     var url = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'searchSelectMatching'),$_smarty_tpl);?>
 &id="+id+"&theme="+theme+"&name="+name;
-    supplierSuggest(id,theme,name,url);
-    wineTasterSuggest(id,theme,name,url);
-    epalSuggest(id,theme,name,url);
+    var resultMsg = '<div class="resultMsg">未找到相關信息。</div>'
+    supplierSuggest(id,theme,name,url,resultMsg);
+    wineTasterSuggest(id,theme,name,url,resultMsg);
+    epalSuggest(id,theme,name,url,resultMsg);
 
     function supplierSuggest(id,theme,name,url){
       $.ajax({
@@ -206,7 +202,7 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
                 src = 'images/product/'+imageUrl[0];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 product" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
@@ -219,7 +215,10 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
                     </div>';
               $(".supplierSuggest").append(str);
             }
+          }else{
+            $(".supplierSuggest").append(resultMsg);
           }
+          product(theme);
         }
       });
     }
@@ -239,7 +238,7 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
                 src = 'images/product/'+imageUrl[0];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 product" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
@@ -252,7 +251,10 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
                     </div>';
               $(".wineTasterSuggest").append(str);
             }
+          }else{
+            $(".wineTasterSuggest").append(resultMsg);
           }
+          product(theme);
         }
       });
     }
@@ -266,30 +268,57 @@ function content_5986f161bee8b5_83001025 (Smarty_Internal_Template $_smarty_tpl)
             var dataObj = eval('(' + data + ')');
             for(i=0;i<dataObj.length;i++){
               var src = "images/noproductimg.png";
-              if(dataObj[i]['images'] != ""){
-                var images = dataObj[i]['images'].substr(1);
-                var imageUrl = images.split(",");
-                src = 'images/product/'+imageUrl[0];
+              if(theme == "wine"){
+                name = dataObj[i]['food_name'];
+                if(dataObj[i]['food_name'] == "0"){
+                  name = dataObj[i]['custom_food_name'];
+                }
+                src = dataObj[i]['food_img'];
+              }else{
+                name = dataObj[i]['wine_name'];
+                src = dataObj[i]['wine_img'];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 epal" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
                       <div class="clear"></div>\
                         <div class="beer2">\
                           <li>\
-                          <em class="bfn1"><em class="bfn3">'+dataObj[i]['name']+'</em>\
+                          <em class="bfn1"><em class="bfn3">'+name+'</em>\
                           </li>\
                         </div>\
                     </div>';
               $(".epalSuggest").append(str);
             }
           }else{
-            $(".epalSuggest").append("sdfsadfsdfdfsdf");
+            $(".epalSuggest").append(resultMsg);
           }
-          //console.log(data)
+          //console.log(data);
+          epal();
         }
+      });
+    }
+
+    function epal(){
+      $(".epal").click(function(){
+        var id = $(this).attr("id");
+        window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'forum_matching_detail','theme'=>'forum_matching'),$_smarty_tpl);?>
+&id="+id;
+      });
+    }
+
+    function product(theme){
+      $(".product").click(function(){
+        var id = $(this).attr("id");
+        if(theme == "food"){
+          theme = "wine";
+        }else{
+          theme = "food";
+        }
+        window.location.href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'frontFuns','a'=>'productDetailPage'),$_smarty_tpl);?>
+&id="+id+"&product="+theme;
       });
     }
   });

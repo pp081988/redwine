@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-02 16:59:23
+/* Smarty version 3.1.30, created on 2017-08-07 17:01:37
   from "D:\xampp\htdocs\redwine\tpl\productWineDetail.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5981946b41c972_63858004',
+  'unifunc' => 'content_59882c71911885_23047785',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c1d0ec0fb2996ef9c9198f202ce8701e51d917e7' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\productWineDetail.html',
-      1 => 1501468532,
+      1 => 1502096495,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5981946b41c972_63858004 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59882c71911885_23047785 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -30,7 +30,7 @@ function content_5981946b41c972_63858004 (Smarty_Internal_Template $_smarty_tpl)
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>jQuery网站商品图片放大镜效</title>
+<title></title>
 
 <?php echo '<script'; ?>
  type="text/javascript" src="js/jquery.1.4.2-min.js"><?php echo '</script'; ?>
@@ -42,6 +42,8 @@ function content_5981946b41c972_63858004 (Smarty_Internal_Template $_smarty_tpl)
 html,body{
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
+	margin: 0;
 }
 
 /*body{font:18px "宋体",arial,sans-serif;color:#585858;}*/
@@ -120,12 +122,11 @@ a:active{color:#1d7400;}
 #bigView img{position:absolute;}
 
 .content{
-	padding: 50px 20px;
+	padding: 20px 20px;
 	height: 500px;
 	width: 850px;
 	margin: 0 auto;
 	margin-top: 30px;
-	border: 1px solid #eee;
 }
 
 .content div{

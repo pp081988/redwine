@@ -422,7 +422,7 @@ function productQuery(condition){
     data:{condition:condition,type:"forum",product:"wine"},
     success:function(data){
       if(data == "10016"){
-        alert("發生錯誤：10016<br>請聯繫系統管理員");
+        console.log("發生錯誤：10016<br>請聯繫系統管理員");
       }else{
         var dataObj = eval('(' + data + ')');
         $("input[name=wine_name]").val(dataObj['name']);

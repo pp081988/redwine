@@ -17,19 +17,26 @@ class main extends spController
 	function index(){
 		$this->activicityData = json_encode($this->data->briefData("activicity","2"));
 		$this->introductionData = json_encode($this->data->briefData("introduction","4"));
+		$this->video = $this->showVideo()['editorCont'];
 		$this->display("index.html");
 	}
 
 	function activicity(){
+		$this->totailNum = $this->rowsTotal("activicity");
 		$this -> display("activicity.html");
+
 	}
 
 	function listData()
 	{
 		$post = spClass("spArgs");
 		$columnId = $this->filter->filter($post->get("columnId"));
-		$limit = $this->filter->filter($post->get("limit"));
-		echo json_encode($this->data->briefData($columnId,$limit));
+		$current = $this->filter->filter($post->get("current"));
+		$count = $this->filter->filter($post->get("count"));
+		$start = ($current - 1) * $count;
+		$end = $current * $count - 1;
+		echo json_encode($this->data->briefData($columnId,$start.",".$end));
+		//echo $this->data->briefData($columnId,$start.",".$end);
 	}
 
 	function forum(){
@@ -37,15 +44,38 @@ class main extends spController
 	}
 
 	function video(){
+		$this->totailNum = $this->rowsTotal("video");
 		$this -> display("video.html");
 	}
 
 	function tellyou(){
+		$this->totailNum = $this->rowsTotal("tellyou");
 		$this -> display("tellyou.html");
 	}
 
 	function introduction(){
+		$this->totailNum = $this->rowsTotal("introduction");
 		$this -> display("introduction.html");
+	}
+
+	private function rowsTotal($event)
+	{
+		switch ($event) {
+			case 'activicity':
+				$dbName = "site_activicity";
+				break;
+			case 'video':
+				$dbName = "site_video";
+				break;
+			case 'tellyou':
+				$dbName = "site_tellyou";
+				break;
+			case 'introduction':
+				$dbName = "site_introduction";
+				break;
+		}
+		$db = new db($dbName,"id");
+		return $db->findCount();
 	}
 
 	function mail(){
@@ -96,5 +126,11 @@ class main extends spController
 	function searching()
 	{
 		$this->display("search.html");
+	}
+
+	function showVideo()
+	{
+		$db = new db("site_video","id");
+		return $db->find(null,"id DESC","editorCont");
 	}
 }	

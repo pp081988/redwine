@@ -23,7 +23,16 @@
   <script src="js/html5shiv.js"></script>
   <![endif]-->
 </head>
-
+<style>
+.epal,.product{
+  cursor: pointer;
+}
+.resultMsg{
+  padding: 50px 0px;
+  font-size: 15px;
+  margin-left: 20px;
+}
+</style>
 <body>
   <div class="big-wrapper">
   <!--========================================================
@@ -41,28 +50,13 @@
       <div class="container">
         <div class="row ">         
             <div class="heading1 mt20">
-              <h2 class="pdl20 fn24">佳餚配美酒<a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
+              <h2 class="pdl20 fn24">匹配結果：<{$name}><a onclick="window.history.back();" class="rt btback">返回上一頁</a></h2>
              <h2  class="pdl20 fn24  mt20">酒商建議</h2>
             </div>
             <div class="box2-wrapper1">
               <div class="box2 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
                 <div class="row mg0 supplierSuggest"> 
-                <!-- <div class="grid_3 wbg mb10"> 
-                  <div class="spic beer1">
-                    <img src="images/beer.jpg">
-                      <i class="b1arr"><img src="images/arrr1.png"></i>
-                  </div>
-                  <div class="clear"></div>
-                    <div class="beer2 bbg1">
-                      <li>
-                      <em class="bfn1">波爾多紅酒</em><em class="bfn2"> 配</em><em class="bfn3">Ibérico 火腿</em>
-                      </li>
-                      <p><a class="bt5" href="#">50</a><a class="btno" href="#">50</a> </p>
-                    </div>           
-                </div>  -->
                 
-                  
-                                      
                 </div>
               </div>
             </div>
@@ -139,9 +133,10 @@
     var theme = "<{$theme}>";
     var name = "<{$name}>";
     var url = "<{spUrl c=frontFuns a=searchSelectMatching}>&id="+id+"&theme="+theme+"&name="+name;
-    supplierSuggest(id,theme,name,url);
-    wineTasterSuggest(id,theme,name,url);
-    epalSuggest(id,theme,name,url);
+    var resultMsg = '<div class="resultMsg">未找到相關信息。</div>'
+    supplierSuggest(id,theme,name,url,resultMsg);
+    wineTasterSuggest(id,theme,name,url,resultMsg);
+    epalSuggest(id,theme,name,url,resultMsg);
 
     function supplierSuggest(id,theme,name,url){
       $.ajax({
@@ -158,7 +153,7 @@
                 src = 'images/product/'+imageUrl[0];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 product" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
@@ -171,7 +166,10 @@
                     </div>';
               $(".supplierSuggest").append(str);
             }
+          }else{
+            $(".supplierSuggest").append(resultMsg);
           }
+          product(theme);
         }
       });
     }
@@ -191,7 +189,7 @@
                 src = 'images/product/'+imageUrl[0];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 product" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
@@ -204,7 +202,10 @@
                     </div>';
               $(".wineTasterSuggest").append(str);
             }
+          }else{
+            $(".wineTasterSuggest").append(resultMsg);
           }
+          product(theme);
         }
       });
     }
@@ -218,30 +219,55 @@
             var dataObj = eval('(' + data + ')');
             for(i=0;i<dataObj.length;i++){
               var src = "images/noproductimg.png";
-              if(dataObj[i]['images'] != ""){
-                var images = dataObj[i]['images'].substr(1);
-                var imageUrl = images.split(",");
-                src = 'images/product/'+imageUrl[0];
+              if(theme == "wine"){
+                name = dataObj[i]['food_name'];
+                if(dataObj[i]['food_name'] == "0"){
+                  name = dataObj[i]['custom_food_name'];
+                }
+                src = dataObj[i]['food_img'];
+              }else{
+                name = dataObj[i]['wine_name'];
+                src = dataObj[i]['wine_img'];
               }
               str = '\
-                    <div class="grid_3 wbg mb10">\
+                    <div class="grid_3 wbg mb10 epal" id="'+dataObj[i]['id']+'">\
                       <div class="spic beer1">\
                         <img style="height:150px;" src="'+src+'">\
                       </div>\
                       <div class="clear"></div>\
                         <div class="beer2">\
                           <li>\
-                          <em class="bfn1"><em class="bfn3">'+dataObj[i]['name']+'</em>\
+                          <em class="bfn1"><em class="bfn3">'+name+'</em>\
                           </li>\
                         </div>\
                     </div>';
               $(".epalSuggest").append(str);
             }
           }else{
-            $(".epalSuggest").append("sdfsadfsdfdfsdf");
+            $(".epalSuggest").append(resultMsg);
           }
-          //console.log(data)
+          //console.log(data);
+          epal();
         }
+      });
+    }
+
+    function epal(){
+      $(".epal").click(function(){
+        var id = $(this).attr("id");
+        window.location.href="<{spUrl c=frontFuns a=forum_matching_detail theme=forum_matching}>&id="+id;
+      });
+    }
+
+    function product(theme){
+      $(".product").click(function(){
+        var id = $(this).attr("id");
+        if(theme == "food"){
+          theme = "wine";
+        }else{
+          theme = "food";
+        }
+        window.location.href="<{spUrl c=frontFuns a=productDetailPage}>&id="+id+"&product="+theme;
       });
     }
   });

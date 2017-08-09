@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-29 16:03:10
+/* Smarty version 3.1.30, created on 2017-08-09 15:14:59
   from "D:\xampp\htdocs\redwine\tpl\tellyou.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597c959e7e55e0_41926089',
+  'unifunc' => 'content_598ab673078066_13395814',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ec5f4bc9a4a2fdaaef23473e692f558247adf5d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\tellyou.html',
-      1 => 1500977168,
+      1 => 1502262897,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598ab673078066_13395814 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,7 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/user.css">
+   <link rel="stylesheet" href="css/jquery.pagination.css">
   <?php echo '<script'; ?>
  src="js/jquery.js"><?php echo '</script'; ?>
 >
@@ -55,6 +56,9 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
  src="js/wow/wow.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
+ src="js/jquery.pagination.min.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
 >
     $(document).ready(function () {
       if ($('html').hasClass('desktop')) {
@@ -71,7 +75,15 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
 >
   <![endif]-->
 </head>
-
+<style>
+  #pagination{
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  #pagination a{
+    display: initial!important;
+  }
+</style>
 <body>
   <div class="big-wrapper">
   <!--========================================================
@@ -103,12 +115,32 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
                     <?php echo '<script'; ?>
 >
                     $(function(){
+                      var count = 10;
+                      var totailNum = <?php echo $_smarty_tpl->tpl_vars['totailNum']->value;?>
+;
+                      var totalPage = Math.ceil(totailNum/count);
+                      $("#pagination").pagination({
+                        currentPage: 1,
+                        totalPage: totalPage,
+                        isShow: true,
+                        count: count,
+                        homePageText: "首頁",
+                        endPageText: "尾頁",
+                        prevPageText: "上一頁",
+                        nextPageText: "下一頁",
+                        callback: function(current) {
+                          getData(current,count);
+                        }
+                      });
+                      getData(1,count);
+                      function getData(current,count){
                         $.ajax({
                             url:"<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'main','a'=>'listData'),$_smarty_tpl);?>
 ",
                             type:"post",
-                            data:{columnId:"tellyou",limit:"10"},
+                            data:{columnId:"tellyou",current:current,count:count},
                             success:function(data){
+                              $(".activicityCont").html("");
                                 var dataObj = eval('(' + data + ')');
                                 for(i=0;i<dataObj.length;i++){
                                 str = '<div class="grid_6">\
@@ -125,10 +157,10 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
                                         </div>';
                                 $(".tellyouCont").append(str);
                                 }
-                                //console.log(dataObj);
+                                // console.log(data);
                             }
                         })
-                        
+                      }
                     })
                     <?php echo '</script'; ?>
 >
@@ -148,8 +180,10 @@ function content_597c959e7e55e0_41926089 (Smarty_Internal_Template $_smarty_tpl)
                   </div>
                 </div> 
             </div>
-            <div class="row mt20 page"><a href="#" class="pc1">1</a><a href="#"  class="pc2">2</a><a href="#"  class="pc2">>></a></div>
-           
+            <div id="pagination" class="page fl"></div>
+            <div class="info fl">
+              <!-- <p>當前頁數：<span id="current"></span></p> -->
+            </div>
       </div>
     </div>
     
