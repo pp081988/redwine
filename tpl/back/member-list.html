@@ -29,7 +29,7 @@
 		-
 		<input type="text" name="endTime" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'datemin\')}',maxDate:'%y-%M-%d' })" id="datemax" class="input-text Wdate" style="width:120px;">
 		<a onclick="timeSearch();" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</a>
-		<a onclick="getData();" class="btn btn-default radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 顯示全部</a>
+		<a onclick="displayAll();" class="btn btn-default radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 顯示全部</a>
 	</div>
 	<!-- <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加用户</a></span> <span class="r">共有数据：<strong>88</strong> 条</span>
 	</div> -->
@@ -75,40 +75,44 @@ function member_show(title,url,id,w,h){
 	layer_show(title,url,w,h);
 }
 /*用户-停用*/
-function member_stop(obj,id){
-	layer.confirm('确认要停用吗？',function(index){
+function member_stop(obj,id,username){
+	layer.confirm('是否停用賬戶： '+username,function(index){
 		$.ajax({
 			type: 'POST',
-			url: '',
-			dataType: 'json',
+			url: '<{spUrl c=backFuns a=siteUser}>',
+			data:{type:"userDeactivat",operation:"stop",id:id},
 			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
-				$(obj).remove();
-				layer.msg('已停用!',{icon: 5,time:1000});
+				if(data == "done"){
+					$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,'+id+',\''+username+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;</i></a>');
+					$(obj).parents("tr").find(".td-status").html('<span class="label label-defaunt radius">已停用</span>');
+					$(obj).remove();
+					layer.msg('賬戶： '+username+' 已停用',{icon: 5,time:1000});
+				}
 			},
 			error:function(data) {
-				console.log(data.msg);
+				alert("連接錯誤");
 			},
 		});		
 	});
 }
 
 /*用户-启用*/
-function member_start(obj,id){
-	layer.confirm('确认要启用吗？',function(index){
+function member_start(obj,id,username){
+	layer.confirm('是否啟用賬戶： '+username,function(index){
 		$.ajax({
 			type: 'POST',
-			url: '',
-			dataType: 'json',
+			url: '<{spUrl c=backFuns a=siteUser}>',
+			data:{type:"userDeactivat",operation:"start",id:id},
 			success: function(data){
-				$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
-				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
-				$(obj).remove();
-				layer.msg('已启用!',{icon: 6,time:1000});
+				if(data == "done"){
+					$(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,'+id+',\''+username+'\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>');
+					$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已啟用</span>');
+					$(obj).remove();
+					layer.msg('賬戶： '+username+' 已啟用',{icon: 6,time:1000});
+				}
 			},
 			error:function(data) {
-				console.log(data.msg);
+				alert("連接錯誤");
 			},
 		});
 	});
@@ -122,39 +126,49 @@ function change_password(title,url,id,w,h){
 	layer_show(title,url,w,h);	
 }
 /*用户-删除*/
-function member_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
+function member_del(obj,id,username){
+	layer.confirm('是否<span style="color:red;font-size:18px;">刪除</span>賬戶： '+username,function(index){
 		$.ajax({
 			type: 'POST',
-			url: '',
-			dataType: 'json',
+			url: '<{spUrl c=backFuns a=siteUser}>',
+			data:{type:"deleteUser",id:id},
 			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
+				if(data == "done"){
+					$(obj).parents("tr").remove();
+					layer.msg('賬戶： '+username+' 已刪除',{icon:1,time:1000});
+				}
 			},
 			error:function(data) {
-				console.log(data.msg);
+				alert("連接錯誤");
 			},
 		});		
 	});
 }
 
+var searchStatus = 0;
 function timeSearch(){
 	var startTime = $("input[name=startTime]").val();
 	var endTime = $("input[name=endTime]").val();
 	if(startTime != "" && endTime != ""){
 		getData(startTime,endTime);
+		searchStatus = 1;
 	}
 }
 
+function displayAll(){
+	if(searchStatus == 1){
+		$("input[name=startTime]").val("");
+		$("input[name=endTime]").val("");
+		getData();
+	}
+	searchStatus = 0;
+}
 
-
-var getStatus = 0;
 function getData(startTime,endTime){
 	$.ajax({
 		url:"<{spUrl c=backFuns a=siteUser}>",
 		type:"post",
-		data:{startTime:startTime,endTime:endTime},
+		data:{type:"getAllUsers",startTime:startTime,endTime:endTime},
 		success:function(data){
 			if(data != ""){
 				if($('.table-sort').hasClass('dataTable')) {
@@ -165,11 +179,16 @@ function getData(startTime,endTime){
 				}
 				var dataObj = eval('(' + data + ')');
 				for(i=0;i<dataObj.length;i++){
+					var deactivat = 'onClick="member_stop(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;';
 					var is_vaild;
 					if(dataObj[i]['activate']['is_vaild'] == "1"){
 						is_vaild = '<span class="label label-success radius">已激活</span>';
 					}else{
 						is_vaild = '<span class="label label-warning radius">未驗證</span>';
+					}
+					if(dataObj[i]['deactivat'] == "1"){
+						is_vaild = '<span class="label label-defaunt radius">已停用</span>';
+						deactivat = 'onClick="member_start(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;;';
 					}
 					str='\
 						<tr class="text-c">\
@@ -182,7 +201,7 @@ function getData(startTime,endTime){
 							<td>'+dataObj[i]['years_of_drinking']+'</td>\
 							<td>'+dataObj[i]['create_time']+'</td>\
 							<td class="td-status">'+is_vaild+'</td>\
-							<td class="td-manage"><a style="text-decoration:none" onClick="member_stop(this,10001)" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a> <a title="编辑" href="javascript:;" onclick="member_edit("编辑","member-add.html","4","","510")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a><a title="删除" href="javascript:;" onclick="member_del(this,1)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
+							<td class="td-manage"><a style="text-decoration:none" '+deactivat+'</i></a><a title="编辑" href="javascript:;" onclick="member_edit("编辑","member-add.html","4","","510")" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a><a title="删除" href="javascript:;" onclick="member_del(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>\
 						</tr>';
 					$(".tableData tbody").append(str);
 				}
@@ -197,8 +216,6 @@ function getData(startTime,endTime){
 					  {"orderable":false,"aTargets":[0,8,9]}// 制定列不参与排序
 					]
 				});
-
-				
 			}
 			//console.log(data);
 		}

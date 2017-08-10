@@ -425,7 +425,25 @@ class backFuns extends spController
 
 	function siteUser()
 	{
+		$args = spClass("spArgs");
 		$userModel = spClass("admin_siteUserMange");
-		echo json_encode($userModel->allUsers());
+		switch ($args->get("type")) {
+			case 'getAllUsers':
+				echo json_encode($userModel->allUsers());
+				break;
+			case 'userDeactivat':
+				$operation = $args->get("operation");
+				$id = $args->get("id");
+				echo $userModel->userDeactivat($operation,$id);
+				break;
+			case 'deleteUser':
+				$id = $args->get("id");
+				echo $userModel->deleteUser($id);
+				break;
+			default:
+				# code...
+				break;
+		}
+		
 	}
 }
