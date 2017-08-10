@@ -3,6 +3,7 @@ require_once(APP_PATH."/model/forumData.php");
 require_once(APP_PATH."/model/upload.php");
 require_once(APP_PATH."/model/variable.php");
 require_once(APP_PATH."/model/unloginCheck.php");
+require_once(APP_PATH."/model/admin_siteUserMange.php");
 
 class backFuns extends spController
 {
@@ -420,5 +421,11 @@ class backFuns extends spController
 		}else{
 			die("ok");
 		}
+	}
+
+	function siteUser()
+	{
+		$userModel = spClass("admin_siteUserMange");
+		echo json_encode($userModel->allUsers());
 	}
 }

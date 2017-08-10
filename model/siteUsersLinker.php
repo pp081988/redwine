@@ -12,6 +12,7 @@ class siteUsersLinker extends spModel
 				'mapkey' => 'username', // 本表与对应表关联的字段名
 				'fclass' => "siteActivate", // 对应表的类名
 				'fkey' => 'username',    // 对应表中关联的字段名
+				'field' => 'is_vaild',
 				'enabled' => true     // 启用关联
 			)
 		);

@@ -139,47 +139,9 @@ class login extends spController{
 			$sex = $filter->filter($dirtySex);
 			/*******过滤性别字符串******/
 
-			/*****年龄段字符串重组******/
-			$initialAge = $args->get()['age'];
-			switch ($initialAge) {
-				case '18-25':
-					$age = 1;
-					break;
-				case '26-30':
-					$age = 2;
-					break;
-				case '31-35':
-					$age = 3;
-					break;
-				case '36-40':
-					$age = 4;
-					break;
-				case '41-45':
-					$age = 5;
-					break;
-				case '>46':
-					$age = 6;
-					break;
-			}
-			/*****年龄段字符串重组******/
+			$age = $filter->filter($args->get()['age']);
 
-			/*****酒龄段字符串重组******/
-			$initialYearsOfDrinking = $args->get()['yearsOfDrinking'];
-			switch ($initialYearsOfDrinking) {
-				case '0-1':
-					$yearsOfDrinking = 1;
-					break;
-				case '1-2':
-					$yearsOfDrinking = 2;
-					break;
-				case '2-3':
-					$yearsOfDrinking = 3;
-					break;
-				case '>3':
-					$yearsOfDrinking = 4;
-					break;
-			}
-			/*****年龄段字符串重组******/
+			$yearsOfDrinking = $filter->filter($args->get()['yearsOfDrinking']);
 
 			$condition = [
 				'create_time'	=>	$createTime,
@@ -227,6 +189,10 @@ class login extends spController{
 				$activate_key = strtoupper($random->randStr());
 				$_SESSION['activate_key'] = $activate_key;
 				write($condition);
+				if(!$activeTable->create(Array('username'=>$username,"activate_key"=>$activate_key))){
+				echo "e1";
+				exit;
+				}
 				//
 				//SMS发送
 				//
@@ -376,9 +342,9 @@ class login extends spController{
 	public function activate()
 	{
 		$dirty_activate_key = $_GET['id'];
-		if(strlen($dirty_activate_key) != 32){
-			exit;
-		}
+		// if(strlen($dirty_activate_key) != 32){
+		// 	exit;
+		// }
 		$filter = spClass("filter");
 		$activate_key = $filter->filter($dirty_activate_key);
 		$gb = new db("site_activate","id");
@@ -407,15 +373,17 @@ class login extends spController{
 			$dirtyVerification_key = $_POST['verification_key'];
 			$filter = spClass("filter");
 			$verification_key = $filter->filter($dirtyVerification_key);
-			if($verification_key == $_SESSION['cp_key']){
-				$_SESSION['cp_process'] = "processing";
-				echo "ok";
-			}else{
-				echo "error";
-			}
-			if($verification_key == $_SESSION['activate_key']){
-				//$gb = spClass("db");
-				
+			switch ($verification_key) {
+				case $_SESSION['cp_key']:
+					$_SESSION['cp_process'] = "processing";
+					echo "cok";
+					break;
+				case $_SESSION['activate_key']:
+					echo $_SESSION['activate_key'];
+					break;
+				default:
+					echo "error";
+					break;
 			}
 		}
 	}

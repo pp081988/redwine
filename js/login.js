@@ -123,12 +123,13 @@ $(function(){
 		switch(name){
 			case "sex":
 			$(".selecterTitle").html("請選擇性別:");
-			$(".selecter div:last-child").html("<input type='radio' id='female' name='sex' value='female'><label for='female'>女士</label><input type='radio' id='male' name='sex' value='male' style='margin-left:30px'><label for='male'>男士</label>");
+			$(".selecter div:last-child").html("<input type='radio' id='female' name='sex' value='0'><label for='female'>女士</label><input type='radio' id='male' name='sex' value='1' style='margin-left:30px'><label for='male'>男士</label>");
 			$(".selecter div input").click(function(){
 				var val = $(".selecter div input[name='sex']:checked").val();
 				var str;
+				var id = $(this).attr("id");
 				$("label").each(function(){
-					if($(this).attr("for") == val){
+					if($(this).attr("for") == id){
 						str = $(this).html();
 					}
 				})
@@ -141,16 +142,23 @@ $(function(){
 			$(".selecterTitle").html("請選擇年齡:");
 			$(".selecter div:last-child").html("<select>\
 				<option selected='true' disabled='true'>--年齡段--</option>\
-				<option value='18-25'>18-25歲</option>\
-				<option value='26-30'>26-30歲</option>\
-				<option value='31-35'>31-35歲</option>\
-				<option value='36-40'>36-40歲</option>\
-				<option value='41-45'>41-45歲</option>\
-				<option value='>46'>>46歲</option>\
+				<option value='0'>18-25歲</option>\
+				<option value='1'>26-30歲</option>\
+				<option value='2'>31-35歲</option>\
+				<option value='3'>36-40歲</option>\
+				<option value='4'>41-45歲</option>\
+				<option value='5'>>46歲</option>\
 				</select>");
 			$(".selecter div select").change(function(){
 				var val = $(this).val();
-				$(".age").val(val+"歲");
+				var arr = Array("18-25歲","26-30歲","31-35歲","36-40歲","41-45歲",">46歲");
+				var html;
+				for(var i=0;i<arr.length;i++){
+					if(val == i){
+						html = arr[i];
+					}
+				}
+				$(".age").val(html);
 				age = val;
 				selecterWarp("none");
 			})
@@ -159,14 +167,21 @@ $(function(){
 			$(".selecterTitle").html("請選擇酒齡:");
 			$(".selecter div:last-child").html("<select>\
 				<option selected='true' disabled='true'>--酒齡段--</option>\
-				<option value='0-1'>0-1年</option>\
-				<option value='1-2'>1-2年</option>\
-				<option value='2-3'>2-3年</option>\
-				<option value='>3'>>3年</option>\
+				<option value='0'>0-1年</option>\
+				<option value='1'>1-2年</option>\
+				<option value='2'>2-3年</option>\
+				<option value='3'>>3年</option>\
 				</select>");
 			$(".selecter div select").change(function(){
 				var val = $(this).val();
-				$(".yearsOfDrinking").val(val+"年");
+				var arr = Array("0-1年","1-2年","2-3年",">3年");
+				var html;
+				for(var i=0;i<arr.length;i++){
+					if(val == i){
+						html = arr[i];
+					}
+				}
+				$(".yearsOfDrinking").val(html);
 				selecterWarp("none");
 				yearsOfDrinking = val;
 			})
@@ -322,7 +337,7 @@ $(function(){
 				if(data != "ok"){
 					if(data == "error"){
 						ajaxWait("hide");
-						tips("密碼不能正確");
+						tips("驗證碼錯誤");
 						return false;
 					}
 					if(data == "e1"){
@@ -330,9 +345,12 @@ $(function(){
 						tips("驗證碼不正確");
 						return false;
 					}
-					console.log(data);
+					if(data == "cok"){
+						window.location.href=changePasswordUrl;
+					}
+					window.location.href=activate+"&id="+data;
 				}
-				window.location.href=changePasswordUrl;	
+				//console.log(data);
 			}
 		})
 	});

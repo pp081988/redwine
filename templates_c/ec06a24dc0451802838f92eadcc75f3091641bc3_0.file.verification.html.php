@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-10 15:25:12
-  from "D:\xampp\htdocs\redwine\tpl\register.html" */
+/* Smarty version 3.1.30, created on 2017-08-10 12:14:58
+  from "D:\xampp\htdocs\redwine\tpl\verification.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598c0a58ae2cb4_74432979',
+  'unifunc' => 'content_598bddc2ccd6a3_45611034',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'df667d1ac4d7c08b6c40bf5a5a6746e31e9dadd7' => 
+    'ec06a24dc0451802838f92eadcc75f3091641bc3' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\register.html',
-      1 => 1502344308,
+      0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\verification.html',
+      1 => 1502338497,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./header.html' => 1,
   ),
 ),false)) {
-function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598bddc2ccd6a3_45611034 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +38,9 @@ function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
  src="js/jquery.js"><?php echo '</script'; ?>
 >
-  <?php echo '<script'; ?>
+  <!-- <?php echo '<script'; ?>
  src="js/jquery-migrate-1.2.1.js"><?php echo '</script'; ?>
->
+> -->
   <?php echo '<script'; ?>
  src="js/camera.js"><?php echo '</script'; ?>
 >
@@ -59,20 +59,18 @@ function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl)
 >
   <?php echo '<script'; ?>
 >
-    var registerUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'register'),$_smarty_tpl);?>
-";
-    var existsCheckUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'existsCheck'),$_smarty_tpl);?>
+    var changePasswordUrl = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'changePasswordIndex'),$_smarty_tpl);?>
 ";
     var resultUrl="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'resultIndex'),$_smarty_tpl);?>
 ";
-    var verification="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verificationIndex'),$_smarty_tpl);?>
+    var verificationUrl = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verification'),$_smarty_tpl);?>
 ";
-    
+    var activate = "<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'activate'),$_smarty_tpl);?>
+";
     $(document).ready(function () {
-      if ($('html').hasClass('desktop')) {
-        new WOW().init();
-      }
-      $(".selecter").css({"left":document.body.clientWidth /2 - 150,"top":document.body.clientHeight /2 - 15});
+        if ($('html').hasClass('desktop')) {
+            new WOW().init();
+        }
     });
   <?php echo '</script'; ?>
 >
@@ -110,7 +108,7 @@ function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             HEADER
   =========================================================-->
-<?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+ <?php $_smarty_tpl->_subTemplateRender("file:./header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 
@@ -122,27 +120,24 @@ function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl)
       <div class="wrapper1">
       <div class="container">
         <div class="row article">    
-              <h2>註冊帳號</h2>
+              <h2>檢視驗證碼</h2>
               </div>
        
       </div>      
     </div>
-<div class="register login wow fadeInUp"> 
-    <h2>請填寫以下項目 : </h2>
-        <li><input name="" type="text" class="usertext username" placeholder="帳戶名稱"></li>
-        <li class="pdt0"><input name="" type="text" class="usertext emailOrPhone" placeholder="電郵/電話號碼"></li>
-        <li class="pdt0"><input name="" type="password" class="usertext password" placeholder="登入密碼"></li>
-        <li class="pdt0"><input name="" type="password" class="usertext passwordRepeat" placeholder="確認密碼"></li>
-        <li class="pdt0 select" name="sex"><input type="text"  class="usertext sex" placeholder="性別" disabled="disabled"></li>
-        <li class="pdt0 select" name="age"><input type="text"  class="usertext age" placeholder="年齡" disabled="disabled"></li>
-        <li class="pdt0 select" name="yearsOfDrinking"><input type="text" class="usertext yearsOfDrinking" placeholder="酒齡" disabled="disabled"></li>
-        <li class="pd0"><em class="red1">密碼不可為空白</em></li>
+<div class="login verification forgot  wow fadeInUp"> 
+      <h2>請輸入收到的驗證碼 : </h2>
+     
+      <!-- <li class="f18">主題描述及內文：</li>  -->
+         <li class="pdt0"><input name="" type="text" class="usertext username verification_key" placeholder="驗證碼"></li>
+         <span class="sendActivateKey">重传驗證碼</>
+
+  <li class="pd0"><em class="red1">輸入錯誤 !</em></li>
  </div>
-   <div class="loginnext registerAction wow fadeInDown">
-    <span>請輸入驗證碼：</span><input type="text" name="" class="verify"><iframe class="verifyImg" name="verifyIframe" src="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
-"></iframe><a href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'login','a'=>'verifyImg'),$_smarty_tpl);?>
-" target="verifyIframe" id="verifyImgRefresh"></a>
-     <h2 style="float: right;"><em class="rt btback">確定</em></h2>
+   <div class="loginnext loginAction wow fadeInDown">
+     <h2><em class="rt btback verificationBut">確認</em></h2>
+  
+ 
    </div>
 
 
@@ -169,12 +164,7 @@ function content_598c0a58ae2cb4_74432979 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </footer>
 </div>
-<div class="selecterWarp">
-    <div class="selecter">
-        <div class="selecterTitle"></div>
-        <div></div>
-    </div>
-</div>
+
 <?php echo '<script'; ?>
  src="js/script.js"><?php echo '</script'; ?>
 >

@@ -43,7 +43,7 @@ class Verify extends spController{ //原文件中这行为class Verify{
     //设置干扰线条
     function set_line(){
         if(empty($this->line_num)){
-            $this->line_num=2;
+            $this->line_num=4;
         }
         for($i=0;$i<$this->line_num;$i++){
             $this->line_color=imagecolorallocate($this->im,mt_rand(0,255),mt_rand(0,255),mt_rand(0,255));//生成干扰线条颜色
@@ -53,7 +53,7 @@ class Verify extends spController{ //原文件中这行为class Verify{
     
     //生成随机字符，并且MD5加密
     function ver_str(){
-        $string=strtoupper(md5(mt_rand(0,8)));// 用MD5加密随机产生的数字
+        $string=strtoupper(md5(mt_rand()));// 用MD5加密随机产生的数字
         if(empty($this->font_num)){
             $this->font_num=4;
         }
