@@ -18,6 +18,16 @@ class main extends spController
 		$this->activicityData = json_encode($this->data->briefData("activicity","2"));
 		$this->introductionData = json_encode($this->data->briefData("introduction","4"));
 		$this->video = $this->showVideo()['editorCont'];
+		$this->banners = "";
+		$funs = new frontFuns();
+		if($bans =  $funs->banner()){
+			foreach ($bans as $key => $value) {
+				$this->banners .= '
+									<div data-link="'.$value['link'].'" data-src="'.$value['image'].'">
+                						<div class="caption wow fadeInUp">'.$value['title'].'</div>
+              						</div>';
+			}
+		}
 		$this->display("index.html");
 	}
 
@@ -132,5 +142,13 @@ class main extends spController
 	{
 		$db = new db("site_video","id");
 		return $db->find(null,"id DESC","editorCont");
+	}
+
+	function tou()
+	{
+		$touDB = new db("site_tou","id");
+		$res = $touDB->find();
+		$this->content = $res['content'];
+		$this->display("tou.html");
 	}
 }	

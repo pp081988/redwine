@@ -1,18 +1,22 @@
 <?php
 
-class admin_siteUserMange extends spController
+class admin_siteUserManage extends spController
 {
 	private $fields = "id,create_time,username,email,phone,sex,age,years_of_drinking,deactivat";
 	public $var;
 	private $userDB;
 	private $siteUsersLinker;
+	public $date;
+	private $delUserDB;
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->var = spClass("variable");
-		$this->userDB = spClass("db",Array("site_users","id"));
+		$this->userDB = new db("site_users","id");
 		$this->siteUsersLinker = spClass("siteUsersLinker");
+		$this->date = date("Y-m-d H:i:s");
+		$this->delUserDB = new db("admin_users_del","id");
 	}
 
 	function allUsers()
@@ -48,17 +52,39 @@ class admin_siteUserMange extends spController
 					die("done");
 				}
 				break;
-			default:
-				# code...
-				break;
 		}
 	}
 
 	function deleteUser($id)
 	{
 		$conditions = Array("id"=>$id);
-		if($this->siteUsersLinker->spLinker()->delete($conditions)){
-			die("done");
+		$userInfo = $this->userDB->find($conditions);
+		$delInfo = [
+			"id"				=>	$userInfo['id'],
+			"del_time"			=>	$this->date,
+			"username"			=>	$userInfo['username'],
+			"contact"			=>	$userInfo['email'].$userInfo['phone'],
+			"admin_username"	=>	$_SESSION['admin_username']
+		];
+		if($this->delUserDB->create($delInfo)){
+			if($this->siteUsersLinker->spLinker()->delete($conditions)){
+				die("done");
+			}
+		}
+	}
+
+	function delUserInfo()
+	{
+		$args = spClass("spArgs");
+		$startTime = $args->get('startTime');
+		$endTime = $args->get('endTime');
+		if($startTime && $endTime){
+			$conditions = "del_time BETWEEN '".$startTime." 00:00:00' AND '".$endTime." 23:59:59'";
+		}else{
+			$conditions = null;
+		}
+		if($res = $this->delUserDB->findAll($conditions)){
+			return $res;
 		}
 	}
 }

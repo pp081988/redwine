@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-10 14:50:39
+/* Smarty version 3.1.30, created on 2017-08-11 16:47:58
   from "D:\xampp\htdocs\redwine\tpl\back\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598c569fdf9e99_71782237',
+  'unifunc' => 'content_598d6f3e6adf66_68376450',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '24fc8755e5539707f54fa8295ab9a6bd85771aa6' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\index.html',
-      1 => 1502369221,
+      1 => 1502441277,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598c569fdf9e99_71782237 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598d6f3e6adf66_68376450 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -167,7 +167,8 @@ function content_598c569fdf9e99_71782237 (Smarty_Internal_Template $_smarty_tpl)
 				<ul>
 					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'member-list'),$_smarty_tpl);?>
 " data-title="會員管理" href="javascript:;">會員列表</a></li>
-					<li><a data-href="member-del.html" data-title="删除的会员" href="javascript:;">已停用會員</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'member-del'),$_smarty_tpl);?>
+" data-title="已刪除會員" href="javascript:;">已刪除會員</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -182,16 +183,13 @@ function content_598c569fdf9e99_71782237 (Smarty_Internal_Template $_smarty_tpl)
 		</dd>
 	</dl>
 		<dl id="menu-tongji">
-			<dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe61a;</i> 網站信息<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="charts-1.html" data-title="折线图" href="javascript:void(0)">折线图</a></li>
-					<li><a data-href="charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">时间轴折线图</a></li>
-					<li><a data-href="charts-3.html" data-title="区域图" href="javascript:void(0)">区域图</a></li>
-					<li><a data-href="charts-4.html" data-title="柱状图" href="javascript:void(0)">柱状图</a></li>
-					<li><a data-href="charts-5.html" data-title="饼状图" href="javascript:void(0)">饼状图</a></li>
-					<li><a data-href="charts-6.html" data-title="3D柱状图" href="javascript:void(0)">3D柱状图</a></li>
-					<li><a data-href="charts-7.html" data-title="3D饼状图" href="javascript:void(0)">3D饼状图</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'pageIndex','page'=>'banner-list'),$_smarty_tpl);?>
+" data-title="首頁Banner" href="javascript:void(0)">首頁Banner</a></li>
+					<li><a data-href="<?php echo $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['spUrl'][0][0]->__template_spUrl(array('c'=>'backFuns','a'=>'tou'),$_smarty_tpl);?>
+" data-title="使用條款" href="javascript:void(0)">使用條款</a></li>
 			</ul>
 		</dd>
 	</dl>

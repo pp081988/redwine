@@ -19,10 +19,11 @@
   <script src="js/wow/wow.js"></script>
   <script>
     $(document).ready(function () {
+      //banner();
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
-
+      
       forumData();
       videoPlayer();
       $(".foodToWine").click(function(){
@@ -32,11 +33,6 @@
         window.location.href="<{spUrl c=frontFuns a=wineToFood}>";
       });
 
-    });
-  </script>
-  <!--<![endif]-->
-  <script>
-    $(document).ready(function () {
       $('#camera_wrap').camera({
         loader: true,
         pagination: true,
@@ -59,8 +55,15 @@
         navigation: true,
         pagination: false
       });
+      
+
+      $(".banners").click(function(){
+        var url = $(this).attr("url");
+        window.location.href=url;
+      });
     });
   </script>
+  <!--<![endif]-->
   <style>
     .forum_matching_detail:hover{
       cursor: pointer;
@@ -94,15 +97,7 @@
   <section id="content">
     <div class="slider-wrapper">
       <div id="camera_wrap">
-        <div data-src="images/slider1.png">
-          <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
-        <div data-src="images/slider2.png">
-         <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
-        <div data-src="images/slider3.png">
-         <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
+      <{$banners}>
       </div>
       <div class="clearfix"></div>
     </div>
@@ -326,22 +321,7 @@
   <!--========================================================
                             FOOTER
   =========================================================-->
-  <footer id="footer">
-  <div class="gr gbg">瀏覽人次 :  45507</div>
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="grid_12 mt20">
-            <div class="privacy-block wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-            <div class="fl"><a href="#">联系我们</a>  |  <a href="#">免责说明</a></div>
-            <div class="grid_10 tar">Copyright @Redwinemeat.com All Rights Reseved</div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+<{include file="./footer.html"}>
 </div>
 
 <script src="js/script.js"></script>

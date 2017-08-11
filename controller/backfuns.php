@@ -3,7 +3,8 @@ require_once(APP_PATH."/model/forumData.php");
 require_once(APP_PATH."/model/upload.php");
 require_once(APP_PATH."/model/variable.php");
 require_once(APP_PATH."/model/unloginCheck.php");
-require_once(APP_PATH."/model/admin_siteUserMange.php");
+require_once(APP_PATH."/model/admin_siteUserManage.php");
+require_once(APP_PATH."/model/admin_bannerManage.php");
 
 class backFuns extends spController
 {
@@ -426,7 +427,7 @@ class backFuns extends spController
 	function siteUser()
 	{
 		$args = spClass("spArgs");
-		$userModel = spClass("admin_siteUserMange");
+		$userModel = spClass("admin_siteUserManage");
 		switch ($args->get("type")) {
 			case 'getAllUsers':
 				echo json_encode($userModel->allUsers());
@@ -440,8 +441,61 @@ class backFuns extends spController
 				$id = $args->get("id");
 				echo $userModel->deleteUser($id);
 				break;
+			case 'delUserInfo':
+				echo json_encode($userModel->delUserInfo());
+				break;
+		}
+	}
+
+	function banner()
+	{
+		$args = spClass("spArgs");
+		$bannerModel = spClass("admin_bannerManage");
+		switch ($args->get("type")) {
+			case 'allBanner':
+				echo json_encode($bannerModel->allBanner());
+				break;
+			case 'addBanner':
+				if($bannerModel->addBanner()){
+					$closeWindow = new closewindow();
+					echo $closeWindow->closeWindowIframe();
+				}
+				break;
+			case 'disSwitch':
+				if($bannerModel->disSwitch()){
+					die(true);
+				}
+				break;
+			case 'delBanner':
+				if($bannerModel->delBanner()){
+					die(true);
+				}
+				break;
+		}
+	}
+
+	function tou()
+	{
+		$args = spClass("spArgs");
+		$touDB = new db("site_tou","id");
+		$res = $touDB->find();
+		$this->content = $res['content'];
+		switch ($args->get("operation")) {
+			case 'edit':
+				$this->display("back\\tou-edit.html");
+				break;
+			case 'data':
+				die($this->content);
+				break;
+			case 'update':
+				$newContent = $args->get("editorCont");
+				if($touDB->update(Array("id"=>1),Array("content"=>$newContent,"update_time"=>date("Y-m-d H:i:s"),"admin_username"=>$_SESSION['admin_username']))){
+					$closeWindow = new closewindow();
+					echo $closeWindow->closeWindowIframe();
+				}
+				break;
 			default:
-				# code...
+				$this->display("back\\tou.html");
 				break;
 		}
 		

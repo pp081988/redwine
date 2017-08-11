@@ -39,19 +39,19 @@ class back extends spController
 
 			/********验证账户密码********/
 			$gb = new db("admin_users","id");
-			$result = $gb->find(Array('username'=>$username));
+			$result = $gb->find(Array('admin_username'=>$username));
 			if(!$result){
 				$this->returnError("賬戶名或密碼錯誤");exit;
 			}
-			if(!$gb->find(Array('username'=>$username,"password"=>md5($password.$result['salt'])))){
+			if(!$gb->find(Array('admin_username'=>$username,"password"=>md5($password.$result['salt'])))){
 				$this->returnError("賬戶名或密碼錯誤");exit;
 			}
 
 			/********验证通过********/
 			$_SESSION['last_login_ip'] = $result['last_login_ip'];
 			$_SESSION['last_login_time'] = $result['last_login_time'];
-			$_SESSION['admin_username'] = $result['username'];
-			$conditions = Array("username"=>$result['username']);
+			$_SESSION['admin_username'] = $result['admin_username'];
+			$conditions = Array("admin_username"=>$result['admin_username']);
 			$gb->incrField($conditions, 'logins');		//-登录次数+1
 			$gb->update($conditions,Array("last_login_ip"=>$_SERVER['REMOTE_ADDR'],"last_login_time"=>date("Y-m-d H:i:s")));	//记录最后一次登录IP和时间
 			$this->jump(spUrl("back","backIndex"));
@@ -74,7 +74,7 @@ class back extends spController
 	function welcome(){
 		$this->unloginCheck->adminCheck();
 		$gb = new db("admin_users","id");
-		$result = $gb->find(Array("username"=>$_SESSION['admin_username']));
+		$result = $gb->find(Array("admin_username"=>$_SESSION['admin_username']));
 		$this->logins = $result['logins'];
 		$this->now_login_ip = $_SERVER['REMOTE_ADDR'];
 		$this->last_login_ip = $_SESSION['last_login_ip'];

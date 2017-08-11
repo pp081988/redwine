@@ -11,8 +11,15 @@ class closewindow
 		return $this->iframe;
 	}
 
-	function closeDiv($alert)
+	function closeWindowIframe()
 	{
-		//$this->div = '<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js">$(function(){})';
+		$script = '<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+					<script>
+						$(function(){
+							parent.success();
+						});
+					</script>
+					';
+		return $script;
 	}
 }

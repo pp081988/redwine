@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-10 14:55:55
+/* Smarty version 3.1.30, created on 2017-08-11 10:07:29
   from "D:\xampp\htdocs\redwine\tpl\back\member-list.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598c57db00e4b0_55607536',
+  'unifunc' => 'content_598d1161e08bb8_21822265',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1592428571b68305e9fca2aacc07ffd5271decda' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\back\\member-list.html',
-      1 => 1502369753,
+      1 => 1502417246,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_598c57db00e4b0_55607536 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598d1161e08bb8_21822265 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -187,6 +187,7 @@ function member_del(obj,id,username){
 					$(obj).parents("tr").remove();
 					layer.msg('賬戶： '+username+' 已刪除',{icon:1,time:1000});
 				}
+				console.log(data);
 			},
 			error:function(data) {
 				alert("連接錯誤");
@@ -239,7 +240,7 @@ function getData(startTime,endTime){
 					}
 					if(dataObj[i]['deactivat'] == "1"){
 						is_vaild = '<span class="label label-defaunt radius">已停用</span>';
-						deactivat = 'onClick="member_start(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;;';
+						deactivat = 'onClick="member_start(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;';
 					}
 					str='\
 						<tr class="text-c">\

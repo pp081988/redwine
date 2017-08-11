@@ -4,6 +4,7 @@ require_once(APP_PATH."/model/unloginCheck.php");
 require_once(APP_PATH."/model/frequently.php");
 require_once(APP_PATH."/model/compare.php");
 require_once(APP_PATH."/model/getProduct.php");
+require_once(APP_PATH."/model/admin_bannerManage.php");
 
 class frontFuns extends spController
 {
@@ -616,5 +617,11 @@ class frontFuns extends spController
 		$this->id = $get->get("id");
 		$this->product = $get->get("product");
 		$this->display("product.html");
+	}
+
+	function banner()
+	{
+		$bannerModel = spClass("admin_bannerManage");
+		return $bannerModel->allBanner();
 	}
 }

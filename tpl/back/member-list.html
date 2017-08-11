@@ -137,6 +137,7 @@ function member_del(obj,id,username){
 					$(obj).parents("tr").remove();
 					layer.msg('賬戶： '+username+' 已刪除',{icon:1,time:1000});
 				}
+				console.log(data);
 			},
 			error:function(data) {
 				alert("連接錯誤");
@@ -188,7 +189,7 @@ function getData(startTime,endTime){
 					}
 					if(dataObj[i]['deactivat'] == "1"){
 						is_vaild = '<span class="label label-defaunt radius">已停用</span>';
-						deactivat = 'onClick="member_start(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;;';
+						deactivat = 'onClick="member_start(this,'+dataObj[i]['id']+',\''+dataObj[i]['username']+'\')" href="javascript:;" title="啟用"><i class="Hui-iconfont">&#xe6e1;';
 					}
 					str='\
 						<tr class="text-c">\

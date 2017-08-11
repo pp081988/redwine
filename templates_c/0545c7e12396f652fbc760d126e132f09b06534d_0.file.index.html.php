@@ -1,27 +1,28 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-09 16:34:34
+/* Smarty version 3.1.30, created on 2017-08-11 17:27:48
   from "D:\xampp\htdocs\redwine\tpl\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_598ac91a377864_13362371',
+  'unifunc' => 'content_598d78946ef330_77456374',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0545c7e12396f652fbc760d126e132f09b06534d' => 
     array (
       0 => 'D:\\xampp\\htdocs\\redwine\\tpl\\index.html',
-      1 => 1502267673,
+      1 => 1502443667,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:./header.html' => 1,
+    'file:./footer.html' => 1,
   ),
 ),false)) {
-function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598d78946ef330_77456374 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +58,11 @@ function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl)
   <?php echo '<script'; ?>
 >
     $(document).ready(function () {
+      //banner();
       if ($('html').hasClass('desktop')) {
         new WOW().init();
       }
-
+      
       forumData();
       videoPlayer();
       $(".foodToWine").click(function(){
@@ -72,13 +74,6 @@ function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl)
 ";
       });
 
-    });
-  <?php echo '</script'; ?>
->
-  <!--<![endif]-->
-  <?php echo '<script'; ?>
->
-    $(document).ready(function () {
       $('#camera_wrap').camera({
         loader: true,
         pagination: true,
@@ -101,9 +96,16 @@ function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl)
         navigation: true,
         pagination: false
       });
+      
+
+      $(".banners").click(function(){
+        var url = $(this).attr("url");
+        window.location.href=url;
+      });
     });
   <?php echo '</script'; ?>
 >
+  <!--<![endif]-->
   <style>
     .forum_matching_detail:hover{
       cursor: pointer;
@@ -141,15 +143,8 @@ function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl)
   <section id="content">
     <div class="slider-wrapper">
       <div id="camera_wrap">
-        <div data-src="images/slider1.png">
-          <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
-        <div data-src="images/slider2.png">
-         <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
-        <div data-src="images/slider3.png">
-         <div class="caption wow fadeInUp">八月優惠：Sauvignon Blanc白葡萄酒與Pinot Noir 世界最佳紅萄酒 </div>
-        </div>
+      <?php echo $_smarty_tpl->tpl_vars['banners']->value;?>
+
       </div>
       <div class="clearfix"></div>
     </div>
@@ -380,22 +375,9 @@ function content_598ac91a377864_13362371 (Smarty_Internal_Template $_smarty_tpl)
   <!--========================================================
                             FOOTER
   =========================================================-->
-  <footer id="footer">
-  <div class="gr gbg">瀏覽人次 :  45507</div>
-    <div class="wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="grid_12 mt20">
-            <div class="privacy-block wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-            <div class="fl"><a href="#">联系我们</a>  |  <a href="#">免责说明</a></div>
-            <div class="grid_10 tar">Copyright @Redwinemeat.com All Rights Reseved</div>
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+<?php $_smarty_tpl->_subTemplateRender("file:./footer.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
 </div>
 
 <?php echo '<script'; ?>
